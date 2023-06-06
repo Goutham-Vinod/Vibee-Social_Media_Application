@@ -22,9 +22,10 @@ class CustomBottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           customBottomNavIcon(
-              index: 0,
-              selectedPath: "assets/icons/Home_filled.png",
-              unSelectedPath: "assets/icons/Home_outlined.png"),
+            index: 0,
+            selectedPath: "assets/icons/Home_filled.png",
+            unSelectedPath: "assets/icons/Home_outlined.png",
+          ),
           customBottomNavIcon(
               index: 1,
               selectedPath: "assets/icons/Search_filled.png",
@@ -52,6 +53,10 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget customBottomNavIcon({
     required int index,
     required String selectedPath,
+    double? selectedHeight,
+    double? unSelectedHeight,
+    double? selectedWidth,
+    double? unSelectedWidth,
     required String unSelectedPath,
   }) {
     return InkWell(
@@ -61,11 +66,13 @@ class CustomBottomNavBar extends StatelessWidget {
       child: bottomNavIndex == index
           ? Image.asset(
               "$selectedPath",
-              height: 50,
+              height: selectedHeight ?? 50,
+              width: selectedWidth,
             )
           : Image.asset(
               "$unSelectedPath",
-              height: 50,
+              height: unSelectedHeight ?? 50,
+              width: unSelectedWidth,
             ),
     );
   }

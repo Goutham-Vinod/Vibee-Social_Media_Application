@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:vibee/screens/home_screen.dart';
+import 'package:vibee/services/api_services.dart';
 import 'package:vibee/services/config.dart';
 import 'package:vibee/services/shared_pref_services.dart';
 import '../widgets/common_widgets.dart';
@@ -37,6 +38,7 @@ void splashScreenFunctions(context) async {
   await SharedPrefServices.getTocken();
   await SharedPrefServices.getPhoneNumber();
   await SharedPrefServices.getUserId();
+  await APIServices.GetCurrentUserDetailsResponse();
   if (Config.tocken != null) {
     navigatorPush(context: context, nextPage: HomeScreen());
   } else {

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vibee/services/config.dart';
 
@@ -30,6 +32,7 @@ class SharedPrefServices {
   static Future<String?> getTocken() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? tocken = prefs.getString('tocken');
+    log('tocken : $tocken');
     Config.tocken = tocken;
     return tocken;
   }

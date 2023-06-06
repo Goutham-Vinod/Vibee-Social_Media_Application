@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:vibee/common_variables.dart';
+import 'package:vibee/models/get_current_user_details_response_model.dart';
 import 'package:vibee/models/otp_request_model.dart';
 import 'package:vibee/models/register_request_model.dart';
 import 'package:vibee/screens/otp_verification_screen.dart';
@@ -15,6 +17,27 @@ import '../models/resent_otp_response_model.dart';
 
 class APIServices {
   static var client = http.Client();
+
+  static Future<GetCurrentUserDetailsResponseModel?>
+      GetCurrentUserDetailsResponse() async {
+    final response = await http.get(
+      Uri.parse(Config.getCurrentUserDetailsApi),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': Config.bearerTocken,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      GetCurrentUserDetailsResponseModel currentUserDetailsResponse =
+          GetCurrentUserDetailsResponseModel.fromJson(
+              jsonDecode(response.body));
+      CommonVariables.currentUserDetailsResponse = currentUserDetailsResponse;
+      return currentUserDetailsResponse;
+    } else {
+      print('Something went wrong at get current user details');
+    }
+  }
 
   static Future<int> userLogin({
     required BuildContext context,
@@ -80,6 +103,8 @@ class APIServices {
     } catch (e) {
       print(e);
       // showSnackBar(context: context, message: e.toString());
+
+      return false;
     }
   }
 

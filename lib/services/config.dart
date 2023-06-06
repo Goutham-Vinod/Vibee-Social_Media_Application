@@ -5,6 +5,7 @@ class Config {
   static String otpVerifyApi = "$apiBaseUrl/api/register/otp?id=$userId";
   static const String loginApi = "$apiBaseUrl/api/login";
   static String resentOtpApi = "$apiBaseUrl/api/register/otp/resend?id=$userId";
+  static String getCurrentUserDetailsApi = '$apiBaseUrl/api/user/details';
 
   static String? tocken;
   static String bearerTocken = "Bearer $tocken";

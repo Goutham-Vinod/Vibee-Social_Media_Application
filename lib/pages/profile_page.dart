@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:vibee/models/get_current_user_details_response_model.dart';
+import 'package:vibee/screens/edit_profile_screen.dart';
 import 'package:vibee/screens/splash_screen.dart';
+import 'package:vibee/services/api_services.dart';
 import 'package:vibee/services/shared_pref_services.dart';
 
 import '../common_variables.dart';
@@ -29,7 +32,8 @@ class ProfilePage extends StatelessWidget {
                     postAssetImagePath: CommonVariables.testImagePath3,
                     dpAssetImagePath: CommonVariables.testImagePath6,
                     dateNTime: "28-05-2032 • Kerala",
-                    profileName: "George Mathew",
+                    profileName:
+                        "${CommonVariables.currentUserDetailsResponse?.firstName} ${CommonVariables.currentUserDetailsResponse?.lastName}",
                   ),
                 );
               },
@@ -70,18 +74,29 @@ class ProfilePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               vibeeText(
-                "George Mathew",
+                "${CommonVariables.currentUserDetailsResponse?.firstName} ${CommonVariables.currentUserDetailsResponse?.lastName}",
                 size: 25,
                 fontWeight: FontWeight.bold,
               ),
               SizedBox(height: 5),
-              vibeeText("@george_123"),
+              vibeeText(
+                  "${CommonVariables.currentUserDetailsResponse?.username}"),
               SizedBox(height: 3),
               Row(
                 children: [
                   vibeeIconButton(
                     content: "Edit Profile",
-                    onPressed: () {},
+                    onPressed: () async {
+                      GetCurrentUserDetailsResponseModel? currentUserDetails =
+                          await APIServices.GetCurrentUserDetailsResponse();
+                      if (currentUserDetails != null) {
+                        navigatorPush(
+                          context: context,
+                          nextPage: EditProfileScreen(
+                              currentUserDetails: currentUserDetails),
+                        );
+                      }
+                    },
                     ico: Icons.edit,
                     height: 30,
                   ),
@@ -97,7 +112,7 @@ class ProfilePage extends StatelessWidget {
                         height: 30,
                         width: 35,
                         decoration: BoxDecoration(
-                            color: Colors.white54,
+                            color: Colors.white12,
                             borderRadius: BorderRadius.circular(10)),
                         child: Icon(
                           Icons.bookmark_border_rounded,
@@ -114,7 +129,7 @@ class ProfilePage extends StatelessWidget {
                         height: 30,
                         width: 35,
                         decoration: BoxDecoration(
-                            color: Colors.white54,
+                            color: Colors.white12,
                             borderRadius: BorderRadius.circular(10)),
                         child: Icon(
                           Icons.more_horiz,

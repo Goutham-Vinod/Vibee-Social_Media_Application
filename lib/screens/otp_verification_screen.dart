@@ -72,6 +72,7 @@ class OtpVerificationScreen extends StatelessWidget {
                             );
 
                             if (isVerified) {
+                              await APIServices.GetCurrentUserDetailsResponse();
                               navigatorPush(
                                   context: context, nextPage: HomeScreen());
                             }

@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'models/login_response_model.dart';
-import 'models/otp_response_model.dart';
-import 'models/register_response_model.dart';
-import 'models/resent_otp_response_model.dart';
+import 'models/get_current_user_details_response_model.dart';
 
 class CommonVariables {
-  // static late LoginResponseModel? loginResponse;
-  // static late RegisterResponseModel? registerResponse;
-  // static late OtpResponseModel? otpResponse;
-  // static late ResentOtpResponseModel? resentOtpResponse;
-
   static ValueNotifier<int> bottomNavIndexNotifier = ValueNotifier(0);
 // selected bottom navigation bar index
+
+  static GetCurrentUserDetailsResponseModel? currentUserDetailsResponse;
 
   static String testImagePath1 = "assets/images/testImage.jpg";
   static String testImagePath2 = "assets/images/testImage2.jpg";

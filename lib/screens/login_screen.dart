@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                               print(loginStatusCode);
 
-                              login(loginStatusCode);
+                              await login(loginStatusCode);
                             }
                           },
                           height: 35,
@@ -198,8 +198,9 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  login(loginStatusCode) {
+  login(loginStatusCode) async {
     if (loginStatusCode == 200) {
+      await APIServices.GetCurrentUserDetailsResponse();
       navigatorPush(context: context, nextPage: HomeScreen());
     } else if (loginStatusCode == 400) {
       showSnackBar(
