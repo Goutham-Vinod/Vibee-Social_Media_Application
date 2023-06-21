@@ -5,6 +5,7 @@ import 'package:vibee/presentation/screens/edit_profile_screen/edit_profile_scre
 import 'package:vibee/presentation/screens/home_screen/home_screen.dart';
 import 'package:vibee/presentation/screens/home_screen/pages/create_group_screen_1/create_group_screen_1.dart';
 import 'package:vibee/presentation/screens/home_screen/pages/create_group_screen_2/create_group_screen_2.dart';
+import 'package:vibee/presentation/screens/home_screen/pages/profile_page/profile_page.dart';
 import 'package:vibee/presentation/screens/login_screen/login_screen.dart';
 import 'package:vibee/presentation/screens/otp_verification_screen/otp_verification_screen.dart';
 import 'package:vibee/presentation/screens/register_screen_1/register_screen_1.dart';
@@ -22,13 +23,14 @@ class RouteGenerator {
   static const String createGroupScreen2 = '/createGroupScreen2';
   static const String chatScreen = '/chatScreen';
   static const String editProfileScreen = '/editProfileScreen';
+  static const String profilePage = '/profilePage';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
 
     switch (settings.name) {
       case splashScreen:
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case registerScreen1:
@@ -43,7 +45,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => OtpVerificationScreen());
 
       case home:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       case createGroupScreen1:
         return MaterialPageRoute(builder: (_) => const CreateGroupScreen1());
       case createGroupScreen2:
@@ -52,6 +54,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ChatScreen());
       case editProfileScreen:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
+      case profilePage:
+        return MaterialPageRoute(
+            builder: (_) => ProfilePage(),
+            settings: RouteSettings(
+              arguments: args,
+            ));
 
       default:
         return MaterialPageRoute(

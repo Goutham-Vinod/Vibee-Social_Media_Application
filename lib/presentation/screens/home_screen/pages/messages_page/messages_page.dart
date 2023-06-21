@@ -72,7 +72,10 @@ class MessagesPage extends StatelessWidget {
                         child: vibeeListTile(
                           title: "Sophia Andrews",
                           subtitle: "sophia_123",
-                          icon: Icons.circle,
+                          suffixWidget: Icon(
+                            Icons.circle,
+                            color: Colors.green,
+                          ),
                           iconSize: 10,
                           iconColor: Colors.green,
                           prefixWidget: Padding(

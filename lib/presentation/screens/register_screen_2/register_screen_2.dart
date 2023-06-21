@@ -33,27 +33,11 @@ class RegisterScreen2 extends StatelessWidget {
             () => null,
             (isValidationCompleted) => {
                   isValidationCompleted.fold((failure) {
-                    if (failure.errorMessage ==
-                        'User already exist.Would you like to continue?') {
-                      showSnackBar(
-                          context: context,
-                          message:
-                              'User already exist.Would you like to continue?',
-                          buttonVisibility: true,
-                          buttonText: 'Yes',
-                          buttonFunction: () {
-                            Navigator.pushNamed(
-                              context,
-                              RouteGenerator.otpVerificationScreen,
-                            );
-                          });
-                    } else {
-                      showSnackBar(
-                        context: context,
-                        message: failure.errorMessage,
-                        backgroundColor: Colors.red,
-                      );
-                    }
+                    showSnackBar(
+                      context: context,
+                      message: failure.errorMessage,
+                      backgroundColor: Colors.red,
+                    );
                   }, (isValidationSucess) {
                     if (isValidationSucess) {
                       Navigator.pushNamed(
@@ -182,7 +166,7 @@ class RegisterScreen2 extends StatelessWidget {
                       firstName: firstName,
                       lastName: lastName,
                       username: username,
-                      email: email,
+                      email: email.toLowerCase(),
                       phoneNumber: phoneNumberController.text,
                       password: passwordController.text,
                       confirmPassword: confirmPasswordController.text,

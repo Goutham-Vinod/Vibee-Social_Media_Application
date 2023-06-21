@@ -14,7 +14,6 @@ class CreateGroupScreen2 extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, RouteGenerator.home);
-         
         },
         backgroundColor: vibeePurple,
         child: const Icon(Icons.done_rounded),

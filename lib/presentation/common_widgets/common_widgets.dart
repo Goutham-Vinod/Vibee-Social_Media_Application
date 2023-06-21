@@ -149,13 +149,15 @@ Widget vibeeListTile({
   double? height,
   String? title,
   String? subtitle,
-  IconData? icon,
   Widget? prefixWidget,
+  Widget? suffixWidget,
   double? iconSize,
   Color? iconColor,
   double? titleSize,
   double? subtitleSize,
   Color? backgroundClr,
+  double? leftMArgin,
+  double? topMargin,
 }) {
   return Stack(
     children: [
@@ -164,34 +166,36 @@ Widget vibeeListTile({
         height: height ?? 75,
         width: width ?? double.maxFinite,
       ),
-      Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15,
-              vertical: 5,
+      Positioned(
+        top: topMargin ?? (height == null ? 10 : height / 2),
+        left: leftMArgin ?? 10,
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 5,
+              ),
+              child: prefixWidget,
             ),
-            child: prefixWidget,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              vibeeText("$title",
-                  size: titleSize ?? 20, fontWeight: FontWeight.w500),
-              const SizedBox(height: 2),
-              vibeeText("$subtitle", size: subtitleSize, color: Colors.white54),
-            ],
-          )
-        ],
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                vibeeText("$title",
+                    size: titleSize ?? 20, fontWeight: FontWeight.w500),
+                const SizedBox(height: 2),
+                vibeeText("$subtitle",
+                    size: subtitleSize, color: Colors.white54),
+              ],
+            )
+          ],
+        ),
       ),
       Positioned(
-          top: height == null ? 25 : height / 2,
-          right: 20,
-          child: Icon(
-            icon,
-            color: iconColor ?? Colors.white,
-            size: iconSize,
-          )),
+        top: height == null ? 25 : height / 2,
+        right: 20,
+        child: suffixWidget ?? const Text(''),
+      ),
     ],
   );
 }

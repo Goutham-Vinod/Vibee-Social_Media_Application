@@ -6,15 +6,19 @@ import 'package:http/http.dart' as http;
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/get_current_user_details_response_model.dart';
+import 'package:vibee/domain/models/get_user_details_response_model/get_user_details_response_model.dart';
 import 'package:vibee/domain/models/login/login_response_model.dart';
+import 'package:vibee/domain/models/notifications_response_model/notifications_response_model.dart';
 import 'package:vibee/domain/models/otp_verification/otp_request_model.dart';
 import 'package:vibee/domain/models/otp_verification/otp_response_model.dart';
 import 'package:vibee/domain/models/otp_verification/resent_otp_response_model.dart';
 import 'package:vibee/domain/models/register/register_request_model.dart';
 import 'package:vibee/domain/models/register/register_response_model.dart';
+import 'package:vibee/domain/models/search_user_response_model/search_user_response_model.dart';
 import 'package:vibee/infrastructure/shared_pref_services.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
+import 'package:vibee/presentation/screens/home_screen/pages/notifications_page/notifications_page.dart';
 
 class APIServices {
   static var client = http.Client();
@@ -114,12 +118,30 @@ class APIServices {
         return right(true);
         // validation completed
       } else if (response.statusCode == 409) {
-        return left(const ApiFailure.serverFailure(
+        // Example message : Phone number already registered
+        log(response.body);
+        Map responseMap = jsonDecode(response.body);
+        log(responseMap.toString());
+        String? responseMessage = responseMap['message'];
+        return left(ApiFailure.serverFailure(
           statusCode: 409,
-          errorMessage: 'User already exist.Would you like to continue?',
+          errorMessage: responseMessage ?? 'User Already exist.',
+          // This message will be shown in snackbar
+        ));
+      } else if (response.statusCode == 400) {
+        // Example message : Please enter country code
+        log(response.body);
+        Map responseMap = jsonDecode(response.body);
+        log(responseMap.toString());
+        String? responseMessage = responseMap['phone'];
+        return left(ApiFailure.serverFailure(
+          statusCode: 400,
+          errorMessage: responseMessage ?? 'Please enter correct information',
           // This message will be shown in snackbar
         ));
       } else {
+        log(response.statusCode.toString());
+        log(response.body);
         return left(const ApiFailure.serverFailure(
             errorMessage: "Server error.Please try again later."));
         // This message will be shown in snackbar
@@ -206,5 +228,125 @@ class APIServices {
     }
 
     return false;
+  }
+
+  static Future<Either<ApiFailure, SearchUserResponseModel>> searchUser(
+      String searchKey) async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.searchUsersApi(searchKey: searchKey)),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        SearchUserResponseModel searchUserResponse =
+            SearchUserResponseModel.fromJson(jsonDecode(response.body));
+        return right(searchUserResponse);
+      } else {
+        print('status code ${response.statusCode}');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: "Something went wrong. Please try again later"));
+        // This message will be shown in snackbar
+      }
+    } catch (e) {
+      return left(const ApiFailure.clientFailure(
+          errorMessage: 'Oops...Something went wrong.'));
+      // This message will be shown in snackbar
+    }
+  }
+
+  static Future<Either<ApiFailure, GetUserDetailsResponseModel>> getUserDetails(
+      {required String username}) async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.getUserDetailsApi(username: username)),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        GetUserDetailsResponseModel userDetailsResponse =
+            GetUserDetailsResponseModel.fromJson(jsonDecode(response.body));
+
+        return right(userDetailsResponse);
+      } else {
+        print('status code ${response.statusCode}');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: "Something went wrong. Please try again later"));
+      }
+    } catch (e) {
+      return left(const ApiFailure.clientFailure(
+          errorMessage: 'Oops...Something went wrong.'));
+    }
+  }
+
+  static Future<Either<ApiFailure, bool>> addOrRemoveFriend(
+      {required String? friendId}) async {
+    try {
+      if (friendId == null) {
+        print('id is null');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: "Something went wrong. Please try again later"));
+      }
+      final response = await http.patch(
+        Uri.parse(Config.addOrRemoveFriendApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+        body: jsonEncode({"id": friendId}),
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        return right(true);
+        // Map<String, String> friendRequestResponse = jsonDecode(response.body);
+        // if (friendRequestResponse['message'] == 'Add Friend') {
+        //   return const Right(false);
+        // } else if (friendRequestResponse['message'] == 'Request Sent') {
+        //   return const Right(true);
+        // } else {
+        //   throw Exception();
+        // }
+      } else {
+        print('status code ${response.statusCode}');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: "Something went wrong. Please try again later"));
+      }
+    } catch (e) {
+      return left(const ApiFailure.clientFailure(
+          errorMessage: 'Oops...Something went wrong.'));
+    }
+  }
+
+  static Future<Either<ApiFailure, NotificationsResponseModel>>
+      getNotifications() async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.getNotificationsApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        NotificationsResponseModel notificationsResponse =
+            NotificationsResponseModel.fromJson(jsonDecode(response.body));
+
+        return right(notificationsResponse);
+      } else {
+        print('status code ${response.statusCode}');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: "Something went wrong. Please try again later"));
+      }
+    } catch (e) {
+      return left(const ApiFailure.clientFailure(
+          errorMessage: 'Oops...Something went wrong.'));
+    }
   }
 }

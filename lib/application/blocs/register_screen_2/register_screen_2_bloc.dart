@@ -52,7 +52,7 @@ class RegisterScreen_2_Bloc
           email: event.email,
           password: event.password,
           confirmPassword: event.confirmPassword,
-          phone: event.phoneNumber,
+          phone: '+91${event.phoneNumber}',
           firstName: event.firstName,
           lastName: event.lastName,
           username: event.username,

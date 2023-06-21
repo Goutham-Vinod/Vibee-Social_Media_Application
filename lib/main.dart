@@ -3,12 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:vibee/application/blocs/edit_profile_screen/edit_profile_screen_bloc.dart';
 import 'package:vibee/application/blocs/home_screen/home_screen_bloc.dart';
 import 'package:vibee/application/blocs/login_screen/login_screen_bloc.dart';
+import 'package:vibee/application/blocs/notifications_page/notification_page_bloc.dart';
+import 'package:vibee/application/blocs/profile_page/profile_page_bloc.dart';
 import 'package:vibee/application/blocs/register_screen_1/register_screen_1_bloc.dart';
 import 'package:vibee/application/blocs/register_screen_2/register_screen_2_bloc.dart';
+import 'package:vibee/application/blocs/search_page/search_page_bloc.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibee/presentation/screens/home_screen/pages/profile_page/profile_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
@@ -36,6 +41,15 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => RegisterScreen_2_Bloc(),
+        ),
+        BlocProvider(
+          create: (context) => SearchPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ProfilePageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => NotificationPageBloc(),
         ),
       ],
       child: const MaterialApp(

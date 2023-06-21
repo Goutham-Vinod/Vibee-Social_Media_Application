@@ -12,8 +12,7 @@ class CreateGroupScreen1 extends StatelessWidget {
       backgroundColor: backgroundScreenColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context,RouteGenerator.createGroupScreen2);
-       
+          Navigator.pushNamed(context, RouteGenerator.createGroupScreen2);
         },
         backgroundColor: vibeePurple,
         child: const Icon(Icons.arrow_forward_rounded),
@@ -62,7 +61,7 @@ class CreateGroupScreen1 extends StatelessWidget {
                     child: vibeeListTile(
                       title: "Sophia Andrews",
                       subtitle: "sophia_123",
-                      icon: Icons.person_add,
+                      suffixWidget: Icon(Icons.person_add),
                       iconSize: 25,
                       prefixWidget: Padding(
                         padding: const EdgeInsets.all(8.0),

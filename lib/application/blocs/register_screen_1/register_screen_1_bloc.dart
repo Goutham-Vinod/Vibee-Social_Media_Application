@@ -19,7 +19,6 @@ class RegisterScreen_1_Bloc
           usernameWarningText: '',
           isRegisterScreen1Validated: false,
         )) {
-
     // when continue button pressed
     on<RegisterUser>((event, emit) async {
       // login frontend Validation
@@ -31,6 +30,8 @@ class RegisterScreen_1_Bloc
         email: event.email,
       );
       emit(currentState);
+      emit(state.copyWith(isRegisterScreen1Validated: false));
+      // this line is to Bloc listen every emit (even there's no state change)
     });
 
     //when Email TextField Change

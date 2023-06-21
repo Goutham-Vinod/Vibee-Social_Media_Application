@@ -13,9 +13,9 @@ import 'pages/profile_page/profile_page.dart';
 import 'pages/search_page/search_page.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
 
-  final List pages = const [
+  final List pages = [
     HomePage(),
     SearchPage(),
     DiscoverPage(),

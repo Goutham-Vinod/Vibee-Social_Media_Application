@@ -7,7 +7,6 @@ class RegisterScreen_2_Services {
     required String password,
     required String confirmPassword,
   }) {
-    
     String phoneNumberWarningText = '';
     String passwordWarningText = '';
     String confirmPasswordWarningText = '';

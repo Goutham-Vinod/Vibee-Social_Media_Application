@@ -5,7 +5,9 @@ import 'package:vibee/application/blocs/login_screen/login_screen_bloc.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
-import 'package:vibee/presentation/screens/register_screen_1/register_screen_1.dart';
+import 'package:vibee/presentation/screens/login_screen/dont_have_an_account_button.dart';
+import 'package:vibee/presentation/screens/login_screen/login_field_widget.dart';
+import 'package:vibee/presentation/screens/login_screen/signin_with_google_button.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -16,170 +18,123 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginScreenBloc, LoginScreenState>(
-      listener: (context, state) {
-        print('listening..');
-        Option<Either<ApiFailure, bool>> isLoginSuccessOption =
-            state.isValidated;
+        listener: (context, state) {
+          Option<Either<ApiFailure, bool>> isLoginSuccessOption =
+              state.isValidated;
 
-        isLoginSuccessOption.fold(() => null, (isLoginSuccess) {
-          isLoginSuccess.fold((failure) {
-            if (failure.errorMessage != null) {
-              showSnackBar(
-                context: context,
-                message: failure.errorMessage,
-                backgroundColor: Colors.red,
-              );
-            }
-          }, (success) {
-            if (success == true) {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                RouteGenerator.home,
-                (route) => false,
-              );
-            }
+          isLoginSuccessOption.fold(() => null, (isLoginSuccess) {
+            isLoginSuccess.fold((failure) {
+              // failed to login
+              if (failure.errorMessage != null) {
+                showSnackBar(
+                  context: context,
+                  message: failure.errorMessage,
+                  backgroundColor: Colors.red,
+                );
+              }
+            }, (success) {
+              // login success
+              if (success == true) {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  RouteGenerator.home,
+                  (route) => false,
+                );
+              }
+            });
           });
-        });
-      },
-      child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: backgroundScreenColor,
-          body: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 130),
-                  SizedBox(
-                    width: 300,
-                    height: 500,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        vibeeLogo(size: 40),
-                        const SizedBox(height: 50),
-                        vibeeTextFormField(
-                            hint: "Email Address",
-                            textController: emailTextController,
-                            onChanged: () {
-                              BlocProvider.of<LoginScreenBloc>(context).add(
-                                  const LoginScreenEvent
-                                      .clearEmailWarningText());
-                            }),
-                        Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            BlocBuilder<LoginScreenBloc, LoginScreenState>(
-                              builder: (context, state) {
-                                return vibeeText(state.emailWarningText,
-                                    color: Colors.red);
-                              },
-                            ),
-                            const Spacer(),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        vibeeTextFormField(
-                            hint: "Password",
-                            textController: passwordTextController,
-                            isPassword: true,
-                            onChanged: () {
-                              BlocProvider.of<LoginScreenBloc>(context).add(
-                                  const LoginScreenEvent
-                                      .clearPasswordWarningText());
-                            }),
-                        Row(
-                          children: [
-                            const SizedBox(width: 10),
-                            BlocBuilder<LoginScreenBloc, LoginScreenState>(
-                              builder: (context, state) {
-                                return vibeeText(state.passwordWarningText,
-                                    color: Colors.red);
-                              },
-                            ),
-                            const Spacer(),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const Spacer(),
-                            TextButton(
-                                onPressed: () {
-                                  print("Forgot password");
-                                },
-                                child: vibeeText("Forgot pasword"))
-                          ],
-                        ),
-                        const SizedBox(height: 50),
-                        vibeeButton(
-                            content: "Log In",
-                            onPressed: () async {
-                              BlocProvider.of<LoginScreenBloc>(context).add(
-                                  LoginScreenEvent.loginUser(
-                                      email: emailTextController.text,
-                                      password: passwordTextController.text));
-                            },
-                            height: 35,
-                            width: double.infinity),
-                        const SizedBox(height: 40),
-                        Row(
-                          children: [
-                            Container(
-                              color: Colors.white,
-                              width: 135,
-                              height: 2,
-                            ),
-                            vibeeText("  OR  ", size: 13),
-                            Container(
-                              color: Colors.white,
-                              width: 135,
-                              height: 2,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        TextButton(
-                          onPressed: () {
-                            print("TextButton");
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset("assets/images/google_logo.png",
-                                  height: 12, width: 12),
-                              const SizedBox(width: 10),
-                              vibeeText("Signin with Google"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 100),
-                  const Divider(color: Colors.white, height: 2),
-                  const SizedBox(height: 10),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          RouteGenerator.registerScreen1,
-                        );
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          vibeeText("Don't have an account?"),
-                          const Text(" Sign Up"),
-                        ],
-                      )),
-                  const SizedBox(height: 10),
-                ],
-              ),
-            ),
+        },
+        child: GestureDetector(
+          // Gesture detector to hide keyboard when tapped outside field
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: backgroundScreenColor,
+            body: Body(
+                emailTextController: emailTextController,
+                passwordTextController: passwordTextController),
           ),
+        ));
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+class Body extends StatelessWidget {
+  const Body({
+    super.key,
+    required this.emailTextController,
+    required this.passwordTextController,
+  });
+
+  final TextEditingController emailTextController;
+  final TextEditingController passwordTextController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 130),
+            MiddleSection(
+                emailTextController: emailTextController,
+                passwordTextController: passwordTextController),
+            const SizedBox(height: 100),
+            const Divider(color: Colors.white, height: 2),
+            const SizedBox(height: 10),
+            const DontHaveAnAccountButton(),
+            const SizedBox(height: 10),
+          ],
         ),
+      ),
+    );
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+class MiddleSection extends StatelessWidget {
+  const MiddleSection({
+    super.key,
+    required this.emailTextController,
+    required this.passwordTextController,
+  });
+
+  final TextEditingController emailTextController;
+  final TextEditingController passwordTextController;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 300,
+      height: 500,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          vibeeLogo(size: 40),
+          const SizedBox(height: 50),
+          LoginFieldWidget(
+              emailTextController: emailTextController,
+              passwordTextController: passwordTextController),
+          const SizedBox(height: 40),
+          Row(
+            children: [
+              Container(
+                color: Colors.white,
+                width: 135,
+                height: 2,
+              ),
+              vibeeText("  OR  ", size: 13),
+              Container(
+                color: Colors.white,
+                width: 135,
+                height: 2,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          const SigninWithGoogleButton(),
+        ],
       ),
     );
   }

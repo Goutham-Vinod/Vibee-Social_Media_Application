@@ -15,6 +15,6 @@ class RegisterScreen_2_Event with _$RegisterScreen_2_Event {
       ClearPhoneNumberWarningText;
   const factory RegisterScreen_2_Event.clearPasswordWarningText() =
       ClearPasswordWarningText;
-      const factory RegisterScreen_2_Event.clearConfirmPasswordWarningText() =
+  const factory RegisterScreen_2_Event.clearConfirmPasswordWarningText() =
       ClearConfirmPasswordWarningText;
 }
