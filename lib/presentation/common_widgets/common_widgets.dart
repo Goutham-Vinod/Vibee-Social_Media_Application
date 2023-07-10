@@ -9,18 +9,24 @@ Text vibeeLogo({double? size}) {
   );
 }
 
-Text vibeeText(
+Widget vibeeText(
   String content, {
   double? size,
   FontWeight? fontWeight,
   Color? color,
+  double? height,
+  double? width,
 }) {
-  return Text(
-    content,
-    style: TextStyle(
-      fontSize: size,
-      color: color ?? Colors.white,
-      fontWeight: fontWeight,
+  return SizedBox(
+    height: height,
+    width: width,
+    child: Text(
+      content,
+      style: TextStyle(
+        fontSize: size,
+        color: color ?? Colors.white,
+        fontWeight: fontWeight,
+      ),
     ),
   );
 }
@@ -144,6 +150,35 @@ Widget vibeeDp({
   );
 }
 
+Widget vibeeOutlineButton({
+  required String message,
+  Function? onPressed,
+  double? textSize,
+  double? width,
+  double? height,
+  double? borderRadius,
+}) {
+  return SizedBox(
+    width: width,
+    height: height,
+    child: ElevatedButton(
+        onPressed: () {
+          if (onPressed != null) {
+            onPressed();
+          }
+        },
+        style: ButtonStyle(
+            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 0))),
+            backgroundColor: MaterialStatePropertyAll(Colors.transparent),
+            side: MaterialStatePropertyAll(
+              BorderSide(color: Colors.white),
+            ),
+            iconColor: MaterialStatePropertyAll(Colors.white)),
+        child: vibeeText(message, color: Colors.white, size: textSize)),
+  );
+}
+
 Widget vibeeListTile({
   double? width,
   double? height,
@@ -184,7 +219,7 @@ Widget vibeeListTile({
                 vibeeText("$title",
                     size: titleSize ?? 20, fontWeight: FontWeight.w500),
                 const SizedBox(height: 2),
-                vibeeText("$subtitle",
+                vibeeText(subtitle ?? '',
                     size: subtitleSize, color: Colors.white54),
               ],
             )
@@ -287,5 +322,36 @@ showSnackBar({
       // Setting the duration for how long the snack bar should be visible
       duration: const Duration(seconds: 3),
     ),
+  );
+}
+
+showVibeeModelBottomSheet(
+    {required BuildContext context, List<Widget>? buttons, String? title}) {
+  showModalBottomSheet<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return SizedBox(
+        height: 150,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text(
+                title ?? '',
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [...?buttons],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
   );
 }

@@ -13,7 +13,7 @@ class Count {
   String? phone;
   String? password;
   List<dynamic>? pendingRequests;
-  List<dynamic>? friends;
+  List<String>? friends;
   List<dynamic>? blockedUsers;
   List<dynamic>? savedPosts;
   bool? isBlocked;
@@ -25,6 +25,10 @@ class Count {
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
+  String? coverPicture;
+  DateTime? dob;
+  String? location;
+  String? profilePicture;
 
   Count({
     this.id,
@@ -46,6 +50,10 @@ class Count {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.coverPicture,
+    this.dob,
+    this.location,
+    this.profilePicture,
   });
 
   factory Count.fromJson(Map<String, dynamic> json) => _$CountFromJson(json);

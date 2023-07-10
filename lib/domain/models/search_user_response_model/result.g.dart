@@ -14,7 +14,8 @@ Result _$ResultFromJson(Map<String, dynamic> json) => Result(
       email: json['email'] as String?,
       phone: json['phone'] as String?,
       pendingRequests: json['pendingRequests'] as List<dynamic>?,
-      friends: json['friends'] as List<dynamic>?,
+      friends:
+          (json['friends'] as List<dynamic>?)?.map((e) => e as String).toList(),
       blockedUsers: json['blockedUsers'] as List<dynamic>?,
       savedPosts: json['savedPosts'] as List<dynamic>?,
       isBlocked: json['isBlocked'] as bool?,
@@ -29,6 +30,10 @@ Result _$ResultFromJson(Map<String, dynamic> json) => Result(
           ? null
           : DateTime.parse(json['updatedAt'] as String),
       v: json['__v'] as int?,
+      coverPicture: json['coverPicture'] as String?,
+      dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
+      location: json['location'] as String?,
+      profilePicture: json['profilePicture'] as String?,
     );
 
 Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{
@@ -50,4 +55,8 @@ Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       '__v': instance.v,
+      'coverPicture': instance.coverPicture,
+      'dob': instance.dob?.toIso8601String(),
+      'location': instance.location,
+      'profilePicture': instance.profilePicture,
     };

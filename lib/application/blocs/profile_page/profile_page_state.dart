@@ -10,9 +10,13 @@ class ProfilePageState with _$ProfilePageState {
     bool? isFriend,
     bool? isFriendRequestSent,
     required bool isPageLoading,
+    required bool isProfilePictureLoading,
+    required bool isCoverPictureLoading,
     String? errorMessage,
     String? friendId,
     bool? isFriendRequestRecieved,
     GetUserDetailsResponseModel? getUserDetailsResponse,
+    GetPostByOneUserResponseModel? getPostByOneUserResponse,
+    String? profilePicture,
   }) = _Initial;
 }

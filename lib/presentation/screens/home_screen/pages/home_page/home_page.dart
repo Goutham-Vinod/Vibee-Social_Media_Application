@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibee/application/blocs/home_page/home_page_bloc.dart';
 import 'package:vibee/application/blocs/home_screen/home_screen_bloc.dart';
-import 'package:vibee/core/common_variables.dart';
+import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 import 'package:vibee/presentation/common_widgets/post_widget.dart';
 
@@ -10,6 +11,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<HomePageBloc>(context)
+        .add(const HomePageEvent.initializeHomePage());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: backgroundScreenColor,
@@ -38,21 +41,39 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            whatsOnYourMind(),
-            ListView.builder(
-              itemCount: 5,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: PostWidget(
-                    postAssetImagePath: CommonVariables.testImagePath3,
-                    dpAssetImagePath: CommonVariables.testImagePath6,
-                    dateNTime: "28-05-2032 • Kerala",
-                    profileName: "Mr_Photographer_123",
-                  ),
-                );
+            whatsOnYourMind(context),
+            BlocBuilder<HomePageBloc, HomePageState>(
+              builder: (context, state) {
+                return state.getPostsResponse?.posts?.length == null
+                    ? SizedBox(
+                        height: 500,
+                        child: Center(child: vibeeText('No posts to show')))
+                    : ListView.builder(
+                        itemCount: state.getPostsResponse?.posts?.length ?? 0,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: PostWidget(
+                              description: state.getPostsResponse?.posts?[index]
+                                      .description ??
+                                  '',
+                              dpNetworkImageApiPath: state.getPostsResponse
+                                  ?.posts?[index].createdBy?.profilePicture,
+                              postNetworkImageUrl:
+                                  state.getPostsResponse?.posts?[index].media,
+                              dateNTime: state
+                                  .getPostsResponse?.posts?[index].createdAt,
+                              place: state
+                                  .getPostsResponse?.posts?[index].location,
+                              profileName:
+                                  '${state.getPostsResponse?.posts?[index].createdBy?.firstName} ${state.getPostsResponse?.posts?[index].createdBy?.lastName}',
+                              postId: state.getPostsResponse!.posts![index].id!,
+                            ),
+                          );
+                        },
+                      );
               },
             ),
           ],
@@ -61,7 +82,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget whatsOnYourMind() {
+  Widget whatsOnYourMind(BuildContext context) {
     return Stack(
       children: [
         Container(
@@ -83,7 +104,9 @@ class HomePage extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               onTap: () {
-                print("What's on your mind?");
+                // print("What's on your mind?");
+                Navigator.of(context)
+                    .pushNamed(RouteGenerator.createPostScreen);
               },
               child: Container(
                 height: 60,

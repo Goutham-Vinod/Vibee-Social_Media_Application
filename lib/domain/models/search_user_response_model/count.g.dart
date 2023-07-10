@@ -15,7 +15,8 @@ Count _$CountFromJson(Map<String, dynamic> json) => Count(
       phone: json['phone'] as String?,
       password: json['password'] as String?,
       pendingRequests: json['pendingRequests'] as List<dynamic>?,
-      friends: json['friends'] as List<dynamic>?,
+      friends:
+          (json['friends'] as List<dynamic>?)?.map((e) => e as String).toList(),
       blockedUsers: json['blockedUsers'] as List<dynamic>?,
       savedPosts: json['savedPosts'] as List<dynamic>?,
       isBlocked: json['isBlocked'] as bool?,
@@ -30,6 +31,10 @@ Count _$CountFromJson(Map<String, dynamic> json) => Count(
           ? null
           : DateTime.parse(json['updatedAt'] as String),
       v: json['__v'] as int?,
+      coverPicture: json['coverPicture'] as String?,
+      dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
+      location: json['location'] as String?,
+      profilePicture: json['profilePicture'] as String?,
     );
 
 Map<String, dynamic> _$CountToJson(Count instance) => <String, dynamic>{
@@ -52,4 +57,8 @@ Map<String, dynamic> _$CountToJson(Count instance) => <String, dynamic>{
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       '__v': instance.v,
+      'coverPicture': instance.coverPicture,
+      'dob': instance.dob?.toIso8601String(),
+      'location': instance.location,
+      'profilePicture': instance.profilePicture,
     };

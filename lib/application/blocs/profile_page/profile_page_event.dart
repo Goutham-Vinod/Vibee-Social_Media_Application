@@ -10,4 +10,12 @@ class ProfilePageEvent with _$ProfilePageEvent {
   const factory ProfilePageEvent.cancelFriendRequest() = CancelFriendRequest;
   const factory ProfilePageEvent.unFriend() = UnFriend;
   const factory ProfilePageEvent.acceptFriendRequest() = AcceptFriendRequest;
+  const factory ProfilePageEvent.updateProfilePictureUsingCamera() =
+      UpdateProfilePictureUsingCamera;
+  const factory ProfilePageEvent.updateCoverPictureUsingCamera() =
+      UpdateCoverPictureUsingCamera;
+  const factory ProfilePageEvent.updateProfilePictureFromStorage() =
+      UpdateProfilePictureFromStorage;
+  const factory ProfilePageEvent.updateCoverPictureFromStorage() =
+      UpdateCoverPictureFromStorage;
 }

@@ -27,6 +27,7 @@ class SharedPrefServices {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     Config.tocken = tocken;
     await prefs.setString('tocken', tocken);
+    print(Config.tocken);
   }
 
   static Future<String?> getTocken() async {

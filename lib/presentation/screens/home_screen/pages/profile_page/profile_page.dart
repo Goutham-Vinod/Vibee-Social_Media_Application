@@ -4,7 +4,7 @@ import 'package:vibee/application/blocs/profile_page/profile_page_bloc.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/core/routing/routing_arguments/profile_page_arguments.dart';
-import 'package:vibee/domain/models/get_current_user_details_response_model.dart';
+import 'package:vibee/domain/models/get_current_user_details_response_model/get_current_user_details_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/infrastructure/shared_pref_services.dart';
 import 'package:vibee/core/common_variables.dart';
@@ -13,10 +13,7 @@ import 'package:vibee/presentation/common_widgets/post_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
-  String? firstName;
-  String? lastName;
-  String? username;
-  late bool isCurrentUserProfile = true;
+
   @override
   Widget build(BuildContext context) {
     final routeArgs = ModalRoute.of(context) != null &&
@@ -24,24 +21,19 @@ class ProfilePage extends StatelessWidget {
             ModalRoute.of(context)?.settings.arguments != null
         ? ModalRoute.of(context)?.settings.arguments as ProfilePageArguments
         : null;
-
-    isCurrentUserProfile = routeArgs?.isCurrentUserProfile ?? true;
+    //bool isCurrentUserProfile = true;
+    bool isCurrentUserProfile = routeArgs?.isCurrentUserProfile ?? true;
 
     if (isCurrentUserProfile == false) {
       final routeArgs =
           ModalRoute.of(context)?.settings.arguments as ProfilePageArguments;
-      firstName = routeArgs.firstName;
-      lastName = routeArgs.lastName;
-      username = routeArgs.username;
+      String? username = routeArgs.username;
       BlocProvider.of<ProfilePageBloc>(context)
           .add(ProfilePageEvent.initializeProfilePageBloc(
         username: username,
         isCurrentUserProfile: false,
       ));
     } else {
-      firstName = CommonVariables.currentUserDetailsResponse?.firstName;
-      lastName = CommonVariables.currentUserDetailsResponse?.lastName;
-      username = CommonVariables.currentUserDetailsResponse?.username;
       BlocProvider.of<ProfilePageBloc>(context)
           .add(const ProfilePageEvent.initializeProfilePageBloc(
         isCurrentUserProfile: true,
@@ -56,19 +48,33 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: [
               profileDetailsDisplayWidget(context),
-              ListView.builder(
-                itemCount: 5,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: PostWidget(
-                      postAssetImagePath: CommonVariables.testImagePath3,
-                      dpAssetImagePath: CommonVariables.testImagePath6,
-                      dateNTime: "28-05-2032 • Kerala",
-                      profileName: "$firstName $lastName",
-                    ),
+              BlocBuilder<ProfilePageBloc, ProfilePageState>(
+                builder: (context, state) {
+                  return ListView.builder(
+                    itemCount:
+                        state.getPostByOneUserResponse?.posts?.length ?? 0,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: PostWidget(
+                          description: state.getPostByOneUserResponse
+                                  ?.posts?[index].description ??
+                              '',
+                          dpNetworkImageApiPath: state.profilePicture,
+                          postNetworkImageUrl: state
+                              .getPostByOneUserResponse?.posts?[index].media,
+                          dateNTime: state.getPostByOneUserResponse
+                              ?.posts?[index].createdAt,
+                          profileName: "${state.firstName} ${state.lastName}",
+                          place: state
+                              .getPostByOneUserResponse?.posts?[index].location,
+                          postId:
+                              state.getPostByOneUserResponse!.posts![index].id!,
+                        ),
+                      );
+                    },
                   );
                 },
               ),
@@ -87,12 +93,35 @@ class ProfilePage extends StatelessWidget {
           children: [
             BlocBuilder<ProfilePageBloc, ProfilePageState>(
               builder: (context, state) {
-                return Container(
-                  height: 170,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: CoverPicture(state), // cover pic
+                return InkWell(
+                  onTap: () {
+                    showVibeeModelBottomSheet(
+                        context: context,
+                        title: 'Change Cover Picture',
+                        buttons: [
+                          ElevatedButton(
+                              onPressed: () {
+                                BlocProvider.of<ProfilePageBloc>(context).add(
+                                    const ProfilePageEvent
+                                        .updateCoverPictureFromStorage());
+                              },
+                              child: const Text('Gallery')),
+                          ElevatedButton(
+                              onPressed: () {
+                                BlocProvider.of<ProfilePageBloc>(context).add(
+                                    const ProfilePageEvent
+                                        .updateCoverPictureUsingCamera());
+                              },
+                              child: const Text('Camera'))
+                        ]);
+                  },
+                  child: Container(
+                    height: 170,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: CoverPicture(state), // cover pic
+                      ),
                     ),
                   ),
                 );
@@ -112,13 +141,21 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              vibeeText(
-                "$firstName $lastName",
-                size: 25,
-                fontWeight: FontWeight.bold,
+              BlocBuilder<ProfilePageBloc, ProfilePageState>(
+                builder: (context, state) {
+                  return vibeeText(
+                    "${state.firstName} ${state.lastName}",
+                    size: 25,
+                    fontWeight: FontWeight.bold,
+                  );
+                },
               ),
               const SizedBox(height: 5),
-              vibeeText("$username"),
+              BlocBuilder<ProfilePageBloc, ProfilePageState>(
+                builder: (context, state) {
+                  return vibeeText(state.username);
+                },
+              ),
               const SizedBox(height: 3),
               Row(
                 children: [
@@ -196,22 +233,27 @@ class ProfilePage extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: () {
-                        print("Saved Videos");
+                        Navigator.pushNamed(
+                            context, RouteGenerator.savedPostsScreen);
                       },
                       customBorder: const StadiumBorder(),
-                      child: Visibility(
-                        visible: isCurrentUserProfile,
-                        child: Container(
-                          height: 30,
-                          width: 35,
-                          decoration: BoxDecoration(
-                              color: Colors.white12,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: const Icon(
-                            Icons.bookmark_border_rounded,
-                            color: Colors.white,
-                          ),
-                        ),
+                      child: BlocBuilder<ProfilePageBloc, ProfilePageState>(
+                        builder: (context, state) {
+                          return Visibility(
+                            visible: state.isCurrentUserProfile,
+                            child: Container(
+                              height: 30,
+                              width: 35,
+                              decoration: BoxDecoration(
+                                  color: Colors.white12,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Icon(
+                                Icons.bookmark_border_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -233,31 +275,48 @@ class ProfilePage extends StatelessWidget {
                             value: "Change theme",
                             child: vibeeText("Change theme"),
                           ),
+                          PopupMenuItem(
+                            value: "View Friends",
+                            child: vibeeText("View Friends"),
+                          ),
                         ];
                       },
                       onSelected: (value) async {
-                        if (value == 'Log out') {
-                          await SharedPrefServices.removeAll();
-                          Navigator.pushNamedAndRemoveUntil(
-                            context,
-                            RouteGenerator.splashScreen,
-                            (route) => false,
-                          );
+                        switch (value) {
+                          case 'Log out':
+                            await SharedPrefServices.removeAll();
+                            Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              RouteGenerator.splashScreen,
+                              (route) => false,
+                            );
+                            break;
+                          case 'View Friends':
+                            Navigator.pushNamed(
+                              context,
+                              RouteGenerator.friendsScreen,
+                            );
+                            break;
+                          default:
                         }
                       },
-                      child: Visibility(
-                        visible: isCurrentUserProfile,
-                        child: Container(
-                          height: 30,
-                          width: 35,
-                          decoration: BoxDecoration(
-                              color: Colors.white12,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: const Icon(
-                            Icons.more_horiz,
-                            color: Colors.white,
-                          ),
-                        ),
+                      child: BlocBuilder<ProfilePageBloc, ProfilePageState>(
+                        builder: (context, state) {
+                          return Visibility(
+                            visible: state.isCurrentUserProfile,
+                            child: Container(
+                              height: 30,
+                              width: 35,
+                              decoration: BoxDecoration(
+                                  color: Colors.white12,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Icon(
+                                Icons.more_horiz,
+                                color: Colors.white,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -272,31 +331,66 @@ class ProfilePage extends StatelessWidget {
             top: 100,
             child: BlocBuilder<ProfilePageBloc, ProfilePageState>(
               builder: (context, state) {
-                return vibeeDp(
-                    height: 125, width: 125, image: ProfilePicture(state));
+                print('dp updated');
+                return InkWell(
+                  onTap: () {
+                    showVibeeModelBottomSheet(
+                        context: context,
+                        title: 'Change Profile Picture',
+                        buttons: [
+                          ElevatedButton(
+                              onPressed: () {
+                                BlocProvider.of<ProfilePageBloc>(context).add(
+                                    const ProfilePageEvent
+                                        .updateProfilePictureFromStorage());
+                              },
+                              child: const Text('Gallery')),
+                          ElevatedButton(
+                              onPressed: () {
+                                BlocProvider.of<ProfilePageBloc>(context).add(
+                                    const ProfilePageEvent
+                                        .updateProfilePictureUsingCamera());
+                              },
+                              child: const Text('Camera'))
+                        ]);
+                  },
+                  child: vibeeDp(
+                      height: 125, width: 125, image: ProfilePicture(state)),
+                );
               },
             )), // Dp
-        Visibility(
-          visible: isCurrentUserProfile,
-          child: const Positioned(
-            right: 30,
-            top: 190,
-            child: Icon(
-              Icons.camera_alt,
-              size: 35,
-              color: Colors.white,
-            ),
-          ),
+        BlocBuilder<ProfilePageBloc, ProfilePageState>(
+          builder: (context, state) {
+            return Visibility(
+              visible: state.isCurrentUserProfile,
+              child: const Positioned(
+                right: 30,
+                top: 190,
+                child: Icon(
+                  Icons.camera_alt,
+                  size: 35,
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
         ),
       ],
     );
   }
 
   ImageProvider CoverPicture(ProfilePageState state) {
-    if (isCurrentUserProfile) {
-      return AssetImage(CommonVariables.testImagePath3);
+    if (state.isCurrentUserProfile) {
+      if (CommonVariables.currentUserDetailsResponse != null &&
+          CommonVariables.currentUserDetailsResponse?.coverPicture != null) {
+        return NetworkImage(Config.getPictureUrl(
+            picturePath:
+                CommonVariables.currentUserDetailsResponse!.coverPicture!));
+      } else {
+        return AssetImage(CommonVariables.testImageBg);
+      }
     } else {
-      if (state.getUserDetailsResponse?.user?.profilePicture != null) {
+      if (state.getUserDetailsResponse?.user?.coverPicture != null) {
         return NetworkImage(Config.getPictureUrl(
             picturePath: state.getUserDetailsResponse!.user!.coverPicture!));
       } else {
@@ -306,8 +400,16 @@ class ProfilePage extends StatelessWidget {
   }
 
   ImageProvider ProfilePicture(ProfilePageState state) {
-    if (isCurrentUserProfile) {
-      return AssetImage(CommonVariables.defaultDp);
+    if (state.isCurrentUserProfile) {
+      print('current user updated');
+      if (CommonVariables.currentUserDetailsResponse != null &&
+          CommonVariables.currentUserDetailsResponse?.profilePicture != null) {
+        return NetworkImage(Config.getPictureUrl(
+            picturePath:
+                CommonVariables.currentUserDetailsResponse!.profilePicture!));
+      } else {
+        return AssetImage(CommonVariables.defaultDp);
+      }
     } else {
       if (state.getUserDetailsResponse?.user?.profilePicture != null) {
         return NetworkImage(Config.getPictureUrl(

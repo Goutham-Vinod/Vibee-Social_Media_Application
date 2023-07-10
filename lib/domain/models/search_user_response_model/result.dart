@@ -12,7 +12,7 @@ class Result {
   String? email;
   String? phone;
   List<dynamic>? pendingRequests;
-  List<dynamic>? friends;
+  List<String>? friends;
   List<dynamic>? blockedUsers;
   List<dynamic>? savedPosts;
   bool? isBlocked;
@@ -24,6 +24,10 @@ class Result {
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
+  String? coverPicture;
+  DateTime? dob;
+  String? location;
+  String? profilePicture;
 
   Result({
     this.id,
@@ -44,6 +48,10 @@ class Result {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.coverPicture,
+    this.dob,
+    this.location,
+    this.profilePicture,
   });
 
   factory Result.fromJson(Map<String, dynamic> json) {

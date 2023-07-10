@@ -2,10 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibee/application/blocs/profile_page/profile_page_bloc.dart';
 import 'package:vibee/application/blocs/search_page/search_page_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
+import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/core/routing/routing_arguments/profile_page_arguments.dart';
+import 'package:vibee/domain/models/search_user_response_model/search_user_response_model.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
 class SearchPage extends StatelessWidget {
@@ -114,8 +117,7 @@ class SearchPage extends StatelessWidget {
                                     prefixWidget: vibeeDp(
                                       height: 45,
                                       width: 45,
-                                      image:
-                                          AssetImage(CommonVariables.defaultDp),
+                                      image: ProfilePicture(state, index),
                                     ),
                                   ),
                                 ),
@@ -130,5 +132,17 @@ class SearchPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  // AssetImage ProfilePicture(SearchPageState state) => AssetImage(CommonVariables.defaultDp);
+
+  ImageProvider ProfilePicture(SearchPageState state, int index) {
+    if (state.searchResultResponse?.result?[index].profilePicture != null) {
+      return NetworkImage(Config.getPictureUrl(
+          picturePath:
+              state.searchResultResponse!.result![index].profilePicture!));
+    } else {
+      return AssetImage(CommonVariables.defaultDp);
+    }
   }
 }

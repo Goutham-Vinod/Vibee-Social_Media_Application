@@ -53,14 +53,7 @@ class NotificationsPage extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 10),
                         child: Material(
                           color: Colors.transparent,
-                          child: InkWell(
-                            onTap: () {
-                              print('Notifications List tile $index');
-                              // Navigator.pushNamed(
-                              //     context, RouteGenerator.profilePage,arguments: ProfilePageArguments(firstName: firstName, lastName: lastName, username: state.notificationsResponse.notifications[index].userId.username, isCurrentUserProfile: false,));
-                            },
-                            child: notificationListTile(state, index),
-                          ),
+                          child: notificationListTile(context, state, index),
                         ),
                       );
                     },
@@ -74,84 +67,122 @@ class NotificationsPage extends StatelessWidget {
     );
   }
 
-  Widget notificationListTile(NotificationPageState state, int index) {
-    // create , post, friend request,accept request , live ,payment
+  Widget notificationListTile(context, NotificationPageState state, int index) {
+    // create , post, friendRequest, acceptedRequest , live ,payment
     if (state.notificationsResponse?.notifications?[index].type == 'create') {
-      return vibeeListTile(
-        // common notifications list tile
-        title:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
-        subtitle:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} created a new post",
+      return InkWell(
+        onTap: () {
+          print('created a post');
+        },
+        child: vibeeListTile(
+          // common notifications list tile
+          title:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
+          subtitle:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} created a new post",
 
-        iconSize: 10,
-        iconColor: Colors.green,
-        prefixWidget: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: vibeeDp(
-            image: AssetImage(CommonVariables.testImagePath7),
-            height: 50,
-            width: 50,
+          iconSize: 10,
+          iconColor: Colors.green,
+          prefixWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: vibeeDp(
+              image: AssetImage(CommonVariables.testImagePath7),
+              height: 50,
+              width: 50,
+            ),
           ),
         ),
       );
     } else if (state.notificationsResponse?.notifications?[index].type ==
         'post') {
-      return vibeeListTile(
-        // common notifications list tile
-        title:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
-        subtitle:
-            "${state.notificationsResponse?.notifications?[index]} .interaction your post ",
+      return InkWell(
+        onTap: () {
+          print('post');
+        },
+        child: vibeeListTile(
+          // common notifications list tile
+          title:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
+          subtitle:
+              "state.notificationsResponse?.notifications?[index] .interaction your post ",
 
-        iconSize: 10,
-        iconColor: Colors.green,
-        prefixWidget: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: vibeeDp(
-            image: AssetImage(CommonVariables.testImagePath7),
-            height: 50,
-            width: 50,
+          iconSize: 10,
+          iconColor: Colors.green,
+          prefixWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: vibeeDp(
+              image: AssetImage(CommonVariables.testImagePath7),
+              height: 50,
+              width: 50,
+            ),
           ),
         ),
       );
     } else if (state.notificationsResponse?.notifications?[index].type ==
         'friendRequest') {
-      return vibeeListTile(
-        // common notifications list tile
-        title:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
-        subtitle:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} sent you a friend request.",
+      return InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, RouteGenerator.profilePage,
+              arguments: ProfilePageArguments(
+                firstName: state.notificationsResponse?.notifications?[index]
+                    .userId?.firstName,
+                lastName: state.notificationsResponse?.notifications?[index]
+                    .userId?.lastName,
+                username: state.notificationsResponse?.notifications?[index]
+                    .userId?.username,
+                isCurrentUserProfile: false,
+              ));
+        },
+        child: vibeeListTile(
+          // common notifications list tile
+          title:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
+          subtitle:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} sent you a friend request.",
 
-        iconSize: 10,
-        iconColor: Colors.green,
-        prefixWidget: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: vibeeDp(
-            image: AssetImage(CommonVariables.testImagePath7),
-            height: 50,
-            width: 50,
+          iconSize: 10,
+          iconColor: Colors.green,
+          prefixWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: vibeeDp(
+              image: AssetImage(CommonVariables.testImagePath7),
+              height: 50,
+              width: 50,
+            ),
           ),
         ),
       );
     } else if (state.notificationsResponse?.notifications?[index].type ==
         'acceptedRequest') {
-      return vibeeListTile(
-        // common notifications list tile
-        title:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
-        subtitle:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} accepted your friend request",
+      return InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, RouteGenerator.profilePage,
+              arguments: ProfilePageArguments(
+                firstName: state.notificationsResponse?.notifications?[index]
+                    .userId?.firstName,
+                lastName: state.notificationsResponse?.notifications?[index]
+                    .userId?.lastName,
+                username: state.notificationsResponse?.notifications?[index]
+                    .userId?.username,
+                isCurrentUserProfile: false,
+              ));
+        },
+        child: vibeeListTile(
+          // common notifications list tile
+          title:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
+          subtitle:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} accepted your friend request",
 
-        iconSize: 10,
-        iconColor: Colors.green,
-        prefixWidget: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: vibeeDp(
-            image: AssetImage(CommonVariables.testImagePath7),
-            height: 50,
-            width: 50,
+          iconSize: 10,
+          iconColor: Colors.green,
+          prefixWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: vibeeDp(
+              image: AssetImage(CommonVariables.testImagePath7),
+              height: 50,
+              width: 50,
+            ),
           ),
         ),
       );

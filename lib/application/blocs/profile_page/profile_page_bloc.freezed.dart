@@ -24,6 +24,10 @@ mixin _$ProfilePageEvent {
     required TResult Function() cancelFriendRequest,
     required TResult Function() unFriend,
     required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +38,10 @@ mixin _$ProfilePageEvent {
     TResult? Function()? cancelFriendRequest,
     TResult? Function()? unFriend,
     TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +52,10 @@ mixin _$ProfilePageEvent {
     TResult Function()? cancelFriendRequest,
     TResult Function()? unFriend,
     TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +67,14 @@ mixin _$ProfilePageEvent {
     required TResult Function(CancelFriendRequest value) cancelFriendRequest,
     required TResult Function(UnFriend value) unFriend,
     required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +85,14 @@ mixin _$ProfilePageEvent {
     TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult? Function(UnFriend value)? unFriend,
     TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +103,14 @@ mixin _$ProfilePageEvent {
     TResult Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult Function(UnFriend value)? unFriend,
     TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -181,6 +217,10 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     required TResult Function() cancelFriendRequest,
     required TResult Function() unFriend,
     required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
   }) {
     return initializeProfilePageBloc(username, isCurrentUserProfile);
   }
@@ -194,6 +234,10 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     TResult? Function()? cancelFriendRequest,
     TResult? Function()? unFriend,
     TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
   }) {
     return initializeProfilePageBloc?.call(username, isCurrentUserProfile);
   }
@@ -207,6 +251,10 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     TResult Function()? cancelFriendRequest,
     TResult Function()? unFriend,
     TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (initializeProfilePageBloc != null) {
@@ -224,6 +272,14 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     required TResult Function(CancelFriendRequest value) cancelFriendRequest,
     required TResult Function(UnFriend value) unFriend,
     required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
   }) {
     return initializeProfilePageBloc(this);
   }
@@ -237,6 +293,14 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult? Function(UnFriend value)? unFriend,
     TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
   }) {
     return initializeProfilePageBloc?.call(this);
   }
@@ -250,6 +314,14 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     TResult Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult Function(UnFriend value)? unFriend,
     TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (initializeProfilePageBloc != null) {
@@ -315,6 +387,10 @@ class _$SentFriendRequest implements SentFriendRequest {
     required TResult Function() cancelFriendRequest,
     required TResult Function() unFriend,
     required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
   }) {
     return sentFriendRequest();
   }
@@ -328,6 +404,10 @@ class _$SentFriendRequest implements SentFriendRequest {
     TResult? Function()? cancelFriendRequest,
     TResult? Function()? unFriend,
     TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
   }) {
     return sentFriendRequest?.call();
   }
@@ -341,6 +421,10 @@ class _$SentFriendRequest implements SentFriendRequest {
     TResult Function()? cancelFriendRequest,
     TResult Function()? unFriend,
     TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (sentFriendRequest != null) {
@@ -358,6 +442,14 @@ class _$SentFriendRequest implements SentFriendRequest {
     required TResult Function(CancelFriendRequest value) cancelFriendRequest,
     required TResult Function(UnFriend value) unFriend,
     required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
   }) {
     return sentFriendRequest(this);
   }
@@ -371,6 +463,14 @@ class _$SentFriendRequest implements SentFriendRequest {
     TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult? Function(UnFriend value)? unFriend,
     TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
   }) {
     return sentFriendRequest?.call(this);
   }
@@ -384,6 +484,14 @@ class _$SentFriendRequest implements SentFriendRequest {
     TResult Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult Function(UnFriend value)? unFriend,
     TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (sentFriendRequest != null) {
@@ -441,6 +549,10 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     required TResult Function() cancelFriendRequest,
     required TResult Function() unFriend,
     required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
   }) {
     return cancelFriendRequest();
   }
@@ -454,6 +566,10 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     TResult? Function()? cancelFriendRequest,
     TResult? Function()? unFriend,
     TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
   }) {
     return cancelFriendRequest?.call();
   }
@@ -467,6 +583,10 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     TResult Function()? cancelFriendRequest,
     TResult Function()? unFriend,
     TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (cancelFriendRequest != null) {
@@ -484,6 +604,14 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     required TResult Function(CancelFriendRequest value) cancelFriendRequest,
     required TResult Function(UnFriend value) unFriend,
     required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
   }) {
     return cancelFriendRequest(this);
   }
@@ -497,6 +625,14 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult? Function(UnFriend value)? unFriend,
     TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
   }) {
     return cancelFriendRequest?.call(this);
   }
@@ -510,6 +646,14 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     TResult Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult Function(UnFriend value)? unFriend,
     TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (cancelFriendRequest != null) {
@@ -566,6 +710,10 @@ class _$UnFriend implements UnFriend {
     required TResult Function() cancelFriendRequest,
     required TResult Function() unFriend,
     required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
   }) {
     return unFriend();
   }
@@ -579,6 +727,10 @@ class _$UnFriend implements UnFriend {
     TResult? Function()? cancelFriendRequest,
     TResult? Function()? unFriend,
     TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
   }) {
     return unFriend?.call();
   }
@@ -592,6 +744,10 @@ class _$UnFriend implements UnFriend {
     TResult Function()? cancelFriendRequest,
     TResult Function()? unFriend,
     TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (unFriend != null) {
@@ -609,6 +765,14 @@ class _$UnFriend implements UnFriend {
     required TResult Function(CancelFriendRequest value) cancelFriendRequest,
     required TResult Function(UnFriend value) unFriend,
     required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
   }) {
     return unFriend(this);
   }
@@ -622,6 +786,14 @@ class _$UnFriend implements UnFriend {
     TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult? Function(UnFriend value)? unFriend,
     TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
   }) {
     return unFriend?.call(this);
   }
@@ -635,6 +807,14 @@ class _$UnFriend implements UnFriend {
     TResult Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult Function(UnFriend value)? unFriend,
     TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (unFriend != null) {
@@ -692,6 +872,10 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     required TResult Function() cancelFriendRequest,
     required TResult Function() unFriend,
     required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
   }) {
     return acceptFriendRequest();
   }
@@ -705,6 +889,10 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     TResult? Function()? cancelFriendRequest,
     TResult? Function()? unFriend,
     TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
   }) {
     return acceptFriendRequest?.call();
   }
@@ -718,6 +906,10 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     TResult Function()? cancelFriendRequest,
     TResult Function()? unFriend,
     TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (acceptFriendRequest != null) {
@@ -735,6 +927,14 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     required TResult Function(CancelFriendRequest value) cancelFriendRequest,
     required TResult Function(UnFriend value) unFriend,
     required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
   }) {
     return acceptFriendRequest(this);
   }
@@ -748,6 +948,14 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult? Function(UnFriend value)? unFriend,
     TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
   }) {
     return acceptFriendRequest?.call(this);
   }
@@ -761,6 +969,14 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     TResult Function(CancelFriendRequest value)? cancelFriendRequest,
     TResult Function(UnFriend value)? unFriend,
     TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
     required TResult orElse(),
   }) {
     if (acceptFriendRequest != null) {
@@ -775,6 +991,676 @@ abstract class AcceptFriendRequest implements ProfilePageEvent {
 }
 
 /// @nodoc
+abstract class _$$UpdateProfilePictureUsingCameraCopyWith<$Res> {
+  factory _$$UpdateProfilePictureUsingCameraCopyWith(
+          _$UpdateProfilePictureUsingCamera value,
+          $Res Function(_$UpdateProfilePictureUsingCamera) then) =
+      __$$UpdateProfilePictureUsingCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateProfilePictureUsingCameraCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res,
+        _$UpdateProfilePictureUsingCamera>
+    implements _$$UpdateProfilePictureUsingCameraCopyWith<$Res> {
+  __$$UpdateProfilePictureUsingCameraCopyWithImpl(
+      _$UpdateProfilePictureUsingCamera _value,
+      $Res Function(_$UpdateProfilePictureUsingCamera) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateProfilePictureUsingCamera
+    implements UpdateProfilePictureUsingCamera {
+  const _$UpdateProfilePictureUsingCamera();
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.updateProfilePictureUsingCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfilePictureUsingCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureUsingCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureUsingCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateProfilePictureUsingCamera != null) {
+      return updateProfilePictureUsingCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureUsingCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureUsingCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateProfilePictureUsingCamera != null) {
+      return updateProfilePictureUsingCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfilePictureUsingCamera implements ProfilePageEvent {
+  const factory UpdateProfilePictureUsingCamera() =
+      _$UpdateProfilePictureUsingCamera;
+}
+
+/// @nodoc
+abstract class _$$UpdateCoverPictureUsingCameraCopyWith<$Res> {
+  factory _$$UpdateCoverPictureUsingCameraCopyWith(
+          _$UpdateCoverPictureUsingCamera value,
+          $Res Function(_$UpdateCoverPictureUsingCamera) then) =
+      __$$UpdateCoverPictureUsingCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateCoverPictureUsingCameraCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res,
+        _$UpdateCoverPictureUsingCamera>
+    implements _$$UpdateCoverPictureUsingCameraCopyWith<$Res> {
+  __$$UpdateCoverPictureUsingCameraCopyWithImpl(
+      _$UpdateCoverPictureUsingCamera _value,
+      $Res Function(_$UpdateCoverPictureUsingCamera) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateCoverPictureUsingCamera implements UpdateCoverPictureUsingCamera {
+  const _$UpdateCoverPictureUsingCamera();
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.updateCoverPictureUsingCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCoverPictureUsingCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureUsingCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureUsingCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateCoverPictureUsingCamera != null) {
+      return updateCoverPictureUsingCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureUsingCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureUsingCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateCoverPictureUsingCamera != null) {
+      return updateCoverPictureUsingCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateCoverPictureUsingCamera implements ProfilePageEvent {
+  const factory UpdateCoverPictureUsingCamera() =
+      _$UpdateCoverPictureUsingCamera;
+}
+
+/// @nodoc
+abstract class _$$UpdateProfilePictureFromStorageCopyWith<$Res> {
+  factory _$$UpdateProfilePictureFromStorageCopyWith(
+          _$UpdateProfilePictureFromStorage value,
+          $Res Function(_$UpdateProfilePictureFromStorage) then) =
+      __$$UpdateProfilePictureFromStorageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateProfilePictureFromStorageCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res,
+        _$UpdateProfilePictureFromStorage>
+    implements _$$UpdateProfilePictureFromStorageCopyWith<$Res> {
+  __$$UpdateProfilePictureFromStorageCopyWithImpl(
+      _$UpdateProfilePictureFromStorage _value,
+      $Res Function(_$UpdateProfilePictureFromStorage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateProfilePictureFromStorage
+    implements UpdateProfilePictureFromStorage {
+  const _$UpdateProfilePictureFromStorage();
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.updateProfilePictureFromStorage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfilePictureFromStorage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureFromStorage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureFromStorage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateProfilePictureFromStorage != null) {
+      return updateProfilePictureFromStorage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureFromStorage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+  }) {
+    return updateProfilePictureFromStorage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateProfilePictureFromStorage != null) {
+      return updateProfilePictureFromStorage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfilePictureFromStorage implements ProfilePageEvent {
+  const factory UpdateProfilePictureFromStorage() =
+      _$UpdateProfilePictureFromStorage;
+}
+
+/// @nodoc
+abstract class _$$UpdateCoverPictureFromStorageCopyWith<$Res> {
+  factory _$$UpdateCoverPictureFromStorageCopyWith(
+          _$UpdateCoverPictureFromStorage value,
+          $Res Function(_$UpdateCoverPictureFromStorage) then) =
+      __$$UpdateCoverPictureFromStorageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateCoverPictureFromStorageCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res,
+        _$UpdateCoverPictureFromStorage>
+    implements _$$UpdateCoverPictureFromStorageCopyWith<$Res> {
+  __$$UpdateCoverPictureFromStorageCopyWithImpl(
+      _$UpdateCoverPictureFromStorage _value,
+      $Res Function(_$UpdateCoverPictureFromStorage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
+  const _$UpdateCoverPictureFromStorage();
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.updateCoverPictureFromStorage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCoverPictureFromStorage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureFromStorage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureFromStorage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateCoverPictureFromStorage != null) {
+      return updateCoverPictureFromStorage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureFromStorage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+  }) {
+    return updateCoverPictureFromStorage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    required TResult orElse(),
+  }) {
+    if (updateCoverPictureFromStorage != null) {
+      return updateCoverPictureFromStorage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateCoverPictureFromStorage implements ProfilePageEvent {
+  const factory UpdateCoverPictureFromStorage() =
+      _$UpdateCoverPictureFromStorage;
+}
+
+/// @nodoc
 mixin _$ProfilePageState {
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
@@ -783,11 +1669,16 @@ mixin _$ProfilePageState {
   bool? get isFriend => throw _privateConstructorUsedError;
   bool? get isFriendRequestSent => throw _privateConstructorUsedError;
   bool get isPageLoading => throw _privateConstructorUsedError;
+  bool get isProfilePictureLoading => throw _privateConstructorUsedError;
+  bool get isCoverPictureLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get friendId => throw _privateConstructorUsedError;
   bool? get isFriendRequestRecieved => throw _privateConstructorUsedError;
   GetUserDetailsResponseModel? get getUserDetailsResponse =>
       throw _privateConstructorUsedError;
+  GetPostByOneUserResponseModel? get getPostByOneUserResponse =>
+      throw _privateConstructorUsedError;
+  String? get profilePicture => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -798,10 +1689,14 @@ mixin _$ProfilePageState {
             bool? isFriend,
             bool? isFriendRequestSent,
             bool isPageLoading,
+            bool isProfilePictureLoading,
+            bool isCoverPictureLoading,
             String? errorMessage,
             String? friendId,
             bool? isFriendRequestRecieved,
-            GetUserDetailsResponseModel? getUserDetailsResponse)
+            GetUserDetailsResponseModel? getUserDetailsResponse,
+            GetPostByOneUserResponseModel? getPostByOneUserResponse,
+            String? profilePicture)
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -815,10 +1710,14 @@ mixin _$ProfilePageState {
             bool? isFriend,
             bool? isFriendRequestSent,
             bool isPageLoading,
+            bool isProfilePictureLoading,
+            bool isCoverPictureLoading,
             String? errorMessage,
             String? friendId,
             bool? isFriendRequestRecieved,
-            GetUserDetailsResponseModel? getUserDetailsResponse)?
+            GetUserDetailsResponseModel? getUserDetailsResponse,
+            GetPostByOneUserResponseModel? getPostByOneUserResponse,
+            String? profilePicture)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -832,10 +1731,14 @@ mixin _$ProfilePageState {
             bool? isFriend,
             bool? isFriendRequestSent,
             bool isPageLoading,
+            bool isProfilePictureLoading,
+            bool isCoverPictureLoading,
             String? errorMessage,
             String? friendId,
             bool? isFriendRequestRecieved,
-            GetUserDetailsResponseModel? getUserDetailsResponse)?
+            GetUserDetailsResponseModel? getUserDetailsResponse,
+            GetPostByOneUserResponseModel? getPostByOneUserResponse,
+            String? profilePicture)?
         initial,
     required TResult orElse(),
   }) =>
@@ -876,10 +1779,14 @@ abstract class $ProfilePageStateCopyWith<$Res> {
       bool? isFriend,
       bool? isFriendRequestSent,
       bool isPageLoading,
+      bool isProfilePictureLoading,
+      bool isCoverPictureLoading,
       String? errorMessage,
       String? friendId,
       bool? isFriendRequestRecieved,
-      GetUserDetailsResponseModel? getUserDetailsResponse});
+      GetUserDetailsResponseModel? getUserDetailsResponse,
+      GetPostByOneUserResponseModel? getPostByOneUserResponse,
+      String? profilePicture});
 }
 
 /// @nodoc
@@ -902,10 +1809,14 @@ class _$ProfilePageStateCopyWithImpl<$Res, $Val extends ProfilePageState>
     Object? isFriend = freezed,
     Object? isFriendRequestSent = freezed,
     Object? isPageLoading = null,
+    Object? isProfilePictureLoading = null,
+    Object? isCoverPictureLoading = null,
     Object? errorMessage = freezed,
     Object? friendId = freezed,
     Object? isFriendRequestRecieved = freezed,
     Object? getUserDetailsResponse = freezed,
+    Object? getPostByOneUserResponse = freezed,
+    Object? profilePicture = freezed,
   }) {
     return _then(_value.copyWith(
       firstName: null == firstName
@@ -936,6 +1847,14 @@ class _$ProfilePageStateCopyWithImpl<$Res, $Val extends ProfilePageState>
           ? _value.isPageLoading
           : isPageLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isProfilePictureLoading: null == isProfilePictureLoading
+          ? _value.isProfilePictureLoading
+          : isProfilePictureLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCoverPictureLoading: null == isCoverPictureLoading
+          ? _value.isCoverPictureLoading
+          : isCoverPictureLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -952,6 +1871,14 @@ class _$ProfilePageStateCopyWithImpl<$Res, $Val extends ProfilePageState>
           ? _value.getUserDetailsResponse
           : getUserDetailsResponse // ignore: cast_nullable_to_non_nullable
               as GetUserDetailsResponseModel?,
+      getPostByOneUserResponse: freezed == getPostByOneUserResponse
+          ? _value.getPostByOneUserResponse
+          : getPostByOneUserResponse // ignore: cast_nullable_to_non_nullable
+              as GetPostByOneUserResponseModel?,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -972,10 +1899,14 @@ abstract class _$$_InitialCopyWith<$Res>
       bool? isFriend,
       bool? isFriendRequestSent,
       bool isPageLoading,
+      bool isProfilePictureLoading,
+      bool isCoverPictureLoading,
       String? errorMessage,
       String? friendId,
       bool? isFriendRequestRecieved,
-      GetUserDetailsResponseModel? getUserDetailsResponse});
+      GetUserDetailsResponseModel? getUserDetailsResponse,
+      GetPostByOneUserResponseModel? getPostByOneUserResponse,
+      String? profilePicture});
 }
 
 /// @nodoc
@@ -995,10 +1926,14 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isFriend = freezed,
     Object? isFriendRequestSent = freezed,
     Object? isPageLoading = null,
+    Object? isProfilePictureLoading = null,
+    Object? isCoverPictureLoading = null,
     Object? errorMessage = freezed,
     Object? friendId = freezed,
     Object? isFriendRequestRecieved = freezed,
     Object? getUserDetailsResponse = freezed,
+    Object? getPostByOneUserResponse = freezed,
+    Object? profilePicture = freezed,
   }) {
     return _then(_$_Initial(
       firstName: null == firstName
@@ -1029,6 +1964,14 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.isPageLoading
           : isPageLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isProfilePictureLoading: null == isProfilePictureLoading
+          ? _value.isProfilePictureLoading
+          : isProfilePictureLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCoverPictureLoading: null == isCoverPictureLoading
+          ? _value.isCoverPictureLoading
+          : isCoverPictureLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1045,6 +1988,14 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.getUserDetailsResponse
           : getUserDetailsResponse // ignore: cast_nullable_to_non_nullable
               as GetUserDetailsResponseModel?,
+      getPostByOneUserResponse: freezed == getPostByOneUserResponse
+          ? _value.getPostByOneUserResponse
+          : getPostByOneUserResponse // ignore: cast_nullable_to_non_nullable
+              as GetPostByOneUserResponseModel?,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1060,10 +2011,14 @@ class _$_Initial implements _Initial {
       this.isFriend,
       this.isFriendRequestSent,
       required this.isPageLoading,
+      required this.isProfilePictureLoading,
+      required this.isCoverPictureLoading,
       this.errorMessage,
       this.friendId,
       this.isFriendRequestRecieved,
-      this.getUserDetailsResponse});
+      this.getUserDetailsResponse,
+      this.getPostByOneUserResponse,
+      this.profilePicture});
 
   @override
   final String firstName;
@@ -1080,6 +2035,10 @@ class _$_Initial implements _Initial {
   @override
   final bool isPageLoading;
   @override
+  final bool isProfilePictureLoading;
+  @override
+  final bool isCoverPictureLoading;
+  @override
   final String? errorMessage;
   @override
   final String? friendId;
@@ -1087,10 +2046,14 @@ class _$_Initial implements _Initial {
   final bool? isFriendRequestRecieved;
   @override
   final GetUserDetailsResponseModel? getUserDetailsResponse;
+  @override
+  final GetPostByOneUserResponseModel? getPostByOneUserResponse;
+  @override
+  final String? profilePicture;
 
   @override
   String toString() {
-    return 'ProfilePageState.initial(firstName: $firstName, lastName: $lastName, username: $username, isCurrentUserProfile: $isCurrentUserProfile, isFriend: $isFriend, isFriendRequestSent: $isFriendRequestSent, isPageLoading: $isPageLoading, errorMessage: $errorMessage, friendId: $friendId, isFriendRequestRecieved: $isFriendRequestRecieved, getUserDetailsResponse: $getUserDetailsResponse)';
+    return 'ProfilePageState.initial(firstName: $firstName, lastName: $lastName, username: $username, isCurrentUserProfile: $isCurrentUserProfile, isFriend: $isFriend, isFriendRequestSent: $isFriendRequestSent, isPageLoading: $isPageLoading, isProfilePictureLoading: $isProfilePictureLoading, isCoverPictureLoading: $isCoverPictureLoading, errorMessage: $errorMessage, friendId: $friendId, isFriendRequestRecieved: $isFriendRequestRecieved, getUserDetailsResponse: $getUserDetailsResponse, getPostByOneUserResponse: $getPostByOneUserResponse, profilePicture: $profilePicture)';
   }
 
   @override
@@ -1112,6 +2075,11 @@ class _$_Initial implements _Initial {
                 other.isFriendRequestSent == isFriendRequestSent) &&
             (identical(other.isPageLoading, isPageLoading) ||
                 other.isPageLoading == isPageLoading) &&
+            (identical(
+                    other.isProfilePictureLoading, isProfilePictureLoading) ||
+                other.isProfilePictureLoading == isProfilePictureLoading) &&
+            (identical(other.isCoverPictureLoading, isCoverPictureLoading) ||
+                other.isCoverPictureLoading == isCoverPictureLoading) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.friendId, friendId) ||
@@ -1120,7 +2088,12 @@ class _$_Initial implements _Initial {
                     other.isFriendRequestRecieved, isFriendRequestRecieved) ||
                 other.isFriendRequestRecieved == isFriendRequestRecieved) &&
             (identical(other.getUserDetailsResponse, getUserDetailsResponse) ||
-                other.getUserDetailsResponse == getUserDetailsResponse));
+                other.getUserDetailsResponse == getUserDetailsResponse) &&
+            (identical(
+                    other.getPostByOneUserResponse, getPostByOneUserResponse) ||
+                other.getPostByOneUserResponse == getPostByOneUserResponse) &&
+            (identical(other.profilePicture, profilePicture) ||
+                other.profilePicture == profilePicture));
   }
 
   @override
@@ -1133,10 +2106,14 @@ class _$_Initial implements _Initial {
       isFriend,
       isFriendRequestSent,
       isPageLoading,
+      isProfilePictureLoading,
+      isCoverPictureLoading,
       errorMessage,
       friendId,
       isFriendRequestRecieved,
-      getUserDetailsResponse);
+      getUserDetailsResponse,
+      getPostByOneUserResponse,
+      profilePicture);
 
   @JsonKey(ignore: true)
   @override
@@ -1155,10 +2132,14 @@ class _$_Initial implements _Initial {
             bool? isFriend,
             bool? isFriendRequestSent,
             bool isPageLoading,
+            bool isProfilePictureLoading,
+            bool isCoverPictureLoading,
             String? errorMessage,
             String? friendId,
             bool? isFriendRequestRecieved,
-            GetUserDetailsResponseModel? getUserDetailsResponse)
+            GetUserDetailsResponseModel? getUserDetailsResponse,
+            GetPostByOneUserResponseModel? getPostByOneUserResponse,
+            String? profilePicture)
         initial,
   }) {
     return initial(
@@ -1169,10 +2150,14 @@ class _$_Initial implements _Initial {
         isFriend,
         isFriendRequestSent,
         isPageLoading,
+        isProfilePictureLoading,
+        isCoverPictureLoading,
         errorMessage,
         friendId,
         isFriendRequestRecieved,
-        getUserDetailsResponse);
+        getUserDetailsResponse,
+        getPostByOneUserResponse,
+        profilePicture);
   }
 
   @override
@@ -1186,10 +2171,14 @@ class _$_Initial implements _Initial {
             bool? isFriend,
             bool? isFriendRequestSent,
             bool isPageLoading,
+            bool isProfilePictureLoading,
+            bool isCoverPictureLoading,
             String? errorMessage,
             String? friendId,
             bool? isFriendRequestRecieved,
-            GetUserDetailsResponseModel? getUserDetailsResponse)?
+            GetUserDetailsResponseModel? getUserDetailsResponse,
+            GetPostByOneUserResponseModel? getPostByOneUserResponse,
+            String? profilePicture)?
         initial,
   }) {
     return initial?.call(
@@ -1200,10 +2189,14 @@ class _$_Initial implements _Initial {
         isFriend,
         isFriendRequestSent,
         isPageLoading,
+        isProfilePictureLoading,
+        isCoverPictureLoading,
         errorMessage,
         friendId,
         isFriendRequestRecieved,
-        getUserDetailsResponse);
+        getUserDetailsResponse,
+        getPostByOneUserResponse,
+        profilePicture);
   }
 
   @override
@@ -1217,10 +2210,14 @@ class _$_Initial implements _Initial {
             bool? isFriend,
             bool? isFriendRequestSent,
             bool isPageLoading,
+            bool isProfilePictureLoading,
+            bool isCoverPictureLoading,
             String? errorMessage,
             String? friendId,
             bool? isFriendRequestRecieved,
-            GetUserDetailsResponseModel? getUserDetailsResponse)?
+            GetUserDetailsResponseModel? getUserDetailsResponse,
+            GetPostByOneUserResponseModel? getPostByOneUserResponse,
+            String? profilePicture)?
         initial,
     required TResult orElse(),
   }) {
@@ -1233,10 +2230,14 @@ class _$_Initial implements _Initial {
           isFriend,
           isFriendRequestSent,
           isPageLoading,
+          isProfilePictureLoading,
+          isCoverPictureLoading,
           errorMessage,
           friendId,
           isFriendRequestRecieved,
-          getUserDetailsResponse);
+          getUserDetailsResponse,
+          getPostByOneUserResponse,
+          profilePicture);
     }
     return orElse();
   }
@@ -1279,10 +2280,14 @@ abstract class _Initial implements ProfilePageState {
       final bool? isFriend,
       final bool? isFriendRequestSent,
       required final bool isPageLoading,
+      required final bool isProfilePictureLoading,
+      required final bool isCoverPictureLoading,
       final String? errorMessage,
       final String? friendId,
       final bool? isFriendRequestRecieved,
-      final GetUserDetailsResponseModel? getUserDetailsResponse}) = _$_Initial;
+      final GetUserDetailsResponseModel? getUserDetailsResponse,
+      final GetPostByOneUserResponseModel? getPostByOneUserResponse,
+      final String? profilePicture}) = _$_Initial;
 
   @override
   String get firstName;
@@ -1299,6 +2304,10 @@ abstract class _Initial implements ProfilePageState {
   @override
   bool get isPageLoading;
   @override
+  bool get isProfilePictureLoading;
+  @override
+  bool get isCoverPictureLoading;
+  @override
   String? get errorMessage;
   @override
   String? get friendId;
@@ -1306,6 +2315,10 @@ abstract class _Initial implements ProfilePageState {
   bool? get isFriendRequestRecieved;
   @override
   GetUserDetailsResponseModel? get getUserDetailsResponse;
+  @override
+  GetPostByOneUserResponseModel? get getPostByOneUserResponse;
+  @override
+  String? get profilePicture;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
