@@ -6,5 +6,9 @@ class HomePageState with _$HomePageState {
     required bool isLoading,
     String? errorMessage,
     GetPostsResponseModel? getPostsResponse,
+   required List<int> likedPostIndexList,
+   List<GetAllConversationsResponseModel>? getAllConversationsResponseList,
+   String? showMessage,
+   bool? isSharePostDescriptionEmpty,
   }) = _Initial;
 }

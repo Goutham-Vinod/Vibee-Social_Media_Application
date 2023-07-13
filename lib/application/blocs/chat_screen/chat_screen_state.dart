@@ -5,6 +5,7 @@ class ChatScreenState with _$ChatScreenState {
   const factory ChatScreenState.currentState({
     required bool isPageLoading,
     String? errorMessage,
-    GetMessageResponseModel? getMessage,
+    GetMessageResponseModel? getMessageResponse,
+    bool? isMessageSentOrRecieved,
   }) = _CurrentState;
 }

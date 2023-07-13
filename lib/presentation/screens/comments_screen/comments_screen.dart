@@ -11,7 +11,7 @@ import 'package:vibee/presentation/common_widgets/post_widget.dart';
 class CommentsScreen extends StatelessWidget {
   CommentsScreen({super.key});
 
-  TextEditingController commentController = TextEditingController();
+  final TextEditingController commentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,22 +19,23 @@ class CommentsScreen extends StatelessWidget {
         ModalRoute.of(context)?.settings.arguments as CommentsScreenArguments;
 
     BlocProvider.of<CommentsScreenBloc>(context).add(
-        CommentsScreenEvent.initalizeCommentsScreen(postId: routeArgs.postId));
-    log(routeArgs.postId);
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: backgroundScreenColor,
-        body: Stack(
-          children: [
-            SizedBox(
-              height: 735,
-              child: SingleChildScrollView(
-                //   padding: const EdgeInsets.only(top: 75),
-                child: BlocBuilder<CommentsScreenBloc, CommentsScreenState>(
-                  builder: (context, state) {
-                    return Column(
+        CommentsScreenEvent.initalizeCommentsScreen(
+            postId: routeArgs.postId, isLiked: routeArgs.isLiked));
+
+    return BlocBuilder<CommentsScreenBloc, CommentsScreenState>(
+      builder: (context, state) {
+        return Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: backgroundScreenColor,
+            body: Stack(
+              children: [
+                SizedBox(
+                  height: 735,
+                  child: SingleChildScrollView(
+                    //   padding: const EdgeInsets.only(top: 75),
+                    child: Column(
                       children: [
-                        SizedBox(height: 75),
+                        const SizedBox(height: 75),
                         PostWidget(
                           description: routeArgs.description,
                           postId: routeArgs.postId,
@@ -43,13 +44,19 @@ class CommentsScreen extends StatelessWidget {
                           dpNetworkImageApiPath:
                               routeArgs.dpNetworkImageApiPath,
                           postNetworkImageUrl: routeArgs.postNetworkImageUrl,
+                          commentButtonVisibility: false,
+                          isLiked: state.isLiked,
+                          likeButtonOnTap: () {
+                            BlocProvider.of<CommentsScreenBloc>(context)
+                                .add(const CommentsScreenEvent.likePost());
+                          },
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 5, right: 5, top: 2, bottom: 10),
                           child: ListView.builder(
                             padding: const EdgeInsets.all(0),
-                            itemCount: state.loadCommentsResponse?.length,
+                            itemCount: state.loadCommentsResponse?.length ?? 0,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
@@ -64,7 +71,7 @@ class CommentsScreen extends StatelessWidget {
 
                                   titleSize: 15,
                                   subtitle:
-                                      state.loadCommentsResponse?[index]?.text,
+                                      '${state.loadCommentsResponse?[index]?.text}',
                                   // state.loadCommentsResponse
                                   //     ?.comments?[index].text,
                                   subtitleSize: 15,
@@ -82,42 +89,36 @@ class CommentsScreen extends StatelessWidget {
                           ),
                         ),
                       ],
-                    );
-                  },
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 80,
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                    Colors.black,
-                    Colors.transparent,
-                  ])),
-            ),
-            Positioned(
-              top: 20,
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  )),
-            ),
-            Positioned(
-              top: 750,
-              left: 12,
-              child: BlocBuilder<CommentsScreenBloc, CommentsScreenState>(
-                builder: (context, state) {
-                  commentController.text = '';
-
-                  return Row(
+                Container(
+                  width: double.infinity,
+                  height: 80,
+                  decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                        Colors.black,
+                        Colors.transparent,
+                      ])),
+                ),
+                Positioned(
+                  top: 20,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      )),
+                ),
+                Positioned(
+                  top: 750,
+                  left: 12,
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       vibeeTextFormField(
@@ -129,9 +130,10 @@ class CommentsScreen extends StatelessWidget {
                         onPressed: () {
                           BlocProvider.of<CommentsScreenBloc>(context)
                               .add(CommentsScreenEvent.sentComment(
-                                  postId: '',
+                                  postId: routeArgs.postId,
                                   //state.loadCommentsResponse!.id!,
                                   comment: commentController.text));
+                          commentController.clear();
                         },
                         style: const ButtonStyle(
                             backgroundColor:
@@ -140,15 +142,15 @@ class CommentsScreen extends StatelessWidget {
                         child: const Icon(Icons.send),
                       )
                     ],
-                  );
-                },
-              ),
-            ),
-            const SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-            )
-          ],
-        ));
+                  ),
+                ),
+                const SizedBox(
+                  height: double.infinity,
+                  width: double.infinity,
+                )
+              ],
+            ));
+      },
+    );
   }
 }

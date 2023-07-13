@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/core/routing/routing_arguments/comments__screen_arguments.dart';
+import 'package:vibee/presentation/common_widgets/share_post_modal_bottom_sheet.dart';
 import 'common_widgets.dart';
 
 class PostWidget extends StatelessWidget {
@@ -17,6 +19,10 @@ class PostWidget extends StatelessWidget {
     required this.postId,
     this.isSavedPostPageWidget,
     this.isMyPost,
+    this.commentButtonVisibility,
+    this.isLiked,
+    this.likeButtonOnTap,
+    this.shareButtonOnTap,
   });
 
   final bool? isMyPost; // dafault false
@@ -28,6 +34,10 @@ class PostWidget extends StatelessWidget {
   final String profileName;
   final String postId;
   final String? place;
+  final bool? commentButtonVisibility;
+  final bool? isLiked;
+  final Function? likeButtonOnTap;
+  final Function? shareButtonOnTap;
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +57,21 @@ class PostWidget extends StatelessWidget {
             top: 100,
             child: Visibility(
               visible: postNetworkImageUrl != null,
-              child: Container(
-                  height: 400,
-                  width: 395,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(postNetworkImageUrl ??
-                              CommonVariables.defaultNetworkImageUrl)))),
+              child: InkWell(
+                onDoubleTap: () {
+                  if (likeButtonOnTap != null) {
+                    likeButtonOnTap!();
+                  }
+                },
+                child: Container(
+                    height: 400,
+                    width: 395,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(postNetworkImageUrl ??
+                                CommonVariables.defaultNetworkImageUrl)))),
+              ),
             ),
           ),
           Positioned(
@@ -174,29 +191,51 @@ class PostWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite_border_rounded,
-                        size: 30,
-                        color: Colors.white,
-                      ),
+                      onPressed: () {
+                        // like
+                        if (likeButtonOnTap != null) {
+                          likeButtonOnTap!();
+                        }
+                      },
+                      icon: isLiked == true
+                          ? const Icon(
+                              Icons.favorite,
+                              size: 30,
+                              color: Colors.red,
+                            )
+                          : const Icon(
+                              Icons.favorite_border_rounded,
+                              size: 30,
+                              color: Colors.white,
+                            ),
                     ),
-                    InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(
-                              context, RouteGenerator.commentsScreen,
-                              arguments: CommentsScreenArguments(
-                                description: description,
-                                profileName: profileName,
-                                postId: postId,
-                                dateNTime: dateNTime,
-                                dpNetworkImageApiPath: dpNetworkImageApiPath,
-                                postNetworkImageUrl: postNetworkImageUrl,
-                              ));
-                        },
-                        child: Image.asset("assets/icons/Chat_alt.png")),
+                    Visibility(
+                      visible: commentButtonVisibility ?? true,
+                      child: InkWell(
+                          onTap: () {
+                            // comment
+                            print('post Id $postId');
+                            Navigator.pushNamed(
+                                context, RouteGenerator.commentsScreen,
+                                arguments: CommentsScreenArguments(
+                                    description: description,
+                                    profileName: profileName,
+                                    postId: postId,
+                                    dateNTime: dateNTime,
+                                    dpNetworkImageApiPath:
+                                        dpNetworkImageApiPath,
+                                    postNetworkImageUrl: postNetworkImageUrl,
+                                    isLiked: isLiked ?? false));
+                          },
+                          child: Image.asset("assets/icons/Chat_alt.png")),
+                    ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // share
+                        if (shareButtonOnTap != null) {
+                          shareButtonOnTap!(); 
+                        }
+                      },
                       icon: const Icon(
                         Icons.send_rounded,
                         size: 30,

@@ -8,6 +8,7 @@ class CommentsScreenArguments {
   final String profileName;
   final String postId;
   final String? place;
+  final bool isLiked;
 
   CommentsScreenArguments({
     this.postNetworkImageUrl,
@@ -19,5 +20,6 @@ class CommentsScreenArguments {
     required this.postId,
     this.isSavedPostPageWidget,
     this.isMyPost,
+    required this.isLiked,
   });
 }

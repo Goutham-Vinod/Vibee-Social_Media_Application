@@ -170,26 +170,32 @@ abstract class _InitializeMessagePage implements MessagesPageEvent {
 mixin _$MessagesPageState {
   bool get isPageLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  GetAllConversationsResponseModel? get getAllConversationsResponse =>
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponse =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isPageLoading, String? errorMessage,
-            GetAllConversationsResponseModel? getAllConversationsResponse)
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse)
         currentState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isPageLoading, String? errorMessage,
-            GetAllConversationsResponseModel? getAllConversationsResponse)?
+    TResult? Function(
+            bool isPageLoading,
+            String? errorMessage,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponse)?
         currentState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isPageLoading, String? errorMessage,
-            GetAllConversationsResponseModel? getAllConversationsResponse)?
+    TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponse)?
         currentState,
     required TResult orElse(),
   }) =>
@@ -225,7 +231,7 @@ abstract class $MessagesPageStateCopyWith<$Res> {
   $Res call(
       {bool isPageLoading,
       String? errorMessage,
-      GetAllConversationsResponseModel? getAllConversationsResponse});
+      List<GetAllConversationsResponseModel>? getAllConversationsResponse});
 }
 
 /// @nodoc
@@ -257,7 +263,7 @@ class _$MessagesPageStateCopyWithImpl<$Res, $Val extends MessagesPageState>
       getAllConversationsResponse: freezed == getAllConversationsResponse
           ? _value.getAllConversationsResponse
           : getAllConversationsResponse // ignore: cast_nullable_to_non_nullable
-              as GetAllConversationsResponseModel?,
+              as List<GetAllConversationsResponseModel>?,
     ) as $Val);
   }
 }
@@ -273,7 +279,7 @@ abstract class _$$_CurrentStateCopyWith<$Res>
   $Res call(
       {bool isPageLoading,
       String? errorMessage,
-      GetAllConversationsResponseModel? getAllConversationsResponse});
+      List<GetAllConversationsResponseModel>? getAllConversationsResponse});
 }
 
 /// @nodoc
@@ -301,9 +307,9 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       getAllConversationsResponse: freezed == getAllConversationsResponse
-          ? _value.getAllConversationsResponse
+          ? _value._getAllConversationsResponse
           : getAllConversationsResponse // ignore: cast_nullable_to_non_nullable
-              as GetAllConversationsResponseModel?,
+              as List<GetAllConversationsResponseModel>?,
     ));
   }
 }
@@ -314,14 +320,24 @@ class _$_CurrentState implements _CurrentState {
   const _$_CurrentState(
       {required this.isPageLoading,
       this.errorMessage,
-      this.getAllConversationsResponse});
+      final List<GetAllConversationsResponseModel>?
+          getAllConversationsResponse})
+      : _getAllConversationsResponse = getAllConversationsResponse;
 
   @override
   final bool isPageLoading;
   @override
   final String? errorMessage;
+  final List<GetAllConversationsResponseModel>? _getAllConversationsResponse;
   @override
-  final GetAllConversationsResponseModel? getAllConversationsResponse;
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponse {
+    final value = _getAllConversationsResponse;
+    if (value == null) return null;
+    if (_getAllConversationsResponse is EqualUnmodifiableListView)
+      return _getAllConversationsResponse;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -337,15 +353,14 @@ class _$_CurrentState implements _CurrentState {
                 other.isPageLoading == isPageLoading) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.getAllConversationsResponse,
-                    getAllConversationsResponse) ||
-                other.getAllConversationsResponse ==
-                    getAllConversationsResponse));
+            const DeepCollectionEquality().equals(
+                other._getAllConversationsResponse,
+                _getAllConversationsResponse));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isPageLoading, errorMessage, getAllConversationsResponse);
+  int get hashCode => Object.hash(runtimeType, isPageLoading, errorMessage,
+      const DeepCollectionEquality().hash(_getAllConversationsResponse));
 
   @JsonKey(ignore: true)
   @override
@@ -357,7 +372,7 @@ class _$_CurrentState implements _CurrentState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isPageLoading, String? errorMessage,
-            GetAllConversationsResponseModel? getAllConversationsResponse)
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse)
         currentState,
   }) {
     return currentState(
@@ -367,8 +382,11 @@ class _$_CurrentState implements _CurrentState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isPageLoading, String? errorMessage,
-            GetAllConversationsResponseModel? getAllConversationsResponse)?
+    TResult? Function(
+            bool isPageLoading,
+            String? errorMessage,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponse)?
         currentState,
   }) {
     return currentState?.call(
@@ -378,8 +396,11 @@ class _$_CurrentState implements _CurrentState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isPageLoading, String? errorMessage,
-            GetAllConversationsResponseModel? getAllConversationsResponse)?
+    TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponse)?
         currentState,
     required TResult orElse(),
   }) {
@@ -423,7 +444,7 @@ abstract class _CurrentState implements MessagesPageState {
   const factory _CurrentState(
       {required final bool isPageLoading,
       final String? errorMessage,
-      final GetAllConversationsResponseModel?
+      final List<GetAllConversationsResponseModel>?
           getAllConversationsResponse}) = _$_CurrentState;
 
   @override
@@ -431,7 +452,7 @@ abstract class _CurrentState implements MessagesPageState {
   @override
   String? get errorMessage;
   @override
-  GetAllConversationsResponseModel? get getAllConversationsResponse;
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponse;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentStateCopyWith<_$_CurrentState> get copyWith =>

@@ -16,37 +16,55 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreateGroupScreen_2Event {
+  String? get groupName => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String groupName) createGroup,
+    required TResult Function(
+            List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)
+        initializePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String groupName)? createGroup,
+    TResult? Function(List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)?
+        initializePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String groupName)? createGroup,
+    TResult Function(List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)?
+        initializePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_CreateGroup value) createGroup,
+    required TResult Function(_InitializePage value) initializePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateGroup value)? createGroup,
+    TResult? Function(_InitializePage value)? initializePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_CreateGroup value)? createGroup,
+    TResult Function(_InitializePage value)? initializePage,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CreateGroupScreen_2EventCopyWith<CreateGroupScreen_2Event> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +73,8 @@ abstract class $CreateGroupScreen_2EventCopyWith<$Res> {
   factory $CreateGroupScreen_2EventCopyWith(CreateGroupScreen_2Event value,
           $Res Function(CreateGroupScreen_2Event) then) =
       _$CreateGroupScreen_2EventCopyWithImpl<$Res, CreateGroupScreen_2Event>;
+  @useResult
+  $Res call({String groupName});
 }
 
 /// @nodoc
@@ -67,66 +87,119 @@ class _$CreateGroupScreen_2EventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? groupName = null,
+  }) {
+    return _then(_value.copyWith(
+      groupName: null == groupName
+          ? _value.groupName!
+          : groupName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_CreateGroupCopyWith<$Res>
+    implements $CreateGroupScreen_2EventCopyWith<$Res> {
+  factory _$$_CreateGroupCopyWith(
+          _$_CreateGroup value, $Res Function(_$_CreateGroup) then) =
+      __$$_CreateGroupCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String groupName});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CreateGroupScreen_2EventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_CreateGroupCopyWithImpl<$Res>
+    extends _$CreateGroupScreen_2EventCopyWithImpl<$Res, _$_CreateGroup>
+    implements _$$_CreateGroupCopyWith<$Res> {
+  __$$_CreateGroupCopyWithImpl(
+      _$_CreateGroup _value, $Res Function(_$_CreateGroup) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? groupName = null,
+  }) {
+    return _then(_$_CreateGroup(
+      groupName: null == groupName
+          ? _value.groupName
+          : groupName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_CreateGroup implements _CreateGroup {
+  const _$_CreateGroup({required this.groupName});
+
+  @override
+  final String groupName;
 
   @override
   String toString() {
-    return 'CreateGroupScreen_2Event.started()';
+    return 'CreateGroupScreen_2Event.createGroup(groupName: $groupName)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$_CreateGroup &&
+            (identical(other.groupName, groupName) ||
+                other.groupName == groupName));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, groupName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreateGroupCopyWith<_$_CreateGroup> get copyWith =>
+      __$$_CreateGroupCopyWithImpl<_$_CreateGroup>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String groupName) createGroup,
+    required TResult Function(
+            List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)
+        initializePage,
   }) {
-    return started();
+    return createGroup(groupName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String groupName)? createGroup,
+    TResult? Function(List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)?
+        initializePage,
   }) {
-    return started?.call();
+    return createGroup?.call(groupName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String groupName)? createGroup,
+    TResult Function(List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)?
+        initializePage,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (createGroup != null) {
+      return createGroup(groupName);
     }
     return orElse();
   }
@@ -134,34 +207,217 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_CreateGroup value) createGroup,
+    required TResult Function(_InitializePage value) initializePage,
   }) {
-    return started(this);
+    return createGroup(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateGroup value)? createGroup,
+    TResult? Function(_InitializePage value)? initializePage,
   }) {
-    return started?.call(this);
+    return createGroup?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_CreateGroup value)? createGroup,
+    TResult Function(_InitializePage value)? initializePage,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (createGroup != null) {
+      return createGroup(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CreateGroupScreen_2Event {
-  const factory _Started() = _$_Started;
+abstract class _CreateGroup implements CreateGroupScreen_2Event {
+  const factory _CreateGroup({required final String groupName}) =
+      _$_CreateGroup;
+
+  @override
+  String get groupName;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreateGroupCopyWith<_$_CreateGroup> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InitializePageCopyWith<$Res>
+    implements $CreateGroupScreen_2EventCopyWith<$Res> {
+  factory _$$_InitializePageCopyWith(
+          _$_InitializePage value, $Res Function(_$_InitializePage) then) =
+      __$$_InitializePageCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<FriendsListResponseModel> selectedGroupMembersList,
+      String? groupName});
+}
+
+/// @nodoc
+class __$$_InitializePageCopyWithImpl<$Res>
+    extends _$CreateGroupScreen_2EventCopyWithImpl<$Res, _$_InitializePage>
+    implements _$$_InitializePageCopyWith<$Res> {
+  __$$_InitializePageCopyWithImpl(
+      _$_InitializePage _value, $Res Function(_$_InitializePage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedGroupMembersList = null,
+    Object? groupName = freezed,
+  }) {
+    return _then(_$_InitializePage(
+      selectedGroupMembersList: null == selectedGroupMembersList
+          ? _value._selectedGroupMembersList
+          : selectedGroupMembersList // ignore: cast_nullable_to_non_nullable
+              as List<FriendsListResponseModel>,
+      groupName: freezed == groupName
+          ? _value.groupName
+          : groupName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InitializePage implements _InitializePage {
+  const _$_InitializePage(
+      {required final List<FriendsListResponseModel> selectedGroupMembersList,
+      this.groupName})
+      : _selectedGroupMembersList = selectedGroupMembersList;
+
+  final List<FriendsListResponseModel> _selectedGroupMembersList;
+  @override
+  List<FriendsListResponseModel> get selectedGroupMembersList {
+    if (_selectedGroupMembersList is EqualUnmodifiableListView)
+      return _selectedGroupMembersList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedGroupMembersList);
+  }
+
+  @override
+  final String? groupName;
+
+  @override
+  String toString() {
+    return 'CreateGroupScreen_2Event.initializePage(selectedGroupMembersList: $selectedGroupMembersList, groupName: $groupName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InitializePage &&
+            const DeepCollectionEquality().equals(
+                other._selectedGroupMembersList, _selectedGroupMembersList) &&
+            (identical(other.groupName, groupName) ||
+                other.groupName == groupName));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_selectedGroupMembersList),
+      groupName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitializePageCopyWith<_$_InitializePage> get copyWith =>
+      __$$_InitializePageCopyWithImpl<_$_InitializePage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String groupName) createGroup,
+    required TResult Function(
+            List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)
+        initializePage,
+  }) {
+    return initializePage(selectedGroupMembersList, groupName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String groupName)? createGroup,
+    TResult? Function(List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)?
+        initializePage,
+  }) {
+    return initializePage?.call(selectedGroupMembersList, groupName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String groupName)? createGroup,
+    TResult Function(List<FriendsListResponseModel> selectedGroupMembersList,
+            String? groupName)?
+        initializePage,
+    required TResult orElse(),
+  }) {
+    if (initializePage != null) {
+      return initializePage(selectedGroupMembersList, groupName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreateGroup value) createGroup,
+    required TResult Function(_InitializePage value) initializePage,
+  }) {
+    return initializePage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreateGroup value)? createGroup,
+    TResult? Function(_InitializePage value)? initializePage,
+  }) {
+    return initializePage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreateGroup value)? createGroup,
+    TResult Function(_InitializePage value)? initializePage,
+    required TResult orElse(),
+  }) {
+    if (initializePage != null) {
+      return initializePage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitializePage implements CreateGroupScreen_2Event {
+  const factory _InitializePage(
+      {required final List<FriendsListResponseModel> selectedGroupMembersList,
+      final String? groupName}) = _$_InitializePage;
+
+  List<FriendsListResponseModel> get selectedGroupMembersList;
+  @override
+  String? get groupName;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InitializePageCopyWith<_$_InitializePage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -169,6 +425,8 @@ mixin _$CreateGroupScreen_2State {
   bool get isPageLoading => throw _privateConstructorUsedError;
   bool? get isGroupCreated => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
+  List<FriendsListResponseModel>? get selectedGroupMembersList =>
+      throw _privateConstructorUsedError;
   CreateGroupConversationResponseModel? get createGroupConversationResponse =>
       throw _privateConstructorUsedError;
   CreateGroupConversationRequestModel? get createGroupConversationRequest =>
@@ -179,6 +437,7 @@ mixin _$CreateGroupScreen_2State {
             bool isPageLoading,
             bool? isGroupCreated,
             String? errorMessage,
+            List<FriendsListResponseModel>? selectedGroupMembersList,
             CreateGroupConversationResponseModel?
                 createGroupConversationResponse,
             CreateGroupConversationRequestModel? createGroupConversationRequest)
@@ -191,6 +450,7 @@ mixin _$CreateGroupScreen_2State {
             bool isPageLoading,
             bool? isGroupCreated,
             String? errorMessage,
+            List<FriendsListResponseModel>? selectedGroupMembersList,
             CreateGroupConversationResponseModel?
                 createGroupConversationResponse,
             CreateGroupConversationRequestModel?
@@ -204,6 +464,7 @@ mixin _$CreateGroupScreen_2State {
             bool isPageLoading,
             bool? isGroupCreated,
             String? errorMessage,
+            List<FriendsListResponseModel>? selectedGroupMembersList,
             CreateGroupConversationResponseModel?
                 createGroupConversationResponse,
             CreateGroupConversationRequestModel?
@@ -244,6 +505,7 @@ abstract class $CreateGroupScreen_2StateCopyWith<$Res> {
       {bool isPageLoading,
       bool? isGroupCreated,
       String? errorMessage,
+      List<FriendsListResponseModel>? selectedGroupMembersList,
       CreateGroupConversationResponseModel? createGroupConversationResponse,
       CreateGroupConversationRequestModel? createGroupConversationRequest});
 }
@@ -265,6 +527,7 @@ class _$CreateGroupScreen_2StateCopyWithImpl<$Res,
     Object? isPageLoading = null,
     Object? isGroupCreated = freezed,
     Object? errorMessage = freezed,
+    Object? selectedGroupMembersList = freezed,
     Object? createGroupConversationResponse = freezed,
     Object? createGroupConversationRequest = freezed,
   }) {
@@ -281,6 +544,10 @@ class _$CreateGroupScreen_2StateCopyWithImpl<$Res,
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedGroupMembersList: freezed == selectedGroupMembersList
+          ? _value.selectedGroupMembersList
+          : selectedGroupMembersList // ignore: cast_nullable_to_non_nullable
+              as List<FriendsListResponseModel>?,
       createGroupConversationResponse: freezed ==
               createGroupConversationResponse
           ? _value.createGroupConversationResponse
@@ -306,6 +573,7 @@ abstract class _$$_CurrentStateCopyWith<$Res>
       {bool isPageLoading,
       bool? isGroupCreated,
       String? errorMessage,
+      List<FriendsListResponseModel>? selectedGroupMembersList,
       CreateGroupConversationResponseModel? createGroupConversationResponse,
       CreateGroupConversationRequestModel? createGroupConversationRequest});
 }
@@ -324,6 +592,7 @@ class __$$_CurrentStateCopyWithImpl<$Res>
     Object? isPageLoading = null,
     Object? isGroupCreated = freezed,
     Object? errorMessage = freezed,
+    Object? selectedGroupMembersList = freezed,
     Object? createGroupConversationResponse = freezed,
     Object? createGroupConversationRequest = freezed,
   }) {
@@ -340,6 +609,10 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedGroupMembersList: freezed == selectedGroupMembersList
+          ? _value._selectedGroupMembersList
+          : selectedGroupMembersList // ignore: cast_nullable_to_non_nullable
+              as List<FriendsListResponseModel>?,
       createGroupConversationResponse: freezed ==
               createGroupConversationResponse
           ? _value.createGroupConversationResponse
@@ -360,8 +633,10 @@ class _$_CurrentState implements _CurrentState {
       {required this.isPageLoading,
       this.isGroupCreated,
       this.errorMessage,
+      final List<FriendsListResponseModel>? selectedGroupMembersList,
       this.createGroupConversationResponse,
-      this.createGroupConversationRequest});
+      this.createGroupConversationRequest})
+      : _selectedGroupMembersList = selectedGroupMembersList;
 
   @override
   final bool isPageLoading;
@@ -369,6 +644,17 @@ class _$_CurrentState implements _CurrentState {
   final bool? isGroupCreated;
   @override
   final String? errorMessage;
+  final List<FriendsListResponseModel>? _selectedGroupMembersList;
+  @override
+  List<FriendsListResponseModel>? get selectedGroupMembersList {
+    final value = _selectedGroupMembersList;
+    if (value == null) return null;
+    if (_selectedGroupMembersList is EqualUnmodifiableListView)
+      return _selectedGroupMembersList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final CreateGroupConversationResponseModel? createGroupConversationResponse;
   @override
@@ -376,7 +662,7 @@ class _$_CurrentState implements _CurrentState {
 
   @override
   String toString() {
-    return 'CreateGroupScreen_2State.currentState(isPageLoading: $isPageLoading, isGroupCreated: $isGroupCreated, errorMessage: $errorMessage, createGroupConversationResponse: $createGroupConversationResponse, createGroupConversationRequest: $createGroupConversationRequest)';
+    return 'CreateGroupScreen_2State.currentState(isPageLoading: $isPageLoading, isGroupCreated: $isGroupCreated, errorMessage: $errorMessage, selectedGroupMembersList: $selectedGroupMembersList, createGroupConversationResponse: $createGroupConversationResponse, createGroupConversationRequest: $createGroupConversationRequest)';
   }
 
   @override
@@ -390,6 +676,8 @@ class _$_CurrentState implements _CurrentState {
                 other.isGroupCreated == isGroupCreated) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
+            const DeepCollectionEquality().equals(
+                other._selectedGroupMembersList, _selectedGroupMembersList) &&
             (identical(other.createGroupConversationResponse,
                     createGroupConversationResponse) ||
                 other.createGroupConversationResponse ==
@@ -406,6 +694,7 @@ class _$_CurrentState implements _CurrentState {
       isPageLoading,
       isGroupCreated,
       errorMessage,
+      const DeepCollectionEquality().hash(_selectedGroupMembersList),
       createGroupConversationResponse,
       createGroupConversationRequest);
 
@@ -422,13 +711,19 @@ class _$_CurrentState implements _CurrentState {
             bool isPageLoading,
             bool? isGroupCreated,
             String? errorMessage,
+            List<FriendsListResponseModel>? selectedGroupMembersList,
             CreateGroupConversationResponseModel?
                 createGroupConversationResponse,
             CreateGroupConversationRequestModel? createGroupConversationRequest)
         currentState,
   }) {
-    return currentState(isPageLoading, isGroupCreated, errorMessage,
-        createGroupConversationResponse, createGroupConversationRequest);
+    return currentState(
+        isPageLoading,
+        isGroupCreated,
+        errorMessage,
+        selectedGroupMembersList,
+        createGroupConversationResponse,
+        createGroupConversationRequest);
   }
 
   @override
@@ -438,14 +733,20 @@ class _$_CurrentState implements _CurrentState {
             bool isPageLoading,
             bool? isGroupCreated,
             String? errorMessage,
+            List<FriendsListResponseModel>? selectedGroupMembersList,
             CreateGroupConversationResponseModel?
                 createGroupConversationResponse,
             CreateGroupConversationRequestModel?
                 createGroupConversationRequest)?
         currentState,
   }) {
-    return currentState?.call(isPageLoading, isGroupCreated, errorMessage,
-        createGroupConversationResponse, createGroupConversationRequest);
+    return currentState?.call(
+        isPageLoading,
+        isGroupCreated,
+        errorMessage,
+        selectedGroupMembersList,
+        createGroupConversationResponse,
+        createGroupConversationRequest);
   }
 
   @override
@@ -455,6 +756,7 @@ class _$_CurrentState implements _CurrentState {
             bool isPageLoading,
             bool? isGroupCreated,
             String? errorMessage,
+            List<FriendsListResponseModel>? selectedGroupMembersList,
             CreateGroupConversationResponseModel?
                 createGroupConversationResponse,
             CreateGroupConversationRequestModel?
@@ -463,8 +765,13 @@ class _$_CurrentState implements _CurrentState {
     required TResult orElse(),
   }) {
     if (currentState != null) {
-      return currentState(isPageLoading, isGroupCreated, errorMessage,
-          createGroupConversationResponse, createGroupConversationRequest);
+      return currentState(
+          isPageLoading,
+          isGroupCreated,
+          errorMessage,
+          selectedGroupMembersList,
+          createGroupConversationResponse,
+          createGroupConversationRequest);
     }
     return orElse();
   }
@@ -503,6 +810,7 @@ abstract class _CurrentState implements CreateGroupScreen_2State {
       {required final bool isPageLoading,
       final bool? isGroupCreated,
       final String? errorMessage,
+      final List<FriendsListResponseModel>? selectedGroupMembersList,
       final CreateGroupConversationResponseModel?
           createGroupConversationResponse,
       final CreateGroupConversationRequestModel?
@@ -514,6 +822,8 @@ abstract class _CurrentState implements CreateGroupScreen_2State {
   bool? get isGroupCreated;
   @override
   String? get errorMessage;
+  @override
+  List<FriendsListResponseModel>? get selectedGroupMembersList;
   @override
   CreateGroupConversationResponseModel? get createGroupConversationResponse;
   @override

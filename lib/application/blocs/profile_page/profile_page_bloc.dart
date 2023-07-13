@@ -168,6 +168,17 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
           isFriendRequestRecieved: false,
         ));
       });
+
+      Either<ApiFailure, bool> isConversationCreatedResult =
+          await APIServices.createNewSingleConversation(
+              friendId: state.friendId!);
+
+      isConversationCreatedResult.fold((failure) {
+        emit(state.copyWith(errorMessage: failure.errorMessage));
+        emit(state.copyWith(errorMessage: null));
+      }, (success) {
+        print('Conversation created');
+      });
     });
 
     on<UpdateProfilePictureUsingCamera>((event, emit) async {

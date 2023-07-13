@@ -6,6 +6,7 @@ class CreateGroupScreen_2State with _$CreateGroupScreen_2State {
     required bool isPageLoading,
     bool? isGroupCreated,
     String? errorMessage,
+    List<FriendsListResponseModel>? selectedGroupMembersList,
     CreateGroupConversationResponseModel? createGroupConversationResponse,
     CreateGroupConversationRequestModel? createGroupConversationRequest,
   }) = _CurrentState;

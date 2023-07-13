@@ -5,6 +5,6 @@ class MessagesPageState with _$MessagesPageState {
   const factory MessagesPageState.currentState({
     required bool isPageLoading,
     String? errorMessage,
-    GetAllConversationsResponseModel? getAllConversationsResponse,
+    List<GetAllConversationsResponseModel>? getAllConversationsResponse,
   }) = _CurrentState;
 }

@@ -11,5 +11,6 @@ class CommentsScreenState with _$CommentsScreenState {
     String? postImageUrl,
   List <LoadCommentsResponseModel?>? loadCommentsResponse,
     String? postId,
+    bool? isLiked,
   }) = _Current;
 }

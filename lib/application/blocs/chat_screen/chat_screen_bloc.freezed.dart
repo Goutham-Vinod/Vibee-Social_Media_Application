@@ -18,33 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ChatScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String chatId) initializeScreen,
+    required TResult Function(String? message) sendMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String chatId)? initializeScreen,
+    TResult? Function(String? message)? sendMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String chatId)? initializeScreen,
+    TResult Function(String? message)? sendMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_InitializeScreen value) initializeScreen,
+    required TResult Function(_SendMessage value) sendMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_InitializeScreen value)? initializeScreen,
+    TResult? Function(_SendMessage value)? sendMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_InitializeScreen value)? initializeScreen,
+    TResult Function(_SendMessage value)? sendMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,63 +75,93 @@ class _$ChatScreenEventCopyWithImpl<$Res, $Val extends ChatScreenEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_InitializeScreenCopyWith<$Res> {
+  factory _$$_InitializeScreenCopyWith(
+          _$_InitializeScreen value, $Res Function(_$_InitializeScreen) then) =
+      __$$_InitializeScreenCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String chatId});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$ChatScreenEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_InitializeScreenCopyWithImpl<$Res>
+    extends _$ChatScreenEventCopyWithImpl<$Res, _$_InitializeScreen>
+    implements _$$_InitializeScreenCopyWith<$Res> {
+  __$$_InitializeScreenCopyWithImpl(
+      _$_InitializeScreen _value, $Res Function(_$_InitializeScreen) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chatId = null,
+  }) {
+    return _then(_$_InitializeScreen(
+      chatId: null == chatId
+          ? _value.chatId
+          : chatId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_InitializeScreen implements _InitializeScreen {
+  const _$_InitializeScreen({required this.chatId});
+
+  @override
+  final String chatId;
 
   @override
   String toString() {
-    return 'ChatScreenEvent.started()';
+    return 'ChatScreenEvent.initializeScreen(chatId: $chatId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$_InitializeScreen &&
+            (identical(other.chatId, chatId) || other.chatId == chatId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, chatId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitializeScreenCopyWith<_$_InitializeScreen> get copyWith =>
+      __$$_InitializeScreenCopyWithImpl<_$_InitializeScreen>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String chatId) initializeScreen,
+    required TResult Function(String? message) sendMessage,
   }) {
-    return started();
+    return initializeScreen(chatId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String chatId)? initializeScreen,
+    TResult? Function(String? message)? sendMessage,
   }) {
-    return started?.call();
+    return initializeScreen?.call(chatId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String chatId)? initializeScreen,
+    TResult Function(String? message)? sendMessage,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (initializeScreen != null) {
+      return initializeScreen(chatId);
     }
     return orElse();
   }
@@ -133,59 +169,212 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_InitializeScreen value) initializeScreen,
+    required TResult Function(_SendMessage value) sendMessage,
   }) {
-    return started(this);
+    return initializeScreen(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_InitializeScreen value)? initializeScreen,
+    TResult? Function(_SendMessage value)? sendMessage,
   }) {
-    return started?.call(this);
+    return initializeScreen?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_InitializeScreen value)? initializeScreen,
+    TResult Function(_SendMessage value)? sendMessage,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (initializeScreen != null) {
+      return initializeScreen(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements ChatScreenEvent {
-  const factory _Started() = _$_Started;
+abstract class _InitializeScreen implements ChatScreenEvent {
+  const factory _InitializeScreen({required final String chatId}) =
+      _$_InitializeScreen;
+
+  String get chatId;
+  @JsonKey(ignore: true)
+  _$$_InitializeScreenCopyWith<_$_InitializeScreen> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SendMessageCopyWith<$Res> {
+  factory _$$_SendMessageCopyWith(
+          _$_SendMessage value, $Res Function(_$_SendMessage) then) =
+      __$$_SendMessageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$_SendMessageCopyWithImpl<$Res>
+    extends _$ChatScreenEventCopyWithImpl<$Res, _$_SendMessage>
+    implements _$$_SendMessageCopyWith<$Res> {
+  __$$_SendMessageCopyWithImpl(
+      _$_SendMessage _value, $Res Function(_$_SendMessage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_SendMessage(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SendMessage implements _SendMessage {
+  const _$_SendMessage({this.message});
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'ChatScreenEvent.sendMessage(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SendMessage &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SendMessageCopyWith<_$_SendMessage> get copyWith =>
+      __$$_SendMessageCopyWithImpl<_$_SendMessage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String chatId) initializeScreen,
+    required TResult Function(String? message) sendMessage,
+  }) {
+    return sendMessage(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String chatId)? initializeScreen,
+    TResult? Function(String? message)? sendMessage,
+  }) {
+    return sendMessage?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String chatId)? initializeScreen,
+    TResult Function(String? message)? sendMessage,
+    required TResult orElse(),
+  }) {
+    if (sendMessage != null) {
+      return sendMessage(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeScreen value) initializeScreen,
+    required TResult Function(_SendMessage value) sendMessage,
+  }) {
+    return sendMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeScreen value)? initializeScreen,
+    TResult? Function(_SendMessage value)? sendMessage,
+  }) {
+    return sendMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeScreen value)? initializeScreen,
+    TResult Function(_SendMessage value)? sendMessage,
+    required TResult orElse(),
+  }) {
+    if (sendMessage != null) {
+      return sendMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendMessage implements ChatScreenEvent {
+  const factory _SendMessage({final String? message}) = _$_SendMessage;
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$_SendMessageCopyWith<_$_SendMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$ChatScreenState {
   bool get isPageLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  GetMessageResponseModel? get getMessage => throw _privateConstructorUsedError;
+  GetMessageResponseModel? get getMessageResponse =>
+      throw _privateConstructorUsedError;
+  bool? get isMessageSentOrRecieved => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isPageLoading, String? errorMessage,
-            GetMessageResponseModel? getMessage)
+    required TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            GetMessageResponseModel? getMessageResponse,
+            bool? isMessageSentOrRecieved)
         currentState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isPageLoading, String? errorMessage,
-            GetMessageResponseModel? getMessage)?
+    TResult? Function(
+            bool isPageLoading,
+            String? errorMessage,
+            GetMessageResponseModel? getMessageResponse,
+            bool? isMessageSentOrRecieved)?
         currentState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isPageLoading, String? errorMessage,
-            GetMessageResponseModel? getMessage)?
+    TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            GetMessageResponseModel? getMessageResponse,
+            bool? isMessageSentOrRecieved)?
         currentState,
     required TResult orElse(),
   }) =>
@@ -221,7 +410,8 @@ abstract class $ChatScreenStateCopyWith<$Res> {
   $Res call(
       {bool isPageLoading,
       String? errorMessage,
-      GetMessageResponseModel? getMessage});
+      GetMessageResponseModel? getMessageResponse,
+      bool? isMessageSentOrRecieved});
 }
 
 /// @nodoc
@@ -239,7 +429,8 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
   $Res call({
     Object? isPageLoading = null,
     Object? errorMessage = freezed,
-    Object? getMessage = freezed,
+    Object? getMessageResponse = freezed,
+    Object? isMessageSentOrRecieved = freezed,
   }) {
     return _then(_value.copyWith(
       isPageLoading: null == isPageLoading
@@ -250,10 +441,14 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      getMessage: freezed == getMessage
-          ? _value.getMessage
-          : getMessage // ignore: cast_nullable_to_non_nullable
+      getMessageResponse: freezed == getMessageResponse
+          ? _value.getMessageResponse
+          : getMessageResponse // ignore: cast_nullable_to_non_nullable
               as GetMessageResponseModel?,
+      isMessageSentOrRecieved: freezed == isMessageSentOrRecieved
+          ? _value.isMessageSentOrRecieved
+          : isMessageSentOrRecieved // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -269,7 +464,8 @@ abstract class _$$_CurrentStateCopyWith<$Res>
   $Res call(
       {bool isPageLoading,
       String? errorMessage,
-      GetMessageResponseModel? getMessage});
+      GetMessageResponseModel? getMessageResponse,
+      bool? isMessageSentOrRecieved});
 }
 
 /// @nodoc
@@ -285,7 +481,8 @@ class __$$_CurrentStateCopyWithImpl<$Res>
   $Res call({
     Object? isPageLoading = null,
     Object? errorMessage = freezed,
-    Object? getMessage = freezed,
+    Object? getMessageResponse = freezed,
+    Object? isMessageSentOrRecieved = freezed,
   }) {
     return _then(_$_CurrentState(
       isPageLoading: null == isPageLoading
@@ -296,10 +493,14 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      getMessage: freezed == getMessage
-          ? _value.getMessage
-          : getMessage // ignore: cast_nullable_to_non_nullable
+      getMessageResponse: freezed == getMessageResponse
+          ? _value.getMessageResponse
+          : getMessageResponse // ignore: cast_nullable_to_non_nullable
               as GetMessageResponseModel?,
+      isMessageSentOrRecieved: freezed == isMessageSentOrRecieved
+          ? _value.isMessageSentOrRecieved
+          : isMessageSentOrRecieved // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -308,18 +509,23 @@ class __$$_CurrentStateCopyWithImpl<$Res>
 
 class _$_CurrentState implements _CurrentState {
   const _$_CurrentState(
-      {required this.isPageLoading, this.errorMessage, this.getMessage});
+      {required this.isPageLoading,
+      this.errorMessage,
+      this.getMessageResponse,
+      this.isMessageSentOrRecieved});
 
   @override
   final bool isPageLoading;
   @override
   final String? errorMessage;
   @override
-  final GetMessageResponseModel? getMessage;
+  final GetMessageResponseModel? getMessageResponse;
+  @override
+  final bool? isMessageSentOrRecieved;
 
   @override
   String toString() {
-    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessage: $getMessage)';
+    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessageResponse: $getMessageResponse, isMessageSentOrRecieved: $isMessageSentOrRecieved)';
   }
 
   @override
@@ -331,13 +537,16 @@ class _$_CurrentState implements _CurrentState {
                 other.isPageLoading == isPageLoading) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.getMessage, getMessage) ||
-                other.getMessage == getMessage));
+            (identical(other.getMessageResponse, getMessageResponse) ||
+                other.getMessageResponse == getMessageResponse) &&
+            (identical(
+                    other.isMessageSentOrRecieved, isMessageSentOrRecieved) ||
+                other.isMessageSentOrRecieved == isMessageSentOrRecieved));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isPageLoading, errorMessage, getMessage);
+  int get hashCode => Object.hash(runtimeType, isPageLoading, errorMessage,
+      getMessageResponse, isMessageSentOrRecieved);
 
   @JsonKey(ignore: true)
   @override
@@ -348,33 +557,45 @@ class _$_CurrentState implements _CurrentState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isPageLoading, String? errorMessage,
-            GetMessageResponseModel? getMessage)
+    required TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            GetMessageResponseModel? getMessageResponse,
+            bool? isMessageSentOrRecieved)
         currentState,
   }) {
-    return currentState(isPageLoading, errorMessage, getMessage);
+    return currentState(isPageLoading, errorMessage, getMessageResponse,
+        isMessageSentOrRecieved);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isPageLoading, String? errorMessage,
-            GetMessageResponseModel? getMessage)?
+    TResult? Function(
+            bool isPageLoading,
+            String? errorMessage,
+            GetMessageResponseModel? getMessageResponse,
+            bool? isMessageSentOrRecieved)?
         currentState,
   }) {
-    return currentState?.call(isPageLoading, errorMessage, getMessage);
+    return currentState?.call(isPageLoading, errorMessage, getMessageResponse,
+        isMessageSentOrRecieved);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isPageLoading, String? errorMessage,
-            GetMessageResponseModel? getMessage)?
+    TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            GetMessageResponseModel? getMessageResponse,
+            bool? isMessageSentOrRecieved)?
         currentState,
     required TResult orElse(),
   }) {
     if (currentState != null) {
-      return currentState(isPageLoading, errorMessage, getMessage);
+      return currentState(isPageLoading, errorMessage, getMessageResponse,
+          isMessageSentOrRecieved);
     }
     return orElse();
   }
@@ -412,14 +633,17 @@ abstract class _CurrentState implements ChatScreenState {
   const factory _CurrentState(
       {required final bool isPageLoading,
       final String? errorMessage,
-      final GetMessageResponseModel? getMessage}) = _$_CurrentState;
+      final GetMessageResponseModel? getMessageResponse,
+      final bool? isMessageSentOrRecieved}) = _$_CurrentState;
 
   @override
   bool get isPageLoading;
   @override
   String? get errorMessage;
   @override
-  GetMessageResponseModel? get getMessage;
+  GetMessageResponseModel? get getMessageResponse;
+  @override
+  bool? get isMessageSentOrRecieved;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentStateCopyWith<_$_CurrentState> get copyWith =>

@@ -63,9 +63,17 @@ class RouteGenerator {
       case createGroupScreen1:
         return MaterialPageRoute(builder: (_) => const CreateGroupScreen1());
       case createGroupScreen2:
-        return MaterialPageRoute(builder: (_) => const CreateGroupScreen2());
+        return MaterialPageRoute(
+            builder: (_) => CreateGroupScreen2(),
+            settings: RouteSettings(
+              arguments: args,
+            ));
       case chatScreen:
-        return MaterialPageRoute(builder: (_) => ChatScreen());
+        return MaterialPageRoute(
+            builder: (_) => ChatScreen(),
+            settings: RouteSettings(
+              arguments: args,
+            ));
       case editProfileScreen:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
 

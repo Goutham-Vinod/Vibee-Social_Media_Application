@@ -6,7 +6,7 @@ import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 import 'package:vibee/presentation/common_widgets/post_widget.dart';
 
 class SavedPostsScreen extends StatelessWidget {
-  SavedPostsScreen({super.key});
+  const SavedPostsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class SavedPostsScreen extends StatelessWidget {
       body: BlocBuilder<SavedPostsScreenBloc, SavedPostsScreenState>(
         builder: (context, state) {
           return ListView.builder(
-            itemCount: 1,
+            itemCount: state.getSavedPostsResponse?.length ?? 0,
             // shrinkWrap: true,
             // physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
@@ -31,11 +31,12 @@ class SavedPostsScreen extends StatelessWidget {
                   builder: (context, state) {
                     return PostWidget(
                       description:
-                          state.getSavedPostsResponse?[0]?.description ?? '',
-                      postId: state.getSavedPostsResponse?[0]?.id ?? '',
-                      dateNTime: state.getSavedPostsResponse?[0]?.updatedAt,
+                          state.getSavedPostsResponse?[index]?.description ??
+                              '',
+                      postId: state.getSavedPostsResponse?[index]?.id ?? '',
+                      dateNTime: state.getSavedPostsResponse?[index]?.updatedAt,
                       postNetworkImageUrl:
-                          state.getSavedPostsResponse?[0]?.media,
+                          state.getSavedPostsResponse?[index]?.media,
                       dpNetworkImageApiPath: CommonVariables
                           .currentUserDetailsResponse?.profilePicture,
                       profileName:

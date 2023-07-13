@@ -16,23 +16,26 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CommentsScreenEvent {
-  String get postId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String postId) initalizeCommentsScreen,
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
     required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String postId)? initalizeCommentsScreen,
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String postId)? initalizeCommentsScreen,
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,24 +44,23 @@ mixin _$CommentsScreenEvent {
     required TResult Function(_InitializeCommentScreen value)
         initalizeCommentsScreen,
     required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CommentsScreenEventCopyWith<CommentsScreenEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -67,8 +69,6 @@ abstract class $CommentsScreenEventCopyWith<$Res> {
   factory $CommentsScreenEventCopyWith(
           CommentsScreenEvent value, $Res Function(CommentsScreenEvent) then) =
       _$CommentsScreenEventCopyWithImpl<$Res, CommentsScreenEvent>;
-  @useResult
-  $Res call({String postId});
 }
 
 /// @nodoc
@@ -80,30 +80,15 @@ class _$CommentsScreenEventCopyWithImpl<$Res, $Val extends CommentsScreenEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? postId = null,
-  }) {
-    return _then(_value.copyWith(
-      postId: null == postId
-          ? _value.postId
-          : postId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_InitializeCommentScreenCopyWith<$Res>
-    implements $CommentsScreenEventCopyWith<$Res> {
+abstract class _$$_InitializeCommentScreenCopyWith<$Res> {
   factory _$$_InitializeCommentScreenCopyWith(_$_InitializeCommentScreen value,
           $Res Function(_$_InitializeCommentScreen) then) =
       __$$_InitializeCommentScreenCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({String postId});
+  $Res call({String postId, bool isLiked});
 }
 
 /// @nodoc
@@ -118,12 +103,17 @@ class __$$_InitializeCommentScreenCopyWithImpl<$Res>
   @override
   $Res call({
     Object? postId = null,
+    Object? isLiked = null,
   }) {
     return _then(_$_InitializeCommentScreen(
       postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as String,
+      isLiked: null == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -131,14 +121,17 @@ class __$$_InitializeCommentScreenCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_InitializeCommentScreen implements _InitializeCommentScreen {
-  const _$_InitializeCommentScreen({required this.postId});
+  const _$_InitializeCommentScreen(
+      {required this.postId, required this.isLiked});
 
   @override
   final String postId;
+  @override
+  final bool isLiked;
 
   @override
   String toString() {
-    return 'CommentsScreenEvent.initalizeCommentsScreen(postId: $postId)';
+    return 'CommentsScreenEvent.initalizeCommentsScreen(postId: $postId, isLiked: $isLiked)';
   }
 
   @override
@@ -146,11 +139,12 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InitializeCommentScreen &&
-            (identical(other.postId, postId) || other.postId == postId));
+            (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, postId);
+  int get hashCode => Object.hash(runtimeType, postId, isLiked);
 
   @JsonKey(ignore: true)
   @override
@@ -163,30 +157,34 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String postId) initalizeCommentsScreen,
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
     required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
   }) {
-    return initalizeCommentsScreen(postId);
+    return initalizeCommentsScreen(postId, isLiked);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String postId)? initalizeCommentsScreen,
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
   }) {
-    return initalizeCommentsScreen?.call(postId);
+    return initalizeCommentsScreen?.call(postId, isLiked);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String postId)? initalizeCommentsScreen,
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
     required TResult orElse(),
   }) {
     if (initalizeCommentsScreen != null) {
-      return initalizeCommentsScreen(postId);
+      return initalizeCommentsScreen(postId, isLiked);
     }
     return orElse();
   }
@@ -197,6 +195,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     required TResult Function(_InitializeCommentScreen value)
         initalizeCommentsScreen,
     required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
   }) {
     return initalizeCommentsScreen(this);
   }
@@ -206,6 +205,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
   }) {
     return initalizeCommentsScreen?.call(this);
   }
@@ -215,6 +215,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
     required TResult orElse(),
   }) {
     if (initalizeCommentsScreen != null) {
@@ -225,24 +226,22 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
 }
 
 abstract class _InitializeCommentScreen implements CommentsScreenEvent {
-  const factory _InitializeCommentScreen({required final String postId}) =
-      _$_InitializeCommentScreen;
+  const factory _InitializeCommentScreen(
+      {required final String postId,
+      required final bool isLiked}) = _$_InitializeCommentScreen;
 
-  @override
   String get postId;
-  @override
+  bool get isLiked;
   @JsonKey(ignore: true)
   _$$_InitializeCommentScreenCopyWith<_$_InitializeCommentScreen>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SentCommentCopyWith<$Res>
-    implements $CommentsScreenEventCopyWith<$Res> {
+abstract class _$$_SentCommentCopyWith<$Res> {
   factory _$$_SentCommentCopyWith(
           _$_SentComment value, $Res Function(_$_SentComment) then) =
       __$$_SentCommentCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String postId, String comment});
 }
@@ -310,8 +309,10 @@ class _$_SentComment implements _SentComment {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String postId) initalizeCommentsScreen,
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
     required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
   }) {
     return sentComment(postId, comment);
   }
@@ -319,8 +320,9 @@ class _$_SentComment implements _SentComment {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String postId)? initalizeCommentsScreen,
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
   }) {
     return sentComment?.call(postId, comment);
   }
@@ -328,8 +330,9 @@ class _$_SentComment implements _SentComment {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String postId)? initalizeCommentsScreen,
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
     required TResult orElse(),
   }) {
     if (sentComment != null) {
@@ -344,6 +347,7 @@ class _$_SentComment implements _SentComment {
     required TResult Function(_InitializeCommentScreen value)
         initalizeCommentsScreen,
     required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
   }) {
     return sentComment(this);
   }
@@ -353,6 +357,7 @@ class _$_SentComment implements _SentComment {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
   }) {
     return sentComment?.call(this);
   }
@@ -362,6 +367,7 @@ class _$_SentComment implements _SentComment {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
     required TResult orElse(),
   }) {
     if (sentComment != null) {
@@ -376,13 +382,121 @@ abstract class _SentComment implements CommentsScreenEvent {
       {required final String postId,
       required final String comment}) = _$_SentComment;
 
-  @override
   String get postId;
   String get comment;
-  @override
   @JsonKey(ignore: true)
   _$$_SentCommentCopyWith<_$_SentComment> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LikePostCopyWith<$Res> {
+  factory _$$_LikePostCopyWith(
+          _$_LikePost value, $Res Function(_$_LikePost) then) =
+      __$$_LikePostCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LikePostCopyWithImpl<$Res>
+    extends _$CommentsScreenEventCopyWithImpl<$Res, _$_LikePost>
+    implements _$$_LikePostCopyWith<$Res> {
+  __$$_LikePostCopyWithImpl(
+      _$_LikePost _value, $Res Function(_$_LikePost) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LikePost implements _LikePost {
+  const _$_LikePost();
+
+  @override
+  String toString() {
+    return 'CommentsScreenEvent.likePost()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LikePost);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
+    required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
+  }) {
+    return likePost();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
+  }) {
+    return likePost?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
+    required TResult orElse(),
+  }) {
+    if (likePost != null) {
+      return likePost();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeCommentScreen value)
+        initalizeCommentsScreen,
+    required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
+  }) {
+    return likePost(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
+  }) {
+    return likePost?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
+    required TResult orElse(),
+  }) {
+    if (likePost != null) {
+      return likePost(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LikePost implements CommentsScreenEvent {
+  const factory _LikePost() = _$_LikePost;
 }
 
 /// @nodoc
@@ -396,6 +510,7 @@ mixin _$CommentsScreenState {
   List<LoadCommentsResponseModel?>? get loadCommentsResponse =>
       throw _privateConstructorUsedError;
   String? get postId => throw _privateConstructorUsedError;
+  bool? get isLiked => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -406,7 +521,8 @@ mixin _$CommentsScreenState {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
-            String? postId)
+            String? postId,
+            bool? isLiked)
         current,
   }) =>
       throw _privateConstructorUsedError;
@@ -420,7 +536,8 @@ mixin _$CommentsScreenState {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
-            String? postId)?
+            String? postId,
+            bool? isLiked)?
         current,
   }) =>
       throw _privateConstructorUsedError;
@@ -434,7 +551,8 @@ mixin _$CommentsScreenState {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
-            String? postId)?
+            String? postId,
+            bool? isLiked)?
         current,
     required TResult orElse(),
   }) =>
@@ -475,7 +593,8 @@ abstract class $CommentsScreenStateCopyWith<$Res> {
       bool isImageLoading,
       String? postImageUrl,
       List<LoadCommentsResponseModel?>? loadCommentsResponse,
-      String? postId});
+      String? postId,
+      bool? isLiked});
 }
 
 /// @nodoc
@@ -499,6 +618,7 @@ class _$CommentsScreenStateCopyWithImpl<$Res, $Val extends CommentsScreenState>
     Object? postImageUrl = freezed,
     Object? loadCommentsResponse = freezed,
     Object? postId = freezed,
+    Object? isLiked = freezed,
   }) {
     return _then(_value.copyWith(
       isScreenLoading: null == isScreenLoading
@@ -533,6 +653,10 @@ class _$CommentsScreenStateCopyWithImpl<$Res, $Val extends CommentsScreenState>
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as String?,
+      isLiked: freezed == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -553,7 +677,8 @@ abstract class _$$_CurrentCopyWith<$Res>
       bool isImageLoading,
       String? postImageUrl,
       List<LoadCommentsResponseModel?>? loadCommentsResponse,
-      String? postId});
+      String? postId,
+      bool? isLiked});
 }
 
 /// @nodoc
@@ -574,6 +699,7 @@ class __$$_CurrentCopyWithImpl<$Res>
     Object? postImageUrl = freezed,
     Object? loadCommentsResponse = freezed,
     Object? postId = freezed,
+    Object? isLiked = freezed,
   }) {
     return _then(_$_Current(
       isScreenLoading: null == isScreenLoading
@@ -608,6 +734,10 @@ class __$$_CurrentCopyWithImpl<$Res>
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as String?,
+      isLiked: freezed == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -623,7 +753,8 @@ class _$_Current implements _Current {
       required this.isImageLoading,
       this.postImageUrl,
       final List<LoadCommentsResponseModel?>? loadCommentsResponse,
-      this.postId})
+      this.postId,
+      this.isLiked})
       : _loadCommentsResponse = loadCommentsResponse;
 
   @override
@@ -651,10 +782,12 @@ class _$_Current implements _Current {
 
   @override
   final String? postId;
+  @override
+  final bool? isLiked;
 
   @override
   String toString() {
-    return 'CommentsScreenState.current(isScreenLoading: $isScreenLoading, isFrontendValidationSuccess: $isFrontendValidationSuccess, errorMessage: $errorMessage, isUploadCommentSuccess: $isUploadCommentSuccess, isImageLoading: $isImageLoading, postImageUrl: $postImageUrl, loadCommentsResponse: $loadCommentsResponse, postId: $postId)';
+    return 'CommentsScreenState.current(isScreenLoading: $isScreenLoading, isFrontendValidationSuccess: $isFrontendValidationSuccess, errorMessage: $errorMessage, isUploadCommentSuccess: $isUploadCommentSuccess, isImageLoading: $isImageLoading, postImageUrl: $postImageUrl, loadCommentsResponse: $loadCommentsResponse, postId: $postId, isLiked: $isLiked)';
   }
 
   @override
@@ -678,7 +811,8 @@ class _$_Current implements _Current {
                 other.postImageUrl == postImageUrl) &&
             const DeepCollectionEquality()
                 .equals(other._loadCommentsResponse, _loadCommentsResponse) &&
-            (identical(other.postId, postId) || other.postId == postId));
+            (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked));
   }
 
   @override
@@ -691,7 +825,8 @@ class _$_Current implements _Current {
       isImageLoading,
       postImageUrl,
       const DeepCollectionEquality().hash(_loadCommentsResponse),
-      postId);
+      postId,
+      isLiked);
 
   @JsonKey(ignore: true)
   @override
@@ -710,7 +845,8 @@ class _$_Current implements _Current {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
-            String? postId)
+            String? postId,
+            bool? isLiked)
         current,
   }) {
     return current(
@@ -721,7 +857,8 @@ class _$_Current implements _Current {
         isImageLoading,
         postImageUrl,
         loadCommentsResponse,
-        postId);
+        postId,
+        isLiked);
   }
 
   @override
@@ -735,7 +872,8 @@ class _$_Current implements _Current {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
-            String? postId)?
+            String? postId,
+            bool? isLiked)?
         current,
   }) {
     return current?.call(
@@ -746,7 +884,8 @@ class _$_Current implements _Current {
         isImageLoading,
         postImageUrl,
         loadCommentsResponse,
-        postId);
+        postId,
+        isLiked);
   }
 
   @override
@@ -760,7 +899,8 @@ class _$_Current implements _Current {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
-            String? postId)?
+            String? postId,
+            bool? isLiked)?
         current,
     required TResult orElse(),
   }) {
@@ -773,7 +913,8 @@ class _$_Current implements _Current {
           isImageLoading,
           postImageUrl,
           loadCommentsResponse,
-          postId);
+          postId,
+          isLiked);
     }
     return orElse();
   }
@@ -816,7 +957,8 @@ abstract class _Current implements CommentsScreenState {
       required final bool isImageLoading,
       final String? postImageUrl,
       final List<LoadCommentsResponseModel?>? loadCommentsResponse,
-      final String? postId}) = _$_Current;
+      final String? postId,
+      final bool? isLiked}) = _$_Current;
 
   @override
   bool get isScreenLoading;
@@ -834,6 +976,8 @@ abstract class _Current implements CommentsScreenState {
   List<LoadCommentsResponseModel?>? get loadCommentsResponse;
   @override
   String? get postId;
+  @override
+  bool? get isLiked;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentCopyWith<_$_Current> get copyWith =>

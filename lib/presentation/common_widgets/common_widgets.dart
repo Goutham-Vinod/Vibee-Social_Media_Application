@@ -193,45 +193,70 @@ Widget vibeeListTile({
   Color? backgroundClr,
   double? leftMArgin,
   double? topMargin,
+  bool? isSelected,
+  Function? onTap,
+  Function? onLongPress,
 }) {
-  return Stack(
-    children: [
-      Container(
-        color: backgroundClr ?? backgroundScreenColor2,
-        height: height ?? 75,
-        width: width ?? double.maxFinite,
-      ),
-      Positioned(
-        top: topMargin ?? (height == null ? 10 : height / 2),
-        left: leftMArgin ?? 10,
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 5,
-              ),
-              child: prefixWidget,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                vibeeText("$title",
-                    size: titleSize ?? 20, fontWeight: FontWeight.w500),
-                const SizedBox(height: 2),
-                vibeeText(subtitle ?? '',
-                    size: subtitleSize, color: Colors.white54),
-              ],
-            )
-          ],
+  return InkWell(
+    onTap: () {
+      if (onTap != null) {
+        onTap();
+      }
+    },
+    onLongPress: () {
+      if (onLongPress != null) {
+        onLongPress();
+      }
+    },
+    child: Stack(
+      children: [
+        Container(
+          color: backgroundClr ?? backgroundScreenColor2,
+          height: height ?? 75,
+          width: width ?? double.maxFinite,
         ),
-      ),
-      Positioned(
-        top: height == null ? 25 : height / 2,
-        right: 20,
-        child: suffixWidget ?? const Text(''),
-      ),
-    ],
+        Positioned(
+          top: topMargin ?? (height == null ? 10 : height / 2),
+          left: leftMArgin ?? 10,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 5,
+                ),
+                child: prefixWidget,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  vibeeText("$title",
+                      size: titleSize ?? 20, fontWeight: FontWeight.w500),
+                  const SizedBox(height: 2),
+                  vibeeText(subtitle ?? '',
+                      size: subtitleSize, color: Colors.white54),
+                ],
+              )
+            ],
+          ),
+        ),
+        Positioned(
+          top: height == null ? 25 : height / 2,
+          right: 20,
+          child: suffixWidget ?? const Text(''),
+        ),
+        Visibility(
+          visible: isSelected ?? false,
+          child: const Positioned(
+              bottom: 5,
+              left: 65,
+              child: Icon(
+                Icons.check_circle,
+                color: Colors.green,
+              )),
+        )
+      ],
+    ),
   );
 }
 

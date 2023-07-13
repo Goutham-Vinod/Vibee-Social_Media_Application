@@ -8,7 +8,6 @@ import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/core/routing/routing_arguments/profile_page_arguments.dart';
-import 'package:vibee/domain/models/search_user_response_model/search_user_response_model.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
 class SearchPage extends StatelessWidget {
@@ -88,11 +87,22 @@ class SearchPage extends StatelessWidget {
                               return Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
                                 child: InkWell(
-                                  onTap: () {
-                                    print('list tile clicked');
+                                  onTap: () {},
+                                  child: vibeeListTile(
+                                      title:
+                                          "${state.searchResultResponse!.result![index].firstName}",
+                                      subtitle:
+                                          "${state.searchResultResponse!.result![index].username}",
+                                      prefixWidget: vibeeDp(
+                                        height: 45,
+                                        width: 45,
+                                        image: ProfilePicture(state, index),
+                                      ),
+                                      onTap: () {
+                                        print('list tile clicked');
 
-                                    Navigator.of(context)
-                                        .pushNamed(RouteGenerator.profilePage,
+                                        Navigator.of(context).pushNamed(
+                                            RouteGenerator.profilePage,
                                             arguments: ProfilePageArguments(
                                               firstName: state
                                                   .searchResultResponse
@@ -108,18 +118,7 @@ class SearchPage extends StatelessWidget {
                                                   .username,
                                               isCurrentUserProfile: false,
                                             ));
-                                  },
-                                  child: vibeeListTile(
-                                    title:
-                                        "${state.searchResultResponse!.result![index].firstName}",
-                                    subtitle:
-                                        "${state.searchResultResponse!.result![index].username}",
-                                    prefixWidget: vibeeDp(
-                                      height: 45,
-                                      width: 45,
-                                      image: ProfilePicture(state, index),
-                                    ),
-                                  ),
+                                      }),
                                 ),
                               );
                             },

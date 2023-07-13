@@ -18,33 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateGroupScreen_1Event {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() initializePage,
+    required TResult Function(String friendId, int selectedIndex) addFriend,
+    required TResult Function() navigateToNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? initializePage,
+    TResult? Function(String friendId, int selectedIndex)? addFriend,
+    TResult? Function()? navigateToNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? initializePage,
+    TResult Function(String friendId, int selectedIndex)? addFriend,
+    TResult Function()? navigateToNextScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_InitializePage value) initializePage,
+    required TResult Function(_AddFriend value) addFriend,
+    required TResult Function(_NavigateToNextScreen value) navigateToNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_InitializePage value)? initializePage,
+    TResult? Function(_AddFriend value)? addFriend,
+    TResult? Function(_NavigateToNextScreen value)? navigateToNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_InitializePage value)? initializePage,
+    TResult Function(_AddFriend value)? addFriend,
+    TResult Function(_NavigateToNextScreen value)? navigateToNextScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -70,34 +82,35 @@ class _$CreateGroupScreen_1EventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_InitializePageCopyWith<$Res> {
+  factory _$$_InitializePageCopyWith(
+          _$_InitializePage value, $Res Function(_$_InitializePage) then) =
+      __$$_InitializePageCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CreateGroupScreen_1EventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_InitializePageCopyWithImpl<$Res>
+    extends _$CreateGroupScreen_1EventCopyWithImpl<$Res, _$_InitializePage>
+    implements _$$_InitializePageCopyWith<$Res> {
+  __$$_InitializePageCopyWithImpl(
+      _$_InitializePage _value, $Res Function(_$_InitializePage) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_InitializePage implements _InitializePage {
+  const _$_InitializePage();
 
   @override
   String toString() {
-    return 'CreateGroupScreen_1Event.started()';
+    return 'CreateGroupScreen_1Event.initializePage()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_InitializePage);
   }
 
   @override
@@ -106,27 +119,33 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() initializePage,
+    required TResult Function(String friendId, int selectedIndex) addFriend,
+    required TResult Function() navigateToNextScreen,
   }) {
-    return started();
+    return initializePage();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? initializePage,
+    TResult? Function(String friendId, int selectedIndex)? addFriend,
+    TResult? Function()? navigateToNextScreen,
   }) {
-    return started?.call();
+    return initializePage?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? initializePage,
+    TResult Function(String friendId, int selectedIndex)? addFriend,
+    TResult Function()? navigateToNextScreen,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (initializePage != null) {
+      return initializePage();
     }
     return orElse();
   }
@@ -134,60 +153,346 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_InitializePage value) initializePage,
+    required TResult Function(_AddFriend value) addFriend,
+    required TResult Function(_NavigateToNextScreen value) navigateToNextScreen,
   }) {
-    return started(this);
+    return initializePage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_InitializePage value)? initializePage,
+    TResult? Function(_AddFriend value)? addFriend,
+    TResult? Function(_NavigateToNextScreen value)? navigateToNextScreen,
   }) {
-    return started?.call(this);
+    return initializePage?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_InitializePage value)? initializePage,
+    TResult Function(_AddFriend value)? addFriend,
+    TResult Function(_NavigateToNextScreen value)? navigateToNextScreen,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (initializePage != null) {
+      return initializePage(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CreateGroupScreen_1Event {
-  const factory _Started() = _$_Started;
+abstract class _InitializePage implements CreateGroupScreen_1Event {
+  const factory _InitializePage() = _$_InitializePage;
+}
+
+/// @nodoc
+abstract class _$$_AddFriendCopyWith<$Res> {
+  factory _$$_AddFriendCopyWith(
+          _$_AddFriend value, $Res Function(_$_AddFriend) then) =
+      __$$_AddFriendCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String friendId, int selectedIndex});
+}
+
+/// @nodoc
+class __$$_AddFriendCopyWithImpl<$Res>
+    extends _$CreateGroupScreen_1EventCopyWithImpl<$Res, _$_AddFriend>
+    implements _$$_AddFriendCopyWith<$Res> {
+  __$$_AddFriendCopyWithImpl(
+      _$_AddFriend _value, $Res Function(_$_AddFriend) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = null,
+    Object? selectedIndex = null,
+  }) {
+    return _then(_$_AddFriend(
+      friendId: null == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedIndex: null == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddFriend implements _AddFriend {
+  const _$_AddFriend({required this.friendId, required this.selectedIndex});
+
+  @override
+  final String friendId;
+  @override
+  final int selectedIndex;
+
+  @override
+  String toString() {
+    return 'CreateGroupScreen_1Event.addFriend(friendId: $friendId, selectedIndex: $selectedIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddFriend &&
+            (identical(other.friendId, friendId) ||
+                other.friendId == friendId) &&
+            (identical(other.selectedIndex, selectedIndex) ||
+                other.selectedIndex == selectedIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, friendId, selectedIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddFriendCopyWith<_$_AddFriend> get copyWith =>
+      __$$_AddFriendCopyWithImpl<_$_AddFriend>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializePage,
+    required TResult Function(String friendId, int selectedIndex) addFriend,
+    required TResult Function() navigateToNextScreen,
+  }) {
+    return addFriend(friendId, selectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initializePage,
+    TResult? Function(String friendId, int selectedIndex)? addFriend,
+    TResult? Function()? navigateToNextScreen,
+  }) {
+    return addFriend?.call(friendId, selectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializePage,
+    TResult Function(String friendId, int selectedIndex)? addFriend,
+    TResult Function()? navigateToNextScreen,
+    required TResult orElse(),
+  }) {
+    if (addFriend != null) {
+      return addFriend(friendId, selectedIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializePage value) initializePage,
+    required TResult Function(_AddFriend value) addFriend,
+    required TResult Function(_NavigateToNextScreen value) navigateToNextScreen,
+  }) {
+    return addFriend(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializePage value)? initializePage,
+    TResult? Function(_AddFriend value)? addFriend,
+    TResult? Function(_NavigateToNextScreen value)? navigateToNextScreen,
+  }) {
+    return addFriend?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializePage value)? initializePage,
+    TResult Function(_AddFriend value)? addFriend,
+    TResult Function(_NavigateToNextScreen value)? navigateToNextScreen,
+    required TResult orElse(),
+  }) {
+    if (addFriend != null) {
+      return addFriend(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddFriend implements CreateGroupScreen_1Event {
+  const factory _AddFriend(
+      {required final String friendId,
+      required final int selectedIndex}) = _$_AddFriend;
+
+  String get friendId;
+  int get selectedIndex;
+  @JsonKey(ignore: true)
+  _$$_AddFriendCopyWith<_$_AddFriend> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_NavigateToNextScreenCopyWith<$Res> {
+  factory _$$_NavigateToNextScreenCopyWith(_$_NavigateToNextScreen value,
+          $Res Function(_$_NavigateToNextScreen) then) =
+      __$$_NavigateToNextScreenCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NavigateToNextScreenCopyWithImpl<$Res>
+    extends _$CreateGroupScreen_1EventCopyWithImpl<$Res,
+        _$_NavigateToNextScreen>
+    implements _$$_NavigateToNextScreenCopyWith<$Res> {
+  __$$_NavigateToNextScreenCopyWithImpl(_$_NavigateToNextScreen _value,
+      $Res Function(_$_NavigateToNextScreen) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_NavigateToNextScreen implements _NavigateToNextScreen {
+  const _$_NavigateToNextScreen();
+
+  @override
+  String toString() {
+    return 'CreateGroupScreen_1Event.navigateToNextScreen()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NavigateToNextScreen);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializePage,
+    required TResult Function(String friendId, int selectedIndex) addFriend,
+    required TResult Function() navigateToNextScreen,
+  }) {
+    return navigateToNextScreen();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initializePage,
+    TResult? Function(String friendId, int selectedIndex)? addFriend,
+    TResult? Function()? navigateToNextScreen,
+  }) {
+    return navigateToNextScreen?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializePage,
+    TResult Function(String friendId, int selectedIndex)? addFriend,
+    TResult Function()? navigateToNextScreen,
+    required TResult orElse(),
+  }) {
+    if (navigateToNextScreen != null) {
+      return navigateToNextScreen();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializePage value) initializePage,
+    required TResult Function(_AddFriend value) addFriend,
+    required TResult Function(_NavigateToNextScreen value) navigateToNextScreen,
+  }) {
+    return navigateToNextScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializePage value)? initializePage,
+    TResult? Function(_AddFriend value)? addFriend,
+    TResult? Function(_NavigateToNextScreen value)? navigateToNextScreen,
+  }) {
+    return navigateToNextScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializePage value)? initializePage,
+    TResult Function(_AddFriend value)? addFriend,
+    TResult Function(_NavigateToNextScreen value)? navigateToNextScreen,
+    required TResult orElse(),
+  }) {
+    if (navigateToNextScreen != null) {
+      return navigateToNextScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NavigateToNextScreen implements CreateGroupScreen_1Event {
+  const factory _NavigateToNextScreen() = _$_NavigateToNextScreen;
 }
 
 /// @nodoc
 mixin _$CreateGroupScreen_1State {
   bool get isScreenLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  FriendsListResponseModel? get friendsListResponse =>
+  List<FriendsListResponseModel>? get friendsListResponse =>
       throw _privateConstructorUsedError;
+  List<int> get selectedGroupMembersIndex => throw _privateConstructorUsedError;
+  List<FriendsListResponseModel>? get selectedGroupMembers =>
+      throw _privateConstructorUsedError;
+  bool? get isGroupMembersAdded => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isScreenLoading, String? errorMessage,
-            FriendsListResponseModel? friendsListResponse)
+    required TResult Function(
+            bool isScreenLoading,
+            String? errorMessage,
+            List<FriendsListResponseModel>? friendsListResponse,
+            List<int> selectedGroupMembersIndex,
+            List<FriendsListResponseModel>? selectedGroupMembers,
+            bool? isGroupMembersAdded)
         currentState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isScreenLoading, String? errorMessage,
-            FriendsListResponseModel? friendsListResponse)?
+    TResult? Function(
+            bool isScreenLoading,
+            String? errorMessage,
+            List<FriendsListResponseModel>? friendsListResponse,
+            List<int> selectedGroupMembersIndex,
+            List<FriendsListResponseModel>? selectedGroupMembers,
+            bool? isGroupMembersAdded)?
         currentState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isScreenLoading, String? errorMessage,
-            FriendsListResponseModel? friendsListResponse)?
+    TResult Function(
+            bool isScreenLoading,
+            String? errorMessage,
+            List<FriendsListResponseModel>? friendsListResponse,
+            List<int> selectedGroupMembersIndex,
+            List<FriendsListResponseModel>? selectedGroupMembers,
+            bool? isGroupMembersAdded)?
         currentState,
     required TResult orElse(),
   }) =>
@@ -223,7 +528,10 @@ abstract class $CreateGroupScreen_1StateCopyWith<$Res> {
   $Res call(
       {bool isScreenLoading,
       String? errorMessage,
-      FriendsListResponseModel? friendsListResponse});
+      List<FriendsListResponseModel>? friendsListResponse,
+      List<int> selectedGroupMembersIndex,
+      List<FriendsListResponseModel>? selectedGroupMembers,
+      bool? isGroupMembersAdded});
 }
 
 /// @nodoc
@@ -243,6 +551,9 @@ class _$CreateGroupScreen_1StateCopyWithImpl<$Res,
     Object? isScreenLoading = null,
     Object? errorMessage = freezed,
     Object? friendsListResponse = freezed,
+    Object? selectedGroupMembersIndex = null,
+    Object? selectedGroupMembers = freezed,
+    Object? isGroupMembersAdded = freezed,
   }) {
     return _then(_value.copyWith(
       isScreenLoading: null == isScreenLoading
@@ -256,7 +567,19 @@ class _$CreateGroupScreen_1StateCopyWithImpl<$Res,
       friendsListResponse: freezed == friendsListResponse
           ? _value.friendsListResponse
           : friendsListResponse // ignore: cast_nullable_to_non_nullable
-              as FriendsListResponseModel?,
+              as List<FriendsListResponseModel>?,
+      selectedGroupMembersIndex: null == selectedGroupMembersIndex
+          ? _value.selectedGroupMembersIndex
+          : selectedGroupMembersIndex // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      selectedGroupMembers: freezed == selectedGroupMembers
+          ? _value.selectedGroupMembers
+          : selectedGroupMembers // ignore: cast_nullable_to_non_nullable
+              as List<FriendsListResponseModel>?,
+      isGroupMembersAdded: freezed == isGroupMembersAdded
+          ? _value.isGroupMembersAdded
+          : isGroupMembersAdded // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -272,7 +595,10 @@ abstract class _$$_CurrentStateCopyWith<$Res>
   $Res call(
       {bool isScreenLoading,
       String? errorMessage,
-      FriendsListResponseModel? friendsListResponse});
+      List<FriendsListResponseModel>? friendsListResponse,
+      List<int> selectedGroupMembersIndex,
+      List<FriendsListResponseModel>? selectedGroupMembers,
+      bool? isGroupMembersAdded});
 }
 
 /// @nodoc
@@ -289,6 +615,9 @@ class __$$_CurrentStateCopyWithImpl<$Res>
     Object? isScreenLoading = null,
     Object? errorMessage = freezed,
     Object? friendsListResponse = freezed,
+    Object? selectedGroupMembersIndex = null,
+    Object? selectedGroupMembers = freezed,
+    Object? isGroupMembersAdded = freezed,
   }) {
     return _then(_$_CurrentState(
       isScreenLoading: null == isScreenLoading
@@ -300,9 +629,21 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       friendsListResponse: freezed == friendsListResponse
-          ? _value.friendsListResponse
+          ? _value._friendsListResponse
           : friendsListResponse // ignore: cast_nullable_to_non_nullable
-              as FriendsListResponseModel?,
+              as List<FriendsListResponseModel>?,
+      selectedGroupMembersIndex: null == selectedGroupMembersIndex
+          ? _value._selectedGroupMembersIndex
+          : selectedGroupMembersIndex // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      selectedGroupMembers: freezed == selectedGroupMembers
+          ? _value._selectedGroupMembers
+          : selectedGroupMembers // ignore: cast_nullable_to_non_nullable
+              as List<FriendsListResponseModel>?,
+      isGroupMembersAdded: freezed == isGroupMembersAdded
+          ? _value.isGroupMembersAdded
+          : isGroupMembersAdded // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -313,18 +654,55 @@ class _$_CurrentState implements _CurrentState {
   const _$_CurrentState(
       {required this.isScreenLoading,
       this.errorMessage,
-      this.friendsListResponse});
+      final List<FriendsListResponseModel>? friendsListResponse,
+      required final List<int> selectedGroupMembersIndex,
+      final List<FriendsListResponseModel>? selectedGroupMembers,
+      this.isGroupMembersAdded})
+      : _friendsListResponse = friendsListResponse,
+        _selectedGroupMembersIndex = selectedGroupMembersIndex,
+        _selectedGroupMembers = selectedGroupMembers;
 
   @override
   final bool isScreenLoading;
   @override
   final String? errorMessage;
+  final List<FriendsListResponseModel>? _friendsListResponse;
   @override
-  final FriendsListResponseModel? friendsListResponse;
+  List<FriendsListResponseModel>? get friendsListResponse {
+    final value = _friendsListResponse;
+    if (value == null) return null;
+    if (_friendsListResponse is EqualUnmodifiableListView)
+      return _friendsListResponse;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<int> _selectedGroupMembersIndex;
+  @override
+  List<int> get selectedGroupMembersIndex {
+    if (_selectedGroupMembersIndex is EqualUnmodifiableListView)
+      return _selectedGroupMembersIndex;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedGroupMembersIndex);
+  }
+
+  final List<FriendsListResponseModel>? _selectedGroupMembers;
+  @override
+  List<FriendsListResponseModel>? get selectedGroupMembers {
+    final value = _selectedGroupMembers;
+    if (value == null) return null;
+    if (_selectedGroupMembers is EqualUnmodifiableListView)
+      return _selectedGroupMembers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final bool? isGroupMembersAdded;
 
   @override
   String toString() {
-    return 'CreateGroupScreen_1State.currentState(isScreenLoading: $isScreenLoading, errorMessage: $errorMessage, friendsListResponse: $friendsListResponse)';
+    return 'CreateGroupScreen_1State.currentState(isScreenLoading: $isScreenLoading, errorMessage: $errorMessage, friendsListResponse: $friendsListResponse, selectedGroupMembersIndex: $selectedGroupMembersIndex, selectedGroupMembers: $selectedGroupMembers, isGroupMembersAdded: $isGroupMembersAdded)';
   }
 
   @override
@@ -336,13 +714,25 @@ class _$_CurrentState implements _CurrentState {
                 other.isScreenLoading == isScreenLoading) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.friendsListResponse, friendsListResponse) ||
-                other.friendsListResponse == friendsListResponse));
+            const DeepCollectionEquality()
+                .equals(other._friendsListResponse, _friendsListResponse) &&
+            const DeepCollectionEquality().equals(
+                other._selectedGroupMembersIndex, _selectedGroupMembersIndex) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedGroupMembers, _selectedGroupMembers) &&
+            (identical(other.isGroupMembersAdded, isGroupMembersAdded) ||
+                other.isGroupMembersAdded == isGroupMembersAdded));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, isScreenLoading, errorMessage, friendsListResponse);
+      runtimeType,
+      isScreenLoading,
+      errorMessage,
+      const DeepCollectionEquality().hash(_friendsListResponse),
+      const DeepCollectionEquality().hash(_selectedGroupMembersIndex),
+      const DeepCollectionEquality().hash(_selectedGroupMembers),
+      isGroupMembersAdded);
 
   @JsonKey(ignore: true)
   @override
@@ -353,34 +743,56 @@ class _$_CurrentState implements _CurrentState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isScreenLoading, String? errorMessage,
-            FriendsListResponseModel? friendsListResponse)
+    required TResult Function(
+            bool isScreenLoading,
+            String? errorMessage,
+            List<FriendsListResponseModel>? friendsListResponse,
+            List<int> selectedGroupMembersIndex,
+            List<FriendsListResponseModel>? selectedGroupMembers,
+            bool? isGroupMembersAdded)
         currentState,
   }) {
-    return currentState(isScreenLoading, errorMessage, friendsListResponse);
+    return currentState(isScreenLoading, errorMessage, friendsListResponse,
+        selectedGroupMembersIndex, selectedGroupMembers, isGroupMembersAdded);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isScreenLoading, String? errorMessage,
-            FriendsListResponseModel? friendsListResponse)?
+    TResult? Function(
+            bool isScreenLoading,
+            String? errorMessage,
+            List<FriendsListResponseModel>? friendsListResponse,
+            List<int> selectedGroupMembersIndex,
+            List<FriendsListResponseModel>? selectedGroupMembers,
+            bool? isGroupMembersAdded)?
         currentState,
   }) {
     return currentState?.call(
-        isScreenLoading, errorMessage, friendsListResponse);
+        isScreenLoading,
+        errorMessage,
+        friendsListResponse,
+        selectedGroupMembersIndex,
+        selectedGroupMembers,
+        isGroupMembersAdded);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isScreenLoading, String? errorMessage,
-            FriendsListResponseModel? friendsListResponse)?
+    TResult Function(
+            bool isScreenLoading,
+            String? errorMessage,
+            List<FriendsListResponseModel>? friendsListResponse,
+            List<int> selectedGroupMembersIndex,
+            List<FriendsListResponseModel>? selectedGroupMembers,
+            bool? isGroupMembersAdded)?
         currentState,
     required TResult orElse(),
   }) {
     if (currentState != null) {
-      return currentState(isScreenLoading, errorMessage, friendsListResponse);
+      return currentState(isScreenLoading, errorMessage, friendsListResponse,
+          selectedGroupMembersIndex, selectedGroupMembers, isGroupMembersAdded);
     }
     return orElse();
   }
@@ -418,14 +830,23 @@ abstract class _CurrentState implements CreateGroupScreen_1State {
   const factory _CurrentState(
       {required final bool isScreenLoading,
       final String? errorMessage,
-      final FriendsListResponseModel? friendsListResponse}) = _$_CurrentState;
+      final List<FriendsListResponseModel>? friendsListResponse,
+      required final List<int> selectedGroupMembersIndex,
+      final List<FriendsListResponseModel>? selectedGroupMembers,
+      final bool? isGroupMembersAdded}) = _$_CurrentState;
 
   @override
   bool get isScreenLoading;
   @override
   String? get errorMessage;
   @override
-  FriendsListResponseModel? get friendsListResponse;
+  List<FriendsListResponseModel>? get friendsListResponse;
+  @override
+  List<int> get selectedGroupMembersIndex;
+  @override
+  List<FriendsListResponseModel>? get selectedGroupMembers;
+  @override
+  bool? get isGroupMembersAdded;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentStateCopyWith<_$_CurrentState> get copyWith =>

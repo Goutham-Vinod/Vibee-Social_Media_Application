@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class VibeeIcon {
-  static addPersonButton(
+class VibeeIcons {
+  static Image addPersonButton(
           {required bool isAdded, double? width, double? height}) =>
       isAdded
           ? Image.asset(

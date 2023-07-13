@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:vibee/core/common_variables.dart';
+import 'package:vibee/domain/models/get_all_conversations_response_model/get_all_conversations_response_model.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
-sharePostModalBottomSheet(context) {
+sharePostModalBottomSheet({
+  required BuildContext context,
+  Function? sentButtonOnTap,
+  Function? shareAsPostOnTap,
+  List<GetAllConversationsResponseModel>? getAllConversationsResponseList,
+}) {
   showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
@@ -12,7 +18,7 @@ sharePostModalBottomSheet(context) {
       return SizedBox(
         height: 300,
         child: Center(
-          child: Column(
+          child: Column( 
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -22,8 +28,12 @@ sharePostModalBottomSheet(context) {
                 child: SizedBox(
                   width: double.maxFinite,
                   child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
+                      onPressed: () {
+                        if (shareAsPostOnTap != null) {
+                          shareAsPostOnTap();
+                        }
+                      },
+                      style: const ButtonStyle(
                           backgroundColor:
                               MaterialStatePropertyAll(Colors.transparent),
                           side: MaterialStatePropertyAll(
@@ -40,10 +50,14 @@ sharePostModalBottomSheet(context) {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
+                  itemCount: getAllConversationsResponseList?.length ?? 0,
+                  itemBuilder: (context, friendIndex) {
                     return vibeeListTile(
-                      title: 'Friend $index',
+                      title: getAllConversationsResponseList?[friendIndex]
+                                  .isGroupChat ==
+                              true
+                          ? getAllConversationsResponseList![friendIndex].chatName
+                          : '${getAllConversationsResponseList?[friendIndex].users?[0].firstName} ${getAllConversationsResponseList?[friendIndex].users?[0].lastName}',
                       titleSize: 15,
                       prefixWidget: vibeeDp(
                           height: 50,
@@ -52,7 +66,9 @@ sharePostModalBottomSheet(context) {
                       suffixWidget: vibeeOutlineButton(
                           message: 'Sent',
                           onPressed: () {
-                            print('sent to $index');
+                            if (sentButtonOnTap != null) {
+                              sentButtonOnTap(friendIndex);
+                            }
                           }),
                     );
                   },

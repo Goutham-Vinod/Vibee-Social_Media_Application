@@ -661,7 +661,7 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, GetAllConversationsResponseModel>>
+  static Future<Either<ApiFailure, List<GetAllConversationsResponseModel>>>
       getAllConversations() async {
     try {
       final response = await http.get(
@@ -673,11 +673,12 @@ class APIServices {
       );
       print(response.body);
       if (response.statusCode == 200) {
-        GetAllConversationsResponseModel getAllConversationsResponse =
-            GetAllConversationsResponseModel.fromJson(
-                jsonDecode(response.body));
+        List<GetAllConversationsResponseModel> getAllConversationsResponseList =
+            (jsonDecode(response.body) as List).map((conversation) {
+          return GetAllConversationsResponseModel.fromJson(conversation);
+        }).toList();
 
-        return right(getAllConversationsResponse);
+        return right(getAllConversationsResponseList);
       } else {
         print('status code ${response.statusCode}');
         return left(const ApiFailure.serverFailure(
@@ -777,7 +778,7 @@ class APIServices {
           createGroupConversationRequest}) async {
     try {
       print('Register called');
-      final response = await http.patch(
+      final response = await http.post(
         Uri.parse(Config.createGroupConversationApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -831,7 +832,7 @@ class APIServices {
   static Future<Either<ApiFailure, bool>> sharePost(
       {required SharePostRequestModel sharePostRequest}) async {
     try {
-      print('Register called');
+      print('share post called');
       final response = await http.post(
         Uri.parse(Config.sharePostApi),
         headers: <String, String>{
@@ -862,8 +863,9 @@ class APIServices {
       {required SharePostAsMessageRequestModel
           sharePostAsMessageRequest}) async {
     try {
-      print('Register called');
-      final response = await http.post(
+      print('share post called');
+      print(sharePostAsMessageRequest.toJson());
+      final response = await http.patch(
         Uri.parse(Config.sharePostAsMessageApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -914,7 +916,7 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, FriendsListResponseModel>>
+  static Future<Either<ApiFailure, List<FriendsListResponseModel>>>
       getFriendsList() async {
     try {
       final response = await http.get(
@@ -926,8 +928,10 @@ class APIServices {
       );
       print(response.body);
       if (response.statusCode == 200) {
-        FriendsListResponseModel friendsListResponse =
-            FriendsListResponseModel.fromJson(jsonDecode(response.body));
+        List<FriendsListResponseModel> friendsListResponse =
+            (jsonDecode(response.body) as List).map((friendJson) {
+          return FriendsListResponseModel.fromJson(friendJson);
+        }).toList();
 
         return right(friendsListResponse);
       } else {
