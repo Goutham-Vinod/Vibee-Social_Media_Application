@@ -7,6 +7,6 @@ class CreateGroupScreen_2Event with _$CreateGroupScreen_2Event {
   }) = _CreateGroup;
   const factory CreateGroupScreen_2Event.initializePage({
     required List<FriendsListResponseModel> selectedGroupMembersList,
-     String? groupName,
+    String? groupName,
   }) = _InitializePage;
 }

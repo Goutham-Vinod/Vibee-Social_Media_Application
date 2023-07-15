@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
+import 'package:http/http.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,10 @@ import 'package:http/http.dart' as http;
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/add_comments_request_model/add_comments_request_model.dart';
+import 'package:vibee/domain/models/add_comments_response_model/add_comments_response_model.dart';
+import 'package:vibee/domain/models/add_or_remove_friend_response_model/add_or_remove_friend_response_model.dart';
 import 'package:vibee/domain/models/create_group_conversation_request_model/create_group_conversation_request_model.dart';
+import 'package:vibee/domain/models/create_post_response_model/create_post_response_model.dart';
 import 'package:vibee/domain/models/discover_response_model/discover_response_model.dart';
 import 'package:vibee/domain/models/friends_list_response_model/friends_list_response_model.dart';
 import 'package:vibee/domain/models/get_all_conversations_response_model/get_all_conversations_response_model.dart';
@@ -18,6 +22,7 @@ import 'package:vibee/domain/models/get_post_by_one_user_response_model/get_post
 import 'package:vibee/domain/models/get_posts_response_model/get_posts_response_model.dart';
 import 'package:vibee/domain/models/get_saved_posts_response_model/get_saved_posts_response_model.dart';
 import 'package:vibee/domain/models/get_user_details_response_model/get_user_details_response_model.dart';
+import 'package:vibee/domain/models/like_dislike_response_model/like_dislike_response_model.dart';
 import 'package:vibee/domain/models/load_comments_response_model/load_comments_response_model.dart';
 import 'package:vibee/domain/models/login/login_response_model.dart';
 import 'package:vibee/domain/models/notifications_response_model/notifications_response_model.dart';
@@ -27,8 +32,11 @@ import 'package:vibee/domain/models/otp_verification/resent_otp_response_model.d
 import 'package:vibee/domain/models/register/register_request_model.dart';
 import 'package:vibee/domain/models/register/register_response_model.dart';
 import 'package:vibee/domain/models/search_user_response_model/search_user_response_model.dart';
+import 'package:vibee/domain/models/sent_message_response_model/sent_message_response_model.dart';
 import 'package:vibee/domain/models/share_post_as_message_request_model/share_post_as_message_request_model.dart';
+import 'package:vibee/domain/models/share_post_as_message_response_model/share_post_as_message_response_model.dart';
 import 'package:vibee/domain/models/share_post_request_model/share_post_request_model.dart';
+import 'package:vibee/domain/models/share_post_response_model/share_post_response_model.dart';
 import 'package:vibee/infrastructure/shared_pref_services.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
@@ -299,15 +307,15 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, bool>> addOrRemoveFriend(
-      {required String? friendId}) async {
+  static Future<Either<ApiFailure, AddOrRemoveFriendResponseModel>>
+      addOrRemoveFriend({required String? friendId}) async {
     try {
       if (friendId == null) {
         print('id is null');
         return left(const ApiFailure.serverFailure(
             errorMessage: "Something went wrong. Please try again later"));
       }
-      final response = await http.patch(
+      Response response = await http.patch(
         Uri.parse(Config.addOrRemoveFriendApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -317,15 +325,10 @@ class APIServices {
       );
       print(response.body);
       if (response.statusCode == 200) {
-        return right(true);
-        // Map<String, String> friendRequestResponse = jsonDecode(response.body);
-        // if (friendRequestResponse['message'] == 'Add Friend') {
-        //   return const Right(false);
-        // } else if (friendRequestResponse['message'] == 'Request Sent') {
-        //   return const Right(true);
-        // } else {
-        //   throw Exception();
-        // }
+        AddOrRemoveFriendResponseModel addOrRemoveFriendResponse =
+            AddOrRemoveFriendResponseModel.fromJson(jsonDecode(response.body));
+
+        return right(addOrRemoveFriendResponse);
       } else {
         print('status code ${response.statusCode}');
         return left(const ApiFailure.serverFailure(
@@ -453,7 +456,8 @@ class APIServices {
           contentType: MediaType('image', fileExtension),
         ));
       }
-      final response = await request.send();
+      StreamedResponse streamedResponse = await request.send();
+      Response response = await http.Response.fromStream(streamedResponse);
 
       if (response.statusCode == 200) {
         print('status code ${response.statusCode}');
@@ -469,7 +473,7 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, bool>> createPost({
+  static Future<Either<ApiFailure, CreatePostResponseModel>> createPost({
     required String description,
     required String privacy,
     String? location,
@@ -502,11 +506,17 @@ class APIServices {
         ));
       }
 
-      final response = await request.send();
+      StreamedResponse streamedResponse = await request.send();
+      Response response = await http.Response.fromStream(streamedResponse);
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         print('status code ${response.statusCode}');
-        return right(true);
+        CreatePostResponseModel responseObj;
+
+        print(response.body);
+        responseObj =
+            CreatePostResponseModel.fromJson(jsonDecode(response.body));
+        return right(responseObj);
       } else {
         print('status code ${response.statusCode}');
         return left(const ApiFailure.serverFailure(
@@ -572,7 +582,7 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, bool>> addComments(
+  static Future<Either<ApiFailure, AddCommentsResponseModel>> addComments(
       {required AddCommentsRequestModel addCommentsRequest}) async {
     try {
       print('Register called');
@@ -586,7 +596,9 @@ class APIServices {
       );
       print("Got response");
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return right(true);
+        AddCommentsResponseModel result =
+            AddCommentsResponseModel.fromJson(jsonDecode(response.body));
+        return right(result);
       } else {
         log(response.statusCode.toString());
         log(response.body);
@@ -718,7 +730,7 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, bool>> sentMessage({
+  static Future<Either<ApiFailure, SentMessageResponseModel>> sentMessage({
     required String conversationId,
     required String message,
   }) async {
@@ -733,7 +745,9 @@ class APIServices {
       );
       print('got response');
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return right(true);
+        SentMessageResponseModel result =
+            SentMessageResponseModel.fromJson(jsonDecode(response.body));
+        return right(result);
       } else {
         return left(const ApiFailure.serverFailure(
             errorMessage: "Something went wrong. Please try again later"));
@@ -804,7 +818,7 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, bool>> likeOrDislike(
+  static Future<Either<ApiFailure, LikeDislikeResponseModel>> likeOrDislike(
       {required String? postId}) async {
     try {
       final response = await http.patch(
@@ -817,7 +831,9 @@ class APIServices {
       );
       print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return right(true);
+        LikeDislikeResponseModel result =
+            LikeDislikeResponseModel.fromJson(jsonDecode(response.body));
+        return right(result);
       } else {
         print('status code ${response.statusCode}');
         return left(const ApiFailure.serverFailure(
@@ -829,7 +845,7 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, bool>> sharePost(
+  static Future<Either<ApiFailure, SharePostResponseModel>> sharePost(
       {required SharePostRequestModel sharePostRequest}) async {
     try {
       print('share post called');
@@ -843,7 +859,9 @@ class APIServices {
       );
       print("Got response");
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return right(true);
+        SharePostResponseModel result =
+            SharePostResponseModel.fromJson(jsonDecode(response.body));
+        return right(result);
       } else {
         log(response.statusCode.toString());
         log(response.body);
@@ -859,9 +877,10 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, bool>> sharePostAsMessage(
-      {required SharePostAsMessageRequestModel
-          sharePostAsMessageRequest}) async {
+  static Future<Either<ApiFailure, SharePostAsMessageResponseModel>>
+      sharePostAsMessage(
+          {required SharePostAsMessageRequestModel
+              sharePostAsMessageRequest}) async {
     try {
       print('share post called');
       print(sharePostAsMessageRequest.toJson());
@@ -875,7 +894,9 @@ class APIServices {
       );
       print("Got response");
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return right(true);
+        SharePostAsMessageResponseModel result =
+            SharePostAsMessageResponseModel.fromJson(jsonDecode(response.body));
+        return right(result);
       } else {
         log(response.statusCode.toString());
         log(response.body);
@@ -926,6 +947,7 @@ class APIServices {
           'Authorization': Config.bearerTocken,
         },
       );
+
       print(response.body);
       if (response.statusCode == 200) {
         List<FriendsListResponseModel> friendsListResponse =

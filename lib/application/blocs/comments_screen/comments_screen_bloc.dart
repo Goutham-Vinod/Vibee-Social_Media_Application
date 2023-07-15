@@ -7,6 +7,8 @@ import 'package:vibee/application/blocs/home_page/home_page_bloc.dart';
 import 'package:vibee/application/blocs/home_screen/home_screen_bloc.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/add_comments_request_model/add_comments_request_model.dart';
+import 'package:vibee/domain/models/add_comments_response_model/add_comments_response_model.dart';
+import 'package:vibee/domain/models/like_dislike_response_model/like_dislike_response_model.dart';
 import 'package:vibee/domain/models/load_comments_response_model/load_comments_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/presentation/screens/home_screen/home_screen.dart';
@@ -39,7 +41,7 @@ class CommentsScreenBloc
       });
     });
     on<_SentComment>((event, emit) async {
-      Either<ApiFailure, bool> isCommentUploadedResult =
+      Either<ApiFailure, AddCommentsResponseModel > isCommentUploadedResult =
           await APIServices.addComments(
               addCommentsRequest: AddCommentsRequestModel(
                   postId: event.postId, comment: event.comment));
@@ -70,7 +72,7 @@ class CommentsScreenBloc
 
 // backend part below
       String postId = state.postId!;
-      Either<ApiFailure, bool> result =
+      Either<ApiFailure, LikeDislikeResponseModel > result =
           await APIServices.likeOrDislike(postId: postId);
 
       result.fold((failure) {

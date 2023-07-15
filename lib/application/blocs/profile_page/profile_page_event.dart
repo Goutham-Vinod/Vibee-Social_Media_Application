@@ -18,4 +18,20 @@ class ProfilePageEvent with _$ProfilePageEvent {
       UpdateProfilePictureFromStorage;
   const factory ProfilePageEvent.updateCoverPictureFromStorage() =
       UpdateCoverPictureFromStorage;
+  const factory ProfilePageEvent.likePost({
+    required int postIndex,
+  }) = _LikePost;
+  const factory ProfilePageEvent.sharePostAsMessage({
+    required String? friendId,
+    required String? postId,
+  }) = _SharePostAsMessage;
+
+  const factory ProfilePageEvent.sharePost({
+    required String postId,
+    required String description,
+    required String privacy,
+  }) = _SharePost;
+
+  const factory ProfilePageEvent.resetIsEmptySharePostDescription() =
+      _ResetIsEmptySharePostDescription;
 }

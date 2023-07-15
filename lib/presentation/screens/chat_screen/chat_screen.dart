@@ -10,6 +10,7 @@ class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
 
   final TextEditingController msgController = TextEditingController();
+  final ScrollController chatScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,12 @@ class ChatScreen extends StatelessWidget {
 
     BlocProvider.of<ChatScreenBloc>(context)
         .add(ChatScreenEvent.initializeScreen(chatId: chatId));
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      // chatScrollController.position.maxScrollExtent;
+      chatScrollController
+          .jumpTo(chatScrollController.position.maxScrollExtent);
+    });
 
     return BlocConsumer<ChatScreenBloc, ChatScreenState>(
       listener: (context, state) {},
@@ -65,6 +72,7 @@ class ChatScreen extends StatelessWidget {
                 Expanded(
                   child: ListView.builder(
                     itemCount: state.getMessageResponse?.messages?.length ?? 0,
+                    controller: chatScrollController,
                     itemBuilder: (context, index) {
                       if (state.getMessageResponse?.messages?[index].sender
                               ?.id ==
@@ -118,6 +126,8 @@ class ChatScreen extends StatelessWidget {
                                   ChatScreenEvent.sendMessage(
                                       message: msgController.text));
                               msgController.clear();
+                              chatScrollController.jumpTo(chatScrollController
+                                  .position.maxScrollExtent);
                             },
                             icon: const Icon(
                               Icons.send,

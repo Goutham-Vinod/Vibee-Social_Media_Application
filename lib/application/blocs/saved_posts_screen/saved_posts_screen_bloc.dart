@@ -19,7 +19,7 @@ class SavedPostsScreenBloc
           getSavedPostsResponse: null,
         )) {
     on<_InitializePage>((event, emit) async {
-      Either<ApiFailure,List< GetSavedPostsResponseModel> >result =
+      Either<ApiFailure, List<GetSavedPostsResponseModel>> result =
           await APIServices.getSavedPostts();
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));

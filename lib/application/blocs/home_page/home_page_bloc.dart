@@ -5,8 +5,11 @@ import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/get_all_conversations_response_model/get_all_conversations_response_model.dart';
 import 'package:vibee/domain/models/get_posts_response_model/get_posts_response_model.dart';
+import 'package:vibee/domain/models/like_dislike_response_model/like_dislike_response_model.dart';
 import 'package:vibee/domain/models/share_post_as_message_request_model/share_post_as_message_request_model.dart';
+import 'package:vibee/domain/models/share_post_as_message_response_model/share_post_as_message_response_model.dart';
 import 'package:vibee/domain/models/share_post_request_model/share_post_request_model.dart';
+import 'package:vibee/domain/models/share_post_response_model/share_post_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 
 part 'home_page_event.dart';
@@ -76,7 +79,7 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
 
 // backend part below
       String postId = state.getPostsResponse!.posts![event.postIndex].id!;
-      Either<ApiFailure, bool> result =
+      Either<ApiFailure, LikeDislikeResponseModel> result =
           await APIServices.likeOrDislike(postId: postId);
 
       result.fold((failure) {
@@ -86,7 +89,7 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     });
 
     on<_SharePostAsMessage>((event, emit) async {
-      Either<ApiFailure, bool> result = await APIServices.sharePostAsMessage(
+      Either<ApiFailure, SharePostAsMessageResponseModel> result = await APIServices.sharePostAsMessage(
           sharePostAsMessageRequest: SharePostAsMessageRequestModel(
               checked: [event.friendId!], postId: event.postId));
 
@@ -102,7 +105,7 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
 
     on<_SharePost>((event, emit) async {
       if (event.description.isNotEmpty) {
-        Either<ApiFailure, bool> result = await APIServices.sharePost(
+        Either<ApiFailure, SharePostResponseModel> result = await APIServices.sharePost(
             sharePostRequest: SharePostRequestModel(
                 description: event.description,
                 privacy: event.privacy,

@@ -17,6 +17,10 @@ class ProfilePageState with _$ProfilePageState {
     bool? isFriendRequestRecieved,
     GetUserDetailsResponseModel? getUserDetailsResponse,
     GetPostByOneUserResponseModel? getPostByOneUserResponse,
+    required List<int> likedPostIndexList,
     String? profilePicture,
+    List<GetAllConversationsResponseModel>? getAllConversationsResponseList,
+    bool? isSharePostDescriptionEmpty,
+    String? showMessage,
   }) = _Initial;
 }

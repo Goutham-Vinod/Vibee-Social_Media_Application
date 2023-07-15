@@ -233,7 +233,7 @@ class PostWidget extends StatelessWidget {
                       onPressed: () {
                         // share
                         if (shareButtonOnTap != null) {
-                          shareButtonOnTap!(); 
+                          shareButtonOnTap!();
                         }
                       },
                       icon: const Icon(

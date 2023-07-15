@@ -5,7 +5,7 @@ class ChatScreenEvent with _$ChatScreenEvent {
   const factory ChatScreenEvent.initializeScreen({
     required String chatId,
   }) = _InitializeScreen;
-   const factory ChatScreenEvent.sendMessage({
+  const factory ChatScreenEvent.sendMessage({
     String? message,
   }) = _SendMessage;
 }

@@ -6,5 +6,9 @@ class DiscoverPageState with _$DiscoverPageState {
     required bool isScreenLoading,
     String? errorMessage,
     DiscoverResponseModel? discoverResponse,
+    required List<int> likedPostIndexList,
+    List<GetAllConversationsResponseModel>? getAllConversationsResponseList,
+    bool? isSharePostDescriptionEmpty,
+    String? showMessage,
   }) = _CurrentState;
 }

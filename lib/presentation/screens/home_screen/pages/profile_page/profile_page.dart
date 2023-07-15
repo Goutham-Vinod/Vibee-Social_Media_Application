@@ -10,9 +10,13 @@ import 'package:vibee/infrastructure/shared_pref_services.dart';
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 import 'package:vibee/presentation/common_widgets/post_widget.dart';
+import 'package:vibee/presentation/common_widgets/share_post_modal_bottom_sheet.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
+
+  final TextEditingController descriptionController = TextEditingController();
+  String privacy = 'public';
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,15 @@ class ProfilePage extends StatelessWidget {
     }
     print('isCurrentUserProfile = $isCurrentUserProfile');
     return BlocListener<ProfilePageBloc, ProfilePageState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state.errorMessage != null) {
+          showSnackBar(
+              context: context,
+              message: state.errorMessage,
+              backgroundColor: Colors.red,
+              textColor: Colors.white);
+        }
+      },
       child: Scaffold(
         backgroundColor: backgroundScreenColor,
         body: SingleChildScrollView(
@@ -72,6 +84,37 @@ class ProfilePage extends StatelessWidget {
                               .getPostByOneUserResponse?.posts?[index].location,
                           postId:
                               state.getPostByOneUserResponse!.posts![index].id!,
+                          isLiked: state.likedPostIndexList.contains(index),
+                          likeButtonOnTap: () {
+                            BlocProvider.of<ProfilePageBloc>(context).add(
+                                ProfilePageEvent.likePost(postIndex: index));
+                          },
+                          shareButtonOnTap: () {
+                            sharePostModalBottomSheet(
+                              context: context,
+                              getAllConversationsResponseList:
+                                  state.getAllConversationsResponseList,
+                              sentButtonOnTap: (friendIndex) {
+                                BlocProvider.of<ProfilePageBloc>(context).add(
+                                    ProfilePageEvent.sharePostAsMessage(
+                                        friendId: state
+                                            .getAllConversationsResponseList?[
+                                                index]
+                                            .id,
+                                        postId: state.getPostByOneUserResponse
+                                            ?.posts?[index].id));
+                                Navigator.of(context).pop();
+                              },
+                              shareAsPostOnTap: () {
+                                print('share as post clicked');
+                                Navigator.of(context).pop();
+                                sharePostDialog(
+                                    context: context,
+                                    postId: state.getPostByOneUserResponse!
+                                        .posts![index].id!);
+                              },
+                            );
+                          },
                         ),
                       );
                     },
@@ -80,6 +123,143 @@ class ProfilePage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  sharePostDialog({required BuildContext context, required String postId}) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          contentPadding: const EdgeInsets.all(0),
+          content: Container(
+              color: backgroundScreenColor2,
+              height: 300,
+              width: 300,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: vibeeText('Share Post',
+                            fontWeight: FontWeight.bold, size: 25),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: BlocBuilder<ProfilePageBloc, ProfilePageState>(
+                          builder: (context, state) {
+                            return TextField(
+                              controller: descriptionController,
+                              onTap: () {
+                                BlocProvider.of<ProfilePageBloc>(context).add(
+                                    const ProfilePageEvent
+                                        .resetIsEmptySharePostDescription());
+                              },
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                  labelText: 'Description',
+                                  labelStyle: TextStyle(color: Colors.white),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                        width: 1,
+                                      )),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                      borderSide: BorderSide(
+                                        color:
+                                            state.isSharePostDescriptionEmpty ==
+                                                    true
+                                                ? Colors.red
+                                                : Colors.white,
+                                        width: 1,
+                                      ))),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: dropDownButton(),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      vibeeButton(
+                        content: 'Share',
+                        onPressed: () {
+                          BlocProvider.of<ProfilePageBloc>(context).add(
+                              ProfilePageEvent.sharePost(
+                                  postId: postId,
+                                  description: descriptionController.text,
+                                  privacy: privacy));
+                          print('shared');
+                          print(descriptionController.text);
+                          if (descriptionController.text.isNotEmpty) {
+                            Navigator.pop(context);
+                            print('poped');
+                          }
+                          ////////////////
+                        },
+                        height: 40,
+                        width: 100,
+                      ),
+                      SizedBox(width: 20),
+                    ],
+                  )
+                ],
+              )),
+        );
+      },
+    );
+  }
+
+  Widget dropDownButton() {
+    return InputDecorator(
+      decoration: InputDecoration(
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Colors.white)),
+        contentPadding: const EdgeInsets.all(10),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton(
+          dropdownColor: backgroundScreenColor2,
+          isExpanded: true,
+          hint: Row(
+            children: [
+              vibeeText('Privacy'),
+            ],
+          ),
+          items: [
+            DropdownMenuItem(value: 'private', child: vibeeText('Private')),
+            DropdownMenuItem(value: 'public', child: vibeeText('Public'))
+          ],
+          onChanged: (value) {
+            print(value);
+          },
         ),
       ),
     );

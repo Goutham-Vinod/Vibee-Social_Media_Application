@@ -28,6 +28,12 @@ mixin _$ProfilePageEvent {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +48,11 @@ mixin _$ProfilePageEvent {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +67,11 @@ mixin _$ProfilePageEvent {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +91,11 @@ mixin _$ProfilePageEvent {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +114,11 @@ mixin _$ProfilePageEvent {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +137,11 @@ mixin _$ProfilePageEvent {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -221,6 +252,12 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return initializeProfilePageBloc(username, isCurrentUserProfile);
   }
@@ -238,6 +275,11 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return initializeProfilePageBloc?.call(username, isCurrentUserProfile);
   }
@@ -255,6 +297,11 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (initializeProfilePageBloc != null) {
@@ -280,6 +327,11 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return initializeProfilePageBloc(this);
   }
@@ -301,6 +353,11 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return initializeProfilePageBloc?.call(this);
   }
@@ -322,6 +379,11 @@ class _$InitializaProfilePageBloc implements InitializaProfilePageBloc {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (initializeProfilePageBloc != null) {
@@ -391,6 +453,12 @@ class _$SentFriendRequest implements SentFriendRequest {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return sentFriendRequest();
   }
@@ -408,6 +476,11 @@ class _$SentFriendRequest implements SentFriendRequest {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return sentFriendRequest?.call();
   }
@@ -425,6 +498,11 @@ class _$SentFriendRequest implements SentFriendRequest {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (sentFriendRequest != null) {
@@ -450,6 +528,11 @@ class _$SentFriendRequest implements SentFriendRequest {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return sentFriendRequest(this);
   }
@@ -471,6 +554,11 @@ class _$SentFriendRequest implements SentFriendRequest {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return sentFriendRequest?.call(this);
   }
@@ -492,6 +580,11 @@ class _$SentFriendRequest implements SentFriendRequest {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (sentFriendRequest != null) {
@@ -553,6 +646,12 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return cancelFriendRequest();
   }
@@ -570,6 +669,11 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return cancelFriendRequest?.call();
   }
@@ -587,6 +691,11 @@ class _$CancelFriendRequest implements CancelFriendRequest {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (cancelFriendRequest != null) {
@@ -612,6 +721,11 @@ class _$CancelFriendRequest implements CancelFriendRequest {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return cancelFriendRequest(this);
   }
@@ -633,6 +747,11 @@ class _$CancelFriendRequest implements CancelFriendRequest {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return cancelFriendRequest?.call(this);
   }
@@ -654,6 +773,11 @@ class _$CancelFriendRequest implements CancelFriendRequest {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (cancelFriendRequest != null) {
@@ -714,6 +838,12 @@ class _$UnFriend implements UnFriend {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return unFriend();
   }
@@ -731,6 +861,11 @@ class _$UnFriend implements UnFriend {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return unFriend?.call();
   }
@@ -748,6 +883,11 @@ class _$UnFriend implements UnFriend {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (unFriend != null) {
@@ -773,6 +913,11 @@ class _$UnFriend implements UnFriend {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return unFriend(this);
   }
@@ -794,6 +939,11 @@ class _$UnFriend implements UnFriend {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return unFriend?.call(this);
   }
@@ -815,6 +965,11 @@ class _$UnFriend implements UnFriend {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (unFriend != null) {
@@ -876,6 +1031,12 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return acceptFriendRequest();
   }
@@ -893,6 +1054,11 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return acceptFriendRequest?.call();
   }
@@ -910,6 +1076,11 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (acceptFriendRequest != null) {
@@ -935,6 +1106,11 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return acceptFriendRequest(this);
   }
@@ -956,6 +1132,11 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return acceptFriendRequest?.call(this);
   }
@@ -977,6 +1158,11 @@ class _$AcceptFriendRequest implements AcceptFriendRequest {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (acceptFriendRequest != null) {
@@ -1043,6 +1229,12 @@ class _$UpdateProfilePictureUsingCamera
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureUsingCamera();
   }
@@ -1060,6 +1252,11 @@ class _$UpdateProfilePictureUsingCamera
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureUsingCamera?.call();
   }
@@ -1077,6 +1274,11 @@ class _$UpdateProfilePictureUsingCamera
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateProfilePictureUsingCamera != null) {
@@ -1102,6 +1304,11 @@ class _$UpdateProfilePictureUsingCamera
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureUsingCamera(this);
   }
@@ -1123,6 +1330,11 @@ class _$UpdateProfilePictureUsingCamera
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureUsingCamera?.call(this);
   }
@@ -1144,6 +1356,11 @@ class _$UpdateProfilePictureUsingCamera
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateProfilePictureUsingCamera != null) {
@@ -1210,6 +1427,12 @@ class _$UpdateCoverPictureUsingCamera implements UpdateCoverPictureUsingCamera {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureUsingCamera();
   }
@@ -1227,6 +1450,11 @@ class _$UpdateCoverPictureUsingCamera implements UpdateCoverPictureUsingCamera {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureUsingCamera?.call();
   }
@@ -1244,6 +1472,11 @@ class _$UpdateCoverPictureUsingCamera implements UpdateCoverPictureUsingCamera {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateCoverPictureUsingCamera != null) {
@@ -1269,6 +1502,11 @@ class _$UpdateCoverPictureUsingCamera implements UpdateCoverPictureUsingCamera {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureUsingCamera(this);
   }
@@ -1290,6 +1528,11 @@ class _$UpdateCoverPictureUsingCamera implements UpdateCoverPictureUsingCamera {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureUsingCamera?.call(this);
   }
@@ -1311,6 +1554,11 @@ class _$UpdateCoverPictureUsingCamera implements UpdateCoverPictureUsingCamera {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateCoverPictureUsingCamera != null) {
@@ -1378,6 +1626,12 @@ class _$UpdateProfilePictureFromStorage
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureFromStorage();
   }
@@ -1395,6 +1649,11 @@ class _$UpdateProfilePictureFromStorage
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureFromStorage?.call();
   }
@@ -1412,6 +1671,11 @@ class _$UpdateProfilePictureFromStorage
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateProfilePictureFromStorage != null) {
@@ -1437,6 +1701,11 @@ class _$UpdateProfilePictureFromStorage
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureFromStorage(this);
   }
@@ -1458,6 +1727,11 @@ class _$UpdateProfilePictureFromStorage
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return updateProfilePictureFromStorage?.call(this);
   }
@@ -1479,6 +1753,11 @@ class _$UpdateProfilePictureFromStorage
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateProfilePictureFromStorage != null) {
@@ -1545,6 +1824,12 @@ class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
     required TResult Function() updateCoverPictureUsingCamera,
     required TResult Function() updateProfilePictureFromStorage,
     required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureFromStorage();
   }
@@ -1562,6 +1847,11 @@ class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
     TResult? Function()? updateCoverPictureUsingCamera,
     TResult? Function()? updateProfilePictureFromStorage,
     TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureFromStorage?.call();
   }
@@ -1579,6 +1869,11 @@ class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
     TResult Function()? updateCoverPictureUsingCamera,
     TResult Function()? updateProfilePictureFromStorage,
     TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateCoverPictureFromStorage != null) {
@@ -1604,6 +1899,11 @@ class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
         updateProfilePictureFromStorage,
     required TResult Function(UpdateCoverPictureFromStorage value)
         updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureFromStorage(this);
   }
@@ -1625,6 +1925,11 @@ class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
         updateProfilePictureFromStorage,
     TResult? Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return updateCoverPictureFromStorage?.call(this);
   }
@@ -1646,6 +1951,11 @@ class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
         updateProfilePictureFromStorage,
     TResult Function(UpdateCoverPictureFromStorage value)?
         updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (updateCoverPictureFromStorage != null) {
@@ -1658,6 +1968,914 @@ class _$UpdateCoverPictureFromStorage implements UpdateCoverPictureFromStorage {
 abstract class UpdateCoverPictureFromStorage implements ProfilePageEvent {
   const factory UpdateCoverPictureFromStorage() =
       _$UpdateCoverPictureFromStorage;
+}
+
+/// @nodoc
+abstract class _$$_LikePostCopyWith<$Res> {
+  factory _$$_LikePostCopyWith(
+          _$_LikePost value, $Res Function(_$_LikePost) then) =
+      __$$_LikePostCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int postIndex});
+}
+
+/// @nodoc
+class __$$_LikePostCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res, _$_LikePost>
+    implements _$$_LikePostCopyWith<$Res> {
+  __$$_LikePostCopyWithImpl(
+      _$_LikePost _value, $Res Function(_$_LikePost) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? postIndex = null,
+  }) {
+    return _then(_$_LikePost(
+      postIndex: null == postIndex
+          ? _value.postIndex
+          : postIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LikePost implements _LikePost {
+  const _$_LikePost({required this.postIndex});
+
+  @override
+  final int postIndex;
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.likePost(postIndex: $postIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LikePost &&
+            (identical(other.postIndex, postIndex) ||
+                other.postIndex == postIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, postIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LikePostCopyWith<_$_LikePost> get copyWith =>
+      __$$_LikePostCopyWithImpl<_$_LikePost>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
+  }) {
+    return likePost(postIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
+  }) {
+    return likePost?.call(postIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (likePost != null) {
+      return likePost(postIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
+  }) {
+    return likePost(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+  }) {
+    return likePost?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (likePost != null) {
+      return likePost(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LikePost implements ProfilePageEvent {
+  const factory _LikePost({required final int postIndex}) = _$_LikePost;
+
+  int get postIndex;
+  @JsonKey(ignore: true)
+  _$$_LikePostCopyWith<_$_LikePost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SharePostAsMessageCopyWith<$Res> {
+  factory _$$_SharePostAsMessageCopyWith(_$_SharePostAsMessage value,
+          $Res Function(_$_SharePostAsMessage) then) =
+      __$$_SharePostAsMessageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? friendId, String? postId});
+}
+
+/// @nodoc
+class __$$_SharePostAsMessageCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res, _$_SharePostAsMessage>
+    implements _$$_SharePostAsMessageCopyWith<$Res> {
+  __$$_SharePostAsMessageCopyWithImpl(
+      _$_SharePostAsMessage _value, $Res Function(_$_SharePostAsMessage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+    Object? postId = freezed,
+  }) {
+    return _then(_$_SharePostAsMessage(
+      friendId: freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postId: freezed == postId
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SharePostAsMessage implements _SharePostAsMessage {
+  const _$_SharePostAsMessage({required this.friendId, required this.postId});
+
+  @override
+  final String? friendId;
+  @override
+  final String? postId;
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.sharePostAsMessage(friendId: $friendId, postId: $postId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SharePostAsMessage &&
+            (identical(other.friendId, friendId) ||
+                other.friendId == friendId) &&
+            (identical(other.postId, postId) || other.postId == postId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, friendId, postId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SharePostAsMessageCopyWith<_$_SharePostAsMessage> get copyWith =>
+      __$$_SharePostAsMessageCopyWithImpl<_$_SharePostAsMessage>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage(friendId, postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage?.call(friendId, postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePostAsMessage != null) {
+      return sharePostAsMessage(friendId, postId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePostAsMessage != null) {
+      return sharePostAsMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SharePostAsMessage implements ProfilePageEvent {
+  const factory _SharePostAsMessage(
+      {required final String? friendId,
+      required final String? postId}) = _$_SharePostAsMessage;
+
+  String? get friendId;
+  String? get postId;
+  @JsonKey(ignore: true)
+  _$$_SharePostAsMessageCopyWith<_$_SharePostAsMessage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SharePostCopyWith<$Res> {
+  factory _$$_SharePostCopyWith(
+          _$_SharePost value, $Res Function(_$_SharePost) then) =
+      __$$_SharePostCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String postId, String description, String privacy});
+}
+
+/// @nodoc
+class __$$_SharePostCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res, _$_SharePost>
+    implements _$$_SharePostCopyWith<$Res> {
+  __$$_SharePostCopyWithImpl(
+      _$_SharePost _value, $Res Function(_$_SharePost) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? postId = null,
+    Object? description = null,
+    Object? privacy = null,
+  }) {
+    return _then(_$_SharePost(
+      postId: null == postId
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      privacy: null == privacy
+          ? _value.privacy
+          : privacy // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SharePost implements _SharePost {
+  const _$_SharePost(
+      {required this.postId, required this.description, required this.privacy});
+
+  @override
+  final String postId;
+  @override
+  final String description;
+  @override
+  final String privacy;
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.sharePost(postId: $postId, description: $description, privacy: $privacy)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SharePost &&
+            (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.privacy, privacy) || other.privacy == privacy));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, postId, description, privacy);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SharePostCopyWith<_$_SharePost> get copyWith =>
+      __$$_SharePostCopyWithImpl<_$_SharePost>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
+  }) {
+    return sharePost(postId, description, privacy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
+  }) {
+    return sharePost?.call(postId, description, privacy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePost != null) {
+      return sharePost(postId, description, privacy);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePost(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePost?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePost != null) {
+      return sharePost(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SharePost implements ProfilePageEvent {
+  const factory _SharePost(
+      {required final String postId,
+      required final String description,
+      required final String privacy}) = _$_SharePost;
+
+  String get postId;
+  String get description;
+  String get privacy;
+  @JsonKey(ignore: true)
+  _$$_SharePostCopyWith<_$_SharePost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ResetIsEmptySharePostDescriptionCopyWith<$Res> {
+  factory _$$_ResetIsEmptySharePostDescriptionCopyWith(
+          _$_ResetIsEmptySharePostDescription value,
+          $Res Function(_$_ResetIsEmptySharePostDescription) then) =
+      __$$_ResetIsEmptySharePostDescriptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetIsEmptySharePostDescriptionCopyWithImpl<$Res>
+    extends _$ProfilePageEventCopyWithImpl<$Res,
+        _$_ResetIsEmptySharePostDescription>
+    implements _$$_ResetIsEmptySharePostDescriptionCopyWith<$Res> {
+  __$$_ResetIsEmptySharePostDescriptionCopyWithImpl(
+      _$_ResetIsEmptySharePostDescription _value,
+      $Res Function(_$_ResetIsEmptySharePostDescription) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResetIsEmptySharePostDescription
+    implements _ResetIsEmptySharePostDescription {
+  const _$_ResetIsEmptySharePostDescription();
+
+  @override
+  String toString() {
+    return 'ProfilePageEvent.resetIsEmptySharePostDescription()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ResetIsEmptySharePostDescription);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? username, bool isCurrentUserProfile)
+        initializeProfilePageBloc,
+    required TResult Function() sentFriendRequest,
+    required TResult Function() cancelFriendRequest,
+    required TResult Function() unFriend,
+    required TResult Function() acceptFriendRequest,
+    required TResult Function() updateProfilePictureUsingCamera,
+    required TResult Function() updateCoverPictureUsingCamera,
+    required TResult Function() updateProfilePictureFromStorage,
+    required TResult Function() updateCoverPictureFromStorage,
+    required TResult Function(int postIndex) likePost,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult? Function()? sentFriendRequest,
+    TResult? Function()? cancelFriendRequest,
+    TResult? Function()? unFriend,
+    TResult? Function()? acceptFriendRequest,
+    TResult? Function()? updateProfilePictureUsingCamera,
+    TResult? Function()? updateCoverPictureUsingCamera,
+    TResult? Function()? updateProfilePictureFromStorage,
+    TResult? Function()? updateCoverPictureFromStorage,
+    TResult? Function(int postIndex)? likePost,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? username, bool isCurrentUserProfile)?
+        initializeProfilePageBloc,
+    TResult Function()? sentFriendRequest,
+    TResult Function()? cancelFriendRequest,
+    TResult Function()? unFriend,
+    TResult Function()? acceptFriendRequest,
+    TResult Function()? updateProfilePictureUsingCamera,
+    TResult Function()? updateCoverPictureUsingCamera,
+    TResult Function()? updateProfilePictureFromStorage,
+    TResult Function()? updateCoverPictureFromStorage,
+    TResult Function(int postIndex)? likePost,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (resetIsEmptySharePostDescription != null) {
+      return resetIsEmptySharePostDescription();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializaProfilePageBloc value)
+        initializeProfilePageBloc,
+    required TResult Function(SentFriendRequest value) sentFriendRequest,
+    required TResult Function(CancelFriendRequest value) cancelFriendRequest,
+    required TResult Function(UnFriend value) unFriend,
+    required TResult Function(AcceptFriendRequest value) acceptFriendRequest,
+    required TResult Function(UpdateProfilePictureUsingCamera value)
+        updateProfilePictureUsingCamera,
+    required TResult Function(UpdateCoverPictureUsingCamera value)
+        updateCoverPictureUsingCamera,
+    required TResult Function(UpdateProfilePictureFromStorage value)
+        updateProfilePictureFromStorage,
+    required TResult Function(UpdateCoverPictureFromStorage value)
+        updateCoverPictureFromStorage,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult? Function(SentFriendRequest value)? sentFriendRequest,
+    TResult? Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult? Function(UnFriend value)? unFriend,
+    TResult? Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult? Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult? Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult? Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult? Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializaProfilePageBloc value)?
+        initializeProfilePageBloc,
+    TResult Function(SentFriendRequest value)? sentFriendRequest,
+    TResult Function(CancelFriendRequest value)? cancelFriendRequest,
+    TResult Function(UnFriend value)? unFriend,
+    TResult Function(AcceptFriendRequest value)? acceptFriendRequest,
+    TResult Function(UpdateProfilePictureUsingCamera value)?
+        updateProfilePictureUsingCamera,
+    TResult Function(UpdateCoverPictureUsingCamera value)?
+        updateCoverPictureUsingCamera,
+    TResult Function(UpdateProfilePictureFromStorage value)?
+        updateProfilePictureFromStorage,
+    TResult Function(UpdateCoverPictureFromStorage value)?
+        updateCoverPictureFromStorage,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (resetIsEmptySharePostDescription != null) {
+      return resetIsEmptySharePostDescription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetIsEmptySharePostDescription implements ProfilePageEvent {
+  const factory _ResetIsEmptySharePostDescription() =
+      _$_ResetIsEmptySharePostDescription;
 }
 
 /// @nodoc
@@ -1678,7 +2896,12 @@ mixin _$ProfilePageState {
       throw _privateConstructorUsedError;
   GetPostByOneUserResponseModel? get getPostByOneUserResponse =>
       throw _privateConstructorUsedError;
+  List<int> get likedPostIndexList => throw _privateConstructorUsedError;
   String? get profilePicture => throw _privateConstructorUsedError;
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponseList =>
+      throw _privateConstructorUsedError;
+  bool? get isSharePostDescriptionEmpty => throw _privateConstructorUsedError;
+  String? get showMessage => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -1696,7 +2919,12 @@ mixin _$ProfilePageState {
             bool? isFriendRequestRecieved,
             GetUserDetailsResponseModel? getUserDetailsResponse,
             GetPostByOneUserResponseModel? getPostByOneUserResponse,
-            String? profilePicture)
+            List<int> likedPostIndexList,
+            String? profilePicture,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList,
+            bool? isSharePostDescriptionEmpty,
+            String? showMessage)
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -1717,7 +2945,12 @@ mixin _$ProfilePageState {
             bool? isFriendRequestRecieved,
             GetUserDetailsResponseModel? getUserDetailsResponse,
             GetPostByOneUserResponseModel? getPostByOneUserResponse,
-            String? profilePicture)?
+            List<int> likedPostIndexList,
+            String? profilePicture,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList,
+            bool? isSharePostDescriptionEmpty,
+            String? showMessage)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -1738,7 +2971,12 @@ mixin _$ProfilePageState {
             bool? isFriendRequestRecieved,
             GetUserDetailsResponseModel? getUserDetailsResponse,
             GetPostByOneUserResponseModel? getPostByOneUserResponse,
-            String? profilePicture)?
+            List<int> likedPostIndexList,
+            String? profilePicture,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList,
+            bool? isSharePostDescriptionEmpty,
+            String? showMessage)?
         initial,
     required TResult orElse(),
   }) =>
@@ -1786,7 +3024,11 @@ abstract class $ProfilePageStateCopyWith<$Res> {
       bool? isFriendRequestRecieved,
       GetUserDetailsResponseModel? getUserDetailsResponse,
       GetPostByOneUserResponseModel? getPostByOneUserResponse,
-      String? profilePicture});
+      List<int> likedPostIndexList,
+      String? profilePicture,
+      List<GetAllConversationsResponseModel>? getAllConversationsResponseList,
+      bool? isSharePostDescriptionEmpty,
+      String? showMessage});
 }
 
 /// @nodoc
@@ -1816,7 +3058,11 @@ class _$ProfilePageStateCopyWithImpl<$Res, $Val extends ProfilePageState>
     Object? isFriendRequestRecieved = freezed,
     Object? getUserDetailsResponse = freezed,
     Object? getPostByOneUserResponse = freezed,
+    Object? likedPostIndexList = null,
     Object? profilePicture = freezed,
+    Object? getAllConversationsResponseList = freezed,
+    Object? isSharePostDescriptionEmpty = freezed,
+    Object? showMessage = freezed,
   }) {
     return _then(_value.copyWith(
       firstName: null == firstName
@@ -1875,9 +3121,26 @@ class _$ProfilePageStateCopyWithImpl<$Res, $Val extends ProfilePageState>
           ? _value.getPostByOneUserResponse
           : getPostByOneUserResponse // ignore: cast_nullable_to_non_nullable
               as GetPostByOneUserResponseModel?,
+      likedPostIndexList: null == likedPostIndexList
+          ? _value.likedPostIndexList
+          : likedPostIndexList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
       profilePicture: freezed == profilePicture
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      getAllConversationsResponseList: freezed ==
+              getAllConversationsResponseList
+          ? _value.getAllConversationsResponseList
+          : getAllConversationsResponseList // ignore: cast_nullable_to_non_nullable
+              as List<GetAllConversationsResponseModel>?,
+      isSharePostDescriptionEmpty: freezed == isSharePostDescriptionEmpty
+          ? _value.isSharePostDescriptionEmpty
+          : isSharePostDescriptionEmpty // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      showMessage: freezed == showMessage
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1906,7 +3169,11 @@ abstract class _$$_InitialCopyWith<$Res>
       bool? isFriendRequestRecieved,
       GetUserDetailsResponseModel? getUserDetailsResponse,
       GetPostByOneUserResponseModel? getPostByOneUserResponse,
-      String? profilePicture});
+      List<int> likedPostIndexList,
+      String? profilePicture,
+      List<GetAllConversationsResponseModel>? getAllConversationsResponseList,
+      bool? isSharePostDescriptionEmpty,
+      String? showMessage});
 }
 
 /// @nodoc
@@ -1933,7 +3200,11 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isFriendRequestRecieved = freezed,
     Object? getUserDetailsResponse = freezed,
     Object? getPostByOneUserResponse = freezed,
+    Object? likedPostIndexList = null,
     Object? profilePicture = freezed,
+    Object? getAllConversationsResponseList = freezed,
+    Object? isSharePostDescriptionEmpty = freezed,
+    Object? showMessage = freezed,
   }) {
     return _then(_$_Initial(
       firstName: null == firstName
@@ -1992,9 +3263,26 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.getPostByOneUserResponse
           : getPostByOneUserResponse // ignore: cast_nullable_to_non_nullable
               as GetPostByOneUserResponseModel?,
+      likedPostIndexList: null == likedPostIndexList
+          ? _value._likedPostIndexList
+          : likedPostIndexList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
       profilePicture: freezed == profilePicture
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      getAllConversationsResponseList: freezed ==
+              getAllConversationsResponseList
+          ? _value._getAllConversationsResponseList
+          : getAllConversationsResponseList // ignore: cast_nullable_to_non_nullable
+              as List<GetAllConversationsResponseModel>?,
+      isSharePostDescriptionEmpty: freezed == isSharePostDescriptionEmpty
+          ? _value.isSharePostDescriptionEmpty
+          : isSharePostDescriptionEmpty // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      showMessage: freezed == showMessage
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2018,7 +3306,14 @@ class _$_Initial implements _Initial {
       this.isFriendRequestRecieved,
       this.getUserDetailsResponse,
       this.getPostByOneUserResponse,
-      this.profilePicture});
+      required final List<int> likedPostIndexList,
+      this.profilePicture,
+      final List<GetAllConversationsResponseModel>?
+          getAllConversationsResponseList,
+      this.isSharePostDescriptionEmpty,
+      this.showMessage})
+      : _likedPostIndexList = likedPostIndexList,
+        _getAllConversationsResponseList = getAllConversationsResponseList;
 
   @override
   final String firstName;
@@ -2048,12 +3343,37 @@ class _$_Initial implements _Initial {
   final GetUserDetailsResponseModel? getUserDetailsResponse;
   @override
   final GetPostByOneUserResponseModel? getPostByOneUserResponse;
+  final List<int> _likedPostIndexList;
+  @override
+  List<int> get likedPostIndexList {
+    if (_likedPostIndexList is EqualUnmodifiableListView)
+      return _likedPostIndexList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_likedPostIndexList);
+  }
+
   @override
   final String? profilePicture;
+  final List<GetAllConversationsResponseModel>?
+      _getAllConversationsResponseList;
+  @override
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponseList {
+    final value = _getAllConversationsResponseList;
+    if (value == null) return null;
+    if (_getAllConversationsResponseList is EqualUnmodifiableListView)
+      return _getAllConversationsResponseList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final bool? isSharePostDescriptionEmpty;
+  @override
+  final String? showMessage;
 
   @override
   String toString() {
-    return 'ProfilePageState.initial(firstName: $firstName, lastName: $lastName, username: $username, isCurrentUserProfile: $isCurrentUserProfile, isFriend: $isFriend, isFriendRequestSent: $isFriendRequestSent, isPageLoading: $isPageLoading, isProfilePictureLoading: $isProfilePictureLoading, isCoverPictureLoading: $isCoverPictureLoading, errorMessage: $errorMessage, friendId: $friendId, isFriendRequestRecieved: $isFriendRequestRecieved, getUserDetailsResponse: $getUserDetailsResponse, getPostByOneUserResponse: $getPostByOneUserResponse, profilePicture: $profilePicture)';
+    return 'ProfilePageState.initial(firstName: $firstName, lastName: $lastName, username: $username, isCurrentUserProfile: $isCurrentUserProfile, isFriend: $isFriend, isFriendRequestSent: $isFriendRequestSent, isPageLoading: $isPageLoading, isProfilePictureLoading: $isProfilePictureLoading, isCoverPictureLoading: $isCoverPictureLoading, errorMessage: $errorMessage, friendId: $friendId, isFriendRequestRecieved: $isFriendRequestRecieved, getUserDetailsResponse: $getUserDetailsResponse, getPostByOneUserResponse: $getPostByOneUserResponse, likedPostIndexList: $likedPostIndexList, profilePicture: $profilePicture, getAllConversationsResponseList: $getAllConversationsResponseList, isSharePostDescriptionEmpty: $isSharePostDescriptionEmpty, showMessage: $showMessage)';
   }
 
   @override
@@ -2092,28 +3412,44 @@ class _$_Initial implements _Initial {
             (identical(
                     other.getPostByOneUserResponse, getPostByOneUserResponse) ||
                 other.getPostByOneUserResponse == getPostByOneUserResponse) &&
+            const DeepCollectionEquality()
+                .equals(other._likedPostIndexList, _likedPostIndexList) &&
             (identical(other.profilePicture, profilePicture) ||
-                other.profilePicture == profilePicture));
+                other.profilePicture == profilePicture) &&
+            const DeepCollectionEquality().equals(
+                other._getAllConversationsResponseList,
+                _getAllConversationsResponseList) &&
+            (identical(other.isSharePostDescriptionEmpty,
+                    isSharePostDescriptionEmpty) ||
+                other.isSharePostDescriptionEmpty ==
+                    isSharePostDescriptionEmpty) &&
+            (identical(other.showMessage, showMessage) ||
+                other.showMessage == showMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      firstName,
-      lastName,
-      username,
-      isCurrentUserProfile,
-      isFriend,
-      isFriendRequestSent,
-      isPageLoading,
-      isProfilePictureLoading,
-      isCoverPictureLoading,
-      errorMessage,
-      friendId,
-      isFriendRequestRecieved,
-      getUserDetailsResponse,
-      getPostByOneUserResponse,
-      profilePicture);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        firstName,
+        lastName,
+        username,
+        isCurrentUserProfile,
+        isFriend,
+        isFriendRequestSent,
+        isPageLoading,
+        isProfilePictureLoading,
+        isCoverPictureLoading,
+        errorMessage,
+        friendId,
+        isFriendRequestRecieved,
+        getUserDetailsResponse,
+        getPostByOneUserResponse,
+        const DeepCollectionEquality().hash(_likedPostIndexList),
+        profilePicture,
+        const DeepCollectionEquality().hash(_getAllConversationsResponseList),
+        isSharePostDescriptionEmpty,
+        showMessage
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -2139,7 +3475,12 @@ class _$_Initial implements _Initial {
             bool? isFriendRequestRecieved,
             GetUserDetailsResponseModel? getUserDetailsResponse,
             GetPostByOneUserResponseModel? getPostByOneUserResponse,
-            String? profilePicture)
+            List<int> likedPostIndexList,
+            String? profilePicture,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList,
+            bool? isSharePostDescriptionEmpty,
+            String? showMessage)
         initial,
   }) {
     return initial(
@@ -2157,7 +3498,11 @@ class _$_Initial implements _Initial {
         isFriendRequestRecieved,
         getUserDetailsResponse,
         getPostByOneUserResponse,
-        profilePicture);
+        likedPostIndexList,
+        profilePicture,
+        getAllConversationsResponseList,
+        isSharePostDescriptionEmpty,
+        showMessage);
   }
 
   @override
@@ -2178,7 +3523,12 @@ class _$_Initial implements _Initial {
             bool? isFriendRequestRecieved,
             GetUserDetailsResponseModel? getUserDetailsResponse,
             GetPostByOneUserResponseModel? getPostByOneUserResponse,
-            String? profilePicture)?
+            List<int> likedPostIndexList,
+            String? profilePicture,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList,
+            bool? isSharePostDescriptionEmpty,
+            String? showMessage)?
         initial,
   }) {
     return initial?.call(
@@ -2196,7 +3546,11 @@ class _$_Initial implements _Initial {
         isFriendRequestRecieved,
         getUserDetailsResponse,
         getPostByOneUserResponse,
-        profilePicture);
+        likedPostIndexList,
+        profilePicture,
+        getAllConversationsResponseList,
+        isSharePostDescriptionEmpty,
+        showMessage);
   }
 
   @override
@@ -2217,7 +3571,12 @@ class _$_Initial implements _Initial {
             bool? isFriendRequestRecieved,
             GetUserDetailsResponseModel? getUserDetailsResponse,
             GetPostByOneUserResponseModel? getPostByOneUserResponse,
-            String? profilePicture)?
+            List<int> likedPostIndexList,
+            String? profilePicture,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList,
+            bool? isSharePostDescriptionEmpty,
+            String? showMessage)?
         initial,
     required TResult orElse(),
   }) {
@@ -2237,7 +3596,11 @@ class _$_Initial implements _Initial {
           isFriendRequestRecieved,
           getUserDetailsResponse,
           getPostByOneUserResponse,
-          profilePicture);
+          likedPostIndexList,
+          profilePicture,
+          getAllConversationsResponseList,
+          isSharePostDescriptionEmpty,
+          showMessage);
     }
     return orElse();
   }
@@ -2287,7 +3650,12 @@ abstract class _Initial implements ProfilePageState {
       final bool? isFriendRequestRecieved,
       final GetUserDetailsResponseModel? getUserDetailsResponse,
       final GetPostByOneUserResponseModel? getPostByOneUserResponse,
-      final String? profilePicture}) = _$_Initial;
+      required final List<int> likedPostIndexList,
+      final String? profilePicture,
+      final List<GetAllConversationsResponseModel>?
+          getAllConversationsResponseList,
+      final bool? isSharePostDescriptionEmpty,
+      final String? showMessage}) = _$_Initial;
 
   @override
   String get firstName;
@@ -2318,7 +3686,15 @@ abstract class _Initial implements ProfilePageState {
   @override
   GetPostByOneUserResponseModel? get getPostByOneUserResponse;
   @override
+  List<int> get likedPostIndexList;
+  @override
   String? get profilePicture;
+  @override
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponseList;
+  @override
+  bool? get isSharePostDescriptionEmpty;
+  @override
+  String? get showMessage;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

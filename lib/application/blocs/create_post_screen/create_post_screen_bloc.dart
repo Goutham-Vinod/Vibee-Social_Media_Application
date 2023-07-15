@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
+import 'package:vibee/domain/models/create_post_response_model/create_post_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/infrastructure/camera_repository.dart';
 import 'package:vibee/infrastructure/file_repository.dart';
@@ -36,7 +37,8 @@ class CreatePostScreenBloc
       } else {
         // validation success
 
-        Either<ApiFailure, bool> result = await APIServices.createPost(
+        Either<ApiFailure, CreatePostResponseModel> result =
+            await APIServices.createPost(
           description: event.description!,
           privacy: event.privacy!,
           location: event.location,
@@ -44,12 +46,14 @@ class CreatePostScreenBloc
         );
 
         result.fold((failure) {
+          print('error ${failure.errorMessage}');
           emit(state.copyWith(
             errorMessage: failure.errorMessage,
             isUploadInProgress: false,
           ));
           emit(state.copyWith(errorMessage: null));
         }, (success) {
+          print('success $success');
           emit(state.copyWith(
             isUploadPostSuccess: true,
             isUploadInProgress: false,

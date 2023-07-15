@@ -7,6 +7,7 @@ import 'package:vibee/application/blocs/create_group_screen_2/create_group_scree
 import 'package:vibee/application/blocs/create_post_screen/create_post_screen_bloc.dart';
 import 'package:vibee/application/blocs/discover_page/discover_page_bloc.dart';
 import 'package:vibee/application/blocs/edit_profile_screen/edit_profile_screen_bloc.dart';
+import 'package:vibee/application/blocs/friends_screen/friends_screen_bloc.dart';
 import 'package:vibee/application/blocs/home_page/home_page_bloc.dart';
 import 'package:vibee/application/blocs/home_screen/home_screen_bloc.dart';
 import 'package:vibee/application/blocs/login_screen/login_screen_bloc.dart';
@@ -85,6 +86,9 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SearchPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => FriendsScreenBloc(),
         ),
       ],
       child: const MaterialApp(

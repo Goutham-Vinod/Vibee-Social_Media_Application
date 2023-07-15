@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/get_message_response_model/get_message_response_model.dart';
+import 'package:vibee/domain/models/sent_message_response_model/sent_message_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 
 part 'chat_screen_event.dart';
@@ -30,9 +31,10 @@ class ChatScreenBloc extends Bloc<ChatScreenEvent, ChatScreenState> {
 
     on<_SendMessage>((event, emit) async {
       if (event.message != null) {
-        Either<ApiFailure, bool> result = await APIServices.sentMessage(
-            conversationId: state.getMessageResponse!.id!,
-            message: event.message!);
+        Either<ApiFailure, SentMessageResponseModel> result =
+            await APIServices.sentMessage(
+                conversationId: state.getMessageResponse!.id!,
+                message: event.message!);
 
         result.fold((failure) {
           emit(state.copyWith(errorMessage: failure.errorMessage));

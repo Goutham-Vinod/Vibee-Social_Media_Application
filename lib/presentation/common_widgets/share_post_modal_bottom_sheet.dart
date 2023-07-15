@@ -18,7 +18,7 @@ sharePostModalBottomSheet({
       return SizedBox(
         height: 300,
         child: Center(
-          child: Column( 
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -56,7 +56,8 @@ sharePostModalBottomSheet({
                       title: getAllConversationsResponseList?[friendIndex]
                                   .isGroupChat ==
                               true
-                          ? getAllConversationsResponseList![friendIndex].chatName
+                          ? getAllConversationsResponseList![friendIndex]
+                              .chatName
                           : '${getAllConversationsResponseList?[friendIndex].users?[0].firstName} ${getAllConversationsResponseList?[friendIndex].users?[0].lastName}',
                       titleSize: 15,
                       prefixWidget: vibeeDp(

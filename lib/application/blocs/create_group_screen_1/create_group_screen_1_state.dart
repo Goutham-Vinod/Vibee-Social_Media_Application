@@ -7,7 +7,7 @@ class CreateGroupScreen_1State with _$CreateGroupScreen_1State {
     String? errorMessage,
     List<FriendsListResponseModel>? friendsListResponse,
     required List<int> selectedGroupMembersIndex,
-        List<FriendsListResponseModel>? selectedGroupMembers,
+    List<FriendsListResponseModel>? selectedGroupMembers,
     bool? isGroupMembersAdded,
   }) = _CurrentState;
 }

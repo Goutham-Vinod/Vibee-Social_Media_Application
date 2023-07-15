@@ -9,7 +9,7 @@ class CommentsScreenState with _$CommentsScreenState {
     required bool isUploadCommentSuccess,
     required bool isImageLoading,
     String? postImageUrl,
-  List <LoadCommentsResponseModel?>? loadCommentsResponse,
+    List<LoadCommentsResponseModel?>? loadCommentsResponse,
     String? postId,
     bool? isLiked,
   }) = _Current;
