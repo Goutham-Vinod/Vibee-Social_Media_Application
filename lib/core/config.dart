@@ -40,6 +40,8 @@ class Config {
 
   static String get friendsListApi => '$apiBaseUrl/api/friends';
   static String get getAllConversationsApi => '$apiBaseUrl/api/conversation/';
+    static String get onlineFriendsListApi => '$apiBaseUrl/api/users/online';
+
   static String get createNewSingleConversationApi =>
       '$apiBaseUrl/api/conversation/create';
   static String sentMessageApi({required String conversationId}) =>

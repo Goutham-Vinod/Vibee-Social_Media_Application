@@ -50,7 +50,8 @@ class ChatScreen extends StatelessWidget {
                               ? state.getMessageResponse?.chatName ?? ''
                               : '${state.getMessageResponse?.users?[0].firstName} ${state.getMessageResponse?.users?[0].lastName}', // app bar title
                           size: 20),
-                      vibeeText("Online", size: 15),
+                      vibeeText(state.isOnline == true ? "Online" : '',
+                          size: 15),
                     ],
                   ),
                 ],

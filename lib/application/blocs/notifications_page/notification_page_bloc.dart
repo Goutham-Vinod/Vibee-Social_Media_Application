@@ -5,6 +5,7 @@ import 'package:vibee/application/blocs/profile_page/profile_page_bloc.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/notifications_response_model/notifications_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 
 part 'notification_page_event.dart';
 part 'notification_page_state.dart';
@@ -20,6 +21,12 @@ class NotificationPageBloc
         )) {
     on<InitializeNotificationPage>((event, emit) async {
       emit(state.copyWith(isLoading: true));
+      // listening socket io events
+      SocketIoServices.listenLatestMessageEvent(() {
+        add(const NotificationPageEvent.initializeNotificationPage());
+      });
+
+      // page initialization
       Either<ApiFailure, NotificationsResponseModel> result =
           await APIServices.getNotifications();
       result.fold((failure) {

@@ -14,7 +14,8 @@ SharePostResponseModel _$SharePostResponseModelFromJson(
           : Post.fromJson(json['post'] as Map<String, dynamic>),
       notification: json['notification'] == null
           ? null
-          : Notification.fromJson(json['notification'] as Map<String, dynamic>),
+          : SharePostResponseNotificationModel.fromJson(
+              json['notification'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SharePostResponseModelToJson(

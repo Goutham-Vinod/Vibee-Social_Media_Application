@@ -27,7 +27,7 @@ class FriendsScreenBloc extends Bloc<FriendsScreenEvent, FriendsScreenState> {
     });
     on<_Unfriend>((event, emit) async {
       String friendId = state.friendsListResponse![event.friendIndex].id!;
-      Either<ApiFailure, AddOrRemoveFriendResponseModel > result =
+      Either<ApiFailure, AddOrRemoveFriendResponseModel> result =
           await APIServices.addOrRemoveFriend(friendId: friendId);
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));

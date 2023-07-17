@@ -6,6 +6,7 @@ class ChatScreenState with _$ChatScreenState {
     required bool isPageLoading,
     String? errorMessage,
     GetMessageResponseModel? getMessageResponse,
+    bool? isOnline ,
     bool? isMessageSentOrRecieved,
   }) = _CurrentState;
 }

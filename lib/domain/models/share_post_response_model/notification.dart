@@ -6,7 +6,7 @@ import 'user_id.dart';
 part 'notification.g.dart';
 
 @JsonSerializable()
-class Notification {
+class SharePostResponseNotificationModel {
   String? type;
   String? interaction;
   PostId? postId;
@@ -19,7 +19,7 @@ class Notification {
   @JsonKey(name: '__v')
   int? v;
 
-  Notification({
+  SharePostResponseNotificationModel({
     this.type,
     this.interaction,
     this.postId,
@@ -31,9 +31,11 @@ class Notification {
     this.v,
   });
 
-  factory Notification.fromJson(Map<String, dynamic> json) {
-    return _$NotificationFromJson(json);
+  factory SharePostResponseNotificationModel.fromJson(
+      Map<String, dynamic> json) {
+    return _$SharePostResponseNotificationModelFromJson(json);
   }
 
-  Map<String, dynamic> toJson() => _$NotificationToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$SharePostResponseNotificationModelToJson(this);
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/infrastructure/shared_pref_services.dart';
 import 'package:vibee/core/config.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -36,10 +38,10 @@ void splashScreenFunctions(context) async {
   await SharedPrefServices.getTocken();
   await SharedPrefServices.getPhoneNumber();
   await SharedPrefServices.getUserId();
+
   if (Config.tocken != null) {
     await APIServices.GetCurrentUserDetailsResponse();
-  }
-  if (Config.tocken != null) {
+    SocketIoServices.setup(Config.bearerTocken);
     Navigator.of(context).pushReplacementNamed(RouteGenerator.home);
   } else {
     Navigator.of(context).pushReplacementNamed(RouteGenerator.loginScreen);

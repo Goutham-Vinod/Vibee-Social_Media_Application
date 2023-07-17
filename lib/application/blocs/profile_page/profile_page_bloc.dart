@@ -17,6 +17,7 @@ import 'package:vibee/domain/models/share_post_response_model/share_post_respons
 import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/infrastructure/camera_repository.dart';
 import 'package:vibee/infrastructure/file_repository.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 
 part 'profile_page_event.dart';
 part 'profile_page_state.dart';
@@ -163,7 +164,7 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
       });
     });
     on<SentFriendRequest>((event, emit) async {
-      Either<ApiFailure,AddOrRemoveFriendResponseModel> result =
+      Either<ApiFailure, AddOrRemoveFriendResponseModel> result =
           await APIServices.addOrRemoveFriend(friendId: state.friendId);
       result.fold(
           (failure) => emit(state.copyWith(
@@ -175,6 +176,7 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
           isFriend: false,
           isFriendRequestRecieved: false,
         ));
+        SocketIoServices.addFriend(success.notification!);
       });
     });
     on<CancelFriendRequest>((event, emit) async {
@@ -190,10 +192,11 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
           isFriend: false,
           isFriendRequestRecieved: false,
         ));
+        SocketIoServices.addFriend(success.notification!);
       });
     });
     on<UnFriend>((event, emit) async {
-      Either<ApiFailure, AddOrRemoveFriendResponseModel > result =
+      Either<ApiFailure, AddOrRemoveFriendResponseModel> result =
           await APIServices.addOrRemoveFriend(friendId: state.friendId);
       result.fold(
           (failure) => emit(state.copyWith(
@@ -208,7 +211,7 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
       });
     });
     on<AcceptFriendRequest>((event, emit) async {
-      Either<ApiFailure, AddOrRemoveFriendResponseModel > result =
+      Either<ApiFailure, AddOrRemoveFriendResponseModel> result =
           await APIServices.addOrRemoveFriend(friendId: state.friendId);
       result.fold(
           (failure) => emit(state.copyWith(
@@ -220,6 +223,7 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
           isFriend: true,
           isFriendRequestRecieved: false,
         ));
+        SocketIoServices.addFriend(success.notification!);
       });
 
       Either<ApiFailure, bool> isConversationCreatedResult =
@@ -359,19 +363,24 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
 // backend part below
       String postId =
           state.getPostByOneUserResponse!.posts![event.postIndex].id!;
-      Either<ApiFailure, LikeDislikeResponseModel > result =
+      Either<ApiFailure, LikeDislikeResponseModel> result =
           await APIServices.likeOrDislike(postId: postId);
 
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
-      }, (success) {});
+      }, (success) {
+        if (success.notification != null) {
+          SocketIoServices.likeDislike(success.notification!);
+        }
+      });
     });
 
     on<_SharePostAsMessage>((event, emit) async {
-      Either<ApiFailure,SharePostAsMessageResponseModel> result = await APIServices.sharePostAsMessage(
-          sharePostAsMessageRequest: SharePostAsMessageRequestModel(
-              checked: [event.friendId!], postId: event.postId));
+      Either<ApiFailure, SharePostAsMessageResponseModel> result =
+          await APIServices.sharePostAsMessage(
+              sharePostAsMessageRequest: SharePostAsMessageRequestModel(
+                  checked: [event.friendId!], postId: event.postId));
 
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));
@@ -385,12 +394,13 @@ class ProfilePageBloc extends Bloc<ProfilePageEvent, ProfilePageState> {
 
     on<_SharePost>((event, emit) async {
       if (event.description.isNotEmpty) {
-        Either<ApiFailure, SharePostResponseModel> result = await APIServices.sharePost(
-            sharePostRequest: SharePostRequestModel(
-                description: event.description,
-                privacy: event.privacy,
-                shared: false,
-                sharedPostId: event.postId));
+        Either<ApiFailure, SharePostResponseModel> result =
+            await APIServices.sharePost(
+                sharePostRequest: SharePostRequestModel(
+                    description: event.description,
+                    privacy: event.privacy,
+                    shared: false,
+                    sharedPostId: event.postId));
 
         result.fold((failure) {
           emit(state.copyWith(errorMessage: failure.errorMessage));

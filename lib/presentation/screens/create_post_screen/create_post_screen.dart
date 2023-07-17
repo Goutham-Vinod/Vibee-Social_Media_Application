@@ -129,7 +129,7 @@ class CreatePostScreen extends StatelessWidget {
                                       style: BorderStyle.solid,
                                       color: Colors.white),
                                 ),
-                                child: state.postImage == null
+                                child: state.post == null
                                     ? Center(
                                         child: vibeeText('Add Photos / Videos'))
                                     : Container(
@@ -138,8 +138,7 @@ class CreatePostScreen extends StatelessWidget {
                                         decoration: BoxDecoration(
                                             image: DecorationImage(
                                                 fit: BoxFit.cover,
-                                                image: FileImage(
-                                                    state.postImage!))),
+                                                image: FileImage(state.post!))),
                                       ),
                               );
                             },

@@ -20,12 +20,14 @@ import 'package:vibee/application/blocs/saved_posts_screen/saved_posts_screen_bl
 import 'package:vibee/application/blocs/search_page/search_page_bloc.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
+  SocketIoServices.connectSocket();
   runApp(const MainApp());
 }
 

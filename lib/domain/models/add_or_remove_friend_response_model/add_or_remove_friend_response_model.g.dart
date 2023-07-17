@@ -13,7 +13,8 @@ AddOrRemoveFriendResponseModel _$AddOrRemoveFriendResponseModelFromJson(
       message: json['message'] as String?,
       notification: json['notification'] == null
           ? null
-          : Notification.fromJson(json['notification'] as Map<String, dynamic>),
+          : AddOrRemoveFriendResponseNotificationModel.fromJson(
+              json['notification'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AddOrRemoveFriendResponseModelToJson(

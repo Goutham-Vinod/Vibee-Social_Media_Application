@@ -20,18 +20,21 @@ mixin _$ChatScreenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String chatId) initializeScreen,
     required TResult Function(String? message) sendMessage,
+    required TResult Function() iSOnline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String chatId)? initializeScreen,
     TResult? Function(String? message)? sendMessage,
+    TResult? Function()? iSOnline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String chatId)? initializeScreen,
     TResult Function(String? message)? sendMessage,
+    TResult Function()? iSOnline,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ChatScreenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitializeScreen value) initializeScreen,
     required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_IsOnline value) iSOnline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeScreen value)? initializeScreen,
     TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_IsOnline value)? iSOnline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeScreen value)? initializeScreen,
     TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_IsOnline value)? iSOnline,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +146,7 @@ class _$_InitializeScreen implements _InitializeScreen {
   TResult when<TResult extends Object?>({
     required TResult Function(String chatId) initializeScreen,
     required TResult Function(String? message) sendMessage,
+    required TResult Function() iSOnline,
   }) {
     return initializeScreen(chatId);
   }
@@ -149,6 +156,7 @@ class _$_InitializeScreen implements _InitializeScreen {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String chatId)? initializeScreen,
     TResult? Function(String? message)? sendMessage,
+    TResult? Function()? iSOnline,
   }) {
     return initializeScreen?.call(chatId);
   }
@@ -158,6 +166,7 @@ class _$_InitializeScreen implements _InitializeScreen {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String chatId)? initializeScreen,
     TResult Function(String? message)? sendMessage,
+    TResult Function()? iSOnline,
     required TResult orElse(),
   }) {
     if (initializeScreen != null) {
@@ -171,6 +180,7 @@ class _$_InitializeScreen implements _InitializeScreen {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitializeScreen value) initializeScreen,
     required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_IsOnline value) iSOnline,
   }) {
     return initializeScreen(this);
   }
@@ -180,6 +190,7 @@ class _$_InitializeScreen implements _InitializeScreen {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeScreen value)? initializeScreen,
     TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_IsOnline value)? iSOnline,
   }) {
     return initializeScreen?.call(this);
   }
@@ -189,6 +200,7 @@ class _$_InitializeScreen implements _InitializeScreen {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeScreen value)? initializeScreen,
     TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_IsOnline value)? iSOnline,
     required TResult orElse(),
   }) {
     if (initializeScreen != null) {
@@ -274,6 +286,7 @@ class _$_SendMessage implements _SendMessage {
   TResult when<TResult extends Object?>({
     required TResult Function(String chatId) initializeScreen,
     required TResult Function(String? message) sendMessage,
+    required TResult Function() iSOnline,
   }) {
     return sendMessage(message);
   }
@@ -283,6 +296,7 @@ class _$_SendMessage implements _SendMessage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String chatId)? initializeScreen,
     TResult? Function(String? message)? sendMessage,
+    TResult? Function()? iSOnline,
   }) {
     return sendMessage?.call(message);
   }
@@ -292,6 +306,7 @@ class _$_SendMessage implements _SendMessage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String chatId)? initializeScreen,
     TResult Function(String? message)? sendMessage,
+    TResult Function()? iSOnline,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -305,6 +320,7 @@ class _$_SendMessage implements _SendMessage {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitializeScreen value) initializeScreen,
     required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_IsOnline value) iSOnline,
   }) {
     return sendMessage(this);
   }
@@ -314,6 +330,7 @@ class _$_SendMessage implements _SendMessage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeScreen value)? initializeScreen,
     TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_IsOnline value)? iSOnline,
   }) {
     return sendMessage?.call(this);
   }
@@ -323,6 +340,7 @@ class _$_SendMessage implements _SendMessage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeScreen value)? initializeScreen,
     TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_IsOnline value)? iSOnline,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -342,11 +360,120 @@ abstract class _SendMessage implements ChatScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$_IsOnlineCopyWith<$Res> {
+  factory _$$_IsOnlineCopyWith(
+          _$_IsOnline value, $Res Function(_$_IsOnline) then) =
+      __$$_IsOnlineCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_IsOnlineCopyWithImpl<$Res>
+    extends _$ChatScreenEventCopyWithImpl<$Res, _$_IsOnline>
+    implements _$$_IsOnlineCopyWith<$Res> {
+  __$$_IsOnlineCopyWithImpl(
+      _$_IsOnline _value, $Res Function(_$_IsOnline) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_IsOnline implements _IsOnline {
+  const _$_IsOnline();
+
+  @override
+  String toString() {
+    return 'ChatScreenEvent.iSOnline()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_IsOnline);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String chatId) initializeScreen,
+    required TResult Function(String? message) sendMessage,
+    required TResult Function() iSOnline,
+  }) {
+    return iSOnline();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String chatId)? initializeScreen,
+    TResult? Function(String? message)? sendMessage,
+    TResult? Function()? iSOnline,
+  }) {
+    return iSOnline?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String chatId)? initializeScreen,
+    TResult Function(String? message)? sendMessage,
+    TResult Function()? iSOnline,
+    required TResult orElse(),
+  }) {
+    if (iSOnline != null) {
+      return iSOnline();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeScreen value) initializeScreen,
+    required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_IsOnline value) iSOnline,
+  }) {
+    return iSOnline(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeScreen value)? initializeScreen,
+    TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_IsOnline value)? iSOnline,
+  }) {
+    return iSOnline?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeScreen value)? initializeScreen,
+    TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_IsOnline value)? iSOnline,
+    required TResult orElse(),
+  }) {
+    if (iSOnline != null) {
+      return iSOnline(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsOnline implements ChatScreenEvent {
+  const factory _IsOnline() = _$_IsOnline;
+}
+
+/// @nodoc
 mixin _$ChatScreenState {
   bool get isPageLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   GetMessageResponseModel? get getMessageResponse =>
       throw _privateConstructorUsedError;
+  bool? get isOnline => throw _privateConstructorUsedError;
   bool? get isMessageSentOrRecieved => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -354,6 +481,7 @@ mixin _$ChatScreenState {
             bool isPageLoading,
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
+            bool? isOnline,
             bool? isMessageSentOrRecieved)
         currentState,
   }) =>
@@ -364,6 +492,7 @@ mixin _$ChatScreenState {
             bool isPageLoading,
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
+            bool? isOnline,
             bool? isMessageSentOrRecieved)?
         currentState,
   }) =>
@@ -374,6 +503,7 @@ mixin _$ChatScreenState {
             bool isPageLoading,
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
+            bool? isOnline,
             bool? isMessageSentOrRecieved)?
         currentState,
     required TResult orElse(),
@@ -411,6 +541,7 @@ abstract class $ChatScreenStateCopyWith<$Res> {
       {bool isPageLoading,
       String? errorMessage,
       GetMessageResponseModel? getMessageResponse,
+      bool? isOnline,
       bool? isMessageSentOrRecieved});
 }
 
@@ -430,6 +561,7 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
     Object? isPageLoading = null,
     Object? errorMessage = freezed,
     Object? getMessageResponse = freezed,
+    Object? isOnline = freezed,
     Object? isMessageSentOrRecieved = freezed,
   }) {
     return _then(_value.copyWith(
@@ -445,6 +577,10 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
           ? _value.getMessageResponse
           : getMessageResponse // ignore: cast_nullable_to_non_nullable
               as GetMessageResponseModel?,
+      isOnline: freezed == isOnline
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isMessageSentOrRecieved: freezed == isMessageSentOrRecieved
           ? _value.isMessageSentOrRecieved
           : isMessageSentOrRecieved // ignore: cast_nullable_to_non_nullable
@@ -465,6 +601,7 @@ abstract class _$$_CurrentStateCopyWith<$Res>
       {bool isPageLoading,
       String? errorMessage,
       GetMessageResponseModel? getMessageResponse,
+      bool? isOnline,
       bool? isMessageSentOrRecieved});
 }
 
@@ -482,6 +619,7 @@ class __$$_CurrentStateCopyWithImpl<$Res>
     Object? isPageLoading = null,
     Object? errorMessage = freezed,
     Object? getMessageResponse = freezed,
+    Object? isOnline = freezed,
     Object? isMessageSentOrRecieved = freezed,
   }) {
     return _then(_$_CurrentState(
@@ -497,6 +635,10 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           ? _value.getMessageResponse
           : getMessageResponse // ignore: cast_nullable_to_non_nullable
               as GetMessageResponseModel?,
+      isOnline: freezed == isOnline
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isMessageSentOrRecieved: freezed == isMessageSentOrRecieved
           ? _value.isMessageSentOrRecieved
           : isMessageSentOrRecieved // ignore: cast_nullable_to_non_nullable
@@ -512,6 +654,7 @@ class _$_CurrentState implements _CurrentState {
       {required this.isPageLoading,
       this.errorMessage,
       this.getMessageResponse,
+      this.isOnline,
       this.isMessageSentOrRecieved});
 
   @override
@@ -521,11 +664,13 @@ class _$_CurrentState implements _CurrentState {
   @override
   final GetMessageResponseModel? getMessageResponse;
   @override
+  final bool? isOnline;
+  @override
   final bool? isMessageSentOrRecieved;
 
   @override
   String toString() {
-    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessageResponse: $getMessageResponse, isMessageSentOrRecieved: $isMessageSentOrRecieved)';
+    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessageResponse: $getMessageResponse, isOnline: $isOnline, isMessageSentOrRecieved: $isMessageSentOrRecieved)';
   }
 
   @override
@@ -539,6 +684,8 @@ class _$_CurrentState implements _CurrentState {
                 other.errorMessage == errorMessage) &&
             (identical(other.getMessageResponse, getMessageResponse) ||
                 other.getMessageResponse == getMessageResponse) &&
+            (identical(other.isOnline, isOnline) ||
+                other.isOnline == isOnline) &&
             (identical(
                     other.isMessageSentOrRecieved, isMessageSentOrRecieved) ||
                 other.isMessageSentOrRecieved == isMessageSentOrRecieved));
@@ -546,7 +693,7 @@ class _$_CurrentState implements _CurrentState {
 
   @override
   int get hashCode => Object.hash(runtimeType, isPageLoading, errorMessage,
-      getMessageResponse, isMessageSentOrRecieved);
+      getMessageResponse, isOnline, isMessageSentOrRecieved);
 
   @JsonKey(ignore: true)
   @override
@@ -561,11 +708,12 @@ class _$_CurrentState implements _CurrentState {
             bool isPageLoading,
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
+            bool? isOnline,
             bool? isMessageSentOrRecieved)
         currentState,
   }) {
     return currentState(isPageLoading, errorMessage, getMessageResponse,
-        isMessageSentOrRecieved);
+        isOnline, isMessageSentOrRecieved);
   }
 
   @override
@@ -575,11 +723,12 @@ class _$_CurrentState implements _CurrentState {
             bool isPageLoading,
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
+            bool? isOnline,
             bool? isMessageSentOrRecieved)?
         currentState,
   }) {
     return currentState?.call(isPageLoading, errorMessage, getMessageResponse,
-        isMessageSentOrRecieved);
+        isOnline, isMessageSentOrRecieved);
   }
 
   @override
@@ -589,13 +738,14 @@ class _$_CurrentState implements _CurrentState {
             bool isPageLoading,
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
+            bool? isOnline,
             bool? isMessageSentOrRecieved)?
         currentState,
     required TResult orElse(),
   }) {
     if (currentState != null) {
       return currentState(isPageLoading, errorMessage, getMessageResponse,
-          isMessageSentOrRecieved);
+          isOnline, isMessageSentOrRecieved);
     }
     return orElse();
   }
@@ -634,6 +784,7 @@ abstract class _CurrentState implements ChatScreenState {
       {required final bool isPageLoading,
       final String? errorMessage,
       final GetMessageResponseModel? getMessageResponse,
+      final bool? isOnline,
       final bool? isMessageSentOrRecieved}) = _$_CurrentState;
 
   @override
@@ -642,6 +793,8 @@ abstract class _CurrentState implements ChatScreenState {
   String? get errorMessage;
   @override
   GetMessageResponseModel? get getMessageResponse;
+  @override
+  bool? get isOnline;
   @override
   bool? get isMessageSentOrRecieved;
   @override

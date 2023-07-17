@@ -73,6 +73,18 @@ class MessagesPage extends StatelessWidget {
                       shrinkWrap: true,
                       itemCount: state.getAllConversationsResponse?.length ?? 0,
                       itemBuilder: (context, index) {
+                        bool? isOnline;
+                        if (state.getAllConversationsResponse?[index]
+                                .isGroupChat !=
+                            true) {
+                          isOnline = state.onlineFriendsIdList?.contains(state
+                              .getAllConversationsResponse?[index]
+                              .users?[0]
+                              // 0th user will be friend and 1st will be current user
+                              .id);
+                          // friend's id = state
+                          // .getAllConversationsResponse?[index].users?[0].id
+                        }
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Material(
@@ -88,12 +100,13 @@ class MessagesPage extends StatelessWidget {
                                           .chatName
                                       : '${state.getAllConversationsResponse?[index].users?[0].firstName} ${state.getAllConversationsResponse?[index].users?[0].lastName}',
                                   subtitle: "sophia_123",
-                                  suffixWidget: const Icon(
-                                    Icons.circle,
-                                    color: Colors.green,
+                                  suffixWidget: Visibility(
+                                    visible: isOnline == true,
+                                    child: const Icon(
+                                      Icons.circle,
+                                      color: Colors.green,
+                                    ),
                                   ),
-                                  iconSize: 10,
-                                  iconColor: Colors.green,
                                   prefixWidget: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: vibeeDp(

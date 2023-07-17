@@ -14,7 +14,8 @@ AddCommentsResponseModel _$AddCommentsResponseModelFromJson(
           : Comment.fromJson(json['comment'] as Map<String, dynamic>),
       notification: json['notification'] == null
           ? null
-          : Notification.fromJson(json['notification'] as Map<String, dynamic>),
+          : AddCommentsResponseNotificationModel.fromJson(
+              json['notification'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AddCommentsResponseModelToJson(

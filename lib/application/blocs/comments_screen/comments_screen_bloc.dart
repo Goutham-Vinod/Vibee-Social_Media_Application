@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:socket_io_client/socket_io_client.dart';
 import 'package:vibee/application/blocs/home_page/home_page_bloc.dart';
 import 'package:vibee/application/blocs/home_screen/home_screen_bloc.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
@@ -11,6 +12,7 @@ import 'package:vibee/domain/models/add_comments_response_model/add_comments_res
 import 'package:vibee/domain/models/like_dislike_response_model/like_dislike_response_model.dart';
 import 'package:vibee/domain/models/load_comments_response_model/load_comments_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 import 'package:vibee/presentation/screens/home_screen/home_screen.dart';
 
 part 'comments_screen_event.dart';
@@ -27,6 +29,7 @@ class CommentsScreenBloc
           isUploadCommentSuccess: false,
         )) {
     on<_InitializeCommentScreen>((event, emit) async {
+// page initialization
       Either<ApiFailure, List<LoadCommentsResponseModel>> result =
           await APIServices.loadComments(postId: event.postId);
 
@@ -41,7 +44,7 @@ class CommentsScreenBloc
       });
     });
     on<_SentComment>((event, emit) async {
-      Either<ApiFailure, AddCommentsResponseModel > isCommentUploadedResult =
+      Either<ApiFailure, AddCommentsResponseModel> isCommentUploadedResult =
           await APIServices.addComments(
               addCommentsRequest: AddCommentsRequestModel(
                   postId: event.postId, comment: event.comment));
@@ -55,6 +58,7 @@ class CommentsScreenBloc
         emit(state.copyWith(isUploadCommentSuccess: false));
         add(CommentsScreenEvent.initalizeCommentsScreen(
             postId: state.postId!, isLiked: state.isLiked!));
+        SocketIoServices.addComment(success.notification!);
       });
     });
 
@@ -72,13 +76,18 @@ class CommentsScreenBloc
 
 // backend part below
       String postId = state.postId!;
-      Either<ApiFailure, LikeDislikeResponseModel > result =
+
+      Either<ApiFailure, LikeDislikeResponseModel> result =
           await APIServices.likeOrDislike(postId: postId);
 
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
-      }, (success) {});
+      }, (success) {
+        if (success.notification != null) {
+          SocketIoServices.likeDislike(success.notification!);
+        }
+      });
     });
   }
 }

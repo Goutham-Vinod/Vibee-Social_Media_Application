@@ -9,7 +9,7 @@ part 'create_post_response_model.g.dart';
 class CreatePostResponseModel {
   bool? success;
   Post? post;
-  Notification? notification;
+  CreatePostResponseNotificationModel? notification;
 
   CreatePostResponseModel({this.success, this.post, this.notification});
 

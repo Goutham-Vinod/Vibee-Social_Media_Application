@@ -5,7 +5,7 @@ import 'user_id.dart';
 part 'notification.g.dart';
 
 @JsonSerializable()
-class Notification {
+class CreatePostResponseNotificationModel {
   String? type;
   String? postId;
   UserId? userId;
@@ -17,7 +17,7 @@ class Notification {
   @JsonKey(name: '__v')
   int? v;
 
-  Notification({
+  CreatePostResponseNotificationModel({
     this.type,
     this.postId,
     this.userId,
@@ -28,9 +28,11 @@ class Notification {
     this.v,
   });
 
-  factory Notification.fromJson(Map<String, dynamic> json) {
-    return _$NotificationFromJson(json);
+  factory CreatePostResponseNotificationModel.fromJson(
+      Map<String, dynamic> json) {
+    return _$CreatePostResponseNotificationModelFromJson(json);
   }
 
-  Map<String, dynamic> toJson() => _$NotificationToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$CreatePostResponseNotificationModelToJson(this);
 }

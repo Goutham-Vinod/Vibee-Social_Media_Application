@@ -13,7 +13,8 @@ LikeDislikeResponseModel _$LikeDislikeResponseModelFromJson(
       amount: json['amount'] as int?,
       notification: json['notification'] == null
           ? null
-          : Notification.fromJson(json['notification'] as Map<String, dynamic>),
+          : LikeDislikeResponseNotificationModel.fromJson(
+              json['notification'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$LikeDislikeResponseModelToJson(

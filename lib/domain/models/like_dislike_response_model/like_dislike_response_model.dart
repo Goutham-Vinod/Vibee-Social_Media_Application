@@ -8,7 +8,7 @@ part 'like_dislike_response_model.g.dart';
 class LikeDislikeResponseModel {
   bool? success;
   int? amount;
-  Notification? notification;
+  LikeDislikeResponseNotificationModel? notification;
 
   LikeDislikeResponseModel({this.success, this.amount, this.notification});
 

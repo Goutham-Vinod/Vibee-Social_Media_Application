@@ -11,6 +11,7 @@ import 'package:vibee/domain/models/share_post_as_message_response_model/share_p
 import 'package:vibee/domain/models/share_post_request_model/share_post_request_model.dart';
 import 'package:vibee/domain/models/share_post_response_model/share_post_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 
 part 'home_page_event.dart';
 part 'home_page_state.dart';
@@ -61,6 +62,10 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
       }, (success) {
         emit(state.copyWith(getAllConversationsResponseList: success));
       });
+      // listening socket io events
+      SocketIoServices.listenFetchNewNotificationEvent(() {
+        print('Increase badge number at notification icon');
+      });
     });
 
     on<_LikePost>((event, emit) async {
@@ -85,13 +90,18 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
-      }, (success) {});
+      }, (successResult) {
+        if (successResult.notification != null) {
+          SocketIoServices.likeDislike(successResult.notification!);
+        }
+      });
     });
 
     on<_SharePostAsMessage>((event, emit) async {
-      Either<ApiFailure, SharePostAsMessageResponseModel> result = await APIServices.sharePostAsMessage(
-          sharePostAsMessageRequest: SharePostAsMessageRequestModel(
-              checked: [event.friendId!], postId: event.postId));
+      Either<ApiFailure, SharePostAsMessageResponseModel> result =
+          await APIServices.sharePostAsMessage(
+              sharePostAsMessageRequest: SharePostAsMessageRequestModel(
+                  checked: [event.friendId!], postId: event.postId));
 
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));
@@ -105,12 +115,13 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
 
     on<_SharePost>((event, emit) async {
       if (event.description.isNotEmpty) {
-        Either<ApiFailure, SharePostResponseModel> result = await APIServices.sharePost(
-            sharePostRequest: SharePostRequestModel(
-                description: event.description,
-                privacy: event.privacy,
-                shared: false,
-                sharedPostId: event.postId));
+        Either<ApiFailure, SharePostResponseModel> result =
+            await APIServices.sharePost(
+                sharePostRequest: SharePostRequestModel(
+                    description: event.description,
+                    privacy: event.privacy,
+                    shared: false,
+                    sharedPostId: event.postId));
 
         result.fold((failure) {
           emit(state.copyWith(errorMessage: failure.errorMessage));

@@ -5,7 +5,7 @@ import 'user_id.dart';
 part 'notification.g.dart';
 
 @JsonSerializable()
-class Notification {
+class AddOrRemoveFriendResponseNotificationModel {
   String? type;
   UserId? userId;
   List<dynamic>? readBy;
@@ -16,7 +16,7 @@ class Notification {
   @JsonKey(name: '__v')
   int? v;
 
-  Notification({
+  AddOrRemoveFriendResponseNotificationModel({
     this.type,
     this.userId,
     this.readBy,
@@ -26,9 +26,11 @@ class Notification {
     this.v,
   });
 
-  factory Notification.fromJson(Map<String, dynamic> json) {
-    return _$NotificationFromJson(json);
+  factory AddOrRemoveFriendResponseNotificationModel.fromJson(
+      Map<String, dynamic> json) {
+    return _$AddOrRemoveFriendResponseNotificationModelFromJson(json);
   }
 
-  Map<String, dynamic> toJson() => _$NotificationToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$AddOrRemoveFriendResponseNotificationModelToJson(this);
 }

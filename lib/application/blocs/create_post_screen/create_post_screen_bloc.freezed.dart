@@ -508,7 +508,7 @@ mixin _$CreatePostScreenState {
   bool get isUploadInProgress => throw _privateConstructorUsedError;
   bool get isUploadPostSuccess => throw _privateConstructorUsedError;
   bool get isImageLoading => throw _privateConstructorUsedError;
-  File? get postImage => throw _privateConstructorUsedError;
+  File? get post => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -518,7 +518,7 @@ mixin _$CreatePostScreenState {
             bool isUploadInProgress,
             bool isUploadPostSuccess,
             bool isImageLoading,
-            File? postImage)
+            File? post)
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -531,7 +531,7 @@ mixin _$CreatePostScreenState {
             bool isUploadInProgress,
             bool isUploadPostSuccess,
             bool isImageLoading,
-            File? postImage)?
+            File? post)?
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -544,7 +544,7 @@ mixin _$CreatePostScreenState {
             bool isUploadInProgress,
             bool isUploadPostSuccess,
             bool isImageLoading,
-            File? postImage)?
+            File? post)?
         currentState,
     required TResult orElse(),
   }) =>
@@ -584,7 +584,7 @@ abstract class $CreatePostScreenStateCopyWith<$Res> {
       bool isUploadInProgress,
       bool isUploadPostSuccess,
       bool isImageLoading,
-      File? postImage});
+      File? post});
 }
 
 /// @nodoc
@@ -607,7 +607,7 @@ class _$CreatePostScreenStateCopyWithImpl<$Res,
     Object? isUploadInProgress = null,
     Object? isUploadPostSuccess = null,
     Object? isImageLoading = null,
-    Object? postImage = freezed,
+    Object? post = freezed,
   }) {
     return _then(_value.copyWith(
       isScreenLoading: null == isScreenLoading
@@ -634,9 +634,9 @@ class _$CreatePostScreenStateCopyWithImpl<$Res,
           ? _value.isImageLoading
           : isImageLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      postImage: freezed == postImage
-          ? _value.postImage
-          : postImage // ignore: cast_nullable_to_non_nullable
+      post: freezed == post
+          ? _value.post
+          : post // ignore: cast_nullable_to_non_nullable
               as File?,
     ) as $Val);
   }
@@ -657,7 +657,7 @@ abstract class _$$_CurrentStateCopyWith<$Res>
       bool isUploadInProgress,
       bool isUploadPostSuccess,
       bool isImageLoading,
-      File? postImage});
+      File? post});
 }
 
 /// @nodoc
@@ -677,7 +677,7 @@ class __$$_CurrentStateCopyWithImpl<$Res>
     Object? isUploadInProgress = null,
     Object? isUploadPostSuccess = null,
     Object? isImageLoading = null,
-    Object? postImage = freezed,
+    Object? post = freezed,
   }) {
     return _then(_$_CurrentState(
       isScreenLoading: null == isScreenLoading
@@ -704,9 +704,9 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           ? _value.isImageLoading
           : isImageLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      postImage: freezed == postImage
-          ? _value.postImage
-          : postImage // ignore: cast_nullable_to_non_nullable
+      post: freezed == post
+          ? _value.post
+          : post // ignore: cast_nullable_to_non_nullable
               as File?,
     ));
   }
@@ -722,7 +722,7 @@ class _$_CurrentState implements _CurrentState {
       required this.isUploadInProgress,
       required this.isUploadPostSuccess,
       required this.isImageLoading,
-      this.postImage});
+      this.post});
 
   @override
   final bool isScreenLoading;
@@ -737,11 +737,11 @@ class _$_CurrentState implements _CurrentState {
   @override
   final bool isImageLoading;
   @override
-  final File? postImage;
+  final File? post;
 
   @override
   String toString() {
-    return 'CreatePostScreenState.currentState(isScreenLoading: $isScreenLoading, isFrontendValidationSuccess: $isFrontendValidationSuccess, errorMessage: $errorMessage, isUploadInProgress: $isUploadInProgress, isUploadPostSuccess: $isUploadPostSuccess, isImageLoading: $isImageLoading, postImage: $postImage)';
+    return 'CreatePostScreenState.currentState(isScreenLoading: $isScreenLoading, isFrontendValidationSuccess: $isFrontendValidationSuccess, errorMessage: $errorMessage, isUploadInProgress: $isUploadInProgress, isUploadPostSuccess: $isUploadPostSuccess, isImageLoading: $isImageLoading, post: $post)';
   }
 
   @override
@@ -763,8 +763,7 @@ class _$_CurrentState implements _CurrentState {
                 other.isUploadPostSuccess == isUploadPostSuccess) &&
             (identical(other.isImageLoading, isImageLoading) ||
                 other.isImageLoading == isImageLoading) &&
-            (identical(other.postImage, postImage) ||
-                other.postImage == postImage));
+            (identical(other.post, post) || other.post == post));
   }
 
   @override
@@ -776,7 +775,7 @@ class _$_CurrentState implements _CurrentState {
       isUploadInProgress,
       isUploadPostSuccess,
       isImageLoading,
-      postImage);
+      post);
 
   @JsonKey(ignore: true)
   @override
@@ -794,7 +793,7 @@ class _$_CurrentState implements _CurrentState {
             bool isUploadInProgress,
             bool isUploadPostSuccess,
             bool isImageLoading,
-            File? postImage)
+            File? post)
         currentState,
   }) {
     return currentState(
@@ -804,7 +803,7 @@ class _$_CurrentState implements _CurrentState {
         isUploadInProgress,
         isUploadPostSuccess,
         isImageLoading,
-        postImage);
+        post);
   }
 
   @override
@@ -817,7 +816,7 @@ class _$_CurrentState implements _CurrentState {
             bool isUploadInProgress,
             bool isUploadPostSuccess,
             bool isImageLoading,
-            File? postImage)?
+            File? post)?
         currentState,
   }) {
     return currentState?.call(
@@ -827,7 +826,7 @@ class _$_CurrentState implements _CurrentState {
         isUploadInProgress,
         isUploadPostSuccess,
         isImageLoading,
-        postImage);
+        post);
   }
 
   @override
@@ -840,7 +839,7 @@ class _$_CurrentState implements _CurrentState {
             bool isUploadInProgress,
             bool isUploadPostSuccess,
             bool isImageLoading,
-            File? postImage)?
+            File? post)?
         currentState,
     required TResult orElse(),
   }) {
@@ -852,7 +851,7 @@ class _$_CurrentState implements _CurrentState {
           isUploadInProgress,
           isUploadPostSuccess,
           isImageLoading,
-          postImage);
+          post);
     }
     return orElse();
   }
@@ -894,7 +893,7 @@ abstract class _CurrentState implements CreatePostScreenState {
       required final bool isUploadInProgress,
       required final bool isUploadPostSuccess,
       required final bool isImageLoading,
-      final File? postImage}) = _$_CurrentState;
+      final File? post}) = _$_CurrentState;
 
   @override
   bool get isScreenLoading;
@@ -909,7 +908,7 @@ abstract class _CurrentState implements CreatePostScreenState {
   @override
   bool get isImageLoading;
   @override
-  File? get postImage;
+  File? get post;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentStateCopyWith<_$_CurrentState> get copyWith =>

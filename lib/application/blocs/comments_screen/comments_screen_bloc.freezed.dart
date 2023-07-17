@@ -22,6 +22,7 @@ mixin _$CommentsScreenEvent {
         initalizeCommentsScreen,
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$CommentsScreenEvent {
     TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$CommentsScreenEvent {
     TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,6 +48,7 @@ mixin _$CommentsScreenEvent {
         initalizeCommentsScreen,
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +56,7 @@ mixin _$CommentsScreenEvent {
     TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +64,7 @@ mixin _$CommentsScreenEvent {
     TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,6 +167,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
         initalizeCommentsScreen,
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
   }) {
     return initalizeCommentsScreen(postId, isLiked);
   }
@@ -171,6 +178,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
   }) {
     return initalizeCommentsScreen?.call(postId, isLiked);
   }
@@ -181,6 +189,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
     required TResult orElse(),
   }) {
     if (initalizeCommentsScreen != null) {
@@ -196,6 +205,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
         initalizeCommentsScreen,
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
   }) {
     return initalizeCommentsScreen(this);
   }
@@ -206,6 +216,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
   }) {
     return initalizeCommentsScreen?.call(this);
   }
@@ -216,6 +227,7 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
     required TResult orElse(),
   }) {
     if (initalizeCommentsScreen != null) {
@@ -313,6 +325,7 @@ class _$_SentComment implements _SentComment {
         initalizeCommentsScreen,
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
   }) {
     return sentComment(postId, comment);
   }
@@ -323,6 +336,7 @@ class _$_SentComment implements _SentComment {
     TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
   }) {
     return sentComment?.call(postId, comment);
   }
@@ -333,6 +347,7 @@ class _$_SentComment implements _SentComment {
     TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
     required TResult orElse(),
   }) {
     if (sentComment != null) {
@@ -348,6 +363,7 @@ class _$_SentComment implements _SentComment {
         initalizeCommentsScreen,
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
   }) {
     return sentComment(this);
   }
@@ -358,6 +374,7 @@ class _$_SentComment implements _SentComment {
     TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
   }) {
     return sentComment?.call(this);
   }
@@ -368,6 +385,7 @@ class _$_SentComment implements _SentComment {
     TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
     required TResult orElse(),
   }) {
     if (sentComment != null) {
@@ -431,6 +449,7 @@ class _$_LikePost implements _LikePost {
         initalizeCommentsScreen,
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
   }) {
     return likePost();
   }
@@ -441,6 +460,7 @@ class _$_LikePost implements _LikePost {
     TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
   }) {
     return likePost?.call();
   }
@@ -451,6 +471,7 @@ class _$_LikePost implements _LikePost {
     TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
     required TResult orElse(),
   }) {
     if (likePost != null) {
@@ -466,6 +487,7 @@ class _$_LikePost implements _LikePost {
         initalizeCommentsScreen,
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
   }) {
     return likePost(this);
   }
@@ -476,6 +498,7 @@ class _$_LikePost implements _LikePost {
     TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
   }) {
     return likePost?.call(this);
   }
@@ -486,6 +509,7 @@ class _$_LikePost implements _LikePost {
     TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
     required TResult orElse(),
   }) {
     if (likePost != null) {
@@ -497,6 +521,151 @@ class _$_LikePost implements _LikePost {
 
 abstract class _LikePost implements CommentsScreenEvent {
   const factory _LikePost() = _$_LikePost;
+}
+
+/// @nodoc
+abstract class _$$_TestMessageEventCopyWith<$Res> {
+  factory _$$_TestMessageEventCopyWith(
+          _$_TestMessageEvent value, $Res Function(_$_TestMessageEvent) then) =
+      __$$_TestMessageEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$$_TestMessageEventCopyWithImpl<$Res>
+    extends _$CommentsScreenEventCopyWithImpl<$Res, _$_TestMessageEvent>
+    implements _$$_TestMessageEventCopyWith<$Res> {
+  __$$_TestMessageEventCopyWithImpl(
+      _$_TestMessageEvent _value, $Res Function(_$_TestMessageEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$_TestMessageEvent(
+      freezed == data ? _value.data! : data,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TestMessageEvent implements _TestMessageEvent {
+  const _$_TestMessageEvent(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'CommentsScreenEvent.tstmsgEvent(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TestMessageEvent &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TestMessageEventCopyWith<_$_TestMessageEvent> get copyWith =>
+      __$$_TestMessageEventCopyWithImpl<_$_TestMessageEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
+    required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
+  }) {
+    return tstmsgEvent(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
+  }) {
+    return tstmsgEvent?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
+    required TResult orElse(),
+  }) {
+    if (tstmsgEvent != null) {
+      return tstmsgEvent(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeCommentScreen value)
+        initalizeCommentsScreen,
+    required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
+  }) {
+    return tstmsgEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+  }) {
+    return tstmsgEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    required TResult orElse(),
+  }) {
+    if (tstmsgEvent != null) {
+      return tstmsgEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TestMessageEvent implements CommentsScreenEvent {
+  const factory _TestMessageEvent(final dynamic data) = _$_TestMessageEvent;
+
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_TestMessageEventCopyWith<_$_TestMessageEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

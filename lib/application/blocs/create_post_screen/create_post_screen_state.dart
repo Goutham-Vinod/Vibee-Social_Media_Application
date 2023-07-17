@@ -9,6 +9,6 @@ class CreatePostScreenState with _$CreatePostScreenState {
     required bool isUploadInProgress,
     required bool isUploadPostSuccess,
     required bool isImageLoading,
-    File? postImage,
+    File? post,
   }) = _CurrentState;
 }

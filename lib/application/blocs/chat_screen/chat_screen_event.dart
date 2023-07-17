@@ -8,4 +8,5 @@ class ChatScreenEvent with _$ChatScreenEvent {
   const factory ChatScreenEvent.sendMessage({
     String? message,
   }) = _SendMessage;
+  const factory ChatScreenEvent.iSOnline() = _IsOnline;
 }

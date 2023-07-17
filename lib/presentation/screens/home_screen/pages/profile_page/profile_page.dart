@@ -448,8 +448,8 @@ class ProfilePage extends StatelessWidget {
                       itemBuilder: (itemBuildercontext) {
                         return [
                           PopupMenuItem(
-                            value: "Log out",
-                            child: vibeeText("Log out"),
+                            value: "Logout",
+                            child: vibeeText("Logout"),
                           ),
                           PopupMenuItem(
                             value: "Change theme",
@@ -463,13 +463,9 @@ class ProfilePage extends StatelessWidget {
                       },
                       onSelected: (value) async {
                         switch (value) {
-                          case 'Log out':
-                            await SharedPrefServices.removeAll();
-                            Navigator.pushNamedAndRemoveUntil(
-                              context,
-                              RouteGenerator.splashScreen,
-                              (route) => false,
-                            );
+                          case 'Logout':
+                            showLogoutAlertDialog(context);
+
                             break;
                           case 'View Friends':
                             Navigator.pushNamed(
@@ -598,5 +594,35 @@ class ProfilePage extends StatelessWidget {
         return AssetImage(CommonVariables.defaultDp);
       }
     }
+  }
+
+  Future showLogoutAlertDialog(context) async {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: backgroundScreenColor2,
+          title: vibeeText("Are you sure ?"),
+          content: vibeeText("You are going to logout from this account."),
+          actions: <Widget>[
+            vibeeButton(
+                content: 'Cancel',
+                onPressed: () {
+                  Navigator.of(context).pop();
+                }),
+            vibeeButton(
+                content: 'Logout',
+                onPressed: () async {
+                  await SharedPrefServices.removeAll();
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    RouteGenerator.splashScreen,
+                    (route) => false,
+                  );
+                }),
+          ],
+        );
+      },
+    );
   }
 }

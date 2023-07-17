@@ -8,7 +8,7 @@ part 'add_or_remove_friend_response_model.g.dart';
 class AddOrRemoveFriendResponseModel {
   bool? success;
   String? message;
-  Notification? notification;
+  AddOrRemoveFriendResponseNotificationModel? notification;
 
   AddOrRemoveFriendResponseModel({
     this.success,

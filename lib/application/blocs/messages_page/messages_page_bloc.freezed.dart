@@ -19,16 +19,19 @@ mixin _$MessagesPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initializeMessagePage,
+    required TResult Function() checkOnlineUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initializeMessagePage,
+    TResult? Function()? checkOnlineUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initializeMessagePage,
+    TResult Function()? checkOnlineUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -36,16 +39,19 @@ mixin _$MessagesPageEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitializeMessagePage value)
         initializeMessagePage,
+    required TResult Function(_CheckOnlineUsers value) checkOnlineUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeMessagePage value)? initializeMessagePage,
+    TResult? Function(_CheckOnlineUsers value)? checkOnlineUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeMessagePage value)? initializeMessagePage,
+    TResult Function(_CheckOnlineUsers value)? checkOnlineUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +114,7 @@ class _$_InitializeMessagePage implements _InitializeMessagePage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initializeMessagePage,
+    required TResult Function() checkOnlineUsers,
   }) {
     return initializeMessagePage();
   }
@@ -116,6 +123,7 @@ class _$_InitializeMessagePage implements _InitializeMessagePage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initializeMessagePage,
+    TResult? Function()? checkOnlineUsers,
   }) {
     return initializeMessagePage?.call();
   }
@@ -124,6 +132,7 @@ class _$_InitializeMessagePage implements _InitializeMessagePage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initializeMessagePage,
+    TResult Function()? checkOnlineUsers,
     required TResult orElse(),
   }) {
     if (initializeMessagePage != null) {
@@ -137,6 +146,7 @@ class _$_InitializeMessagePage implements _InitializeMessagePage {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitializeMessagePage value)
         initializeMessagePage,
+    required TResult Function(_CheckOnlineUsers value) checkOnlineUsers,
   }) {
     return initializeMessagePage(this);
   }
@@ -145,6 +155,7 @@ class _$_InitializeMessagePage implements _InitializeMessagePage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitializeMessagePage value)? initializeMessagePage,
+    TResult? Function(_CheckOnlineUsers value)? checkOnlineUsers,
   }) {
     return initializeMessagePage?.call(this);
   }
@@ -153,6 +164,7 @@ class _$_InitializeMessagePage implements _InitializeMessagePage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitializeMessagePage value)? initializeMessagePage,
+    TResult Function(_CheckOnlineUsers value)? checkOnlineUsers,
     required TResult orElse(),
   }) {
     if (initializeMessagePage != null) {
@@ -167,15 +179,122 @@ abstract class _InitializeMessagePage implements MessagesPageEvent {
 }
 
 /// @nodoc
+abstract class _$$_CheckOnlineUsersCopyWith<$Res> {
+  factory _$$_CheckOnlineUsersCopyWith(
+          _$_CheckOnlineUsers value, $Res Function(_$_CheckOnlineUsers) then) =
+      __$$_CheckOnlineUsersCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CheckOnlineUsersCopyWithImpl<$Res>
+    extends _$MessagesPageEventCopyWithImpl<$Res, _$_CheckOnlineUsers>
+    implements _$$_CheckOnlineUsersCopyWith<$Res> {
+  __$$_CheckOnlineUsersCopyWithImpl(
+      _$_CheckOnlineUsers _value, $Res Function(_$_CheckOnlineUsers) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CheckOnlineUsers implements _CheckOnlineUsers {
+  const _$_CheckOnlineUsers();
+
+  @override
+  String toString() {
+    return 'MessagesPageEvent.checkOnlineUsers()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CheckOnlineUsers);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializeMessagePage,
+    required TResult Function() checkOnlineUsers,
+  }) {
+    return checkOnlineUsers();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initializeMessagePage,
+    TResult? Function()? checkOnlineUsers,
+  }) {
+    return checkOnlineUsers?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializeMessagePage,
+    TResult Function()? checkOnlineUsers,
+    required TResult orElse(),
+  }) {
+    if (checkOnlineUsers != null) {
+      return checkOnlineUsers();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeMessagePage value)
+        initializeMessagePage,
+    required TResult Function(_CheckOnlineUsers value) checkOnlineUsers,
+  }) {
+    return checkOnlineUsers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeMessagePage value)? initializeMessagePage,
+    TResult? Function(_CheckOnlineUsers value)? checkOnlineUsers,
+  }) {
+    return checkOnlineUsers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeMessagePage value)? initializeMessagePage,
+    TResult Function(_CheckOnlineUsers value)? checkOnlineUsers,
+    required TResult orElse(),
+  }) {
+    if (checkOnlineUsers != null) {
+      return checkOnlineUsers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckOnlineUsers implements MessagesPageEvent {
+  const factory _CheckOnlineUsers() = _$_CheckOnlineUsers;
+}
+
+/// @nodoc
 mixin _$MessagesPageState {
   bool get isPageLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   List<GetAllConversationsResponseModel>? get getAllConversationsResponse =>
       throw _privateConstructorUsedError;
+  List<String>? get onlineFriendsIdList => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isPageLoading, String? errorMessage,
-            List<GetAllConversationsResponseModel>? getAllConversationsResponse)
+    required TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+            List<String>? onlineFriendsIdList)
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -184,8 +303,8 @@ mixin _$MessagesPageState {
     TResult? Function(
             bool isPageLoading,
             String? errorMessage,
-            List<GetAllConversationsResponseModel>?
-                getAllConversationsResponse)?
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+            List<String>? onlineFriendsIdList)?
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -194,8 +313,8 @@ mixin _$MessagesPageState {
     TResult Function(
             bool isPageLoading,
             String? errorMessage,
-            List<GetAllConversationsResponseModel>?
-                getAllConversationsResponse)?
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+            List<String>? onlineFriendsIdList)?
         currentState,
     required TResult orElse(),
   }) =>
@@ -231,7 +350,8 @@ abstract class $MessagesPageStateCopyWith<$Res> {
   $Res call(
       {bool isPageLoading,
       String? errorMessage,
-      List<GetAllConversationsResponseModel>? getAllConversationsResponse});
+      List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+      List<String>? onlineFriendsIdList});
 }
 
 /// @nodoc
@@ -250,6 +370,7 @@ class _$MessagesPageStateCopyWithImpl<$Res, $Val extends MessagesPageState>
     Object? isPageLoading = null,
     Object? errorMessage = freezed,
     Object? getAllConversationsResponse = freezed,
+    Object? onlineFriendsIdList = freezed,
   }) {
     return _then(_value.copyWith(
       isPageLoading: null == isPageLoading
@@ -264,6 +385,10 @@ class _$MessagesPageStateCopyWithImpl<$Res, $Val extends MessagesPageState>
           ? _value.getAllConversationsResponse
           : getAllConversationsResponse // ignore: cast_nullable_to_non_nullable
               as List<GetAllConversationsResponseModel>?,
+      onlineFriendsIdList: freezed == onlineFriendsIdList
+          ? _value.onlineFriendsIdList
+          : onlineFriendsIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -279,7 +404,8 @@ abstract class _$$_CurrentStateCopyWith<$Res>
   $Res call(
       {bool isPageLoading,
       String? errorMessage,
-      List<GetAllConversationsResponseModel>? getAllConversationsResponse});
+      List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+      List<String>? onlineFriendsIdList});
 }
 
 /// @nodoc
@@ -296,6 +422,7 @@ class __$$_CurrentStateCopyWithImpl<$Res>
     Object? isPageLoading = null,
     Object? errorMessage = freezed,
     Object? getAllConversationsResponse = freezed,
+    Object? onlineFriendsIdList = freezed,
   }) {
     return _then(_$_CurrentState(
       isPageLoading: null == isPageLoading
@@ -310,6 +437,10 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           ? _value._getAllConversationsResponse
           : getAllConversationsResponse // ignore: cast_nullable_to_non_nullable
               as List<GetAllConversationsResponseModel>?,
+      onlineFriendsIdList: freezed == onlineFriendsIdList
+          ? _value._onlineFriendsIdList
+          : onlineFriendsIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -320,9 +451,10 @@ class _$_CurrentState implements _CurrentState {
   const _$_CurrentState(
       {required this.isPageLoading,
       this.errorMessage,
-      final List<GetAllConversationsResponseModel>?
-          getAllConversationsResponse})
-      : _getAllConversationsResponse = getAllConversationsResponse;
+      final List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+      final List<String>? onlineFriendsIdList})
+      : _getAllConversationsResponse = getAllConversationsResponse,
+        _onlineFriendsIdList = onlineFriendsIdList;
 
   @override
   final bool isPageLoading;
@@ -339,9 +471,20 @@ class _$_CurrentState implements _CurrentState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<String>? _onlineFriendsIdList;
+  @override
+  List<String>? get onlineFriendsIdList {
+    final value = _onlineFriendsIdList;
+    if (value == null) return null;
+    if (_onlineFriendsIdList is EqualUnmodifiableListView)
+      return _onlineFriendsIdList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'MessagesPageState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getAllConversationsResponse: $getAllConversationsResponse)';
+    return 'MessagesPageState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getAllConversationsResponse: $getAllConversationsResponse, onlineFriendsIdList: $onlineFriendsIdList)';
   }
 
   @override
@@ -355,12 +498,18 @@ class _$_CurrentState implements _CurrentState {
                 other.errorMessage == errorMessage) &&
             const DeepCollectionEquality().equals(
                 other._getAllConversationsResponse,
-                _getAllConversationsResponse));
+                _getAllConversationsResponse) &&
+            const DeepCollectionEquality()
+                .equals(other._onlineFriendsIdList, _onlineFriendsIdList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isPageLoading, errorMessage,
-      const DeepCollectionEquality().hash(_getAllConversationsResponse));
+  int get hashCode => Object.hash(
+      runtimeType,
+      isPageLoading,
+      errorMessage,
+      const DeepCollectionEquality().hash(_getAllConversationsResponse),
+      const DeepCollectionEquality().hash(_onlineFriendsIdList));
 
   @JsonKey(ignore: true)
   @override
@@ -371,12 +520,15 @@ class _$_CurrentState implements _CurrentState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isPageLoading, String? errorMessage,
-            List<GetAllConversationsResponseModel>? getAllConversationsResponse)
+    required TResult Function(
+            bool isPageLoading,
+            String? errorMessage,
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+            List<String>? onlineFriendsIdList)
         currentState,
   }) {
-    return currentState(
-        isPageLoading, errorMessage, getAllConversationsResponse);
+    return currentState(isPageLoading, errorMessage,
+        getAllConversationsResponse, onlineFriendsIdList);
   }
 
   @override
@@ -385,12 +537,12 @@ class _$_CurrentState implements _CurrentState {
     TResult? Function(
             bool isPageLoading,
             String? errorMessage,
-            List<GetAllConversationsResponseModel>?
-                getAllConversationsResponse)?
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+            List<String>? onlineFriendsIdList)?
         currentState,
   }) {
-    return currentState?.call(
-        isPageLoading, errorMessage, getAllConversationsResponse);
+    return currentState?.call(isPageLoading, errorMessage,
+        getAllConversationsResponse, onlineFriendsIdList);
   }
 
   @override
@@ -399,14 +551,14 @@ class _$_CurrentState implements _CurrentState {
     TResult Function(
             bool isPageLoading,
             String? errorMessage,
-            List<GetAllConversationsResponseModel>?
-                getAllConversationsResponse)?
+            List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+            List<String>? onlineFriendsIdList)?
         currentState,
     required TResult orElse(),
   }) {
     if (currentState != null) {
-      return currentState(
-          isPageLoading, errorMessage, getAllConversationsResponse);
+      return currentState(isPageLoading, errorMessage,
+          getAllConversationsResponse, onlineFriendsIdList);
     }
     return orElse();
   }
@@ -444,8 +596,8 @@ abstract class _CurrentState implements MessagesPageState {
   const factory _CurrentState(
       {required final bool isPageLoading,
       final String? errorMessage,
-      final List<GetAllConversationsResponseModel>?
-          getAllConversationsResponse}) = _$_CurrentState;
+      final List<GetAllConversationsResponseModel>? getAllConversationsResponse,
+      final List<String>? onlineFriendsIdList}) = _$_CurrentState;
 
   @override
   bool get isPageLoading;
@@ -453,6 +605,8 @@ abstract class _CurrentState implements MessagesPageState {
   String? get errorMessage;
   @override
   List<GetAllConversationsResponseModel>? get getAllConversationsResponse;
+  @override
+  List<String>? get onlineFriendsIdList;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentStateCopyWith<_$_CurrentState> get copyWith =>

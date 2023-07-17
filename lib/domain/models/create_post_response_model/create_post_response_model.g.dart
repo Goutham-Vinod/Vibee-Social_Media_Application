@@ -15,7 +15,8 @@ CreatePostResponseModel _$CreatePostResponseModelFromJson(
           : Post.fromJson(json['post'] as Map<String, dynamic>),
       notification: json['notification'] == null
           ? null
-          : Notification.fromJson(json['notification'] as Map<String, dynamic>),
+          : CreatePostResponseNotificationModel.fromJson(
+              json['notification'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CreatePostResponseModelToJson(

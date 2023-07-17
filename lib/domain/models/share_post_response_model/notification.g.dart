@@ -6,7 +6,9 @@ part of 'notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
+SharePostResponseNotificationModel _$SharePostResponseNotificationModelFromJson(
+        Map<String, dynamic> json) =>
+    SharePostResponseNotificationModel(
       type: json['type'] as String?,
       interaction: json['interaction'] as String?,
       postId: json['postId'] == null
@@ -26,7 +28,8 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
       v: json['__v'] as int?,
     );
 
-Map<String, dynamic> _$NotificationToJson(Notification instance) =>
+Map<String, dynamic> _$SharePostResponseNotificationModelToJson(
+        SharePostResponseNotificationModel instance) =>
     <String, dynamic>{
       'type': instance.type,
       'interaction': instance.interaction,

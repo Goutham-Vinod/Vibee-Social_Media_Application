@@ -26,6 +26,7 @@ import 'package:vibee/domain/models/like_dislike_response_model/like_dislike_res
 import 'package:vibee/domain/models/load_comments_response_model/load_comments_response_model.dart';
 import 'package:vibee/domain/models/login/login_response_model.dart';
 import 'package:vibee/domain/models/notifications_response_model/notifications_response_model.dart';
+import 'package:vibee/domain/models/online_friends_response_model/online_friends_response_model.dart';
 import 'package:vibee/domain/models/otp_verification/otp_request_model.dart';
 import 'package:vibee/domain/models/otp_verification/otp_response_model.dart';
 import 'package:vibee/domain/models/otp_verification/resent_otp_response_model.dart';
@@ -39,6 +40,7 @@ import 'package:vibee/domain/models/share_post_request_model/share_post_request_
 import 'package:vibee/domain/models/share_post_response_model/share_post_response_model.dart';
 import 'package:vibee/infrastructure/shared_pref_services.dart';
 import 'package:vibee/core/config.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
 class APIServices {
@@ -85,6 +87,8 @@ class APIServices {
         await SharedPrefServices.setTocken(loginResponse.token);
         await SharedPrefServices.setUserId(loginResponse.user.id);
         await SharedPrefServices.setPhoneNumber(loginResponse.user.phone);
+        await GetCurrentUserDetailsResponse();
+        SocketIoServices.setup(Config.bearerTocken);
 
         return right(true);
       } else if (response.statusCode == 400) {
@@ -235,6 +239,7 @@ class APIServices {
           await SharedPrefServices.setUserId(otpResponse.user!.id);
           await SharedPrefServices.setPhoneNumber(otpResponse.user!.phone);
           await GetCurrentUserDetailsResponse();
+          SocketIoServices.setup(Config.bearerTocken);
           return true;
         }
       } else {
@@ -691,6 +696,35 @@ class APIServices {
         }).toList();
 
         return right(getAllConversationsResponseList);
+      } else {
+        print('status code ${response.statusCode}');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: "Something went wrong. Please try again later"));
+      }
+    } catch (e) {
+      return left(const ApiFailure.clientFailure(
+          errorMessage: 'Oops...Something went wrong.'));
+    }
+  }
+
+  static Future<Either<ApiFailure, List<OnlineFriendsResponseModel>>>
+      checkOnlineFriends() async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.onlineFriendsListApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        List<OnlineFriendsResponseModel> onlineFriendsResponse =
+            (jsonDecode(response.body) as List).map((conversation) {
+          return OnlineFriendsResponseModel.fromJson(conversation);
+        }).toList();
+
+        return right(onlineFriendsResponse);
       } else {
         print('status code ${response.statusCode}');
         return left(const ApiFailure.serverFailure(

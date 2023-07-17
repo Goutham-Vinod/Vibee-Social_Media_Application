@@ -10,4 +10,5 @@ class CommentsScreenEvent with _$CommentsScreenEvent {
     required String comment,
   }) = _SentComment;
   const factory CommentsScreenEvent.likePost() = _LikePost;
+  const factory CommentsScreenEvent.tstmsgEvent(data) = _TestMessageEvent;
 }

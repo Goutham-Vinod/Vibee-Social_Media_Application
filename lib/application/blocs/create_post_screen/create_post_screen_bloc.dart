@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/create_post_response_model/create_post_response_model.dart';
@@ -42,7 +43,7 @@ class CreatePostScreenBloc
           description: event.description!,
           privacy: event.privacy!,
           location: event.location,
-          post: state.postImage,
+          post: state.post,
         );
 
         result.fold((failure) {
@@ -65,11 +66,11 @@ class CreatePostScreenBloc
 
     on<pickImageFromCamera>((event, emit) async {
       File? image = await CameraRepository.getImageFromCamera();
-      emit(state.copyWith(postImage: image));
+      emit(state.copyWith(post: image));
     });
     on<pickImageFromStorage>((event, emit) async {
-      File? image = await FileRepository.getImage();
-      emit(state.copyWith(postImage: image));
+      File? file = await FileRepository.getFile();
+      emit(state.copyWith(post: file));
     });
   }
 }

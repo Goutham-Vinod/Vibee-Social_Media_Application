@@ -6,7 +6,7 @@ part 'notifications_response_model.g.dart';
 
 @JsonSerializable()
 class NotificationsResponseModel {
-  List<Notification>? notifications;
+  List<NotificationsResponseModelNotification>? notifications;
   int? totalCount;
   int? readByCount;
 

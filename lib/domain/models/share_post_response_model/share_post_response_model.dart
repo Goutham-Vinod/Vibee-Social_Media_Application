@@ -8,7 +8,7 @@ part 'share_post_response_model.g.dart';
 @JsonSerializable()
 class SharePostResponseModel {
   Post? post;
-  Notification? notification;
+  SharePostResponseNotificationModel? notification;
 
   SharePostResponseModel({this.post, this.notification});
 
