@@ -18,12 +18,15 @@ import 'package:vibee/application/blocs/register_screen_1/register_screen_1_bloc
 import 'package:vibee/application/blocs/register_screen_2/register_screen_2_bloc.dart';
 import 'package:vibee/application/blocs/saved_posts_screen/saved_posts_screen_bloc.dart';
 import 'package:vibee/application/blocs/search_page/search_page_bloc.dart';
+import 'package:vibee/application/blocs/video_call_screen/video_call_screen_bloc.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibee/infrastructure/notification_services.dart';
 import 'package:vibee/infrastructure/socket_io_services.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initializeNotification();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
@@ -33,6 +36,8 @@ void main() {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
+
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -92,11 +97,17 @@ class MainApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FriendsScreenBloc(),
         ),
+        BlocProvider(
+          create: (context) => VideoCallScreenBloc(),
+        ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
+        // home: const CallScreen(),
+        navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         onGenerateRoute: RouteGenerator.generateRoute,
+        theme: ThemeData(primaryColor: Colors.black),
       ),
     );
   }

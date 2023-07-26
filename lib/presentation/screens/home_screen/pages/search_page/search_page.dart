@@ -48,18 +48,18 @@ class SearchPage extends StatelessWidget {
             Row(
               children: [
                 const SizedBox(width: 20),
-                Row(
-                  children: [
-                    Checkbox(
-                      value: true,
-                      checkColor: Colors.black,
-                      fillColor: const MaterialStatePropertyAll(
-                          Color.fromARGB(255, 255, 255, 255)),
-                      onChanged: (value) {},
-                    ),
-                    vibeeText("Include only friends of friends"),
-                  ],
-                )
+                // Row(
+                //   children: [
+                //     Checkbox(
+                //       value: true,
+                //       checkColor: Colors.black,
+                //       fillColor: const MaterialStatePropertyAll(
+                //           Color.fromARGB(255, 255, 255, 255)),
+                //       onChanged: (value) {},
+                //     ),
+                //     vibeeText("Include only friends of friends"),
+                //   ],
+                // )
               ],
             ),
             Expanded(

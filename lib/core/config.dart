@@ -1,8 +1,10 @@
 class Config {
-  static const String apiBaseUrl = "http://10.0.2.2:4000";
+  static const String apiBaseUrl = "http://10.0.2.2:4000"; // <- emulator
+  // static const String apiBaseUrl = "http://127.0.0.1:4000"; // <- windows
   static String? tocken;
   static String? userPhoneNumber;
   static String? currentUserId;
+  static const String agoraAppId = '26053c3e0f544c3f9b70e4d96548a613';
   ////////////////////////////////////////////////////////////////////
 
   static String get bearerTocken => "Bearer $tocken";
@@ -40,7 +42,7 @@ class Config {
 
   static String get friendsListApi => '$apiBaseUrl/api/friends';
   static String get getAllConversationsApi => '$apiBaseUrl/api/conversation/';
-    static String get onlineFriendsListApi => '$apiBaseUrl/api/users/online';
+  static String get onlineFriendsListApi => '$apiBaseUrl/api/users/online';
 
   static String get createNewSingleConversationApi =>
       '$apiBaseUrl/api/conversation/create';
@@ -52,4 +54,6 @@ class Config {
       '$apiBaseUrl/api/conversation/create';
   static String get sharePostAsMessageApi =>
       '$apiBaseUrl/api/conversation/share';
+  static String get agoraTokenApi => '$apiBaseUrl/api/agoraToken';
+  static String get videoCallApi => '$apiBaseUrl/api/call/video';
 }

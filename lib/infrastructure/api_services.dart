@@ -38,6 +38,7 @@ import 'package:vibee/domain/models/share_post_as_message_request_model/share_po
 import 'package:vibee/domain/models/share_post_as_message_response_model/share_post_as_message_response_model.dart';
 import 'package:vibee/domain/models/share_post_request_model/share_post_request_model.dart';
 import 'package:vibee/domain/models/share_post_response_model/share_post_response_model.dart';
+import 'package:vibee/domain/models/video_call_response_model/video_call_response_model.dart';
 import 'package:vibee/infrastructure/shared_pref_services.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/infrastructure/socket_io_services.dart';
@@ -990,6 +991,63 @@ class APIServices {
         }).toList();
 
         return right(friendsListResponse);
+      } else {
+        print('status code ${response.statusCode}');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: "Something went wrong. Please try again later"));
+      }
+    } catch (e) {
+      return left(const ApiFailure.clientFailure(
+          errorMessage: 'Oops...Something went wrong.'));
+    }
+  }
+
+  static Future<String?> getAgoraToken(String channelName) async {
+    try {
+      print('get agora tocken called');
+      final response = await http.post(
+        Uri.parse(Config.agoraTokenApi),
+        body: {"channelName": channelName},
+        // headers: <String, String>{
+        //   'Content-Type': 'application/json; charset=UTF-8',
+        //   'Authorization': Config.bearerTocken,
+        // },
+      );
+
+      print(response.body);
+      if (response.statusCode == 200) {
+        String token = jsonDecode(response.body)['key'];
+
+        return token;
+      } else {
+        print('status code ${response.statusCode}');
+        return null;
+      }
+    } catch (e) {
+      print('inside  catch  bloc ');
+      return null;
+    }
+  }
+
+  static Future<Either<ApiFailure, VideoCallResponseModel>> videoCallApi(
+      String conversationId) async {
+    try {
+      log('_____________________');
+      print(conversationId);
+      final response = await http.post(
+        Uri.parse(Config.videoCallApi),
+        body: {"conversationId": conversationId},
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+      );
+
+      print(response.body);
+      if (response.statusCode == 200) {
+        VideoCallResponseModel result =
+            VideoCallResponseModel.fromJson(jsonDecode(response.body));
+        return right(result);
       } else {
         print('status code ${response.statusCode}');
         return left(const ApiFailure.serverFailure(

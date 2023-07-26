@@ -6,7 +6,6 @@ class MessagesPageState with _$MessagesPageState {
     required bool isPageLoading,
     String? errorMessage,
     List<GetAllConversationsResponseModel>? getAllConversationsResponse,
-   List<String>? onlineFriendsIdList,
-   
+    List<String>? onlineFriendsIdList,
   }) = _CurrentState;
 }

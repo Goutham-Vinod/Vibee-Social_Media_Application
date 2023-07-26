@@ -9,6 +9,7 @@ import 'package:vibee/domain/models/create_post_response_model/notification.dart
 import 'package:vibee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:vibee/domain/models/like_dislike_response_model/notification.dart';
 import 'package:vibee/domain/models/sent_message_response_model/sent_message_response_model.dart';
+import 'package:vibee/domain/models/video_call_response_model/video_call_response_model.dart';
 
 class SocketIoServices {
   static late IO.Socket socket;
@@ -56,6 +57,10 @@ class SocketIoServices {
     socket.emit('friendRequest', data.toJson());
   }
 
+    static videoCall(VideoCallResponseModel data) {
+    socket.emit('videoCall', data.toJson());
+  }
+
   // listening events
 
   static listenCheckOnlineUsersEvent(Function function) {
@@ -75,4 +80,11 @@ class SocketIoServices {
       function();
     });
   }
+
+   static listenNewCallEvent(Function function) {
+    socket.on('newCall', (data) {
+      function();
+    });
+  }
+
 }

@@ -354,6 +354,7 @@ showVibeeModelBottomSheet(
     {required BuildContext context, List<Widget>? buttons, String? title}) {
   showModalBottomSheet<void>(
     context: context,
+    backgroundColor: backgroundScreenColor2,
     builder: (BuildContext context) {
       return SizedBox(
         height: 150,
@@ -362,13 +363,10 @@ showVibeeModelBottomSheet(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Text(
+              vibeeText(
                 title ?? '',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20,
-                ),
               ),
+              SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [...?buttons],

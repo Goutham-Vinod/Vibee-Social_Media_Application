@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/application/blocs/create_post_screen/create_post_screen_bloc.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
+import 'package:vibee/presentation/common_widgets/video_player.dart';
 
 class CreatePostScreen extends StatelessWidget {
   CreatePostScreen({super.key});
@@ -100,27 +101,57 @@ class CreatePostScreen extends StatelessWidget {
                                 context: context,
                                 title: 'Upload Photos / Videos from',
                                 buttons: [
-                                  ElevatedButton(
+                                  vibeeButton(
+                                      content: 'Gallery',
                                       onPressed: () {
                                         BlocProvider.of<CreatePostScreenBloc>(
                                                 context)
                                             .add(const CreatePostScreenEvent
                                                 .pickImageFromStorage());
-                                      },
-                                      child: const Text('Gallery')),
-                                  ElevatedButton(
+                                      }),
+                                  vibeeButton(
+                                      content: 'Camera',
                                       onPressed: () {
                                         BlocProvider.of<CreatePostScreenBloc>(
                                                 context)
                                             .add(const CreatePostScreenEvent
                                                 .pickImageFromCamera());
-                                      },
-                                      child: const Text('Camera'))
+                                      })
                                 ]);
                           },
                           child: BlocBuilder<CreatePostScreenBloc,
                               CreatePostScreenState>(
                             builder: (context, state) {
+                              String? fileName =
+                                  state.post?.path.split('/').last;
+                              String? extension = fileName?.split('.').last;
+                              Widget postPreview;
+                              if (state.post == null) {
+                                postPreview = Center(
+                                    child: vibeeText('Add Photos / Videos'));
+                              }
+                              //  else if (extension == 'mp4' ||
+                              //     extension == 'avi') {
+                              //   // supported extensions - /jpeg|jpg|png|webp|mp4|avi|mov|flv|wmv/
+                              //   postPreview = Container(
+                              //       height: 350,
+                              //       width: 300,
+                              //       child: VideoPlayerWidget(file: state.post));
+                              // }
+                              else if (extension == 'jpg' ||
+                                  extension == 'png' ||
+                                  extension == 'jpeg') {
+                                postPreview = Container(
+                                  height: 350,
+                                  width: 300,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: FileImage(state.post!))),
+                                );
+                              } else {
+                                postPreview = Text('Unable to preview');
+                              }
                               return Container(
                                 height: 350,
                                 width: 300,
@@ -129,17 +160,7 @@ class CreatePostScreen extends StatelessWidget {
                                       style: BorderStyle.solid,
                                       color: Colors.white),
                                 ),
-                                child: state.post == null
-                                    ? Center(
-                                        child: vibeeText('Add Photos / Videos'))
-                                    : Container(
-                                        height: 350,
-                                        width: 300,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: FileImage(state.post!))),
-                                      ),
+                                child: postPreview,
                               );
                             },
                           ),

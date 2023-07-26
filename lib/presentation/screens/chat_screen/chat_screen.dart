@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/application/blocs/chat_screen/chat_screen_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
+import 'package:vibee/core/routing/routing.dart';
+import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 import 'package:vibee/presentation/common_widgets/recieve_message_card.dart';
 import 'package:vibee/presentation/common_widgets/sent_message_card.dart';
+import 'package:vibee/presentation/screens/video_call_screen.dart/video_call_screen.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
@@ -57,14 +60,17 @@ class ChatScreen extends StatelessWidget {
                 ],
               ),
               actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.phone_outlined),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Image.asset("assets/icons/Video Icon.png"),
-                ),
+                Visibility(
+                    visible: state.getMessageResponse?.isGroupChat == true
+                        ? false
+                        : true,
+                    child: IconButton(
+                      onPressed: () {
+                        
+                        Navigator.pushNamed(context, RouteGenerator.callScreen,arguments: chatId);
+                      },
+                      icon: Image.asset("assets/icons/Video Icon.png"),
+                    )),
               ],
             ),
             body: Column(

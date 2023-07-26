@@ -21,6 +21,7 @@ mixin _$ChatScreenEvent {
     required TResult Function(String chatId) initializeScreen,
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
+    required TResult Function() groupChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ChatScreenEvent {
     TResult? Function(String chatId)? initializeScreen,
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
+    TResult? Function()? groupChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ChatScreenEvent {
     TResult Function(String chatId)? initializeScreen,
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
+    TResult Function()? groupChat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$ChatScreenEvent {
     required TResult Function(_InitializeScreen value) initializeScreen,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
+    required TResult Function(_GroupChat value) groupChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$ChatScreenEvent {
     TResult? Function(_InitializeScreen value)? initializeScreen,
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
+    TResult? Function(_GroupChat value)? groupChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$ChatScreenEvent {
     TResult Function(_InitializeScreen value)? initializeScreen,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
+    TResult Function(_GroupChat value)? groupChat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +153,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     required TResult Function(String chatId) initializeScreen,
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
+    required TResult Function() groupChat,
   }) {
     return initializeScreen(chatId);
   }
@@ -157,6 +164,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult? Function(String chatId)? initializeScreen,
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
+    TResult? Function()? groupChat,
   }) {
     return initializeScreen?.call(chatId);
   }
@@ -167,6 +175,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult Function(String chatId)? initializeScreen,
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
+    TResult Function()? groupChat,
     required TResult orElse(),
   }) {
     if (initializeScreen != null) {
@@ -181,6 +190,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     required TResult Function(_InitializeScreen value) initializeScreen,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
+    required TResult Function(_GroupChat value) groupChat,
   }) {
     return initializeScreen(this);
   }
@@ -191,6 +201,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult? Function(_InitializeScreen value)? initializeScreen,
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
+    TResult? Function(_GroupChat value)? groupChat,
   }) {
     return initializeScreen?.call(this);
   }
@@ -201,6 +212,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult Function(_InitializeScreen value)? initializeScreen,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
+    TResult Function(_GroupChat value)? groupChat,
     required TResult orElse(),
   }) {
     if (initializeScreen != null) {
@@ -287,6 +299,7 @@ class _$_SendMessage implements _SendMessage {
     required TResult Function(String chatId) initializeScreen,
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
+    required TResult Function() groupChat,
   }) {
     return sendMessage(message);
   }
@@ -297,6 +310,7 @@ class _$_SendMessage implements _SendMessage {
     TResult? Function(String chatId)? initializeScreen,
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
+    TResult? Function()? groupChat,
   }) {
     return sendMessage?.call(message);
   }
@@ -307,6 +321,7 @@ class _$_SendMessage implements _SendMessage {
     TResult Function(String chatId)? initializeScreen,
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
+    TResult Function()? groupChat,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -321,6 +336,7 @@ class _$_SendMessage implements _SendMessage {
     required TResult Function(_InitializeScreen value) initializeScreen,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
+    required TResult Function(_GroupChat value) groupChat,
   }) {
     return sendMessage(this);
   }
@@ -331,6 +347,7 @@ class _$_SendMessage implements _SendMessage {
     TResult? Function(_InitializeScreen value)? initializeScreen,
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
+    TResult? Function(_GroupChat value)? groupChat,
   }) {
     return sendMessage?.call(this);
   }
@@ -341,6 +358,7 @@ class _$_SendMessage implements _SendMessage {
     TResult Function(_InitializeScreen value)? initializeScreen,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
+    TResult Function(_GroupChat value)? groupChat,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -400,6 +418,7 @@ class _$_IsOnline implements _IsOnline {
     required TResult Function(String chatId) initializeScreen,
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
+    required TResult Function() groupChat,
   }) {
     return iSOnline();
   }
@@ -410,6 +429,7 @@ class _$_IsOnline implements _IsOnline {
     TResult? Function(String chatId)? initializeScreen,
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
+    TResult? Function()? groupChat,
   }) {
     return iSOnline?.call();
   }
@@ -420,6 +440,7 @@ class _$_IsOnline implements _IsOnline {
     TResult Function(String chatId)? initializeScreen,
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
+    TResult Function()? groupChat,
     required TResult orElse(),
   }) {
     if (iSOnline != null) {
@@ -434,6 +455,7 @@ class _$_IsOnline implements _IsOnline {
     required TResult Function(_InitializeScreen value) initializeScreen,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
+    required TResult Function(_GroupChat value) groupChat,
   }) {
     return iSOnline(this);
   }
@@ -444,6 +466,7 @@ class _$_IsOnline implements _IsOnline {
     TResult? Function(_InitializeScreen value)? initializeScreen,
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
+    TResult? Function(_GroupChat value)? groupChat,
   }) {
     return iSOnline?.call(this);
   }
@@ -454,6 +477,7 @@ class _$_IsOnline implements _IsOnline {
     TResult Function(_InitializeScreen value)? initializeScreen,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
+    TResult Function(_GroupChat value)? groupChat,
     required TResult orElse(),
   }) {
     if (iSOnline != null) {
@@ -468,6 +492,120 @@ abstract class _IsOnline implements ChatScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$_GroupChatCopyWith<$Res> {
+  factory _$$_GroupChatCopyWith(
+          _$_GroupChat value, $Res Function(_$_GroupChat) then) =
+      __$$_GroupChatCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GroupChatCopyWithImpl<$Res>
+    extends _$ChatScreenEventCopyWithImpl<$Res, _$_GroupChat>
+    implements _$$_GroupChatCopyWith<$Res> {
+  __$$_GroupChatCopyWithImpl(
+      _$_GroupChat _value, $Res Function(_$_GroupChat) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GroupChat implements _GroupChat {
+  const _$_GroupChat();
+
+  @override
+  String toString() {
+    return 'ChatScreenEvent.groupChat()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GroupChat);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String chatId) initializeScreen,
+    required TResult Function(String? message) sendMessage,
+    required TResult Function() iSOnline,
+    required TResult Function() groupChat,
+  }) {
+    return groupChat();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String chatId)? initializeScreen,
+    TResult? Function(String? message)? sendMessage,
+    TResult? Function()? iSOnline,
+    TResult? Function()? groupChat,
+  }) {
+    return groupChat?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String chatId)? initializeScreen,
+    TResult Function(String? message)? sendMessage,
+    TResult Function()? iSOnline,
+    TResult Function()? groupChat,
+    required TResult orElse(),
+  }) {
+    if (groupChat != null) {
+      return groupChat();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeScreen value) initializeScreen,
+    required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_IsOnline value) iSOnline,
+    required TResult Function(_GroupChat value) groupChat,
+  }) {
+    return groupChat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeScreen value)? initializeScreen,
+    TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_IsOnline value)? iSOnline,
+    TResult? Function(_GroupChat value)? groupChat,
+  }) {
+    return groupChat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeScreen value)? initializeScreen,
+    TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_IsOnline value)? iSOnline,
+    TResult Function(_GroupChat value)? groupChat,
+    required TResult orElse(),
+  }) {
+    if (groupChat != null) {
+      return groupChat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GroupChat implements ChatScreenEvent {
+  const factory _GroupChat() = _$_GroupChat;
+}
+
+/// @nodoc
 mixin _$ChatScreenState {
   bool get isPageLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
@@ -475,6 +613,7 @@ mixin _$ChatScreenState {
       throw _privateConstructorUsedError;
   bool? get isOnline => throw _privateConstructorUsedError;
   bool? get isMessageSentOrRecieved => throw _privateConstructorUsedError;
+  String? get videoCallToken => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -482,7 +621,8 @@ mixin _$ChatScreenState {
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
-            bool? isMessageSentOrRecieved)
+            bool? isMessageSentOrRecieved,
+            String? videoCallToken)
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -493,7 +633,8 @@ mixin _$ChatScreenState {
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
-            bool? isMessageSentOrRecieved)?
+            bool? isMessageSentOrRecieved,
+            String? videoCallToken)?
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -504,7 +645,8 @@ mixin _$ChatScreenState {
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
-            bool? isMessageSentOrRecieved)?
+            bool? isMessageSentOrRecieved,
+            String? videoCallToken)?
         currentState,
     required TResult orElse(),
   }) =>
@@ -542,7 +684,8 @@ abstract class $ChatScreenStateCopyWith<$Res> {
       String? errorMessage,
       GetMessageResponseModel? getMessageResponse,
       bool? isOnline,
-      bool? isMessageSentOrRecieved});
+      bool? isMessageSentOrRecieved,
+      String? videoCallToken});
 }
 
 /// @nodoc
@@ -563,6 +706,7 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
     Object? getMessageResponse = freezed,
     Object? isOnline = freezed,
     Object? isMessageSentOrRecieved = freezed,
+    Object? videoCallToken = freezed,
   }) {
     return _then(_value.copyWith(
       isPageLoading: null == isPageLoading
@@ -585,6 +729,10 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
           ? _value.isMessageSentOrRecieved
           : isMessageSentOrRecieved // ignore: cast_nullable_to_non_nullable
               as bool?,
+      videoCallToken: freezed == videoCallToken
+          ? _value.videoCallToken
+          : videoCallToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -602,7 +750,8 @@ abstract class _$$_CurrentStateCopyWith<$Res>
       String? errorMessage,
       GetMessageResponseModel? getMessageResponse,
       bool? isOnline,
-      bool? isMessageSentOrRecieved});
+      bool? isMessageSentOrRecieved,
+      String? videoCallToken});
 }
 
 /// @nodoc
@@ -621,6 +770,7 @@ class __$$_CurrentStateCopyWithImpl<$Res>
     Object? getMessageResponse = freezed,
     Object? isOnline = freezed,
     Object? isMessageSentOrRecieved = freezed,
+    Object? videoCallToken = freezed,
   }) {
     return _then(_$_CurrentState(
       isPageLoading: null == isPageLoading
@@ -643,6 +793,10 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           ? _value.isMessageSentOrRecieved
           : isMessageSentOrRecieved // ignore: cast_nullable_to_non_nullable
               as bool?,
+      videoCallToken: freezed == videoCallToken
+          ? _value.videoCallToken
+          : videoCallToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -655,7 +809,8 @@ class _$_CurrentState implements _CurrentState {
       this.errorMessage,
       this.getMessageResponse,
       this.isOnline,
-      this.isMessageSentOrRecieved});
+      this.isMessageSentOrRecieved,
+      this.videoCallToken});
 
   @override
   final bool isPageLoading;
@@ -667,10 +822,12 @@ class _$_CurrentState implements _CurrentState {
   final bool? isOnline;
   @override
   final bool? isMessageSentOrRecieved;
+  @override
+  final String? videoCallToken;
 
   @override
   String toString() {
-    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessageResponse: $getMessageResponse, isOnline: $isOnline, isMessageSentOrRecieved: $isMessageSentOrRecieved)';
+    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessageResponse: $getMessageResponse, isOnline: $isOnline, isMessageSentOrRecieved: $isMessageSentOrRecieved, videoCallToken: $videoCallToken)';
   }
 
   @override
@@ -688,12 +845,14 @@ class _$_CurrentState implements _CurrentState {
                 other.isOnline == isOnline) &&
             (identical(
                     other.isMessageSentOrRecieved, isMessageSentOrRecieved) ||
-                other.isMessageSentOrRecieved == isMessageSentOrRecieved));
+                other.isMessageSentOrRecieved == isMessageSentOrRecieved) &&
+            (identical(other.videoCallToken, videoCallToken) ||
+                other.videoCallToken == videoCallToken));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isPageLoading, errorMessage,
-      getMessageResponse, isOnline, isMessageSentOrRecieved);
+      getMessageResponse, isOnline, isMessageSentOrRecieved, videoCallToken);
 
   @JsonKey(ignore: true)
   @override
@@ -709,11 +868,12 @@ class _$_CurrentState implements _CurrentState {
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
-            bool? isMessageSentOrRecieved)
+            bool? isMessageSentOrRecieved,
+            String? videoCallToken)
         currentState,
   }) {
     return currentState(isPageLoading, errorMessage, getMessageResponse,
-        isOnline, isMessageSentOrRecieved);
+        isOnline, isMessageSentOrRecieved, videoCallToken);
   }
 
   @override
@@ -724,11 +884,12 @@ class _$_CurrentState implements _CurrentState {
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
-            bool? isMessageSentOrRecieved)?
+            bool? isMessageSentOrRecieved,
+            String? videoCallToken)?
         currentState,
   }) {
     return currentState?.call(isPageLoading, errorMessage, getMessageResponse,
-        isOnline, isMessageSentOrRecieved);
+        isOnline, isMessageSentOrRecieved, videoCallToken);
   }
 
   @override
@@ -739,13 +900,14 @@ class _$_CurrentState implements _CurrentState {
             String? errorMessage,
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
-            bool? isMessageSentOrRecieved)?
+            bool? isMessageSentOrRecieved,
+            String? videoCallToken)?
         currentState,
     required TResult orElse(),
   }) {
     if (currentState != null) {
       return currentState(isPageLoading, errorMessage, getMessageResponse,
-          isOnline, isMessageSentOrRecieved);
+          isOnline, isMessageSentOrRecieved, videoCallToken);
     }
     return orElse();
   }
@@ -785,7 +947,8 @@ abstract class _CurrentState implements ChatScreenState {
       final String? errorMessage,
       final GetMessageResponseModel? getMessageResponse,
       final bool? isOnline,
-      final bool? isMessageSentOrRecieved}) = _$_CurrentState;
+      final bool? isMessageSentOrRecieved,
+      final String? videoCallToken}) = _$_CurrentState;
 
   @override
   bool get isPageLoading;
@@ -797,6 +960,8 @@ abstract class _CurrentState implements ChatScreenState {
   bool? get isOnline;
   @override
   bool? get isMessageSentOrRecieved;
+  @override
+  String? get videoCallToken;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentStateCopyWith<_$_CurrentState> get copyWith =>

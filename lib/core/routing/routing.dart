@@ -18,6 +18,7 @@ import 'package:vibee/presentation/screens/register_screen_2/register_screen_2.d
 import 'package:vibee/presentation/screens/saved_posts_screen/saved_posts_screen.dart';
 import 'package:vibee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:vibee/presentation/screens/verify_email_page/verify_email_page.dart';
+import 'package:vibee/presentation/screens/video_call_screen.dart/video_call_screen.dart';
 
 class RouteGenerator {
   static const String splashScreen = '/';
@@ -38,6 +39,7 @@ class RouteGenerator {
   static const String savedPostsScreen = '/savedPostsScreen';
   static const String friendsScreen = '/friendsScreen';
   static const String createPostScreen = '/createPostScreen';
+  static const String callScreen = '/callScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -123,6 +125,13 @@ class RouteGenerator {
             settings: RouteSettings(
               arguments: args,
             ));
+
+      case callScreen:
+        return MaterialPageRoute(
+          builder: (_) => CallScreen(
+            chatId: args as String,
+          ),
+        );
 
       default:
         return MaterialPageRoute(

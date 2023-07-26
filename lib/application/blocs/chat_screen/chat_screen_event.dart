@@ -9,4 +9,6 @@ class ChatScreenEvent with _$ChatScreenEvent {
     String? message,
   }) = _SendMessage;
   const factory ChatScreenEvent.iSOnline() = _IsOnline;
+  const factory ChatScreenEvent.groupChat() = _GroupChat;
+
 }

@@ -106,7 +106,7 @@ class CreateGroupScreen2 extends StatelessWidget {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 3),
-                      itemCount: 1,
+                      itemCount: state.selectedGroupMembersList?.length ?? 0,
                       itemBuilder: (context, index) {
                         return Column(
                           children: [
