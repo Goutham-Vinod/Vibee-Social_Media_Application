@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:vibee/core/routing/routing.dart';
+import 'package:vibee/domain/models/video_call_response_model/video_call_response_model.dart';
+import 'package:vibee/infrastructure/socket_io_services.dart';
 import 'package:vibee/main.dart';
-import 'package:vibee/presentation/screens/chat_screen/chat_screen.dart';
 
 class NotificationService {
   static Future<void> initializeNotification() async {
@@ -69,13 +73,34 @@ class NotificationService {
   /// Use this method to detect when the user taps on a notification or action button
   static Future<void> onActionReceivedMethod(
       ReceivedAction receivedAction) async {
-    debugPrint('onActionReceivedMethod');
-    final payload = receivedAction.payload ?? {};
-    if (payload["isMessage"] == "true") {
-      MainApp.navigatorKey.currentState?.pushNamed(RouteGenerator.chatScreen,arguments: payload['conversationId'] );
+    Map payload = receivedAction.payload ?? {};
+
+    if (payload["type"] == "message" && payload['data'] != null) {
+      String dataString = payload['data']!;
+      Map dataMap = jsonDecode(dataString);
+      String conversationId = dataMap['conversation'];
+
+      MainApp.navigatorKey.currentState
+          ?.pushNamed(RouteGenerator.chatScreen, arguments: conversationId);
     }
-    if (payload["isVideoCall"] == "true") {
-      MainApp.navigatorKey.currentState?.pushNamed(RouteGenerator.callScreen,arguments:payload['conversationId']);
+    if (payload["type"] == "call" && payload['data'] != null) {
+      String dataString = payload['data']!;
+      VideoCallResponseModel data =
+          VideoCallResponseModel.fromJson(jsonDecode(dataString));
+      SocketIoServices.callRecieved(data);
+
+      if (receivedAction.buttonKeyPressed == 'accept') {
+        String conversationId = data.conversationId!;
+        MainApp.navigatorKey.currentState
+            ?.pushNamed(RouteGenerator.callScreen, arguments: conversationId);
+      } else if (receivedAction.buttonKeyPressed == 'reject') {
+        SocketIoServices.rejectCall(data);
+      } else {
+        print('tapped some were else');
+        String conversationId = data.conversationId!;
+        MainApp.navigatorKey.currentState
+            ?.pushNamed(RouteGenerator.callScreen, arguments: conversationId);
+      }
     }
   }
 
@@ -91,22 +116,24 @@ class NotificationService {
     final List<NotificationActionButton>? actionButtons,
     final bool scheduled = false,
     final int? interval,
+    final bool? autoDismissible,
+    int? id,
   }) async {
     assert(!scheduled || (scheduled && interval != null));
 
     await AwesomeNotifications().createNotification(
       content: NotificationContent(
-        id: -1,
-        channelKey: 'high_importance_channel',
-        title: title,
-        body: body,
-        actionType: actionType,
-        notificationLayout: notificationLayout,
-        summary: summary,
-        category: category,
-        payload: payload,
-        bigPicture: bigPicture,
-      ),
+          id: id ?? -1,
+          channelKey: 'high_importance_channel',
+          title: title,
+          body: body,
+          actionType: actionType,
+          notificationLayout: notificationLayout,
+          summary: summary,
+          category: category,
+          payload: payload,
+          bigPicture: bigPicture,
+          autoDismissible: autoDismissible ?? true),
       actionButtons: actionButtons,
       schedule: scheduled
           ? NotificationInterval(

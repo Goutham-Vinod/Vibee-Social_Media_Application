@@ -17,6 +17,7 @@ GetMessageResponseModel _$GetMessageResponseModelFromJson(
       users: (json['users'] as List<dynamic>?)
           ?.map((e) => User.fromJson(e as Map<String, dynamic>))
           .toList(),
+      groupChatImage: json['groupChatImage'] as String?,
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -42,6 +43,7 @@ Map<String, dynamic> _$GetMessageResponseModelToJson(
       'groupAdmin': instance.groupAdmin,
       'isDeleted': instance.isDeleted,
       'users': instance.users,
+      'groupChatImage': instance.groupChatImage,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       '__v': instance.v,

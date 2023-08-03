@@ -8,7 +8,6 @@ part 'add_comments_response_model.g.dart';
 @JsonSerializable()
 class AddCommentsResponseModel {
   Comment? comment;
-  @JsonKey(name: 'notification')
   AddCommentsResponseNotificationModel? notification;
 
   AddCommentsResponseModel({this.comment, this.notification});

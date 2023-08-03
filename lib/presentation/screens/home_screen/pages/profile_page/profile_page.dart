@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
         isCurrentUserProfile: true,
       ));
     }
-    print('isCurrentUserProfile = $isCurrentUserProfile');
+
     return BlocListener<ProfilePageBloc, ProfilePageState>(
       listener: (context, state) {
         if (state.errorMessage != null) {
@@ -514,20 +514,36 @@ class ProfilePage extends StatelessWidget {
                         context: context,
                         title: 'Change Profile Picture',
                         buttons: [
-                          ElevatedButton(
-                              onPressed: () {
-                                BlocProvider.of<ProfilePageBloc>(context).add(
-                                    const ProfilePageEvent
-                                        .updateProfilePictureFromStorage());
-                              },
-                              child: const Text('Gallery')),
-                          ElevatedButton(
-                              onPressed: () {
-                                BlocProvider.of<ProfilePageBloc>(context).add(
-                                    const ProfilePageEvent
-                                        .updateProfilePictureUsingCamera());
-                              },
-                              child: const Text('Camera'))
+                          InkWell(
+                            onTap: () {
+                              BlocProvider.of<ProfilePageBloc>(context).add(
+                                  const ProfilePageEvent
+                                      .updateProfilePictureFromStorage());
+                              Navigator.pop(context);
+                            },
+                            child: SizedBox(
+                                height: 80,
+                                width: 80,
+                                child: Image.asset('assets/icons/gallery.png')),
+                          ),
+
+                          InkWell(
+                            onTap: () {
+                              BlocProvider.of<ProfilePageBloc>(context).add(
+                                  const ProfilePageEvent
+                                      .updateProfilePictureUsingCamera());
+                              Navigator.pop(context);
+                            },
+                            child: SizedBox(
+                                height: 80,
+                                width: 80,
+                                child: Image.asset('assets/icons/camera.png')),
+                          ),
+                          // ElevatedButton(
+                          //     onPressed: () {
+
+                          //     },
+                          //     child: const Text('Camera'))
                         ]);
                   },
                   child: vibeeDp(
@@ -547,6 +563,25 @@ class ProfilePage extends StatelessWidget {
                   size: 35,
                   color: Colors.white,
                 ),
+              ),
+            );
+          },
+        ),
+
+        BlocBuilder<ProfilePageBloc, ProfilePageState>(
+          builder: (context, state) {
+            return Positioned(
+              top: 15,
+              left: 5,
+              child: Visibility(
+                visible: state.isCurrentUserProfile != true,
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    iconSize: 30,
+                    color: Colors.white,
+                    icon: const Icon(Icons.arrow_back)),
               ),
             );
           },

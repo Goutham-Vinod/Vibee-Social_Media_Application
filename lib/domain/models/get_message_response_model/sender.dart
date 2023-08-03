@@ -8,7 +8,6 @@ class Sender {
   String? id;
   String? firstName;
   String? lastName;
-  String? username;
   String? email;
   String? phone;
   List<dynamic>? blockedUsers;
@@ -20,17 +19,17 @@ class Sender {
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
-  String? otp;
-  String? coverPicture;
   DateTime? dob;
   String? profilePicture;
+  String? coverPicture;
+  String? username;
   String? location;
+  String? otp;
 
   Sender({
     this.id,
     this.firstName,
     this.lastName,
-    this.username,
     this.email,
     this.phone,
     this.blockedUsers,
@@ -41,11 +40,12 @@ class Sender {
     this.createdAt,
     this.updatedAt,
     this.v,
-    this.otp,
-    this.coverPicture,
     this.dob,
     this.profilePicture,
+    this.coverPicture,
+    this.username,
     this.location,
+    this.otp,
   });
 
   factory Sender.fromJson(Map<String, dynamic> json) {

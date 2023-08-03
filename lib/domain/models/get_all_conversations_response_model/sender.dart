@@ -11,7 +11,7 @@ class Sender {
   String? username;
   String? email;
   String? phone;
-  List<dynamic>? friends;
+  List<String>? friends;
   List<dynamic>? blockedUsers;
   List<String>? savedPosts;
   bool? isBlocked;

@@ -216,7 +216,7 @@ Widget vibeeListTile({
           width: width ?? double.maxFinite,
         ),
         Positioned(
-          top: topMargin ?? (height == null ? 10 : height / 2),
+          top: topMargin ?? (height == null ? 0 : height / 2),
           left: leftMArgin ?? 10,
           child: Row(
             children: [
@@ -366,7 +366,7 @@ showVibeeModelBottomSheet(
               vibeeText(
                 title ?? '',
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [...?buttons],

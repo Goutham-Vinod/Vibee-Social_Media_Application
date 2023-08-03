@@ -31,7 +31,7 @@ class OtpVerificationScreen extends StatelessWidget {
             SizedBox(
               width: 300,
               child: vibeeText(
-                'Enter 4-digit code we have sent to you at ${Config.userPhoneNumber}',
+                'Enter 6-digit code we have sent to you at ${Config.userPhoneNumber}',
                 size: 16,
               ),
             ),

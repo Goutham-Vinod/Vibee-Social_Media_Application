@@ -24,6 +24,7 @@ GetAllConversationsResponseModel _$GetAllConversationsResponseModelFromJson(
           ? null
           : DateTime.parse(json['updatedAt'] as String),
       v: json['__v'] as int?,
+      groupChatImage: json['groupChatImage'] as String?,
       message: json['message'] as String?,
       sender: json['sender'] == null
           ? null
@@ -42,6 +43,7 @@ Map<String, dynamic> _$GetAllConversationsResponseModelToJson(
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       '__v': instance.v,
+      'groupChatImage': instance.groupChatImage,
       'message': instance.message,
       'sender': instance.sender,
     };

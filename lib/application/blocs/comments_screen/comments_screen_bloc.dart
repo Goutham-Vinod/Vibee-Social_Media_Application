@@ -44,7 +44,7 @@ class CommentsScreenBloc
       });
     });
     on<_SentComment>((event, emit) async {
-      Either<ApiFailure, AddCommentsResponseModel> isCommentUploadedResult =
+      Either<ApiFailure, bool> isCommentUploadedResult =
           await APIServices.addComments(
               addCommentsRequest: AddCommentsRequestModel(
                   postId: event.postId, comment: event.comment));
@@ -56,9 +56,9 @@ class CommentsScreenBloc
       }, (success) {
         emit(state.copyWith(isUploadCommentSuccess: true));
         emit(state.copyWith(isUploadCommentSuccess: false));
+
         add(CommentsScreenEvent.initalizeCommentsScreen(
             postId: state.postId!, isLiked: state.isLiked!));
-        SocketIoServices.addComment(success.notification!);
       });
     });
 

@@ -242,6 +242,11 @@ class APIServices {
           await GetCurrentUserDetailsResponse();
           SocketIoServices.setup(Config.bearerTocken);
           return true;
+        } else {
+          showSnackBar(
+              context: context,
+              message:
+                  'Something went wrong.Please check entered OTP or try again later');
         }
       } else {
         showSnackBar(
@@ -588,10 +593,9 @@ class APIServices {
     }
   }
 
-  static Future<Either<ApiFailure, AddCommentsResponseModel>> addComments(
+  static Future<Either<ApiFailure, bool>> addComments(
       {required AddCommentsRequestModel addCommentsRequest}) async {
     try {
-      print('Register called');
       final response = await http.patch(
         Uri.parse(Config.addCommentApi),
         headers: <String, String>{
@@ -601,18 +605,20 @@ class APIServices {
         body: jsonEncode(addCommentsRequest.toJson()),
       );
       print("Got response");
+
       if (response.statusCode == 200 || response.statusCode == 201) {
-        AddCommentsResponseModel result =
-            AddCommentsResponseModel.fromJson(jsonDecode(response.body));
-        return right(result);
+        return right(true);
       } else {
         log(response.statusCode.toString());
         log(response.body);
+        print('inside else block of sent comment response status code check');
+
         return left(const ApiFailure.serverFailure(
             errorMessage: "Server error.Please try again later."));
         // This message will be shown in snackbar
       }
     } catch (e) {
+      print('inside catch bloc of sent comment');
       return left(const ApiFailure.clientFailure(
           errorMessage:
               "Oops... Something went wrong. Please try again later."));
@@ -805,6 +811,7 @@ class APIServices {
           'Authorization': Config.bearerTocken,
         },
       );
+      log(response.body);
       print(response.body);
       if (response.statusCode == 200) {
         GetMessageResponseModel getMessageResponse =

@@ -13,7 +13,8 @@ Sender _$SenderFromJson(Map<String, dynamic> json) => Sender(
       username: json['username'] as String?,
       email: json['email'] as String?,
       phone: json['phone'] as String?,
-      friends: json['friends'] as List<dynamic>?,
+      friends:
+          (json['friends'] as List<dynamic>?)?.map((e) => e as String).toList(),
       blockedUsers: json['blockedUsers'] as List<dynamic>?,
       savedPosts: (json['savedPosts'] as List<dynamic>?)
           ?.map((e) => e as String)

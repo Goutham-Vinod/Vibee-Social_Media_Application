@@ -18,6 +18,7 @@ class GetAllConversationsResponseModel {
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
+  String? groupChatImage;
   String? message;
   Sender? sender;
 
@@ -31,6 +32,7 @@ class GetAllConversationsResponseModel {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.groupChatImage,
     this.message,
     this.sender,
   });

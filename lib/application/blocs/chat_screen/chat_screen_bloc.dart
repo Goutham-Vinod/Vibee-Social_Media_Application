@@ -79,14 +79,9 @@ class ChatScreenBloc extends Bloc<ChatScreenEvent, ChatScreenState> {
           add(_InitializeScreen(chatId: state.getMessageResponse!.id!));
           emit(state.copyWith(isMessageSentOrRecieved: true));
           emit(state.copyWith(isMessageSentOrRecieved: null));
-          SocketIoServices.joinChat(state.getMessageResponse!);
+          SocketIoServices.newMessage(success);
         });
       }
     });
-
-
-
-
-
   }
 }

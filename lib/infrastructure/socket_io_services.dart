@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:vibee/core/config.dart';
@@ -10,6 +15,7 @@ import 'package:vibee/domain/models/get_message_response_model/get_message_respo
 import 'package:vibee/domain/models/like_dislike_response_model/notification.dart';
 import 'package:vibee/domain/models/sent_message_response_model/sent_message_response_model.dart';
 import 'package:vibee/domain/models/video_call_response_model/video_call_response_model.dart';
+import 'package:vibee/infrastructure/notification_services.dart';
 
 class SocketIoServices {
   static late IO.Socket socket;
@@ -25,6 +31,12 @@ class SocketIoServices {
     });
     // socket.on('testEvent', (data) => print(data));
     socket.onDisconnect((_) => print('socket io disconnected'));
+
+    // listen and show Notification
+
+    listenFetchNewNotificationEvent(null);
+    listenLatestMessageEvent(null);
+    listenNewCallEvent(null);
   }
 
   // emit events
@@ -57,8 +69,20 @@ class SocketIoServices {
     socket.emit('friendRequest', data.toJson());
   }
 
-    static videoCall(VideoCallResponseModel data) {
+  static videoCall(VideoCallResponseModel data) {
     socket.emit('videoCall', data.toJson());
+  }
+
+  static callRecieved(VideoCallResponseModel data) {
+    socket.emit('callRecieved', data.toJson());
+  }
+
+  static rejectCall(VideoCallResponseModel data) {
+    socket.emit('rejectCall', data.toJson());
+  }
+
+  static disconnectCall(VideoCallResponseModel data) {
+    socket.emit('disconnectCall', data.toJson());
   }
 
   // listening events
@@ -69,22 +93,81 @@ class SocketIoServices {
     });
   }
 
-  static listenLatestMessageEvent(Function function) {
+  static listenLatestMessageEvent(Function? function) {
     socket.on('latestMessage', (data) {
-      function();
+      if (function != null) {
+        function();
+      }
+
+      SentMessageResponseModel result =
+          SentMessageResponseModel.fromJson(jsonDecode(data));
+
+      NotificationService.showNotification(
+        id: 1,
+        title: '${result.sender?.firstName} ${result.sender?.lastName}',
+        body: result.content ?? '',
+        payload: {
+          'type': 'message',
+          'data': data as String,
+        },
+        category: NotificationCategory.Message,
+      );
     });
   }
 
-  static listenFetchNewNotificationEvent(Function function) {
+  static listenFetchNewNotificationEvent(Function? function) {
     socket.on('fetchNewNotification', (data) {
-      function();
+      if (function != null) {
+        function();
+      }
     });
   }
 
-   static listenNewCallEvent(Function function) {
+  static listenNewCallEvent(Function? function) {
     socket.on('newCall', (data) {
-      function();
+      if (function != null) {
+        function();
+      }
+
+      VideoCallResponseModel result =
+          VideoCallResponseModel.fromJson(jsonDecode(data));
+
+      NotificationService.showNotification(
+        id: 2,
+        title: 'Incoming call',
+        body:
+            'Video call from ${result.from?.firstName} ${result.from?.lastName}',
+        payload: {
+          'type': 'call',
+          'data': data as String,
+        },
+        category: NotificationCategory.Call,
+        autoDismissible: false,
+        actionButtons: [
+          NotificationActionButton(
+              key: 'reject', label: "Reject", color: Colors.red),
+          NotificationActionButton(
+              key: 'accept', label: "Accept", color: Colors.green),
+        ],
+      );
     });
   }
 
+  static listenCallRejectedEvent(Function function) {
+    socket.on('callRejected', (data) {
+      function();
+    });
+    // pop the video call page with a snackbar notification when the remote user reject the call
+    // implementation at bloc
+  }
+
+  static listenCallDisconnectedEvent(Function function) {
+    socket.on('callDisconnected', (data) {
+      function();
+    });
+    // pop the video call page when any one user left the conversation
+    // implementation at bloc
+    AwesomeNotifications().cancel(
+        2); // cancel notification if remote user call and reject suddenly
+  }
 }

@@ -10,12 +10,14 @@ class PostId {
   String? id;
   String? createdBy;
   String? description;
+  String? location;
+  String? media;
   bool? shared;
-  String? postId;
   bool? isDeleted;
   List<dynamic>? likes;
   List<dynamic>? reported;
   String? privacy;
+  String? mimeType;
   List<Comment>? comments;
   DateTime? createdAt;
   DateTime? updatedAt;
@@ -26,12 +28,14 @@ class PostId {
     this.id,
     this.createdBy,
     this.description,
+    this.location,
+    this.media,
     this.shared,
-    this.postId,
     this.isDeleted,
     this.likes,
     this.reported,
     this.privacy,
+    this.mimeType,
     this.comments,
     this.createdAt,
     this.updatedAt,

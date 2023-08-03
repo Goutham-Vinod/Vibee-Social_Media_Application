@@ -36,9 +36,12 @@ class CreateGroupScreen1 extends StatelessWidget {
               Row(
                 children: [
                   const SizedBox(width: 10),
-                  const Icon(
-                    Icons.arrow_back,
-                    size: 25,
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.arrow_back),
+                    iconSize: 25,
                     color: Colors.white,
                   ),
                   const SizedBox(width: 10),
@@ -46,21 +49,21 @@ class CreateGroupScreen1 extends StatelessWidget {
                       size: 25, fontWeight: FontWeight.w600),
                 ],
               ),
-              const SizedBox(height: 30),
-              vibeeTextFormField(
-                width: 330,
-                hint: "Search",
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Colors.white,
-                  size: 25,
-                ),
-              ),
+              // const SizedBox(height: 30),
+              // vibeeTextFormField(
+              //   width: 330,
+              //   hint: "Search",
+              //   prefixIcon: const Icon(
+              //     Icons.search,
+              //     color: Colors.white,
+              //     size: 25,
+              //   ),
+              // ),
               const SizedBox(height: 30),
               Row(
                 children: [
                   const SizedBox(width: 35),
-                  vibeeText("Selected Participants")
+                  vibeeText("Select Participants")
                 ],
               ),
               Expanded(

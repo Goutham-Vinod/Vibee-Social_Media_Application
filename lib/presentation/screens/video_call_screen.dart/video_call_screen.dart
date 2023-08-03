@@ -42,8 +42,8 @@ class _CallScreenState extends State<CallScreen> {
       videoToken = tocken;
 
       await initAgora();
-      // BlocProvider.of<VideoCallScreenBloc>(context).add(
-      //     VideoCallScreenEvent.startVideoCall(conversationId: widget.chatId));
+      BlocProvider.of<VideoCallScreenBloc>(context).add(
+          VideoCallScreenEvent.startVideoCall(conversationId: widget.chatId));
     } else {
       print('something went wrong');
       print("didn't got tocken");
@@ -113,39 +113,58 @@ class _CallScreenState extends State<CallScreen> {
   // Create UI with local view and remote view
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundScreenColor,
-      body: SafeArea(
-        child: videoToken == null
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : Stack(
-                children: [
-                  Center(
-                    child: _remoteVideo(), // video of current user's friend
-                  ),
-                  Align(
-                    /// video of current
-                    alignment: Alignment.topLeft,
-                    child: SizedBox(
-                      width: _remoteUid == null ? double.maxFinite : 100,
-                      height: _remoteUid == null ? double.maxFinite : 150,
-                      child: Center(
-                        child: _localUserJoined
-                            ? AgoraVideoView(
-                                controller: VideoViewController(
-                                  rtcEngine: _engine,
-                                  canvas: const VideoCanvas(uid: 0),
-                                ),
-                              )
-                            : const CircularProgressIndicator(),
+    return BlocListener<VideoCallScreenBloc, VideoCallScreenState>(
+      listener: (context, state) {
+        if (state.isCallDisconnected == true) {
+          Navigator.pop(context);
+        }
+        if (state.isCallRejected == true) {
+          Navigator.pop(context);
+          showSnackBar(
+            context: context,
+            message: 'Call Declined',
+            textColor: Colors.white,
+            backgroundColor: Colors.red,
+          );
+        }
+      },
+      child: WillPopScope(
+        onWillPop: () async => true,
+        child: Scaffold(
+          backgroundColor: backgroundScreenColor,
+          body: SafeArea(
+            child: videoToken == null
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Stack(
+                    children: [
+                      Center(
+                        child: _remoteVideo(), // video of current user's friend
                       ),
-                    ),
+                      Align(
+                        /// video of current
+                        alignment: Alignment.topLeft,
+                        child: SizedBox(
+                          width: _remoteUid == null ? double.maxFinite : 100,
+                          height: _remoteUid == null ? double.maxFinite : 150,
+                          child: Center(
+                            child: _localUserJoined
+                                ? AgoraVideoView(
+                                    controller: VideoViewController(
+                                      rtcEngine: _engine,
+                                      canvas: const VideoCanvas(uid: 0),
+                                    ),
+                                  )
+                                : const CircularProgressIndicator(),
+                          ),
+                        ),
+                      ),
+                      videoCallToolBar(),
+                    ],
                   ),
-                  videoCallToolBar(),
-                ],
-              ),
+          ),
+        ),
       ),
     );
   }
@@ -203,6 +222,9 @@ class _CallScreenState extends State<CallScreen> {
           RawMaterialButton(
             onPressed: () async {
               await leaveCall();
+              BlocProvider.of<VideoCallScreenBloc>(context).add(
+                  VideoCallScreenEvent.disconnectCall(
+                      conversationId: widget.chatId));
               Navigator.pop(context);
             },
             shape: const CircleBorder(),

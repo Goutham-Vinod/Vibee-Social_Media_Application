@@ -11,13 +11,13 @@ class UserId {
   String? username;
   String? email;
   String? phone;
-  List<dynamic>? pendingRequests;
-  List<dynamic>? friends;
+  List<String>? pendingRequests;
+  List<String>? friends;
   List<dynamic>? blockedUsers;
-  List<dynamic>? savedPosts;
+  List<String>? savedPosts;
   bool? isBlocked;
   bool? isVerified;
-  List<dynamic>? pendingSentRequest;
+  List<String>? pendingSentRequest;
   bool? elite;
   String? subscriptionStatus;
   DateTime? createdAt;

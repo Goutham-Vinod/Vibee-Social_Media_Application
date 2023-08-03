@@ -32,6 +32,14 @@ class VideoCallScreenBloc
         SocketIoServices.videoCall(successResult);
         emit(state.copyWith(initializationDone: true));
       });
+
+      SocketIoServices.listenCallDisconnectedEvent(() {
+        add(const VideoCallScreenEvent.callDisconnected());
+      });
+
+      SocketIoServices.listenCallRejectedEvent(() {
+        add(const _CallRejected());
+      });
     });
 
     on<_LocalUserJoined>((event, emit) {
@@ -54,6 +62,29 @@ class VideoCallScreenBloc
       List<int> users = [...state.users];
       users.remove(event.remoteUid);
       emit(state.copyWith(users: users));
+    });
+
+    on<_DisconnectCall>((event, emit) async {
+      Either<ApiFailure, VideoCallResponseModel> result =
+          await APIServices.videoCallApi(event.conversationId);
+      result.fold((failure) {
+        emit(state.copyWith(errorMessage: failure.errorMessage));
+        emit(state.copyWith(errorMessage: null));
+      }, (successResult) {
+        SocketIoServices.disconnectCall(successResult);
+        emit(state.copyWith(isCallDisconnected: true));
+        emit(state.copyWith(isCallDisconnected: null));
+      });
+    });
+
+    on<_CallDisconnected>((event, emit) {
+      emit(state.copyWith(isCallDisconnected: true));
+      emit(state.copyWith(isCallDisconnected: null));
+    });
+
+    on<_CallRejected>((event, emit) {
+      emit(state.copyWith(isCallRejected: true));
+      emit(state.copyWith(isCallRejected: null));
     });
 
 ////

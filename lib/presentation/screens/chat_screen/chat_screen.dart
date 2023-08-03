@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/application/blocs/chat_screen/chat_screen_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
+import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
-import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 import 'package:vibee/presentation/common_widgets/recieve_message_card.dart';
 import 'package:vibee/presentation/common_widgets/sent_message_card.dart';
-import 'package:vibee/presentation/screens/video_call_screen.dart/video_call_screen.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
@@ -17,7 +16,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chatId = ModalRoute.of(context)?.settings.arguments
+    String chatId = ModalRoute.of(context)?.settings.arguments
         as String; // routeArgs - chat id - String
 
     BlocProvider.of<ChatScreenBloc>(context)
@@ -32,6 +31,40 @@ class ChatScreen extends StatelessWidget {
     return BlocConsumer<ChatScreenBloc, ChatScreenState>(
       listener: (context, state) {},
       builder: (context, state) {
+        String? chatName;
+        if (state.getMessageResponse?.isGroupChat != true) {
+          chatName = state.getMessageResponse?.users?[0].id ==
+                  CommonVariables.currentUserDetailsResponse?.id
+              ? '${state.getMessageResponse?.users?[1].firstName} ${state.getMessageResponse?.users?[1].lastName}'
+              : '${state.getMessageResponse?.users?[0].firstName} ${state.getMessageResponse?.users?[0].lastName}';
+        } else if (state.getMessageResponse?.isGroupChat == true) {
+          chatName = state.getMessageResponse?.chatName;
+        }
+        Widget? dpWidget;
+        if (state.getMessageResponse?.isGroupChat == true) {
+          if (state.getMessageResponse?.groupChatImage != null) {
+            dpWidget = vibeeDp(
+                image: NetworkImage(Config.getPictureUrl(
+                    picturePath: state.getMessageResponse!.groupChatImage!)));
+          }
+        } else {
+          if (state.getMessageResponse?.users?[0].id ==
+              CommonVariables.currentUserDetailsResponse?.id) {
+            if (state.getMessageResponse?.users?[1].profilePicture != null) {
+              dpWidget = vibeeDp(
+                  image: NetworkImage(Config.getPictureUrl(
+                      picturePath: state
+                          .getMessageResponse!.users![1].profilePicture!)));
+            }
+          } else if (state.getMessageResponse?.users?[0].profilePicture !=
+              null) {
+            dpWidget = vibeeDp(
+                image: NetworkImage(Config.getPictureUrl(
+                    picturePath:
+                        state.getMessageResponse!.users![0].profilePicture!)));
+          }
+        }
+
         return Scaffold(
             backgroundColor: backgroundScreenColor,
             appBar: AppBar(
@@ -39,19 +72,17 @@ class ChatScreen extends StatelessWidget {
               backgroundColor: backgroundScreenColor,
               title: Row(
                 children: [
-                  vibeeDp(
-                    image: AssetImage(CommonVariables.testImagePath5),
-                    height: 40,
-                    width: 40,
-                  ),
+                  dpWidget ??
+                      vibeeDp(
+                        image: AssetImage(CommonVariables.defaultDp),
+                        height: 40,
+                        width: 40,
+                      ),
                   const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      vibeeText(
-                          state.getMessageResponse?.isGroupChat == true
-                              ? state.getMessageResponse?.chatName ?? ''
-                              : '${state.getMessageResponse?.users?[0].firstName} ${state.getMessageResponse?.users?[0].lastName}', // app bar title
+                      vibeeText(chatName ?? '', // app bar title
                           size: 20),
                       vibeeText(state.isOnline == true ? "Online" : '',
                           size: 15),
@@ -66,8 +97,8 @@ class ChatScreen extends StatelessWidget {
                         : true,
                     child: IconButton(
                       onPressed: () {
-                        
-                        Navigator.pushNamed(context, RouteGenerator.callScreen,arguments: chatId);
+                        Navigator.pushNamed(context, RouteGenerator.callScreen,
+                            arguments: chatId);
                       },
                       icon: Image.asset("assets/icons/Video Icon.png"),
                     )),

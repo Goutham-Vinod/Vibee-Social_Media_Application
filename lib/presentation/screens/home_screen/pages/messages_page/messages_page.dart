@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/application/blocs/messages_page/messages_page_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
+import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
@@ -66,6 +67,7 @@ class MessagesPage extends StatelessWidget {
                   )
                 ],
               ),
+              const SizedBox(height: 10),
               Expanded(
                 child: BlocBuilder<MessagesPageBloc, MessagesPageState>(
                   builder: (context, state) {
@@ -80,16 +82,66 @@ class MessagesPage extends StatelessWidget {
                           isOnline = state.onlineFriendsIdList?.contains(state
                               .getAllConversationsResponse?[index]
                               .users?[0]
-                              // 0th user will be friend and 1st will be current user
                               .id);
-                          // friend's id = state
-                          // .getAllConversationsResponse?[index].users?[0].id
                         }
+                        String? friendName;
+                        if (state.getAllConversationsResponse?[index]
+                                .isGroupChat !=
+                            true) {
+                          friendName = state.getAllConversationsResponse?[index]
+                                      .users?[0].id ==
+                                  CommonVariables.currentUserDetailsResponse?.id
+                              ? '${state.getAllConversationsResponse?[index].users?[1].firstName} ${state.getAllConversationsResponse?[index].users?[1].lastName}'
+                              : '${state.getAllConversationsResponse?[index].users?[0].firstName} ${state.getAllConversationsResponse?[index].users?[0].lastName}';
+                        }
+                        Widget? dpWidget;
+                        if (state.getAllConversationsResponse?[index]
+                                .isGroupChat ==
+                            true) {
+                          if (state.getAllConversationsResponse?[index]
+                                  .groupChatImage !=
+                              null) {
+                            dpWidget = vibeeDp(
+                                image: NetworkImage(Config.getPictureUrl(
+                                    picturePath: state
+                                        .getAllConversationsResponse![index]
+                                        .groupChatImage!)));
+                          }
+                        } else {
+                          if (state.getAllConversationsResponse?[index]
+                                      .users?[0].id ==
+                                  CommonVariables
+                                      .currentUserDetailsResponse?.id &&
+                              state.getAllConversationsResponse != null) {
+                            if (state.getAllConversationsResponse?[index]
+                                    .users?[1].profilePicture !=
+                                null) {
+                              dpWidget = vibeeDp(
+                                  image: NetworkImage(Config.getPictureUrl(
+                                      picturePath: state
+                                          .getAllConversationsResponse![index]
+                                          .users![1]
+                                          .profilePicture!)));
+                            }
+                          } else if (state.getAllConversationsResponse?[index]
+                                  .users?[0].profilePicture !=
+                              null) {
+                            dpWidget = vibeeDp(
+                                image: NetworkImage(Config.getPictureUrl(
+                                    picturePath: state
+                                        .getAllConversationsResponse![index]
+                                        .users![0]
+                                        .profilePicture!)));
+                          }
+                        }
+
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Material(
                               color: Colors.transparent,
                               child: vibeeListTile(
+                                  topMargin: 0,
+                                  height: 85,
                                   title: state
                                               .getAllConversationsResponse?[
                                                   index]
@@ -98,8 +150,10 @@ class MessagesPage extends StatelessWidget {
                                       ? state
                                           .getAllConversationsResponse![index]
                                           .chatName
-                                      : '${state.getAllConversationsResponse?[index].users?[0].firstName} ${state.getAllConversationsResponse?[index].users?[0].lastName}',
-                                  subtitle: "sophia_123",
+                                      : friendName,
+                                  subtitle: state
+                                      .getAllConversationsResponse?[index]
+                                      .message,
                                   suffixWidget: Visibility(
                                     visible: isOnline == true,
                                     child: const Icon(
@@ -109,12 +163,11 @@ class MessagesPage extends StatelessWidget {
                                   ),
                                   prefixWidget: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: vibeeDp(
-                                      image: AssetImage(
-                                          CommonVariables.testImagePath5),
-                                      height: 50,
-                                      width: 50,
-                                    ),
+                                    child: dpWidget ??
+                                        vibeeDp(
+                                          image: AssetImage(
+                                              CommonVariables.defaultDp),
+                                        ),
                                   ),
                                   onTap: () {
                                     Navigator.pushNamed(

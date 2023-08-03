@@ -24,6 +24,9 @@ mixin _$VideoCallScreenEvent {
     required TResult Function() localUserJoined,
     required TResult Function(int remoteUid) addRemoteUid,
     required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,9 @@ mixin _$VideoCallScreenEvent {
     TResult? Function()? localUserJoined,
     TResult? Function(int remoteUid)? addRemoteUid,
     TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +50,9 @@ mixin _$VideoCallScreenEvent {
     TResult Function()? localUserJoined,
     TResult Function(int remoteUid)? addRemoteUid,
     TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +64,9 @@ mixin _$VideoCallScreenEvent {
     required TResult Function(_LocalUserJoined value) localUserJoined,
     required TResult Function(_AddRemoteUid value) addRemoteUid,
     required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +77,9 @@ mixin _$VideoCallScreenEvent {
     TResult? Function(_LocalUserJoined value)? localUserJoined,
     TResult? Function(_AddRemoteUid value)? addRemoteUid,
     TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +90,9 @@ mixin _$VideoCallScreenEvent {
     TResult Function(_LocalUserJoined value)? localUserJoined,
     TResult Function(_AddRemoteUid value)? addRemoteUid,
     TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -170,6 +188,9 @@ class _$_StartVideoCall implements _StartVideoCall {
     required TResult Function() localUserJoined,
     required TResult Function(int remoteUid) addRemoteUid,
     required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
   }) {
     return startVideoCall(conversationId);
   }
@@ -183,6 +204,9 @@ class _$_StartVideoCall implements _StartVideoCall {
     TResult? Function()? localUserJoined,
     TResult? Function(int remoteUid)? addRemoteUid,
     TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
   }) {
     return startVideoCall?.call(conversationId);
   }
@@ -196,6 +220,9 @@ class _$_StartVideoCall implements _StartVideoCall {
     TResult Function()? localUserJoined,
     TResult Function(int remoteUid)? addRemoteUid,
     TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
     required TResult orElse(),
   }) {
     if (startVideoCall != null) {
@@ -213,6 +240,9 @@ class _$_StartVideoCall implements _StartVideoCall {
     required TResult Function(_LocalUserJoined value) localUserJoined,
     required TResult Function(_AddRemoteUid value) addRemoteUid,
     required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
   }) {
     return startVideoCall(this);
   }
@@ -226,6 +256,9 @@ class _$_StartVideoCall implements _StartVideoCall {
     TResult? Function(_LocalUserJoined value)? localUserJoined,
     TResult? Function(_AddRemoteUid value)? addRemoteUid,
     TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
   }) {
     return startVideoCall?.call(this);
   }
@@ -239,6 +272,9 @@ class _$_StartVideoCall implements _StartVideoCall {
     TResult Function(_LocalUserJoined value)? localUserJoined,
     TResult Function(_AddRemoteUid value)? addRemoteUid,
     TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
     required TResult orElse(),
   }) {
     if (startVideoCall != null) {
@@ -329,6 +365,9 @@ class _$_InitAgora implements _InitAgora {
     required TResult Function() localUserJoined,
     required TResult Function(int remoteUid) addRemoteUid,
     required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
   }) {
     return initAgora(channelName);
   }
@@ -342,6 +381,9 @@ class _$_InitAgora implements _InitAgora {
     TResult? Function()? localUserJoined,
     TResult? Function(int remoteUid)? addRemoteUid,
     TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
   }) {
     return initAgora?.call(channelName);
   }
@@ -355,6 +397,9 @@ class _$_InitAgora implements _InitAgora {
     TResult Function()? localUserJoined,
     TResult Function(int remoteUid)? addRemoteUid,
     TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
     required TResult orElse(),
   }) {
     if (initAgora != null) {
@@ -372,6 +417,9 @@ class _$_InitAgora implements _InitAgora {
     required TResult Function(_LocalUserJoined value) localUserJoined,
     required TResult Function(_AddRemoteUid value) addRemoteUid,
     required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
   }) {
     return initAgora(this);
   }
@@ -385,6 +433,9 @@ class _$_InitAgora implements _InitAgora {
     TResult? Function(_LocalUserJoined value)? localUserJoined,
     TResult? Function(_AddRemoteUid value)? addRemoteUid,
     TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
   }) {
     return initAgora?.call(this);
   }
@@ -398,6 +449,9 @@ class _$_InitAgora implements _InitAgora {
     TResult Function(_LocalUserJoined value)? localUserJoined,
     TResult Function(_AddRemoteUid value)? addRemoteUid,
     TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
     required TResult orElse(),
   }) {
     if (initAgora != null) {
@@ -458,6 +512,9 @@ class _$_Mute implements _Mute {
     required TResult Function() localUserJoined,
     required TResult Function(int remoteUid) addRemoteUid,
     required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
   }) {
     return mute();
   }
@@ -471,6 +528,9 @@ class _$_Mute implements _Mute {
     TResult? Function()? localUserJoined,
     TResult? Function(int remoteUid)? addRemoteUid,
     TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
   }) {
     return mute?.call();
   }
@@ -484,6 +544,9 @@ class _$_Mute implements _Mute {
     TResult Function()? localUserJoined,
     TResult Function(int remoteUid)? addRemoteUid,
     TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
     required TResult orElse(),
   }) {
     if (mute != null) {
@@ -501,6 +564,9 @@ class _$_Mute implements _Mute {
     required TResult Function(_LocalUserJoined value) localUserJoined,
     required TResult Function(_AddRemoteUid value) addRemoteUid,
     required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
   }) {
     return mute(this);
   }
@@ -514,6 +580,9 @@ class _$_Mute implements _Mute {
     TResult? Function(_LocalUserJoined value)? localUserJoined,
     TResult? Function(_AddRemoteUid value)? addRemoteUid,
     TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
   }) {
     return mute?.call(this);
   }
@@ -527,6 +596,9 @@ class _$_Mute implements _Mute {
     TResult Function(_LocalUserJoined value)? localUserJoined,
     TResult Function(_AddRemoteUid value)? addRemoteUid,
     TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
     required TResult orElse(),
   }) {
     if (mute != null) {
@@ -584,6 +656,9 @@ class _$_LocalUserJoined implements _LocalUserJoined {
     required TResult Function() localUserJoined,
     required TResult Function(int remoteUid) addRemoteUid,
     required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
   }) {
     return localUserJoined();
   }
@@ -597,6 +672,9 @@ class _$_LocalUserJoined implements _LocalUserJoined {
     TResult? Function()? localUserJoined,
     TResult? Function(int remoteUid)? addRemoteUid,
     TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
   }) {
     return localUserJoined?.call();
   }
@@ -610,6 +688,9 @@ class _$_LocalUserJoined implements _LocalUserJoined {
     TResult Function()? localUserJoined,
     TResult Function(int remoteUid)? addRemoteUid,
     TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
     required TResult orElse(),
   }) {
     if (localUserJoined != null) {
@@ -627,6 +708,9 @@ class _$_LocalUserJoined implements _LocalUserJoined {
     required TResult Function(_LocalUserJoined value) localUserJoined,
     required TResult Function(_AddRemoteUid value) addRemoteUid,
     required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
   }) {
     return localUserJoined(this);
   }
@@ -640,6 +724,9 @@ class _$_LocalUserJoined implements _LocalUserJoined {
     TResult? Function(_LocalUserJoined value)? localUserJoined,
     TResult? Function(_AddRemoteUid value)? addRemoteUid,
     TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
   }) {
     return localUserJoined?.call(this);
   }
@@ -653,6 +740,9 @@ class _$_LocalUserJoined implements _LocalUserJoined {
     TResult Function(_LocalUserJoined value)? localUserJoined,
     TResult Function(_AddRemoteUid value)? addRemoteUid,
     TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
     required TResult orElse(),
   }) {
     if (localUserJoined != null) {
@@ -737,6 +827,9 @@ class _$_AddRemoteUid implements _AddRemoteUid {
     required TResult Function() localUserJoined,
     required TResult Function(int remoteUid) addRemoteUid,
     required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
   }) {
     return addRemoteUid(remoteUid);
   }
@@ -750,6 +843,9 @@ class _$_AddRemoteUid implements _AddRemoteUid {
     TResult? Function()? localUserJoined,
     TResult? Function(int remoteUid)? addRemoteUid,
     TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
   }) {
     return addRemoteUid?.call(remoteUid);
   }
@@ -763,6 +859,9 @@ class _$_AddRemoteUid implements _AddRemoteUid {
     TResult Function()? localUserJoined,
     TResult Function(int remoteUid)? addRemoteUid,
     TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
     required TResult orElse(),
   }) {
     if (addRemoteUid != null) {
@@ -780,6 +879,9 @@ class _$_AddRemoteUid implements _AddRemoteUid {
     required TResult Function(_LocalUserJoined value) localUserJoined,
     required TResult Function(_AddRemoteUid value) addRemoteUid,
     required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
   }) {
     return addRemoteUid(this);
   }
@@ -793,6 +895,9 @@ class _$_AddRemoteUid implements _AddRemoteUid {
     TResult? Function(_LocalUserJoined value)? localUserJoined,
     TResult? Function(_AddRemoteUid value)? addRemoteUid,
     TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
   }) {
     return addRemoteUid?.call(this);
   }
@@ -806,6 +911,9 @@ class _$_AddRemoteUid implements _AddRemoteUid {
     TResult Function(_LocalUserJoined value)? localUserJoined,
     TResult Function(_AddRemoteUid value)? addRemoteUid,
     TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
     required TResult orElse(),
   }) {
     if (addRemoteUid != null) {
@@ -895,6 +1003,9 @@ class _$_RemoveRemoteUid implements _RemoveRemoteUid {
     required TResult Function() localUserJoined,
     required TResult Function(int remoteUid) addRemoteUid,
     required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
   }) {
     return removeRemoteUid(remoteUid);
   }
@@ -908,6 +1019,9 @@ class _$_RemoveRemoteUid implements _RemoveRemoteUid {
     TResult? Function()? localUserJoined,
     TResult? Function(int remoteUid)? addRemoteUid,
     TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
   }) {
     return removeRemoteUid?.call(remoteUid);
   }
@@ -921,6 +1035,9 @@ class _$_RemoveRemoteUid implements _RemoveRemoteUid {
     TResult Function()? localUserJoined,
     TResult Function(int remoteUid)? addRemoteUid,
     TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
     required TResult orElse(),
   }) {
     if (removeRemoteUid != null) {
@@ -938,6 +1055,9 @@ class _$_RemoveRemoteUid implements _RemoveRemoteUid {
     required TResult Function(_LocalUserJoined value) localUserJoined,
     required TResult Function(_AddRemoteUid value) addRemoteUid,
     required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
   }) {
     return removeRemoteUid(this);
   }
@@ -951,6 +1071,9 @@ class _$_RemoveRemoteUid implements _RemoveRemoteUid {
     TResult? Function(_LocalUserJoined value)? localUserJoined,
     TResult? Function(_AddRemoteUid value)? addRemoteUid,
     TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
   }) {
     return removeRemoteUid?.call(this);
   }
@@ -964,6 +1087,9 @@ class _$_RemoveRemoteUid implements _RemoveRemoteUid {
     TResult Function(_LocalUserJoined value)? localUserJoined,
     TResult Function(_AddRemoteUid value)? addRemoteUid,
     TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
     required TResult orElse(),
   }) {
     if (removeRemoteUid != null) {
@@ -984,8 +1110,474 @@ abstract class _RemoveRemoteUid implements VideoCallScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$_DisconnectCallCopyWith<$Res> {
+  factory _$$_DisconnectCallCopyWith(
+          _$_DisconnectCall value, $Res Function(_$_DisconnectCall) then) =
+      __$$_DisconnectCallCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String conversationId});
+}
+
+/// @nodoc
+class __$$_DisconnectCallCopyWithImpl<$Res>
+    extends _$VideoCallScreenEventCopyWithImpl<$Res, _$_DisconnectCall>
+    implements _$$_DisconnectCallCopyWith<$Res> {
+  __$$_DisconnectCallCopyWithImpl(
+      _$_DisconnectCall _value, $Res Function(_$_DisconnectCall) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? conversationId = null,
+  }) {
+    return _then(_$_DisconnectCall(
+      conversationId: null == conversationId
+          ? _value.conversationId
+          : conversationId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DisconnectCall implements _DisconnectCall {
+  const _$_DisconnectCall({required this.conversationId});
+
+  @override
+  final String conversationId;
+
+  @override
+  String toString() {
+    return 'VideoCallScreenEvent.disconnectCall(conversationId: $conversationId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DisconnectCall &&
+            (identical(other.conversationId, conversationId) ||
+                other.conversationId == conversationId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, conversationId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DisconnectCallCopyWith<_$_DisconnectCall> get copyWith =>
+      __$$_DisconnectCallCopyWithImpl<_$_DisconnectCall>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String conversationId) startVideoCall,
+    required TResult Function(String channelName) initAgora,
+    required TResult Function() mute,
+    required TResult Function() localUserJoined,
+    required TResult Function(int remoteUid) addRemoteUid,
+    required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
+  }) {
+    return disconnectCall(conversationId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String conversationId)? startVideoCall,
+    TResult? Function(String channelName)? initAgora,
+    TResult? Function()? mute,
+    TResult? Function()? localUserJoined,
+    TResult? Function(int remoteUid)? addRemoteUid,
+    TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
+  }) {
+    return disconnectCall?.call(conversationId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String conversationId)? startVideoCall,
+    TResult Function(String channelName)? initAgora,
+    TResult Function()? mute,
+    TResult Function()? localUserJoined,
+    TResult Function(int remoteUid)? addRemoteUid,
+    TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
+    required TResult orElse(),
+  }) {
+    if (disconnectCall != null) {
+      return disconnectCall(conversationId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StartVideoCall value) startVideoCall,
+    required TResult Function(_InitAgora value) initAgora,
+    required TResult Function(_Mute value) mute,
+    required TResult Function(_LocalUserJoined value) localUserJoined,
+    required TResult Function(_AddRemoteUid value) addRemoteUid,
+    required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
+  }) {
+    return disconnectCall(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StartVideoCall value)? startVideoCall,
+    TResult? Function(_InitAgora value)? initAgora,
+    TResult? Function(_Mute value)? mute,
+    TResult? Function(_LocalUserJoined value)? localUserJoined,
+    TResult? Function(_AddRemoteUid value)? addRemoteUid,
+    TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
+  }) {
+    return disconnectCall?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StartVideoCall value)? startVideoCall,
+    TResult Function(_InitAgora value)? initAgora,
+    TResult Function(_Mute value)? mute,
+    TResult Function(_LocalUserJoined value)? localUserJoined,
+    TResult Function(_AddRemoteUid value)? addRemoteUid,
+    TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
+    required TResult orElse(),
+  }) {
+    if (disconnectCall != null) {
+      return disconnectCall(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DisconnectCall implements VideoCallScreenEvent {
+  const factory _DisconnectCall({required final String conversationId}) =
+      _$_DisconnectCall;
+
+  String get conversationId;
+  @JsonKey(ignore: true)
+  _$$_DisconnectCallCopyWith<_$_DisconnectCall> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CallDisconnectedCopyWith<$Res> {
+  factory _$$_CallDisconnectedCopyWith(
+          _$_CallDisconnected value, $Res Function(_$_CallDisconnected) then) =
+      __$$_CallDisconnectedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CallDisconnectedCopyWithImpl<$Res>
+    extends _$VideoCallScreenEventCopyWithImpl<$Res, _$_CallDisconnected>
+    implements _$$_CallDisconnectedCopyWith<$Res> {
+  __$$_CallDisconnectedCopyWithImpl(
+      _$_CallDisconnected _value, $Res Function(_$_CallDisconnected) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CallDisconnected implements _CallDisconnected {
+  const _$_CallDisconnected();
+
+  @override
+  String toString() {
+    return 'VideoCallScreenEvent.callDisconnected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CallDisconnected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String conversationId) startVideoCall,
+    required TResult Function(String channelName) initAgora,
+    required TResult Function() mute,
+    required TResult Function() localUserJoined,
+    required TResult Function(int remoteUid) addRemoteUid,
+    required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
+  }) {
+    return callDisconnected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String conversationId)? startVideoCall,
+    TResult? Function(String channelName)? initAgora,
+    TResult? Function()? mute,
+    TResult? Function()? localUserJoined,
+    TResult? Function(int remoteUid)? addRemoteUid,
+    TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
+  }) {
+    return callDisconnected?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String conversationId)? startVideoCall,
+    TResult Function(String channelName)? initAgora,
+    TResult Function()? mute,
+    TResult Function()? localUserJoined,
+    TResult Function(int remoteUid)? addRemoteUid,
+    TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
+    required TResult orElse(),
+  }) {
+    if (callDisconnected != null) {
+      return callDisconnected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StartVideoCall value) startVideoCall,
+    required TResult Function(_InitAgora value) initAgora,
+    required TResult Function(_Mute value) mute,
+    required TResult Function(_LocalUserJoined value) localUserJoined,
+    required TResult Function(_AddRemoteUid value) addRemoteUid,
+    required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
+  }) {
+    return callDisconnected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StartVideoCall value)? startVideoCall,
+    TResult? Function(_InitAgora value)? initAgora,
+    TResult? Function(_Mute value)? mute,
+    TResult? Function(_LocalUserJoined value)? localUserJoined,
+    TResult? Function(_AddRemoteUid value)? addRemoteUid,
+    TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
+  }) {
+    return callDisconnected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StartVideoCall value)? startVideoCall,
+    TResult Function(_InitAgora value)? initAgora,
+    TResult Function(_Mute value)? mute,
+    TResult Function(_LocalUserJoined value)? localUserJoined,
+    TResult Function(_AddRemoteUid value)? addRemoteUid,
+    TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
+    required TResult orElse(),
+  }) {
+    if (callDisconnected != null) {
+      return callDisconnected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CallDisconnected implements VideoCallScreenEvent {
+  const factory _CallDisconnected() = _$_CallDisconnected;
+}
+
+/// @nodoc
+abstract class _$$_CallRejectedCopyWith<$Res> {
+  factory _$$_CallRejectedCopyWith(
+          _$_CallRejected value, $Res Function(_$_CallRejected) then) =
+      __$$_CallRejectedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CallRejectedCopyWithImpl<$Res>
+    extends _$VideoCallScreenEventCopyWithImpl<$Res, _$_CallRejected>
+    implements _$$_CallRejectedCopyWith<$Res> {
+  __$$_CallRejectedCopyWithImpl(
+      _$_CallRejected _value, $Res Function(_$_CallRejected) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CallRejected implements _CallRejected {
+  const _$_CallRejected();
+
+  @override
+  String toString() {
+    return 'VideoCallScreenEvent.callRejected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CallRejected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String conversationId) startVideoCall,
+    required TResult Function(String channelName) initAgora,
+    required TResult Function() mute,
+    required TResult Function() localUserJoined,
+    required TResult Function(int remoteUid) addRemoteUid,
+    required TResult Function(int remoteUid) removeRemoteUid,
+    required TResult Function(String conversationId) disconnectCall,
+    required TResult Function() callDisconnected,
+    required TResult Function() callRejected,
+  }) {
+    return callRejected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String conversationId)? startVideoCall,
+    TResult? Function(String channelName)? initAgora,
+    TResult? Function()? mute,
+    TResult? Function()? localUserJoined,
+    TResult? Function(int remoteUid)? addRemoteUid,
+    TResult? Function(int remoteUid)? removeRemoteUid,
+    TResult? Function(String conversationId)? disconnectCall,
+    TResult? Function()? callDisconnected,
+    TResult? Function()? callRejected,
+  }) {
+    return callRejected?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String conversationId)? startVideoCall,
+    TResult Function(String channelName)? initAgora,
+    TResult Function()? mute,
+    TResult Function()? localUserJoined,
+    TResult Function(int remoteUid)? addRemoteUid,
+    TResult Function(int remoteUid)? removeRemoteUid,
+    TResult Function(String conversationId)? disconnectCall,
+    TResult Function()? callDisconnected,
+    TResult Function()? callRejected,
+    required TResult orElse(),
+  }) {
+    if (callRejected != null) {
+      return callRejected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StartVideoCall value) startVideoCall,
+    required TResult Function(_InitAgora value) initAgora,
+    required TResult Function(_Mute value) mute,
+    required TResult Function(_LocalUserJoined value) localUserJoined,
+    required TResult Function(_AddRemoteUid value) addRemoteUid,
+    required TResult Function(_RemoveRemoteUid value) removeRemoteUid,
+    required TResult Function(_DisconnectCall value) disconnectCall,
+    required TResult Function(_CallDisconnected value) callDisconnected,
+    required TResult Function(_CallRejected value) callRejected,
+  }) {
+    return callRejected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StartVideoCall value)? startVideoCall,
+    TResult? Function(_InitAgora value)? initAgora,
+    TResult? Function(_Mute value)? mute,
+    TResult? Function(_LocalUserJoined value)? localUserJoined,
+    TResult? Function(_AddRemoteUid value)? addRemoteUid,
+    TResult? Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult? Function(_DisconnectCall value)? disconnectCall,
+    TResult? Function(_CallDisconnected value)? callDisconnected,
+    TResult? Function(_CallRejected value)? callRejected,
+  }) {
+    return callRejected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StartVideoCall value)? startVideoCall,
+    TResult Function(_InitAgora value)? initAgora,
+    TResult Function(_Mute value)? mute,
+    TResult Function(_LocalUserJoined value)? localUserJoined,
+    TResult Function(_AddRemoteUid value)? addRemoteUid,
+    TResult Function(_RemoveRemoteUid value)? removeRemoteUid,
+    TResult Function(_DisconnectCall value)? disconnectCall,
+    TResult Function(_CallDisconnected value)? callDisconnected,
+    TResult Function(_CallRejected value)? callRejected,
+    required TResult orElse(),
+  }) {
+    if (callRejected != null) {
+      return callRejected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CallRejected implements VideoCallScreenEvent {
+  const factory _CallRejected() = _$_CallRejected;
+}
+
+/// @nodoc
 mixin _$VideoCallScreenState {
-  bool? get isCallEnded => throw _privateConstructorUsedError;
+  bool? get isCallRejected => throw _privateConstructorUsedError;
+  bool? get isCallDisconnected => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get videoCallToken => throw _privateConstructorUsedError;
   bool get localUserJoined => throw _privateConstructorUsedError;
@@ -996,7 +1588,8 @@ mixin _$VideoCallScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            bool? isCallEnded,
+            bool? isCallRejected,
+            bool? isCallDisconnected,
             String? errorMessage,
             String? videoCallToken,
             bool localUserJoined,
@@ -1010,7 +1603,8 @@ mixin _$VideoCallScreenState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            bool? isCallEnded,
+            bool? isCallRejected,
+            bool? isCallDisconnected,
             String? errorMessage,
             String? videoCallToken,
             bool localUserJoined,
@@ -1024,7 +1618,8 @@ mixin _$VideoCallScreenState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            bool? isCallEnded,
+            bool? isCallRejected,
+            bool? isCallDisconnected,
             String? errorMessage,
             String? videoCallToken,
             bool localUserJoined,
@@ -1065,7 +1660,8 @@ abstract class $VideoCallScreenStateCopyWith<$Res> {
       _$VideoCallScreenStateCopyWithImpl<$Res, VideoCallScreenState>;
   @useResult
   $Res call(
-      {bool? isCallEnded,
+      {bool? isCallRejected,
+      bool? isCallDisconnected,
       String? errorMessage,
       String? videoCallToken,
       bool localUserJoined,
@@ -1089,7 +1685,8 @@ class _$VideoCallScreenStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isCallEnded = freezed,
+    Object? isCallRejected = freezed,
+    Object? isCallDisconnected = freezed,
     Object? errorMessage = freezed,
     Object? videoCallToken = freezed,
     Object? localUserJoined = null,
@@ -1099,9 +1696,13 @@ class _$VideoCallScreenStateCopyWithImpl<$Res,
     Object? users = null,
   }) {
     return _then(_value.copyWith(
-      isCallEnded: freezed == isCallEnded
-          ? _value.isCallEnded
-          : isCallEnded // ignore: cast_nullable_to_non_nullable
+      isCallRejected: freezed == isCallRejected
+          ? _value.isCallRejected
+          : isCallRejected // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isCallDisconnected: freezed == isCallDisconnected
+          ? _value.isCallDisconnected
+          : isCallDisconnected // ignore: cast_nullable_to_non_nullable
               as bool?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -1144,7 +1745,8 @@ abstract class _$$_InitialCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? isCallEnded,
+      {bool? isCallRejected,
+      bool? isCallDisconnected,
       String? errorMessage,
       String? videoCallToken,
       bool localUserJoined,
@@ -1164,7 +1766,8 @@ class __$$_InitialCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isCallEnded = freezed,
+    Object? isCallRejected = freezed,
+    Object? isCallDisconnected = freezed,
     Object? errorMessage = freezed,
     Object? videoCallToken = freezed,
     Object? localUserJoined = null,
@@ -1174,9 +1777,13 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? users = null,
   }) {
     return _then(_$_Initial(
-      isCallEnded: freezed == isCallEnded
-          ? _value.isCallEnded
-          : isCallEnded // ignore: cast_nullable_to_non_nullable
+      isCallRejected: freezed == isCallRejected
+          ? _value.isCallRejected
+          : isCallRejected // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isCallDisconnected: freezed == isCallDisconnected
+          ? _value.isCallDisconnected
+          : isCallDisconnected // ignore: cast_nullable_to_non_nullable
               as bool?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -1214,7 +1821,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {this.isCallEnded,
+      {this.isCallRejected,
+      this.isCallDisconnected,
       this.errorMessage,
       this.videoCallToken,
       required this.localUserJoined,
@@ -1225,7 +1833,9 @@ class _$_Initial implements _Initial {
       : _users = users;
 
   @override
-  final bool? isCallEnded;
+  final bool? isCallRejected;
+  @override
+  final bool? isCallDisconnected;
   @override
   final String? errorMessage;
   @override
@@ -1248,7 +1858,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'VideoCallScreenState.initial(isCallEnded: $isCallEnded, errorMessage: $errorMessage, videoCallToken: $videoCallToken, localUserJoined: $localUserJoined, initializationDone: $initializationDone, chatId: $chatId, muted: $muted, users: $users)';
+    return 'VideoCallScreenState.initial(isCallRejected: $isCallRejected, isCallDisconnected: $isCallDisconnected, errorMessage: $errorMessage, videoCallToken: $videoCallToken, localUserJoined: $localUserJoined, initializationDone: $initializationDone, chatId: $chatId, muted: $muted, users: $users)';
   }
 
   @override
@@ -1256,8 +1866,10 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
-            (identical(other.isCallEnded, isCallEnded) ||
-                other.isCallEnded == isCallEnded) &&
+            (identical(other.isCallRejected, isCallRejected) ||
+                other.isCallRejected == isCallRejected) &&
+            (identical(other.isCallDisconnected, isCallDisconnected) ||
+                other.isCallDisconnected == isCallDisconnected) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.videoCallToken, videoCallToken) ||
@@ -1274,7 +1886,8 @@ class _$_Initial implements _Initial {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      isCallEnded,
+      isCallRejected,
+      isCallDisconnected,
       errorMessage,
       videoCallToken,
       localUserJoined,
@@ -1293,7 +1906,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            bool? isCallEnded,
+            bool? isCallRejected,
+            bool? isCallDisconnected,
             String? errorMessage,
             String? videoCallToken,
             bool localUserJoined,
@@ -1303,15 +1917,24 @@ class _$_Initial implements _Initial {
             List<int> users)
         initial,
   }) {
-    return initial(isCallEnded, errorMessage, videoCallToken, localUserJoined,
-        initializationDone, chatId, muted, users);
+    return initial(
+        isCallRejected,
+        isCallDisconnected,
+        errorMessage,
+        videoCallToken,
+        localUserJoined,
+        initializationDone,
+        chatId,
+        muted,
+        users);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            bool? isCallEnded,
+            bool? isCallRejected,
+            bool? isCallDisconnected,
             String? errorMessage,
             String? videoCallToken,
             bool localUserJoined,
@@ -1321,15 +1944,24 @@ class _$_Initial implements _Initial {
             List<int> users)?
         initial,
   }) {
-    return initial?.call(isCallEnded, errorMessage, videoCallToken,
-        localUserJoined, initializationDone, chatId, muted, users);
+    return initial?.call(
+        isCallRejected,
+        isCallDisconnected,
+        errorMessage,
+        videoCallToken,
+        localUserJoined,
+        initializationDone,
+        chatId,
+        muted,
+        users);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            bool? isCallEnded,
+            bool? isCallRejected,
+            bool? isCallDisconnected,
             String? errorMessage,
             String? videoCallToken,
             bool localUserJoined,
@@ -1341,8 +1973,16 @@ class _$_Initial implements _Initial {
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(isCallEnded, errorMessage, videoCallToken, localUserJoined,
-          initializationDone, chatId, muted, users);
+      return initial(
+          isCallRejected,
+          isCallDisconnected,
+          errorMessage,
+          videoCallToken,
+          localUserJoined,
+          initializationDone,
+          chatId,
+          muted,
+          users);
     }
     return orElse();
   }
@@ -1378,7 +2018,8 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements VideoCallScreenState {
   const factory _Initial(
-      {final bool? isCallEnded,
+      {final bool? isCallRejected,
+      final bool? isCallDisconnected,
       final String? errorMessage,
       final String? videoCallToken,
       required final bool localUserJoined,
@@ -1388,7 +2029,9 @@ abstract class _Initial implements VideoCallScreenState {
       required final List<int> users}) = _$_Initial;
 
   @override
-  bool? get isCallEnded;
+  bool? get isCallRejected;
+  @override
+  bool? get isCallDisconnected;
   @override
   String? get errorMessage;
   @override

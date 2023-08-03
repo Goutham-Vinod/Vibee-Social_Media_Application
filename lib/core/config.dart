@@ -1,8 +1,12 @@
 class Config {
-  static const String apiBaseUrl = "http://10.0.2.2:4000"; // <- emulator
-  // static const String apiBaseUrl = "http://127.0.0.1:4000"; // <- windows
+  static const String apiBaseUrl = "http://16.170.141.245"; // <- hosted backend
+  // static const String apiBaseUrl =
+  //     "http://10.0.2.2:4000"; // <- emulator local host
+  // static const String apiBaseUrl = "http://127.0.0.1:4000"; // <- windows local host
+  // static const String apiBaseUrl = "http://localhost:4000"; // <- default local host
   static String? tocken;
   static String? userPhoneNumber;
+
   static String? currentUserId;
   static const String agoraAppId = '26053c3e0f544c3f9b70e4d96548a613';
   ////////////////////////////////////////////////////////////////////

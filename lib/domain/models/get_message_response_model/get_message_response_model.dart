@@ -15,6 +15,7 @@ class GetMessageResponseModel {
   String? groupAdmin;
   bool? isDeleted;
   List<User>? users;
+  String? groupChatImage;
   DateTime? createdAt;
   DateTime? updatedAt;
   @JsonKey(name: '__v')
@@ -29,6 +30,7 @@ class GetMessageResponseModel {
     this.groupAdmin,
     this.isDeleted,
     this.users,
+    this.groupChatImage,
     this.createdAt,
     this.updatedAt,
     this.v,

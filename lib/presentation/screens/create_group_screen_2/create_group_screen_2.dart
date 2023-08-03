@@ -64,27 +64,27 @@ class CreateGroupScreen2 extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 15),
-              InkWell(
-                onTap: () {
-                  showVibeeModelBottomSheet(
-                      context: context,
-                      title: 'Change Profile Picture',
-                      buttons: [
-                        ElevatedButton(
-                            onPressed: () {
-                              print('pick image from gallery');
-                            },
-                            child: const Text('Gallery')),
-                        ElevatedButton(
-                            onPressed: () {
-                              print('pick image from  Camera');
-                            },
-                            child: const Text('Camera'))
-                      ]);
-                },
-                child:
-                    vibeeDp(height: 125, width: 125, image: profilePicture()),
-              ),
+              // InkWell(
+              //   onTap: () {
+              //     showVibeeModelBottomSheet(
+              //         context: context,
+              //         title: 'Change Profile Picture',
+              //         buttons: [
+              //           ElevatedButton(
+              //               onPressed: () {
+              //                 print('pick image from gallery');
+              //               },
+              //               child: const Text('Gallery')),
+              //           ElevatedButton(
+              //               onPressed: () {
+              //                 print('pick image from  Camera');
+              //               },
+              //               child: const Text('Camera'))
+              //         ]);
+              //   },
+              //   child:
+              //       vibeeDp(height: 125, width: 125, image: profilePicture()),
+              // ),
               const SizedBox(height: 25),
               vibeeTextFormField(
                   width: 330,

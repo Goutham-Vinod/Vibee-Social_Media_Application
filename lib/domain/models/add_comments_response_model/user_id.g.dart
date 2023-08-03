@@ -13,13 +13,20 @@ UserId _$UserIdFromJson(Map<String, dynamic> json) => UserId(
       username: json['username'] as String?,
       email: json['email'] as String?,
       phone: json['phone'] as String?,
-      pendingRequests: json['pendingRequests'] as List<dynamic>?,
-      friends: json['friends'] as List<dynamic>?,
+      pendingRequests: (json['pendingRequests'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      friends:
+          (json['friends'] as List<dynamic>?)?.map((e) => e as String).toList(),
       blockedUsers: json['blockedUsers'] as List<dynamic>?,
-      savedPosts: json['savedPosts'] as List<dynamic>?,
+      savedPosts: (json['savedPosts'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       isBlocked: json['isBlocked'] as bool?,
       isVerified: json['isVerified'] as bool?,
-      pendingSentRequest: json['pendingSentRequest'] as List<dynamic>?,
+      pendingSentRequest: (json['pendingSentRequest'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       elite: json['elite'] as bool?,
       subscriptionStatus: json['subscriptionStatus'] as String?,
       createdAt: json['createdAt'] == null
