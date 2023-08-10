@@ -24,6 +24,8 @@ class To {
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
+  DateTime? dob;
+  String? profilePicture;
 
   To({
     this.id,
@@ -44,6 +46,8 @@ class To {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.dob,
+    this.profilePicture,
   });
 
   factory To.fromJson(Map<String, dynamic> json) => _$ToFromJson(json);

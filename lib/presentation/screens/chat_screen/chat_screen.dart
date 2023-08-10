@@ -45,7 +45,7 @@ class ChatScreen extends StatelessWidget {
         Widget? dpWidget;
         if (state.getMessageResponse?.isGroupChat == true) {
           if (state.getMessageResponse?.groupChatImage != null) {
-            dpWidget = vibeeDp(    
+            dpWidget = vibeeDp(
               image: NetworkImage(Config.getPictureUrl(
                   picturePath: state.getMessageResponse!.groupChatImage!)),
             );

@@ -7,36 +7,34 @@ import 'user_id.dart';
 part 'notification.g.dart';
 
 @JsonSerializable()
-class NotificationsResponseModelNotification {
+class Notification {
   @JsonKey(name: '_id')
   String? id;
   String? type;
+  PostId? postId;
   UserId? userId;
-  To? to;
-  List<dynamic>? readBy;
+  List<String>? readBy;
   DateTime? createdAt;
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
-  PostId? postId;
+  To? to;
 
-  NotificationsResponseModelNotification({
+  Notification({
     this.id,
     this.type,
+    this.postId,
     this.userId,
-    this.to,
     this.readBy,
     this.createdAt,
     this.updatedAt,
     this.v,
-    this.postId,
+    this.to,
   });
 
-  factory NotificationsResponseModelNotification.fromJson(
-      Map<String, dynamic> json) {
-    return _$NotificationsResponseModelNotificationFromJson(json);
+  factory Notification.fromJson(Map<String, dynamic> json) {
+    return _$NotificationFromJson(json);
   }
 
-  Map<String, dynamic> toJson() =>
-      _$NotificationsResponseModelNotificationToJson(this);
+  Map<String, dynamic> toJson() => _$NotificationToJson(this);
 }

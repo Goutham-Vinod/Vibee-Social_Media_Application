@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/application/blocs/notifications_page/notification_page_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
+import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/core/routing/routing_arguments/profile_page_arguments.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
@@ -70,29 +71,43 @@ class NotificationsPage extends StatelessWidget {
   Widget notificationListTile(context, NotificationPageState state, int index) {
     // create , post, friendRequest, acceptedRequest , live ,payment
     if (state.notificationsResponse?.notifications?[index].type == 'create') {
-      return InkWell(
-        onTap: () {
-          print('created a post');
-        },
-        child: vibeeListTile(
+      return vibeeListTile(
           // common notifications list tile
           title:
               "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
           subtitle:
               "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} created a new post",
-
           iconSize: 10,
           iconColor: Colors.green,
           prefixWidget: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: vibeeDp(
-              image: AssetImage(CommonVariables.testImagePath7),
-              height: 50,
-              width: 50,
-            ),
+            child: state.notificationsResponse?.notifications?[index].userId !=
+                    null
+                ? vibeeDp(
+                    image: NetworkImage(Config.getPictureUrl(
+                        picturePath: state.notificationsResponse!
+                            .notifications![index].userId!.profilePicture!)),
+                    height: 50,
+                    width: 50,
+                  )
+                : vibeeDp(
+                    image: AssetImage(CommonVariables.defaultDp),
+                    height: 50,
+                    width: 50,
+                  ),
           ),
-        ),
-      );
+          onTap: () {
+            Navigator.pushNamed(context, RouteGenerator.profilePage,
+                arguments: ProfilePageArguments(
+                  firstName: state.notificationsResponse?.notifications?[index]
+                      .userId?.firstName,
+                  lastName: state.notificationsResponse?.notifications?[index]
+                      .userId?.lastName,
+                  username: state.notificationsResponse?.notifications?[index]
+                      .userId?.username,
+                  isCurrentUserProfile: false,
+                ));
+          });
     } else if (state.notificationsResponse?.notifications?[index].type ==
         'post') {
       return vibeeListTile(
@@ -102,17 +117,35 @@ class NotificationsPage extends StatelessWidget {
         subtitle:
             "${state.notificationsResponse?.notifications?[index].type} .interaction your post ",
         onTap: () {
-          print('post');
+          Navigator.pushNamed(context, RouteGenerator.profilePage,
+              arguments: ProfilePageArguments(
+                firstName: state.notificationsResponse?.notifications?[index]
+                    .userId?.firstName,
+                lastName: state.notificationsResponse?.notifications?[index]
+                    .userId?.lastName,
+                username: state.notificationsResponse?.notifications?[index]
+                    .userId?.username,
+                isCurrentUserProfile: false,
+              ));
         },
         iconSize: 10,
         iconColor: Colors.green,
         prefixWidget: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: vibeeDp(
-            image: AssetImage(CommonVariables.testImagePath7),
-            height: 50,
-            width: 50,
-          ),
+          child:
+              state.notificationsResponse?.notifications?[index].userId != null
+                  ? vibeeDp(
+                      image: NetworkImage(Config.getPictureUrl(
+                          picturePath: state.notificationsResponse!
+                              .notifications![index].userId!.profilePicture!)),
+                      height: 50,
+                      width: 50,
+                    )
+                  : vibeeDp(
+                      image: AssetImage(CommonVariables.defaultDp),
+                      height: 50,
+                      width: 50,
+                    ),
         ),
       );
     } else if (state.notificationsResponse?.notifications?[index].type ==
@@ -140,16 +173,67 @@ class NotificationsPage extends StatelessWidget {
         iconColor: Colors.green,
         prefixWidget: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: vibeeDp(
-            image: AssetImage(CommonVariables.testImagePath7),
-            height: 50,
-            width: 50,
-          ),
+          child:
+              state.notificationsResponse?.notifications?[index].userId != null
+                  ? vibeeDp(
+                      image: NetworkImage(Config.getPictureUrl(
+                          picturePath: state.notificationsResponse!
+                              .notifications![index].userId!.profilePicture!)),
+                      height: 50,
+                      width: 50,
+                    )
+                  : vibeeDp(
+                      image: AssetImage(CommonVariables.defaultDp),
+                      height: 50,
+                      width: 50,
+                    ),
         ),
       );
     } else if (state.notificationsResponse?.notifications?[index].type ==
         'acceptedRequest') {
-      return InkWell(
+      return vibeeListTile(
+          // common notifications list tile
+          title:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
+          subtitle:
+              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} accepted your friend request",
+          iconSize: 10,
+          iconColor: Colors.green,
+          prefixWidget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: state.notificationsResponse?.notifications?[index].userId !=
+                    null
+                ? vibeeDp(
+                    image: NetworkImage(Config.getPictureUrl(
+                        picturePath: state.notificationsResponse!
+                            .notifications![index].userId!.profilePicture!)),
+                    height: 50,
+                    width: 50,
+                  )
+                : vibeeDp(
+                    image: AssetImage(CommonVariables.defaultDp),
+                    height: 50,
+                    width: 50,
+                  ),
+          ),
+          onTap: () {
+            Navigator.pushNamed(context, RouteGenerator.profilePage,
+                arguments: ProfilePageArguments(
+                  firstName: state.notificationsResponse?.notifications?[index]
+                      .userId?.firstName,
+                  lastName: state.notificationsResponse?.notifications?[index]
+                      .userId?.lastName,
+                  username: state.notificationsResponse?.notifications?[index]
+                      .userId?.username,
+                  isCurrentUserProfile: false,
+                ));
+          });
+    } else {
+      return vibeeListTile(
+        // common notifications list tile
+        title:
+            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
+        subtitle: " unknown Notification",
         onTap: () {
           Navigator.pushNamed(context, RouteGenerator.profilePage,
               arguments: ProfilePageArguments(
@@ -162,41 +246,24 @@ class NotificationsPage extends StatelessWidget {
                 isCurrentUserProfile: false,
               ));
         },
-        child: vibeeListTile(
-          // common notifications list tile
-          title:
-              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
-          subtitle:
-              "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName} accepted your friend request",
-
-          iconSize: 10,
-          iconColor: Colors.green,
-          prefixWidget: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: vibeeDp(
-              image: AssetImage(CommonVariables.testImagePath7),
-              height: 50,
-              width: 50,
-            ),
-          ),
-        ),
-      );
-    } else {
-      return vibeeListTile(
-        // common notifications list tile
-        title:
-            "${state.notificationsResponse?.notifications?[index].userId?.firstName} ${state.notificationsResponse?.notifications?[index].userId?.lastName}",
-        subtitle: " unknown Notification",
-
         iconSize: 10,
         iconColor: Colors.green,
         prefixWidget: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: vibeeDp(
-            image: AssetImage(CommonVariables.testImagePath7),
-            height: 50,
-            width: 50,
-          ),
+          child:
+              state.notificationsResponse?.notifications?[index].userId != null
+                  ? vibeeDp(
+                      image: NetworkImage(Config.getPictureUrl(
+                          picturePath: state.notificationsResponse!
+                              .notifications![index].userId!.profilePicture!)),
+                      height: 50,
+                      width: 50,
+                    )
+                  : vibeeDp(
+                      image: AssetImage(CommonVariables.defaultDp),
+                      height: 50,
+                      width: 50,
+                    ),
         ),
       );
     }

@@ -1,7 +1,7 @@
 class Config {
   // static const String apiBaseUrl = "http://16.170.141.245"; // <- hosted ip
   static const String apiBaseUrl =
-      "https://www4.kromium.shop"; // <- hosted backend
+      "https://vibee.gouthamvinod.online"; // <- hosted backend
   // static const String apiBaseUrl =
   //     "http://10.0.2.2:4000"; // <- emulator local host
   // static const String apiBaseUrl = "http://127.0.0.1:4000"; // <- windows local host

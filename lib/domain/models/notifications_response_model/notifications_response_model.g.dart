@@ -10,8 +10,7 @@ NotificationsResponseModel _$NotificationsResponseModelFromJson(
         Map<String, dynamic> json) =>
     NotificationsResponseModel(
       notifications: (json['notifications'] as List<dynamic>?)
-          ?.map((e) => NotificationsResponseModelNotification.fromJson(
-              e as Map<String, dynamic>))
+          ?.map((e) => Notification.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalCount: json['totalCount'] as int?,
       readByCount: json['readByCount'] as int?,

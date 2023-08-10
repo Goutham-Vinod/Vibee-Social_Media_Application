@@ -49,22 +49,27 @@ class APIServices {
 
   static Future<GetCurrentUserDetailsResponseModel?>
       GetCurrentUserDetailsResponse() async {
-    final response = await http.get(
-      Uri.parse(Config.getCurrentUserDetailsApi),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': Config.bearerTocken,
-      },
-    );
-    print(response.body);
-    if (response.statusCode == 200) {
-      GetCurrentUserDetailsResponseModel currentUserDetailsResponse =
-          GetCurrentUserDetailsResponseModel.fromJson(
-              jsonDecode(response.body));
-      CommonVariables.currentUserDetailsResponse = currentUserDetailsResponse;
-      return currentUserDetailsResponse;
-    } else {
-      print('Something went wrong at get current user details');
+    try {
+      final response = await http.get(
+        Uri.parse(Config.getCurrentUserDetailsApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        GetCurrentUserDetailsResponseModel currentUserDetailsResponse =
+            GetCurrentUserDetailsResponseModel.fromJson(
+                jsonDecode(response.body));
+        CommonVariables.currentUserDetailsResponse = currentUserDetailsResponse;
+        return currentUserDetailsResponse;
+      } else {
+        print('Something went wrong at get current user details');
+      }
+    } catch (e) {
+      print('Exception at GetCurrentUserDetailsResponse');
+      print(e);
     }
   }
 
@@ -73,6 +78,8 @@ class APIServices {
     required String password,
   }) async {
     try {
+      print(
+          'seding login request. Email: $email,Password: $password, api:  ${Config.loginApi}');
       final response = await http.post(
         Uri.parse(Config.loginApi),
         headers: <String, String>{
@@ -119,6 +126,7 @@ class APIServices {
         // This message will be shown in snackbar
       }
     } catch (e) {
+      print(e);
       return left(const ApiFailure.clientFailure(
           errorMessage: 'Oops...Something went wrong.'));
       // This message will be shown in snackbar
@@ -492,7 +500,6 @@ class APIServices {
     File? post,
   }) async {
     try {
-      
       var request =
           http.MultipartRequest('POST', Uri.parse(Config.createPostApi));
       request.headers.addAll({

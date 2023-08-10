@@ -24,6 +24,9 @@ class UserId {
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
+  DateTime? dob;
+  String? profilePicture;
+  String? coverPicture;
 
   UserId({
     this.id,
@@ -44,6 +47,9 @@ class UserId {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.dob,
+    this.profilePicture,
+    this.coverPicture,
   });
 
   factory UserId.fromJson(Map<String, dynamic> json) {

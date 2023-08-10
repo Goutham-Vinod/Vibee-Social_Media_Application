@@ -11,12 +11,17 @@ PostId _$PostIdFromJson(Map<String, dynamic> json) => PostId(
       createdBy: json['createdBy'] as String?,
       description: json['description'] as String?,
       location: json['location'] as String?,
+      media: json['media'] as String?,
       shared: json['shared'] as bool?,
       isDeleted: json['isDeleted'] as bool?,
-      likes: json['likes'] as List<dynamic>?,
+      likes:
+          (json['likes'] as List<dynamic>?)?.map((e) => e as String).toList(),
       reported: json['reported'] as List<dynamic>?,
       privacy: json['privacy'] as String?,
-      comments: json['comments'] as List<dynamic>?,
+      mimeType: json['mimeType'] as String?,
+      comments: (json['comments'] as List<dynamic>?)
+          ?.map((e) => Comment.fromJson(e as Map<String, dynamic>))
+          .toList(),
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -31,11 +36,13 @@ Map<String, dynamic> _$PostIdToJson(PostId instance) => <String, dynamic>{
       'createdBy': instance.createdBy,
       'description': instance.description,
       'location': instance.location,
+      'media': instance.media,
       'shared': instance.shared,
       'isDeleted': instance.isDeleted,
       'likes': instance.likes,
       'reported': instance.reported,
       'privacy': instance.privacy,
+      'mimeType': instance.mimeType,
       'comments': instance.comments,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),

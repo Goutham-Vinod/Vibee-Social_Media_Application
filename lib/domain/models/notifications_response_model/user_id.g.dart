@@ -30,6 +30,9 @@ UserId _$UserIdFromJson(Map<String, dynamic> json) => UserId(
           ? null
           : DateTime.parse(json['updatedAt'] as String),
       v: json['__v'] as int?,
+      dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
+      profilePicture: json['profilePicture'] as String?,
+      coverPicture: json['coverPicture'] as String?,
     );
 
 Map<String, dynamic> _$UserIdToJson(UserId instance) => <String, dynamic>{
@@ -51,4 +54,7 @@ Map<String, dynamic> _$UserIdToJson(UserId instance) => <String, dynamic>{
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       '__v': instance.v,
+      'dob': instance.dob?.toIso8601String(),
+      'profilePicture': instance.profilePicture,
+      'coverPicture': instance.coverPicture,
     };

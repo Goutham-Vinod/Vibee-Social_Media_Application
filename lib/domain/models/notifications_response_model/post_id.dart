@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'comment.dart';
+
 part 'post_id.g.dart';
 
 @JsonSerializable()
@@ -9,12 +11,14 @@ class PostId {
   String? createdBy;
   String? description;
   String? location;
+  String? media;
   bool? shared;
   bool? isDeleted;
-  List<dynamic>? likes;
+  List<String>? likes;
   List<dynamic>? reported;
   String? privacy;
-  List<dynamic>? comments;
+  String? mimeType;
+  List<Comment>? comments;
   DateTime? createdAt;
   DateTime? updatedAt;
   @JsonKey(name: '__v')
@@ -25,11 +29,13 @@ class PostId {
     this.createdBy,
     this.description,
     this.location,
+    this.media,
     this.shared,
     this.isDeleted,
     this.likes,
     this.reported,
     this.privacy,
+    this.mimeType,
     this.comments,
     this.createdAt,
     this.updatedAt,

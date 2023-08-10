@@ -30,6 +30,8 @@ To _$ToFromJson(Map<String, dynamic> json) => To(
           ? null
           : DateTime.parse(json['updatedAt'] as String),
       v: json['__v'] as int?,
+      dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
+      profilePicture: json['profilePicture'] as String?,
     );
 
 Map<String, dynamic> _$ToToJson(To instance) => <String, dynamic>{
@@ -51,4 +53,6 @@ Map<String, dynamic> _$ToToJson(To instance) => <String, dynamic>{
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       '__v': instance.v,
+      'dob': instance.dob?.toIso8601String(),
+      'profilePicture': instance.profilePicture,
     };
