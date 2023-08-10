@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
 class SentMessageCard extends StatelessWidget {
-  const SentMessageCard({required this.message, super.key});
+  const SentMessageCard(
+      {required this.message, required this.dateTime, super.key});
   final String message;
+  final DateTime? dateTime;
   @override
   Widget build(BuildContext context) {
+    String time = '${dateTime?.hour}:${dateTime?.minute}';
     return Padding(
       padding: const EdgeInsets.only(top: 25, left: 25),
       child: Row(
         children: [
           const Spacer(),
-          const SizedBox(width: 20),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
                 decoration: const BoxDecoration(
@@ -24,7 +26,7 @@ class SentMessageCard extends StatelessWidget {
                       bottomRight: Radius.zero,
                       bottomLeft: Radius.circular(15)),
                 ),
-                width: 200,
+                width: message.length > 30 ? 200 : null,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
@@ -35,15 +37,10 @@ class SentMessageCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 3),
-              Row(
-                children: [
-                  const SizedBox(width: 10),
-                  vibeeText("29 May 2023 • 10:31am", color: Colors.white38),
-                ],
-              ),
+              vibeeText(time, color: Colors.white38),
             ],
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 15),
         ],
       ),
     );

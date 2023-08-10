@@ -44,12 +44,16 @@ class CommentsScreen extends StatelessWidget {
                           dpNetworkImageApiPath:
                               routeArgs.dpNetworkImageApiPath,
                           postNetworkImageUrl: routeArgs.postNetworkImageUrl,
+                          username: routeArgs.username,
                           commentButtonVisibility: false,
                           isLiked: state.isLiked,
                           likeButtonOnTap: () {
                             BlocProvider.of<CommentsScreenBloc>(context)
                                 .add(const CommentsScreenEvent.likePost());
                           },
+                          disablePostWidgetHeader:
+                              routeArgs.disablePostWidgetHeader,
+                          isDeleted: false,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -116,15 +120,15 @@ class CommentsScreen extends StatelessWidget {
                       )),
                 ),
                 Positioned(
-                  top: 750,
+                  top: MediaQuery.of(context).size.height * 0.92,
                   left: 12,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       vibeeTextFormField(
-                        hint: 'Add Comment',
-                        textController: commentController,
-                      ),
+                          hint: 'Add Comment',
+                          textController: commentController,
+                          width: MediaQuery.of(context).size.width * 0.75),
                       const SizedBox(width: 5),
                       ElevatedButton(
                         onPressed: () {

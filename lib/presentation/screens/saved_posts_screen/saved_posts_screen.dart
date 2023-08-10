@@ -33,7 +33,11 @@ class SavedPostsScreen extends StatelessWidget {
                       description:
                           state.getSavedPostsResponse?[index]?.description ??
                               '',
+                      isDeleted:
+                          state.getSavedPostsResponse![index]!.isDeleted!,
                       postId: state.getSavedPostsResponse?[index]?.id ?? '',
+                      username: state
+                          .getSavedPostsResponse![index]!.createdBy!.username!,
                       dateNTime: state.getSavedPostsResponse?[index]?.updatedAt,
                       postNetworkImageUrl:
                           state.getSavedPostsResponse?[index]?.media,

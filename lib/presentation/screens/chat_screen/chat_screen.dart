@@ -4,9 +4,11 @@ import 'package:vibee/application/blocs/chat_screen/chat_screen_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
+import 'package:vibee/domain/models/get_details_of_single_post_response_model/get_details_of_single_post_response_model.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
-import 'package:vibee/presentation/common_widgets/recieve_message_card.dart';
-import 'package:vibee/presentation/common_widgets/sent_message_card.dart';
+import 'package:vibee/presentation/screens/chat_screen/post_message_widget.dart';
+import 'package:vibee/presentation/screens/chat_screen/recieve_message_card.dart';
+import 'package:vibee/presentation/screens/chat_screen/sent_message_card.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
@@ -43,9 +45,10 @@ class ChatScreen extends StatelessWidget {
         Widget? dpWidget;
         if (state.getMessageResponse?.isGroupChat == true) {
           if (state.getMessageResponse?.groupChatImage != null) {
-            dpWidget = vibeeDp(
-                image: NetworkImage(Config.getPictureUrl(
-                    picturePath: state.getMessageResponse!.groupChatImage!)));
+            dpWidget = vibeeDp(    
+              image: NetworkImage(Config.getPictureUrl(
+                  picturePath: state.getMessageResponse!.groupChatImage!)),
+            );
           }
         } else {
           if (state.getMessageResponse?.users?[0].id ==
@@ -112,14 +115,47 @@ class ChatScreen extends StatelessWidget {
                     itemCount: state.getMessageResponse?.messages?.length ?? 0,
                     controller: chatScrollController,
                     itemBuilder: (context, index) {
-                      if (state.getMessageResponse?.messages?[index].sender
-                              ?.id ==
-                          CommonVariables.currentUserDetailsResponse?.id) {
-                        return SentMessageCard(
-                            message: state.getMessageResponse?.messages?[index]
-                                    .content ??
-                                '');
-                      } else {
+                      // post string format example : /post/64156846edsfs6516fsd
+                      List<String>? tempList = state
+                          .getMessageResponse?.messages?[index].content
+                          ?.split('/');
+
+                      bool isPost = false;
+                      if (tempList != null && tempList.length == 3) {
+                        isPost = tempList[1] == 'post';
+                      }
+                      String? postId;
+
+                      GetDetailsOfSinglePostResponseModel? postDetails;
+
+                      if (isPost) {
+                        postId = state
+                            .getMessageResponse?.messages?[index].content
+                            ?.split('/')
+                            .last;
+
+                        if (state.postIdNPostDetails?[postId] == null) {
+                          // sent message and recieve message should api call differently
+                          BlocProvider.of<ChatScreenBloc>(context).add(
+                              ChatScreenEvent.getPostDetails(postId: postId!));
+                        }
+                        postDetails = state.postIdNPostDetails?[postId];
+                      }
+
+                      bool? isRecievedMessage = (state.getMessageResponse
+                              ?.messages?[index].sender?.id !=
+                          CommonVariables.currentUserDetailsResponse?.id);
+
+                      if (isPost && postDetails != null) {
+                        return PostMessageWidget(
+                          postDetails: postDetails,
+                          isRecievedMessage: isRecievedMessage,
+                          dateTime: state
+                              .getMessageResponse?.messages?[index].createdAt,
+                        );
+                      }
+
+                      if (isRecievedMessage) {
                         return RecieveMessageCard(
                           message: state.getMessageResponse?.messages?[index]
                                   .content ??
@@ -129,7 +165,16 @@ class ChatScreen extends StatelessWidget {
                                   true
                               ? '${state.getMessageResponse?.messages?[index].sender?.firstName} ${state.getMessageResponse?.messages?[index].sender?.lastName}'
                               : null,
+                          dateTime: state
+                              .getMessageResponse?.messages?[index].createdAt,
                         );
+                      } else {
+                        return SentMessageCard(
+                            message: state.getMessageResponse?.messages?[index]
+                                    .content ??
+                                '',
+                            dateTime: state.getMessageResponse?.messages?[index]
+                                .createdAt);
                       }
                     },
                   ),

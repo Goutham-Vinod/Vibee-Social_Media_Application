@@ -137,21 +137,21 @@ class RegisterScreen extends StatelessWidget {
                   height: 35,
                   width: 300),
               const SizedBox(height: 10),
-              TextButton(
-                onPressed: () {
-                  print("TextButton");
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/images/google_logo.png",
-                        height: 12, width: 12),
-                    const SizedBox(width: 10),
-                    vibeeText("Signup with Google"),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 50),
+              // TextButton(
+              //   onPressed: () {
+              //     print("TextButton");
+              //   },
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: [
+              //       Image.asset("assets/images/google_logo.png",
+              //           height: 12, width: 12),
+              //       const SizedBox(width: 10),
+              //       vibeeText("Signup with Google"),
+              //     ],
+              //   ),
+              // ),
+              const SizedBox(height: 80),
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();

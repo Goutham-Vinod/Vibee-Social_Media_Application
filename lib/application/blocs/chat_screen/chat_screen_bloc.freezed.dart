@@ -22,6 +22,7 @@ mixin _$ChatScreenEvent {
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
     required TResult Function() groupChat,
+    required TResult Function(String postId) getPostDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$ChatScreenEvent {
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
     TResult? Function()? groupChat,
+    TResult? Function(String postId)? getPostDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$ChatScreenEvent {
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
     TResult Function()? groupChat,
+    TResult Function(String postId)? getPostDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$ChatScreenEvent {
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
     required TResult Function(_GroupChat value) groupChat,
+    required TResult Function(_GetPostDetails value) getPostDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$ChatScreenEvent {
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
     TResult? Function(_GroupChat value)? groupChat,
+    TResult? Function(_GetPostDetails value)? getPostDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ChatScreenEvent {
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
     TResult Function(_GroupChat value)? groupChat,
+    TResult Function(_GetPostDetails value)? getPostDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
     required TResult Function() groupChat,
+    required TResult Function(String postId) getPostDetails,
   }) {
     return initializeScreen(chatId);
   }
@@ -165,6 +172,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
     TResult? Function()? groupChat,
+    TResult? Function(String postId)? getPostDetails,
   }) {
     return initializeScreen?.call(chatId);
   }
@@ -176,6 +184,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
     TResult Function()? groupChat,
+    TResult Function(String postId)? getPostDetails,
     required TResult orElse(),
   }) {
     if (initializeScreen != null) {
@@ -191,6 +200,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
     required TResult Function(_GroupChat value) groupChat,
+    required TResult Function(_GetPostDetails value) getPostDetails,
   }) {
     return initializeScreen(this);
   }
@@ -202,6 +212,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
     TResult? Function(_GroupChat value)? groupChat,
+    TResult? Function(_GetPostDetails value)? getPostDetails,
   }) {
     return initializeScreen?.call(this);
   }
@@ -213,6 +224,7 @@ class _$_InitializeScreen implements _InitializeScreen {
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
     TResult Function(_GroupChat value)? groupChat,
+    TResult Function(_GetPostDetails value)? getPostDetails,
     required TResult orElse(),
   }) {
     if (initializeScreen != null) {
@@ -300,6 +312,7 @@ class _$_SendMessage implements _SendMessage {
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
     required TResult Function() groupChat,
+    required TResult Function(String postId) getPostDetails,
   }) {
     return sendMessage(message);
   }
@@ -311,6 +324,7 @@ class _$_SendMessage implements _SendMessage {
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
     TResult? Function()? groupChat,
+    TResult? Function(String postId)? getPostDetails,
   }) {
     return sendMessage?.call(message);
   }
@@ -322,6 +336,7 @@ class _$_SendMessage implements _SendMessage {
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
     TResult Function()? groupChat,
+    TResult Function(String postId)? getPostDetails,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -337,6 +352,7 @@ class _$_SendMessage implements _SendMessage {
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
     required TResult Function(_GroupChat value) groupChat,
+    required TResult Function(_GetPostDetails value) getPostDetails,
   }) {
     return sendMessage(this);
   }
@@ -348,6 +364,7 @@ class _$_SendMessage implements _SendMessage {
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
     TResult? Function(_GroupChat value)? groupChat,
+    TResult? Function(_GetPostDetails value)? getPostDetails,
   }) {
     return sendMessage?.call(this);
   }
@@ -359,6 +376,7 @@ class _$_SendMessage implements _SendMessage {
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
     TResult Function(_GroupChat value)? groupChat,
+    TResult Function(_GetPostDetails value)? getPostDetails,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -419,6 +437,7 @@ class _$_IsOnline implements _IsOnline {
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
     required TResult Function() groupChat,
+    required TResult Function(String postId) getPostDetails,
   }) {
     return iSOnline();
   }
@@ -430,6 +449,7 @@ class _$_IsOnline implements _IsOnline {
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
     TResult? Function()? groupChat,
+    TResult? Function(String postId)? getPostDetails,
   }) {
     return iSOnline?.call();
   }
@@ -441,6 +461,7 @@ class _$_IsOnline implements _IsOnline {
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
     TResult Function()? groupChat,
+    TResult Function(String postId)? getPostDetails,
     required TResult orElse(),
   }) {
     if (iSOnline != null) {
@@ -456,6 +477,7 @@ class _$_IsOnline implements _IsOnline {
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
     required TResult Function(_GroupChat value) groupChat,
+    required TResult Function(_GetPostDetails value) getPostDetails,
   }) {
     return iSOnline(this);
   }
@@ -467,6 +489,7 @@ class _$_IsOnline implements _IsOnline {
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
     TResult? Function(_GroupChat value)? groupChat,
+    TResult? Function(_GetPostDetails value)? getPostDetails,
   }) {
     return iSOnline?.call(this);
   }
@@ -478,6 +501,7 @@ class _$_IsOnline implements _IsOnline {
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
     TResult Function(_GroupChat value)? groupChat,
+    TResult Function(_GetPostDetails value)? getPostDetails,
     required TResult orElse(),
   }) {
     if (iSOnline != null) {
@@ -533,6 +557,7 @@ class _$_GroupChat implements _GroupChat {
     required TResult Function(String? message) sendMessage,
     required TResult Function() iSOnline,
     required TResult Function() groupChat,
+    required TResult Function(String postId) getPostDetails,
   }) {
     return groupChat();
   }
@@ -544,6 +569,7 @@ class _$_GroupChat implements _GroupChat {
     TResult? Function(String? message)? sendMessage,
     TResult? Function()? iSOnline,
     TResult? Function()? groupChat,
+    TResult? Function(String postId)? getPostDetails,
   }) {
     return groupChat?.call();
   }
@@ -555,6 +581,7 @@ class _$_GroupChat implements _GroupChat {
     TResult Function(String? message)? sendMessage,
     TResult Function()? iSOnline,
     TResult Function()? groupChat,
+    TResult Function(String postId)? getPostDetails,
     required TResult orElse(),
   }) {
     if (groupChat != null) {
@@ -570,6 +597,7 @@ class _$_GroupChat implements _GroupChat {
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_IsOnline value) iSOnline,
     required TResult Function(_GroupChat value) groupChat,
+    required TResult Function(_GetPostDetails value) getPostDetails,
   }) {
     return groupChat(this);
   }
@@ -581,6 +609,7 @@ class _$_GroupChat implements _GroupChat {
     TResult? Function(_SendMessage value)? sendMessage,
     TResult? Function(_IsOnline value)? iSOnline,
     TResult? Function(_GroupChat value)? groupChat,
+    TResult? Function(_GetPostDetails value)? getPostDetails,
   }) {
     return groupChat?.call(this);
   }
@@ -592,6 +621,7 @@ class _$_GroupChat implements _GroupChat {
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_IsOnline value)? iSOnline,
     TResult Function(_GroupChat value)? groupChat,
+    TResult Function(_GetPostDetails value)? getPostDetails,
     required TResult orElse(),
   }) {
     if (groupChat != null) {
@@ -606,6 +636,158 @@ abstract class _GroupChat implements ChatScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$_GetPostDetailsCopyWith<$Res> {
+  factory _$$_GetPostDetailsCopyWith(
+          _$_GetPostDetails value, $Res Function(_$_GetPostDetails) then) =
+      __$$_GetPostDetailsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String postId});
+}
+
+/// @nodoc
+class __$$_GetPostDetailsCopyWithImpl<$Res>
+    extends _$ChatScreenEventCopyWithImpl<$Res, _$_GetPostDetails>
+    implements _$$_GetPostDetailsCopyWith<$Res> {
+  __$$_GetPostDetailsCopyWithImpl(
+      _$_GetPostDetails _value, $Res Function(_$_GetPostDetails) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? postId = null,
+  }) {
+    return _then(_$_GetPostDetails(
+      postId: null == postId
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetPostDetails implements _GetPostDetails {
+  const _$_GetPostDetails({required this.postId});
+
+  @override
+  final String postId;
+
+  @override
+  String toString() {
+    return 'ChatScreenEvent.getPostDetails(postId: $postId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetPostDetails &&
+            (identical(other.postId, postId) || other.postId == postId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, postId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetPostDetailsCopyWith<_$_GetPostDetails> get copyWith =>
+      __$$_GetPostDetailsCopyWithImpl<_$_GetPostDetails>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String chatId) initializeScreen,
+    required TResult Function(String? message) sendMessage,
+    required TResult Function() iSOnline,
+    required TResult Function() groupChat,
+    required TResult Function(String postId) getPostDetails,
+  }) {
+    return getPostDetails(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String chatId)? initializeScreen,
+    TResult? Function(String? message)? sendMessage,
+    TResult? Function()? iSOnline,
+    TResult? Function()? groupChat,
+    TResult? Function(String postId)? getPostDetails,
+  }) {
+    return getPostDetails?.call(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String chatId)? initializeScreen,
+    TResult Function(String? message)? sendMessage,
+    TResult Function()? iSOnline,
+    TResult Function()? groupChat,
+    TResult Function(String postId)? getPostDetails,
+    required TResult orElse(),
+  }) {
+    if (getPostDetails != null) {
+      return getPostDetails(postId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeScreen value) initializeScreen,
+    required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_IsOnline value) iSOnline,
+    required TResult Function(_GroupChat value) groupChat,
+    required TResult Function(_GetPostDetails value) getPostDetails,
+  }) {
+    return getPostDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeScreen value)? initializeScreen,
+    TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_IsOnline value)? iSOnline,
+    TResult? Function(_GroupChat value)? groupChat,
+    TResult? Function(_GetPostDetails value)? getPostDetails,
+  }) {
+    return getPostDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeScreen value)? initializeScreen,
+    TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_IsOnline value)? iSOnline,
+    TResult Function(_GroupChat value)? groupChat,
+    TResult Function(_GetPostDetails value)? getPostDetails,
+    required TResult orElse(),
+  }) {
+    if (getPostDetails != null) {
+      return getPostDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetPostDetails implements ChatScreenEvent {
+  const factory _GetPostDetails({required final String postId}) =
+      _$_GetPostDetails;
+
+  String get postId;
+  @JsonKey(ignore: true)
+  _$$_GetPostDetailsCopyWith<_$_GetPostDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ChatScreenState {
   bool get isPageLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
@@ -614,6 +796,8 @@ mixin _$ChatScreenState {
   bool? get isOnline => throw _privateConstructorUsedError;
   bool? get isMessageSentOrRecieved => throw _privateConstructorUsedError;
   String? get videoCallToken => throw _privateConstructorUsedError;
+  Map<String, GetDetailsOfSinglePostResponseModel>? get postIdNPostDetails =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -622,7 +806,9 @@ mixin _$ChatScreenState {
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
             bool? isMessageSentOrRecieved,
-            String? videoCallToken)
+            String? videoCallToken,
+            Map<String, GetDetailsOfSinglePostResponseModel>?
+                postIdNPostDetails)
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -634,7 +820,9 @@ mixin _$ChatScreenState {
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
             bool? isMessageSentOrRecieved,
-            String? videoCallToken)?
+            String? videoCallToken,
+            Map<String, GetDetailsOfSinglePostResponseModel>?
+                postIdNPostDetails)?
         currentState,
   }) =>
       throw _privateConstructorUsedError;
@@ -646,7 +834,9 @@ mixin _$ChatScreenState {
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
             bool? isMessageSentOrRecieved,
-            String? videoCallToken)?
+            String? videoCallToken,
+            Map<String, GetDetailsOfSinglePostResponseModel>?
+                postIdNPostDetails)?
         currentState,
     required TResult orElse(),
   }) =>
@@ -685,7 +875,8 @@ abstract class $ChatScreenStateCopyWith<$Res> {
       GetMessageResponseModel? getMessageResponse,
       bool? isOnline,
       bool? isMessageSentOrRecieved,
-      String? videoCallToken});
+      String? videoCallToken,
+      Map<String, GetDetailsOfSinglePostResponseModel>? postIdNPostDetails});
 }
 
 /// @nodoc
@@ -707,6 +898,7 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
     Object? isOnline = freezed,
     Object? isMessageSentOrRecieved = freezed,
     Object? videoCallToken = freezed,
+    Object? postIdNPostDetails = freezed,
   }) {
     return _then(_value.copyWith(
       isPageLoading: null == isPageLoading
@@ -733,6 +925,10 @@ class _$ChatScreenStateCopyWithImpl<$Res, $Val extends ChatScreenState>
           ? _value.videoCallToken
           : videoCallToken // ignore: cast_nullable_to_non_nullable
               as String?,
+      postIdNPostDetails: freezed == postIdNPostDetails
+          ? _value.postIdNPostDetails
+          : postIdNPostDetails // ignore: cast_nullable_to_non_nullable
+              as Map<String, GetDetailsOfSinglePostResponseModel>?,
     ) as $Val);
   }
 }
@@ -751,7 +947,8 @@ abstract class _$$_CurrentStateCopyWith<$Res>
       GetMessageResponseModel? getMessageResponse,
       bool? isOnline,
       bool? isMessageSentOrRecieved,
-      String? videoCallToken});
+      String? videoCallToken,
+      Map<String, GetDetailsOfSinglePostResponseModel>? postIdNPostDetails});
 }
 
 /// @nodoc
@@ -771,6 +968,7 @@ class __$$_CurrentStateCopyWithImpl<$Res>
     Object? isOnline = freezed,
     Object? isMessageSentOrRecieved = freezed,
     Object? videoCallToken = freezed,
+    Object? postIdNPostDetails = freezed,
   }) {
     return _then(_$_CurrentState(
       isPageLoading: null == isPageLoading
@@ -797,6 +995,10 @@ class __$$_CurrentStateCopyWithImpl<$Res>
           ? _value.videoCallToken
           : videoCallToken // ignore: cast_nullable_to_non_nullable
               as String?,
+      postIdNPostDetails: freezed == postIdNPostDetails
+          ? _value._postIdNPostDetails
+          : postIdNPostDetails // ignore: cast_nullable_to_non_nullable
+              as Map<String, GetDetailsOfSinglePostResponseModel>?,
     ));
   }
 }
@@ -810,7 +1012,10 @@ class _$_CurrentState implements _CurrentState {
       this.getMessageResponse,
       this.isOnline,
       this.isMessageSentOrRecieved,
-      this.videoCallToken});
+      this.videoCallToken,
+      final Map<String, GetDetailsOfSinglePostResponseModel>?
+          postIdNPostDetails})
+      : _postIdNPostDetails = postIdNPostDetails;
 
   @override
   final bool isPageLoading;
@@ -824,10 +1029,20 @@ class _$_CurrentState implements _CurrentState {
   final bool? isMessageSentOrRecieved;
   @override
   final String? videoCallToken;
+  final Map<String, GetDetailsOfSinglePostResponseModel>? _postIdNPostDetails;
+  @override
+  Map<String, GetDetailsOfSinglePostResponseModel>? get postIdNPostDetails {
+    final value = _postIdNPostDetails;
+    if (value == null) return null;
+    if (_postIdNPostDetails is EqualUnmodifiableMapView)
+      return _postIdNPostDetails;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessageResponse: $getMessageResponse, isOnline: $isOnline, isMessageSentOrRecieved: $isMessageSentOrRecieved, videoCallToken: $videoCallToken)';
+    return 'ChatScreenState.currentState(isPageLoading: $isPageLoading, errorMessage: $errorMessage, getMessageResponse: $getMessageResponse, isOnline: $isOnline, isMessageSentOrRecieved: $isMessageSentOrRecieved, videoCallToken: $videoCallToken, postIdNPostDetails: $postIdNPostDetails)';
   }
 
   @override
@@ -847,12 +1062,21 @@ class _$_CurrentState implements _CurrentState {
                     other.isMessageSentOrRecieved, isMessageSentOrRecieved) ||
                 other.isMessageSentOrRecieved == isMessageSentOrRecieved) &&
             (identical(other.videoCallToken, videoCallToken) ||
-                other.videoCallToken == videoCallToken));
+                other.videoCallToken == videoCallToken) &&
+            const DeepCollectionEquality()
+                .equals(other._postIdNPostDetails, _postIdNPostDetails));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isPageLoading, errorMessage,
-      getMessageResponse, isOnline, isMessageSentOrRecieved, videoCallToken);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isPageLoading,
+      errorMessage,
+      getMessageResponse,
+      isOnline,
+      isMessageSentOrRecieved,
+      videoCallToken,
+      const DeepCollectionEquality().hash(_postIdNPostDetails));
 
   @JsonKey(ignore: true)
   @override
@@ -869,11 +1093,13 @@ class _$_CurrentState implements _CurrentState {
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
             bool? isMessageSentOrRecieved,
-            String? videoCallToken)
+            String? videoCallToken,
+            Map<String, GetDetailsOfSinglePostResponseModel>?
+                postIdNPostDetails)
         currentState,
   }) {
     return currentState(isPageLoading, errorMessage, getMessageResponse,
-        isOnline, isMessageSentOrRecieved, videoCallToken);
+        isOnline, isMessageSentOrRecieved, videoCallToken, postIdNPostDetails);
   }
 
   @override
@@ -885,11 +1111,13 @@ class _$_CurrentState implements _CurrentState {
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
             bool? isMessageSentOrRecieved,
-            String? videoCallToken)?
+            String? videoCallToken,
+            Map<String, GetDetailsOfSinglePostResponseModel>?
+                postIdNPostDetails)?
         currentState,
   }) {
     return currentState?.call(isPageLoading, errorMessage, getMessageResponse,
-        isOnline, isMessageSentOrRecieved, videoCallToken);
+        isOnline, isMessageSentOrRecieved, videoCallToken, postIdNPostDetails);
   }
 
   @override
@@ -901,13 +1129,21 @@ class _$_CurrentState implements _CurrentState {
             GetMessageResponseModel? getMessageResponse,
             bool? isOnline,
             bool? isMessageSentOrRecieved,
-            String? videoCallToken)?
+            String? videoCallToken,
+            Map<String, GetDetailsOfSinglePostResponseModel>?
+                postIdNPostDetails)?
         currentState,
     required TResult orElse(),
   }) {
     if (currentState != null) {
-      return currentState(isPageLoading, errorMessage, getMessageResponse,
-          isOnline, isMessageSentOrRecieved, videoCallToken);
+      return currentState(
+          isPageLoading,
+          errorMessage,
+          getMessageResponse,
+          isOnline,
+          isMessageSentOrRecieved,
+          videoCallToken,
+          postIdNPostDetails);
     }
     return orElse();
   }
@@ -948,7 +1184,9 @@ abstract class _CurrentState implements ChatScreenState {
       final GetMessageResponseModel? getMessageResponse,
       final bool? isOnline,
       final bool? isMessageSentOrRecieved,
-      final String? videoCallToken}) = _$_CurrentState;
+      final String? videoCallToken,
+      final Map<String, GetDetailsOfSinglePostResponseModel>?
+          postIdNPostDetails}) = _$_CurrentState;
 
   @override
   bool get isPageLoading;
@@ -962,6 +1200,8 @@ abstract class _CurrentState implements ChatScreenState {
   bool? get isMessageSentOrRecieved;
   @override
   String? get videoCallToken;
+  @override
+  Map<String, GetDetailsOfSinglePostResponseModel>? get postIdNPostDetails;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentStateCopyWith<_$_CurrentState> get copyWith =>

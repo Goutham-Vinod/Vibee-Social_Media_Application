@@ -4,6 +4,7 @@ import 'package:vibee/application/blocs/messages_page/messages_page_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
+import 'package:vibee/domain/services/messages_page/messages_page.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 
 class MessagesPage extends StatelessWidget {
@@ -45,16 +46,16 @@ class MessagesPage extends StatelessWidget {
                   const SizedBox(width: 20),
                 ],
               ),
-              const SizedBox(height: 30),
-              vibeeTextFormField(
-                width: 330,
-                hint: "Search",
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Colors.white,
-                  size: 25,
-                ),
-              ),
+              // const SizedBox(height: 30),
+              // vibeeTextFormField(
+              //   width: 330,
+              //   hint: "Search",
+              //   prefixIcon: const Icon(
+              //     Icons.search,
+              //     color: Colors.white,
+              //     size: 25,
+              //   ),
+              // ),
               const SizedBox(height: 20),
               Row(
                 children: [
@@ -62,7 +63,7 @@ class MessagesPage extends StatelessWidget {
                   Row(
                     children: [
                       const SizedBox(width: 15),
-                      vibeeText("Messages"),
+                      vibeeText("Messages", size: 25),
                     ],
                   )
                 ],
@@ -151,9 +152,13 @@ class MessagesPage extends StatelessWidget {
                                           .getAllConversationsResponse![index]
                                           .chatName
                                       : friendName,
-                                  subtitle: state
-                                      .getAllConversationsResponse?[index]
-                                      .message,
+                                  subtitle: MessagesPageServices.isPost(state
+                                          .getAllConversationsResponse?[index]
+                                          .message)
+                                      ? ''
+                                      : state
+                                          .getAllConversationsResponse?[index]
+                                          .message,
                                   suffixWidget: Visibility(
                                     visible: isOnline == true,
                                     child: const Icon(

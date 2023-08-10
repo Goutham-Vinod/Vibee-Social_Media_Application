@@ -8,12 +8,15 @@ class RecieveMessageCard extends StatelessWidget {
     super.key,
     required this.isGroupChat,
     this.senderName,
+    required this.dateTime,
   });
   final String message;
   final bool isGroupChat;
   final String? senderName;
+  final DateTime? dateTime;
   @override
   Widget build(BuildContext context) {
+    String time = '${dateTime?.hour}:${dateTime?.minute}';
     return Padding(
       padding: const EdgeInsets.only(top: 25, left: 25),
       child: Column(
@@ -40,7 +43,7 @@ class RecieveMessageCard extends StatelessWidget {
               Visibility(
                   visible: isGroupChat, child: const SizedBox(width: 10)),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     decoration: const BoxDecoration(
@@ -51,19 +54,15 @@ class RecieveMessageCard extends StatelessWidget {
                           bottomRight: Radius.circular(15),
                           bottomLeft: Radius.circular(15)),
                     ),
-                    width: 200,
+                    width: message.length > 20 ? 200 : null,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Text(message),
                     ),
                   ),
                   const SizedBox(height: 3),
-                  Row(
-                    children: [
-                      vibeeText("29 May 2023 • 10:30am", color: Colors.white38),
-                      const SizedBox(width: 10),
-                    ],
-                  ),
+                  vibeeText(time, color: Colors.white38),
+                  const SizedBox(width: 10),
                 ],
               ),
             ],

@@ -117,23 +117,23 @@ class MiddleSection extends StatelessWidget {
               emailTextController: emailTextController,
               passwordTextController: passwordTextController),
           const SizedBox(height: 40),
-          Row(
-            children: [
-              Container(
-                color: Colors.white,
-                width: 135,
-                height: 2,
-              ),
-              vibeeText("  OR  ", size: 13),
-              Container(
-                color: Colors.white,
-                width: 135,
-                height: 2,
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          const SigninWithGoogleButton(),
+          // Row(
+          //   children: [
+          //     Container(
+          //       color: Colors.white,
+          //       width: 135,
+          //       height: 2,
+          //     ),
+          //     vibeeText("  OR  ", size: 13),
+          //     Container(
+          //       color: Colors.white,
+          //       width: 135,
+          //       height: 2,
+          //     ),
+          //   ],
+          // ),
+          // const SizedBox(height: 10),
+          // const SigninWithGoogleButton(),
         ],
       ),
     );

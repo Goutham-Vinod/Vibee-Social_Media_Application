@@ -30,13 +30,13 @@ class DiscoverPage extends StatelessWidget {
           backgroundColor: backgroundScreenColor,
           automaticallyImplyLeading: false,
           title: vibeeLogo(size: 30),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.notifications_outlined)),
-            IconButton(
-                onPressed: () {}, icon: const Icon(Icons.verified_rounded)),
-          ],
+          // actions: [
+          //   // IconButton(
+          //   //     onPressed: () {},
+          //   //     icon: const Icon(Icons.notifications_outlined)),
+          //   // IconButton(
+          //   //     onPressed: () {}, icon: const Icon(Icons.verified_rounded)),
+          // ],
         ),
         backgroundColor: backgroundScreenColor,
         body: BlocBuilder<DiscoverPageBloc, DiscoverPageState>(
@@ -53,6 +53,21 @@ class DiscoverPage extends StatelessWidget {
                           description: state.discoverResponse?.posts?[index]
                                   .description ??
                               '',
+                          // createdByUserName:
+                          //     state.discoverResponse?.posts[index].shared !=
+                          //             true
+                          //         ? null
+                          //         : state.discoverResponse?.posts[index].postId!
+                          //             .createdBy.username,
+                          // createdByProfileName: state.discoverResponse?.posts[index].shared !=
+                          //         true
+                          //     ? null
+                          //     : "${state.discoverResponse?.posts[index].postId!.createdBy.firstName} ${state.discoverResponse?.posts[index].postId!.createdBy.lastName}",
+                          isDeleted:
+                              state.discoverResponse?.posts?[index].isDeleted ??
+                                  true,
+                          username: state.discoverResponse!.posts![index]
+                              .createdBy!.username!,
                           isLiked: state.likedPostIndexList.contains(index),
                           dpNetworkImageApiPath: state.discoverResponse
                               ?.posts?[index].createdBy?.profilePicture,

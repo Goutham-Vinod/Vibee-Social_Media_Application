@@ -44,14 +44,14 @@ class HomePage extends StatelessWidget {
                   // CommonVariables.bottomNavIndexNotifier.value = 5;
                 },
                 icon: const Icon(Icons.notifications_outlined)),
-            IconButton(
-                onPressed: () {
-                  // CommonVariables.bottomNavIndexNotifier.value = 6;
-                  BlocProvider.of<HomeScreenBloc>(context).add(
-                      const ChangeBottomNavBarIndex(
-                          selectedBottomNavBarIndex: 6));
-                },
-                icon: const Icon(Icons.verified_rounded)),
+            // IconButton(
+            //     onPressed: () {
+            //       // CommonVariables.bottomNavIndexNotifier.value = 6;
+            //       BlocProvider.of<HomeScreenBloc>(context).add(
+            //           const ChangeBottomNavBarIndex(
+            //               selectedBottomNavBarIndex: 6));
+            //     },
+            //     icon: const Icon(Icons.verified_rounded)),
           ],
         ),
         backgroundColor: backgroundScreenColor,
@@ -76,18 +76,38 @@ class HomePage extends StatelessWidget {
                                 description: state.getPostsResponse
                                         ?.posts?[index].description ??
                                     '',
+                                createdByUserName: state.getPostsResponse
+                                            ?.posts?[index].shared !=
+                                        true
+                                    ? null
+                                    : state.getPostsResponse?.posts?[index]
+                                        .postId!.createdBy?.username,
+                                createdByProfileName: state.getPostsResponse
+                                            ?.posts?[index].shared !=
+                                        true
+                                    ? null
+                                    : "${state.getPostsResponse?.posts![index].postId!.createdBy?.firstName} ${state.getPostsResponse?.posts![index].postId!.createdBy?.lastName}",
+                                isDeleted: state
+                                    .getPostsResponse!.posts![index].isDeleted!,
                                 isLiked:
                                     state.likedPostIndexList.contains(index),
+                                username: state.getPostsResponse!.posts![index]
+                                    .createdBy!.username!,
                                 dpNetworkImageApiPath: state.getPostsResponse
-                                    ?.posts?[index].createdBy?.profilePicture,
-                                postNetworkImageUrl:
-                                    state.getPostsResponse?.posts?[index].media,
+                                    ?.posts![index].createdBy!.profilePicture,
+                                postNetworkImageUrl: state.getPostsResponse
+                                            ?.posts![index].shared ==
+                                        true
+                                    ? state.getPostsResponse?.posts![index]
+                                        .postId!.media
+                                    : state
+                                        .getPostsResponse?.posts![index].media,
                                 dateNTime: state
-                                    .getPostsResponse?.posts?[index].createdAt,
+                                    .getPostsResponse?.posts![index].createdAt,
                                 place: state
-                                    .getPostsResponse?.posts?[index].location,
+                                    .getPostsResponse?.posts![index].location,
                                 profileName:
-                                    '${state.getPostsResponse?.posts?[index].createdBy?.firstName} ${state.getPostsResponse?.posts?[index].createdBy?.lastName}',
+                                    '${state.getPostsResponse?.posts![index].createdBy?.firstName} ${state.getPostsResponse?.posts![index].createdBy?.lastName}',
                                 postId:
                                     state.getPostsResponse!.posts![index].id!,
                                 likeButtonOnTap: () {
@@ -107,7 +127,7 @@ class HomePage extends StatelessWidget {
                                                       index]
                                                   .id,
                                               postId: state.getPostsResponse
-                                                  ?.posts?[index].id));
+                                                  ?.posts![index].id));
                                       Navigator.of(context).pop();
                                     },
                                     shareAsPostOnTap: () {
@@ -173,8 +193,9 @@ class HomePage extends StatelessWidget {
                               style: TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                   labelText: 'Description',
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  focusedBorder: OutlineInputBorder(
+                                  labelStyle:
+                                      const TextStyle(color: Colors.white),
+                                  focusedBorder: const OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide: BorderSide(
@@ -182,8 +203,8 @@ class HomePage extends StatelessWidget {
                                         width: 1,
                                       )),
                                   enabledBorder: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(10)),
                                       borderSide: BorderSide(
                                         color:
                                             state.isSharePostDescriptionEmpty ==
@@ -271,14 +292,15 @@ class HomePage extends StatelessWidget {
   }
 
   Widget whatsOnYourMind(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Stack(
       children: [
         Container(
           color: backgroundScreenColor2,
           height: 100,
         ),
-        const Padding(
-          padding: EdgeInsets.all(15.0),
+        Padding(
+          padding: EdgeInsets.only(left: width * .01, top: 15.0),
           child: Icon(
             Icons.account_circle_rounded,
             size: 50,
@@ -298,7 +320,7 @@ class HomePage extends StatelessWidget {
               },
               child: Container(
                 height: 60,
-                width: 300,
+                width: width * .8, //300,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(10),

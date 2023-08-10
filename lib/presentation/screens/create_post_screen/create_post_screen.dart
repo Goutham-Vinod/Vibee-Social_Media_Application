@@ -97,27 +97,31 @@ class CreatePostScreen extends StatelessWidget {
                         const SizedBox(height: 13),
                         InkWell(
                           onTap: () {
-                            showVibeeModelBottomSheet(
-                                context: context,
-                                title: 'Upload Photos / Videos from',
-                                buttons: [
-                                  vibeeButton(
-                                      content: 'Gallery',
-                                      onPressed: () {
-                                        BlocProvider.of<CreatePostScreenBloc>(
-                                                context)
-                                            .add(const CreatePostScreenEvent
-                                                .pickImageFromStorage());
-                                      }),
-                                  vibeeButton(
-                                      content: 'Camera',
-                                      onPressed: () {
-                                        BlocProvider.of<CreatePostScreenBloc>(
-                                                context)
-                                            .add(const CreatePostScreenEvent
-                                                .pickImageFromCamera());
-                                      })
-                                ]);
+                            BlocProvider.of<CreatePostScreenBloc>(context).add(
+                                const CreatePostScreenEvent
+                                    .pickImageFromStorage());
+
+                            // showVibeeModelBottomSheet(
+                            //     context: context,
+                            //     title: 'Upload Photos / Videos from',
+                            //     buttons: [
+                            //       vibeeButton(
+                            //           content: 'Gallery',
+                            //           onPressed: () {
+                            //             BlocProvider.of<CreatePostScreenBloc>(
+                            //                     context)
+                            //                 .add(const CreatePostScreenEvent
+                            //                     .pickImageFromStorage());
+                            //           }),
+                            //       vibeeButton(
+                            //           content: 'Camera',
+                            //           onPressed: () {
+                            //             BlocProvider.of<CreatePostScreenBloc>(
+                            //                     context)
+                            //                 .add(const CreatePostScreenEvent
+                            //                     .pickImageFromCamera());
+                            //           })
+                            //     ]);
                           },
                           child: BlocBuilder<CreatePostScreenBloc,
                               CreatePostScreenState>(
@@ -127,8 +131,8 @@ class CreatePostScreen extends StatelessWidget {
                               String? extension = fileName?.split('.').last;
                               Widget postPreview;
                               if (state.post == null) {
-                                postPreview = Center(
-                                    child: vibeeText('Add Photos / Videos'));
+                                postPreview =
+                                    Center(child: vibeeText('Add Photos'));
                               }
                               //  else if (extension == 'mp4' ||
                               //     extension == 'avi') {

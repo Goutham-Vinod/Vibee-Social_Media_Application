@@ -95,6 +95,8 @@ class SocketIoServices {
 
   static listenLatestMessageEvent(Function? function) {
     socket.on('latestMessage', (data) {
+      print('socket message : $data');
+
       if (function != null) {
         function();
       }

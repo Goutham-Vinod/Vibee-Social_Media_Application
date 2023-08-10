@@ -9,6 +9,8 @@ class CommentsScreenArguments {
   final String postId;
   final String? place;
   final bool isLiked;
+  final String username;
+  final bool? disablePostWidgetHeader;
 
   CommentsScreenArguments({
     this.postNetworkImageUrl,
@@ -18,8 +20,10 @@ class CommentsScreenArguments {
     required this.description,
     required this.profileName,
     required this.postId,
+    required this.username,
     this.isSavedPostPageWidget,
     this.isMyPost,
+    this.disablePostWidgetHeader,
     required this.isLiked,
   });
 }

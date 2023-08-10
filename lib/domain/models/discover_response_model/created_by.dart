@@ -8,33 +8,33 @@ class CreatedBy {
   String? id;
   String? firstName;
   String? lastName;
+  String? username;
   String? email;
   String? phone;
   String? password;
-  List<String>? pendingRequests;
-  List<String>? friends;
+  List<dynamic>? pendingRequests;
+  List<dynamic>? friends;
   List<dynamic>? blockedUsers;
   List<dynamic>? savedPosts;
   bool? isBlocked;
   bool? isVerified;
-  List<dynamic>? pendingSentRequest;
+  List<String>? pendingSentRequest;
   bool? elite;
   String? subscriptionStatus;
   DateTime? createdAt;
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
-  DateTime? dob;
-  String? profilePicture;
   String? coverPicture;
-  String? username;
+  DateTime? dob;
   String? location;
-  String? otp;
+  String? profilePicture;
 
   CreatedBy({
     this.id,
     this.firstName,
     this.lastName,
+    this.username,
     this.email,
     this.phone,
     this.password,
@@ -50,12 +50,10 @@ class CreatedBy {
     this.createdAt,
     this.updatedAt,
     this.v,
-    this.dob,
-    this.profilePicture,
     this.coverPicture,
-    this.username,
+    this.dob,
     this.location,
-    this.otp,
+    this.profilePicture,
   });
 
   factory CreatedBy.fromJson(Map<String, dynamic> json) {

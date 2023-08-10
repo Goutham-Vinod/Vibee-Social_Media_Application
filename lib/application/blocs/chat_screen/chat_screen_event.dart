@@ -10,4 +10,6 @@ class ChatScreenEvent with _$ChatScreenEvent {
   }) = _SendMessage;
   const factory ChatScreenEvent.iSOnline() = _IsOnline;
   const factory ChatScreenEvent.groupChat() = _GroupChat;
+  const factory ChatScreenEvent.getPostDetails({required String postId}) =
+      _GetPostDetails;
 }

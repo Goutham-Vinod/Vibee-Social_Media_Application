@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
+import 'package:vibee/domain/models/get_details_of_single_post_response_model/get_details_of_single_post_response_model.dart';
 import 'package:vibee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:vibee/domain/models/online_friends_response_model/online_friends_response_model.dart';
 import 'package:vibee/domain/models/sent_message_response_model/sent_message_response_model.dart';
@@ -63,6 +64,47 @@ class ChatScreenBloc extends Bloc<ChatScreenEvent, ChatScreenState> {
           }
         }
       });
+    });
+
+    on<_GetPostDetails>((event, emit) async {
+// test code below
+      Either<ApiFailure, GetDetailsOfSinglePostResponseModel> result =
+          await APIServices.getDetailsOfSinglePost(postId: event.postId);
+      result.fold((failure) {
+        print(
+            'result failure inside 403, result of getDetailsOfSinglePost2 - at bloc');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: 'Something went wrong.. Please try again later'));
+      }, (success) {
+        Map<String, GetDetailsOfSinglePostResponseModel> postIdPostDetails = {};
+
+        if (state.postIdNPostDetails != null) {
+          postIdPostDetails = {...state.postIdNPostDetails!};
+        }
+
+        postIdPostDetails[event.postId] = success;
+
+        emit(state.copyWith(postIdNPostDetails: postIdPostDetails));
+      });
+
+// test code above
+
+      // Either<ApiFailure, GetDetailsOfSinglePostResponseModel> result =
+      //     await APIServices.getDetailsOfSinglePost(postId: event.postId);
+      // result.fold((failure) {
+      //   emit(state.copyWith(errorMessage: failure.errorMessage));
+      //   emit(state.copyWith(errorMessage: null));
+      // }, (success) {
+      //   Map<String, GetDetailsOfSinglePostResponseModel> postIdPostDetails = {};
+
+      //   if (state.postIdNPostDetails != null) {
+      //     postIdPostDetails = {...state.postIdNPostDetails!};
+      //   }
+
+      //   postIdPostDetails[event.postId] = success;
+
+      //   emit(state.copyWith(postIdNPostDetails: postIdPostDetails));
+      // });
     });
 
     on<_SendMessage>((event, emit) async {

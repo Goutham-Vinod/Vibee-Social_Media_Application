@@ -11,35 +11,37 @@ class Post {
   CreatedBy? createdBy;
   String? description;
   String? location;
+  String? media;
   bool? shared;
   bool? isDeleted;
   List<dynamic>? likes;
   List<dynamic>? reported;
   String? privacy;
+  String? mimeType;
   List<dynamic>? comments;
   DateTime? createdAt;
   DateTime? updatedAt;
   @JsonKey(name: '__v')
   int? v;
-  String? media;
-  String? mimeType;
+  String? postId;
 
   Post({
     this.id,
     this.createdBy,
     this.description,
     this.location,
+    this.media,
     this.shared,
     this.isDeleted,
     this.likes,
     this.reported,
     this.privacy,
+    this.mimeType,
     this.comments,
     this.createdAt,
     this.updatedAt,
     this.v,
-    this.media,
-    this.mimeType,
+    this.postId,
   });
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);

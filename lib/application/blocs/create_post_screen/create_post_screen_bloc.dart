@@ -27,6 +27,13 @@ class CreatePostScreenBloc
         )) {
     on<CreatePost>((event, emit) async {
       emit(state.copyWith(isUploadInProgress: true));
+      double fileSizeMB = 0;
+      if (event.photoOrVideo != null) {
+        int fileSizeBytes = event.photoOrVideo!.lengthSync();
+        double fileSizeKB = fileSizeBytes / 1024;
+        fileSizeMB = fileSizeKB / 1024;
+      }
+
       if (event.description == null ||
           event.privacy == null ||
           event.description!.isEmpty ||
@@ -35,6 +42,20 @@ class CreatePostScreenBloc
           errorMessage: 'Please add description and privacy',
           isUploadInProgress: false,
         ));
+      } else if (event.description!.length > 40) {
+        emit(state.copyWith(
+          errorMessage: 'Description should not be too long.',
+          isUploadInProgress: false,
+        ));
+      } else if (event.location!.length > 10) {
+        emit(state.copyWith(
+          errorMessage: 'Location should not be too long.',
+          isUploadInProgress: false,
+        ));
+      } else if (fileSizeMB > 1) {
+        emit(state.copyWith(
+            errorMessage: 'Please upload a file size below 1MB'));
+        emit(state.copyWith(errorMessage: null));
       } else {
         // validation success
 

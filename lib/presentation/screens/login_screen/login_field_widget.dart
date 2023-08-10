@@ -57,17 +57,17 @@ class LoginFieldWidget extends StatelessWidget {
             const Spacer(),
           ],
         ),
-        Row(
-          children: [
-            const Spacer(),
-            TextButton(
-                onPressed: () {
-                  print("Forgot password");
-                },
-                child: vibeeText("Forgot pasword"))
-          ],
-        ),
-        const SizedBox(height: 50),
+        // Row(
+        //   children: [
+        //     const Spacer(),
+        //     TextButton(
+        //         onPressed: () {
+        //           print("Forgot password");
+        //         },
+        //         child: vibeeText("Forgot pasword"))
+        //   ],
+        // ),
+        const SizedBox(height: 20),
         vibeeButton(
             content: "Log In",
             onPressed: () async {

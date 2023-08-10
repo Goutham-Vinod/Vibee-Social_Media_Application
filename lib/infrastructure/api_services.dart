@@ -9,7 +9,6 @@ import 'package:http/http.dart' as http;
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/add_comments_request_model/add_comments_request_model.dart';
-import 'package:vibee/domain/models/add_comments_response_model/add_comments_response_model.dart';
 import 'package:vibee/domain/models/add_or_remove_friend_response_model/add_or_remove_friend_response_model.dart';
 import 'package:vibee/domain/models/create_group_conversation_request_model/create_group_conversation_request_model.dart';
 import 'package:vibee/domain/models/create_post_response_model/create_post_response_model.dart';
@@ -17,6 +16,7 @@ import 'package:vibee/domain/models/discover_response_model/discover_response_mo
 import 'package:vibee/domain/models/friends_list_response_model/friends_list_response_model.dart';
 import 'package:vibee/domain/models/get_all_conversations_response_model/get_all_conversations_response_model.dart';
 import 'package:vibee/domain/models/get_current_user_details_response_model/get_current_user_details_response_model.dart';
+import 'package:vibee/domain/models/get_details_of_single_post_response_model/get_details_of_single_post_response_model.dart';
 import 'package:vibee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:vibee/domain/models/get_post_by_one_user_response_model/get_post_by_one_user_response_model.dart';
 import 'package:vibee/domain/models/get_posts_response_model/get_posts_response_model.dart';
@@ -388,6 +388,7 @@ class APIServices {
           'Authorization': Config.bearerTocken,
         },
       );
+
       print(response.body);
       if (response.statusCode == 200) {
         GetPostsResponseModel getPostResponse =
@@ -491,6 +492,7 @@ class APIServices {
     File? post,
   }) async {
     try {
+      
       var request =
           http.MultipartRequest('POST', Uri.parse(Config.createPostApi));
       request.headers.addAll({
@@ -905,8 +907,6 @@ class APIServices {
             SharePostResponseModel.fromJson(jsonDecode(response.body));
         return right(result);
       } else {
-        log(response.statusCode.toString());
-        log(response.body);
         return left(const ApiFailure.serverFailure(
             errorMessage: "Server error.Please try again later."));
         // This message will be shown in snackbar
@@ -924,8 +924,6 @@ class APIServices {
           {required SharePostAsMessageRequestModel
               sharePostAsMessageRequest}) async {
     try {
-      print('share post called');
-      print(sharePostAsMessageRequest.toJson());
       final response = await http.patch(
         Uri.parse(Config.sharePostAsMessageApi),
         headers: <String, String>{
@@ -1039,8 +1037,6 @@ class APIServices {
   static Future<Either<ApiFailure, VideoCallResponseModel>> videoCallApi(
       String conversationId) async {
     try {
-      log('_____________________');
-      print(conversationId);
       final response = await http.post(
         Uri.parse(Config.videoCallApi),
         body: {"conversationId": conversationId},
@@ -1063,6 +1059,79 @@ class APIServices {
     } catch (e) {
       return left(const ApiFailure.clientFailure(
           errorMessage: 'Oops...Something went wrong.'));
+    }
+  }
+
+////////////////////////////////////////////////////////////////////////////////////
+  static Future<Either<ApiFailure, GetDetailsOfSinglePostResponseModel>>
+      getDetailsOfSinglePost(
+          {required String postId, bool? useAlternativeApi}) async {
+    try {
+      Response response = await http.get(
+        Uri.parse(useAlternativeApi == true
+            ? Config.getDetailsOfSinglePostApi2(postId: postId)
+            : Config.getDetailsOfSinglePostApi(postId: postId)),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.bearerTocken,
+        },
+      );
+
+      Map<String, dynamic> responseMap = jsonDecode(response.body);
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        // if we got success response then check shared or not, if shared then fetch again with post id
+
+        bool? isSharedPost = responseMap['shared'];
+
+        if (isSharedPost == false) {
+          GetDetailsOfSinglePostResponseModel getDetailsOfSinglePostResponse =
+              GetDetailsOfSinglePostResponseModel.fromJson(responseMap);
+
+          return right(getDetailsOfSinglePostResponse);
+        } else if (isSharedPost == true) {
+          String? id = responseMap['postId'];
+
+          Either<ApiFailure, GetDetailsOfSinglePostResponseModel> result =
+              await getDetailsOfSinglePost(postId: id!);
+          return result.fold((failure) {
+            return left(const ApiFailure.serverFailure(
+                errorMessage:
+                    'Something went wrong... Please try again later'));
+          }, (success) {
+            return right(success);
+          });
+        } else {
+          String? id = responseMap['id'];
+
+          Either<ApiFailure, GetDetailsOfSinglePostResponseModel> result =
+              await getDetailsOfSinglePost(postId: id!);
+          return result.fold((failure) {
+            return left(const ApiFailure.serverFailure(
+                errorMessage:
+                    'Something went wrong... Please try again later'));
+          }, (success) {
+            return right(success);
+          });
+        }
+      } else if (response.statusCode == 403) {
+        Either<ApiFailure, GetDetailsOfSinglePostResponseModel> result =
+            await getDetailsOfSinglePost(
+                postId: postId, useAlternativeApi: true);
+        return result.fold((failure) {
+          return left(const ApiFailure.serverFailure(
+              errorMessage: 'Something went wrong.. Please try again later'));
+        }, (success) {
+          return right(success);
+        });
+      } else {
+        print('response.status code = ${response.statusCode}');
+        return left(const ApiFailure.serverFailure(
+            errorMessage: 'Something went wrong... Please try again later'));
+      }
+    } catch (e) {
+      return left(const ApiFailure.clientFailure(
+          errorMessage: 'OOPs.. Something went wrong...'));
     }
   }
 }

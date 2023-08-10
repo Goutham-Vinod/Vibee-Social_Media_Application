@@ -1,7 +1,7 @@
 class ProfilePageArguments {
   ProfilePageArguments({
-    required this.firstName,
-    required this.lastName,
+    this.firstName,
+    this.lastName,
     required this.username,
     required this.isCurrentUserProfile,
     this.isFriend,

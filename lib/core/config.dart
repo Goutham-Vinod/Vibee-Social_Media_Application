@@ -1,9 +1,12 @@
 class Config {
-  static const String apiBaseUrl = "http://16.170.141.245"; // <- hosted backend
+  // static const String apiBaseUrl = "http://16.170.141.245"; // <- hosted ip
+  static const String apiBaseUrl =
+      "https://www4.kromium.shop"; // <- hosted backend
   // static const String apiBaseUrl =
   //     "http://10.0.2.2:4000"; // <- emulator local host
   // static const String apiBaseUrl = "http://127.0.0.1:4000"; // <- windows local host
   // static const String apiBaseUrl = "http://localhost:4000"; // <- default local host
+
   static String? tocken;
   static String? userPhoneNumber;
 
@@ -18,6 +21,11 @@ class Config {
   static String get loginApi => "$apiBaseUrl/api/login";
   static String get resentOtpApi =>
       "$apiBaseUrl/api/register/otp/resend?id=$currentUserId";
+  static String getDetailsOfSinglePostApi({required String postId}) =>
+      '$apiBaseUrl/api/post/$postId';
+  static String getDetailsOfSinglePostApi2({required String postId}) =>
+      '$apiBaseUrl/api/post/$postId/details';
+
   static String get getCurrentUserDetailsApi => '$apiBaseUrl/api/user/details';
   static String searchUsersApi({required String searchKey}) =>
       '$apiBaseUrl/api/users/search?key=$searchKey';
@@ -37,8 +45,7 @@ class Config {
   static String get addCommentApi => '$apiBaseUrl/api/post/comment';
   static String loadCommentsApi({required String postId}) =>
       '$apiBaseUrl/api/post/$postId/comments';
-  static String getDetailsOfSinglePostApi({required String postId}) =>
-      '$apiBaseUrl/api/post/$postId';
+
   static String get likeOrDislikePostApi => '$apiBaseUrl/api/post/like';
   static String get getSavedPostsApi => '$apiBaseUrl/api/post/saved/posts';
   static String get sharePostApi => '$apiBaseUrl/api/post/share';

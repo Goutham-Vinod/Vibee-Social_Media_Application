@@ -72,16 +72,35 @@ class ProfilePage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: PostWidget(
                           description: state.getPostByOneUserResponse
-                                  ?.posts?[index].description ??
+                                  ?.posts![index].description ??
                               '',
+                          createdByProfileName: state.getPostByOneUserResponse
+                                      ?.posts?[index].shared !=
+                                  true
+                              ? null
+                              : "${state.getPostByOneUserResponse?.posts?[index].postId?.createdBy?.firstName} ${state.getPostByOneUserResponse?.posts?[index].postId?.createdBy?.lastName}",
+                          createdByUserName: state.getPostByOneUserResponse
+                                      ?.posts?[index].shared !=
+                                  true
+                              ? null
+                              : state.getPostByOneUserResponse?.posts?[index]
+                                  .postId?.createdBy?.username,
+                          isDeleted: state.getPostByOneUserResponse!
+                              .posts![index].isDeleted!,
                           dpNetworkImageApiPath: state.profilePicture,
-                          postNetworkImageUrl: state
-                              .getPostByOneUserResponse?.posts?[index].media,
+                          username: state.username,
+                          postNetworkImageUrl: state.getPostByOneUserResponse
+                                      ?.posts?[index].shared ==
+                                  true
+                              ? state.getPostByOneUserResponse?.posts![index]
+                                  .postId?.media
+                              : state.getPostByOneUserResponse?.posts![index]
+                                  .media,
                           dateNTime: state.getPostByOneUserResponse
-                              ?.posts?[index].createdAt,
+                              ?.posts![index].createdAt,
                           profileName: "${state.firstName} ${state.lastName}",
                           place: state
-                              .getPostByOneUserResponse?.posts?[index].location,
+                              .getPostByOneUserResponse?.posts![index].location,
                           postId:
                               state.getPostByOneUserResponse!.posts![index].id!,
                           isLiked: state.likedPostIndexList.contains(index),
@@ -102,7 +121,7 @@ class ProfilePage extends StatelessWidget {
                                                 index]
                                             .id,
                                         postId: state.getPostByOneUserResponse
-                                            ?.posts?[index].id));
+                                            ?.posts![index].id));
                                 Navigator.of(context).pop();
                               },
                               shareAsPostOnTap: () {
@@ -215,7 +234,7 @@ class ProfilePage extends StatelessWidget {
                                   postId: postId,
                                   description: descriptionController.text,
                                   privacy: privacy));
-                          print('shared');
+                          print('shared ');
                           print(descriptionController.text);
                           if (descriptionController.text.isNotEmpty) {
                             Navigator.pop(context);
@@ -275,25 +294,28 @@ class ProfilePage extends StatelessWidget {
               builder: (context, state) {
                 return InkWell(
                   onTap: () {
-                    showVibeeModelBottomSheet(
-                        context: context,
-                        title: 'Change Cover Picture',
-                        buttons: [
-                          ElevatedButton(
-                              onPressed: () {
-                                BlocProvider.of<ProfilePageBloc>(context).add(
-                                    const ProfilePageEvent
-                                        .updateCoverPictureFromStorage());
-                              },
-                              child: const Text('Gallery')),
-                          ElevatedButton(
-                              onPressed: () {
-                                BlocProvider.of<ProfilePageBloc>(context).add(
-                                    const ProfilePageEvent
-                                        .updateCoverPictureUsingCamera());
-                              },
-                              child: const Text('Camera'))
-                        ]);
+                    BlocProvider.of<ProfilePageBloc>(context).add(
+                        const ProfilePageEvent.updateCoverPictureFromStorage());
+
+                    // showVibeeModelBottomSheet(
+                    //     context: context,
+                    //     title: 'Change Cover Picture',
+                    //     buttons: [
+                    //       ElevatedButton(
+                    //           onPressed: () {
+                    //             BlocProvider.of<ProfilePageBloc>(context).add(
+                    //                 const ProfilePageEvent
+                    //                     .updateCoverPictureFromStorage());
+                    //           },
+                    //           child: const Text('Gallery')),
+                    //       ElevatedButton(
+                    //           onPressed: () {
+                    //             BlocProvider.of<ProfilePageBloc>(context).add(
+                    //                 const ProfilePageEvent
+                    //                     .updateCoverPictureUsingCamera());
+                    //           },
+                    //           child: const Text('Camera'))
+                    //     ]);
                   },
                   child: Container(
                     height: 170,
@@ -361,7 +383,7 @@ class ProfilePage extends StatelessWidget {
                           content: "Unfriend",
                           onPressed: () async {
                             BlocProvider.of<ProfilePageBloc>(context)
-                                .add(ProfilePageEvent.unFriend());
+                                .add(const ProfilePageEvent.unFriend());
                           },
                           ico: Icons.person,
                           height: 30,
@@ -510,41 +532,46 @@ class ProfilePage extends StatelessWidget {
                 print('dp updated');
                 return InkWell(
                   onTap: () {
-                    showVibeeModelBottomSheet(
-                        context: context,
-                        title: 'Change Profile Picture',
-                        buttons: [
-                          InkWell(
-                            onTap: () {
-                              BlocProvider.of<ProfilePageBloc>(context).add(
-                                  const ProfilePageEvent
-                                      .updateProfilePictureFromStorage());
-                              Navigator.pop(context);
-                            },
-                            child: SizedBox(
-                                height: 80,
-                                width: 80,
-                                child: Image.asset('assets/icons/gallery.png')),
-                          ),
+                    BlocProvider.of<ProfilePageBloc>(context).add(
+                        const ProfilePageEvent
+                            .updateProfilePictureFromStorage());
+                    Navigator.pop(context);
 
-                          InkWell(
-                            onTap: () {
-                              BlocProvider.of<ProfilePageBloc>(context).add(
-                                  const ProfilePageEvent
-                                      .updateProfilePictureUsingCamera());
-                              Navigator.pop(context);
-                            },
-                            child: SizedBox(
-                                height: 80,
-                                width: 80,
-                                child: Image.asset('assets/icons/camera.png')),
-                          ),
-                          // ElevatedButton(
-                          //     onPressed: () {
+                    // showVibeeModelBottomSheet(
+                    //     context: context,
+                    //     title: 'Change Profile Picture',
+                    //     buttons: [
+                    //       InkWell(
+                    //         onTap: () {
+                    //           BlocProvider.of<ProfilePageBloc>(context).add(
+                    //               const ProfilePageEvent
+                    //                   .updateProfilePictureFromStorage());
+                    //           Navigator.pop(context);
+                    //         },
+                    //         child: SizedBox(
+                    //             height: 80,
+                    //             width: 80,
+                    //             child: Image.asset('assets/icons/gallery.png')),
+                    //       ),
 
-                          //     },
-                          //     child: const Text('Camera'))
-                        ]);
+                    //       InkWell(
+                    //         onTap: () {
+                    //           BlocProvider.of<ProfilePageBloc>(context).add(
+                    //               const ProfilePageEvent
+                    //                   .updateProfilePictureUsingCamera());
+                    //           Navigator.pop(context);
+                    //         },
+                    //         child: SizedBox(
+                    //             height: 80,
+                    //             width: 80,
+                    //             child: Image.asset('assets/icons/camera.png')),
+                    //       ),
+                    //       // ElevatedButton(
+                    //       //     onPressed: () {
+
+                    //       //     },
+                    //       //     child: const Text('Camera'))
+                    //     ]);
                   },
                   child: vibeeDp(
                       height: 125, width: 125, image: ProfilePicture(state)),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/application/blocs/edit_profile_screen/edit_profile_screen_bloc.dart';
-import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/domain/models/get_current_user_details_response_model/get_current_user_details_response_model.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
@@ -180,15 +179,15 @@ class EditProfileScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pop();
                             }),
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, RouteGenerator.emailInputScreen);
-                            },
-                            child: const Text(
-                              "Change Password",
-                              style: TextStyle(color: vibeePurple),
-                            )),
+                        // TextButton(
+                        //     onPressed: () {
+                        //       Navigator.pushNamed(
+                        //           context, RouteGenerator.emailInputScreen);
+                        //     },
+                        //     child: const Text(
+                        //       "Change Password",
+                        //       style: TextStyle(color: vibeePurple),
+                        //     )),
                       ],
                     ),
                   ],

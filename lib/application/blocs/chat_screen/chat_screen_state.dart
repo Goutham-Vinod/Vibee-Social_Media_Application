@@ -9,5 +9,6 @@ class ChatScreenState with _$ChatScreenState {
     bool? isOnline,
     bool? isMessageSentOrRecieved,
     String? videoCallToken,
+    Map<String, GetDetailsOfSinglePostResponseModel>? postIdNPostDetails,
   }) = _CurrentState;
 }
