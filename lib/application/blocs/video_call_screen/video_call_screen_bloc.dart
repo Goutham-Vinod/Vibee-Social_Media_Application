@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,9 +28,11 @@ class VideoCallScreenBloc
       Either<ApiFailure, VideoCallResponseModel> result =
           await APIServices.videoCallApi(event.conversationId);
       result.fold((failure) {
+      
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (successResult) {
+  
         SocketIoServices.videoCall(successResult);
         emit(state.copyWith(initializationDone: true));
       });
@@ -71,6 +75,7 @@ class VideoCallScreenBloc
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (successResult) {
+        print('video call disconnect : ${successResult.toJson().toString()}');
         SocketIoServices.disconnectCall(successResult);
         emit(state.copyWith(isCallDisconnected: true));
         emit(state.copyWith(isCallDisconnected: null));

@@ -1046,7 +1046,7 @@ class APIServices {
     try {
       final response = await http.post(
         Uri.parse(Config.videoCallApi),
-        body: {"conversationId": conversationId},
+        body: jsonEncode({"conversationId": conversationId}),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': Config.bearerTocken,
@@ -1059,7 +1059,6 @@ class APIServices {
             VideoCallResponseModel.fromJson(jsonDecode(response.body));
         return right(result);
       } else {
-        print('status code ${response.statusCode}');
         return left(const ApiFailure.serverFailure(
             errorMessage: "Something went wrong. Please try again later"));
       }

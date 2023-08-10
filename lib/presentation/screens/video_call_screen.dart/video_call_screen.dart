@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,7 @@ class _CallScreenState extends State<CallScreen> {
       videoToken = tocken;
 
       await initAgora();
+
       BlocProvider.of<VideoCallScreenBloc>(context).add(
           VideoCallScreenEvent.startVideoCall(conversationId: widget.chatId));
     } else {
@@ -222,6 +224,7 @@ class _CallScreenState extends State<CallScreen> {
           RawMaterialButton(
             onPressed: () async {
               await leaveCall();
+
               BlocProvider.of<VideoCallScreenBloc>(context).add(
                   VideoCallScreenEvent.disconnectCall(
                       conversationId: widget.chatId));

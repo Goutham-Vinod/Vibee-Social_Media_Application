@@ -431,34 +431,34 @@ class ProfilePage extends StatelessWidget {
                     },
                   ),
                   const SizedBox(width: 10),
-                  Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, RouteGenerator.savedPostsScreen);
-                      },
-                      customBorder: const StadiumBorder(),
-                      child: BlocBuilder<ProfilePageBloc, ProfilePageState>(
-                        builder: (context, state) {
-                          return Visibility(
-                            visible: state.isCurrentUserProfile,
-                            child: Container(
-                              height: 30,
-                              width: 35,
-                              decoration: BoxDecoration(
-                                  color: Colors.white12,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: const Icon(
-                                Icons.bookmark_border_rounded,
-                                color: Colors.white,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
+                  // Material(
+                  //   color: Colors.transparent,
+                  //   child: InkWell(
+                  //     onTap: () {
+                  //       Navigator.pushNamed(
+                  //           context, RouteGenerator.savedPostsScreen);
+                  //     },
+                  //     customBorder: const StadiumBorder(),
+                  //     child: BlocBuilder<ProfilePageBloc, ProfilePageState>(
+                  //       builder: (context, state) {
+                  //         return Visibility(
+                  //           visible: state.isCurrentUserProfile,
+                  //           child: Container(
+                  //             height: 30,
+                  //             width: 35,
+                  //             decoration: BoxDecoration(
+                  //                 color: Colors.white12,
+                  //                 borderRadius: BorderRadius.circular(10)),
+                  //             child: const Icon(
+                  //               Icons.bookmark_border_rounded,
+                  //               color: Colors.white,
+                  //             ),
+                  //           ),
+                  //         );
+                  //       },
+                  //     ),
+                  //   ),
+                  // ),
                   const SizedBox(width: 10),
                   Material(
                     color: Colors.transparent,

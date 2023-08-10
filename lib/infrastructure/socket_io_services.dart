@@ -70,6 +70,7 @@ class SocketIoServices {
   }
 
   static videoCall(VideoCallResponseModel data) {
+    log('videocall request at socket ${data.toJson().toString()}');
     socket.emit('videoCall', data.toJson());
   }
 
@@ -82,6 +83,7 @@ class SocketIoServices {
   }
 
   static disconnectCall(VideoCallResponseModel data) {
+    log('videocall disconnect at socket ${data.toJson().toString()}');
     socket.emit('disconnectCall', data.toJson());
   }
 
@@ -127,6 +129,9 @@ class SocketIoServices {
 
   static listenNewCallEvent(Function? function) {
     socket.on('newCall', (data) {
+      print('videocall response at socketlisten');
+
+      print('videocall response at socketlisten ${data.toString()}');
       if (function != null) {
         function();
       }
