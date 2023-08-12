@@ -15,7 +15,7 @@ class ChatScreen extends StatelessWidget {
 
   final TextEditingController msgController = TextEditingController();
   final ScrollController chatScrollController = ScrollController();
-
+  double messagesCount = 0;
   @override
   Widget build(BuildContext context) {
     String chatId = ModalRoute.of(context)?.settings.arguments
@@ -24,14 +24,18 @@ class ChatScreen extends StatelessWidget {
     BlocProvider.of<ChatScreenBloc>(context)
         .add(ChatScreenEvent.initializeScreen(chatId: chatId));
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      // chatScrollController.position.maxScrollExtent;
-      chatScrollController
-          .jumpTo(chatScrollController.position.maxScrollExtent);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+  
+      //  await Future.delayed(Duration(microseconds: 100));
+      scrollDown(messagesCount);
     });
 
     return BlocConsumer<ChatScreenBloc, ChatScreenState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        messagesCount =
+            state.getMessageResponse?.messages?.length.toDouble() ?? 0;
+        scrollDown(messagesCount);
+      },
       builder: (context, state) {
         String? chatName;
         if (state.getMessageResponse?.isGroupChat != true) {
@@ -115,7 +119,6 @@ class ChatScreen extends StatelessWidget {
                     itemCount: state.getMessageResponse?.messages?.length ?? 0,
                     controller: chatScrollController,
                     itemBuilder: (context, index) {
-                      // post string format example : /post/64156846edsfs6516fsd
                       List<String>? tempList = state
                           .getMessageResponse?.messages?[index].content
                           ?.split('/');
@@ -209,8 +212,7 @@ class ChatScreen extends StatelessWidget {
                                   ChatScreenEvent.sendMessage(
                                       message: msgController.text));
                               msgController.clear();
-                              chatScrollController.jumpTo(chatScrollController
-                                  .position.maxScrollExtent);
+                              scrollDown(messagesCount);
                             },
                             icon: const Icon(
                               Icons.send,
@@ -224,5 +226,13 @@ class ChatScreen extends StatelessWidget {
             ));
       },
     );
+  }
+
+  void scrollDown(double count) async {
+    for (var i = 0; i < count; i++) {
+      double nextPos = chatScrollController.position.maxScrollExtent;
+      chatScrollController.jumpTo(nextPos);
+      await Future.delayed(Duration(microseconds: 500));
+    }
   }
 }

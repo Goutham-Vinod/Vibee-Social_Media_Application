@@ -97,6 +97,7 @@ class CreatePostScreen extends StatelessWidget {
                         const SizedBox(height: 13),
                         InkWell(
                           onTap: () {
+                            print('Add Photo clicked');
                             BlocProvider.of<CreatePostScreenBloc>(context).add(
                                 const CreatePostScreenEvent
                                     .pickImageFromStorage());

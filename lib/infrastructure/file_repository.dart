@@ -21,7 +21,7 @@ class FileRepository {
   static Future<File?> getFile() async {
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles(
-        type: FileType.image,
+        type: FileType.custom,
         allowedExtensions: ['png', 'jpg'],
         allowMultiple: false,
       );
