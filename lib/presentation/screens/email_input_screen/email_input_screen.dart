@@ -38,7 +38,7 @@ class EmailInputScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 25, top: 25),
                   child: vibeeLogo(size: 30),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: SizedBox(
@@ -47,7 +47,7 @@ class EmailInputScreen extends StatelessWidget {
                         size: 35, fontWeight: FontWeight.w800),
                   ),
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

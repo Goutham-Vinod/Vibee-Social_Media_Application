@@ -1,8 +1,6 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vibee/application/blocs/profile_page/profile_page_bloc.dart';
 import 'package:vibee/application/blocs/search_page/search_page_bloc.dart';
 import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/config.dart';
@@ -45,9 +43,9 @@ class SearchPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Row(
+            const Row(
               children: [
-                const SizedBox(width: 20),
+                SizedBox(width: 20),
                 // Row(
                 //   children: [
                 //     Checkbox(

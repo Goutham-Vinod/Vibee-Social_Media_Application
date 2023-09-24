@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vibee/application/blocs/profile_page/profile_page_bloc.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/notifications_response_model/notifications_response_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';

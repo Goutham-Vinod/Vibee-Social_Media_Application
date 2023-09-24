@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vibee/core/common_variables.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/infrastructure/shared_pref_services.dart';
@@ -36,11 +35,12 @@ class _SplashScreenState extends State<SplashScreen> {
 void splashScreenFunctions(context) async {
   await Future.delayed(const Duration(seconds: 3));
   await SharedPrefServices.getTocken();
-  await SharedPrefServices.getPhoneNumber();
+
   await SharedPrefServices.getUserId();
 
   if (Config.tocken != null) {
     await APIServices.GetCurrentUserDetailsResponse();
+
     SocketIoServices.setup(Config.bearerTocken);
     Navigator.of(context).pushReplacementNamed(RouteGenerator.home);
   } else {

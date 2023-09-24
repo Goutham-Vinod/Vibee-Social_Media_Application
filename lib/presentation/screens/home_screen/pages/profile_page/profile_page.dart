@@ -184,11 +184,12 @@ class ProfilePage extends StatelessWidget {
                                     const ProfilePageEvent
                                         .resetIsEmptySharePostDescription());
                               },
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                   labelText: 'Description',
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  focusedBorder: OutlineInputBorder(
+                                  labelStyle:
+                                      const TextStyle(color: Colors.white),
+                                  focusedBorder: const OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide: BorderSide(
@@ -196,8 +197,8 @@ class ProfilePage extends StatelessWidget {
                                         width: 1,
                                       )),
                                   enabledBorder: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(10)),
                                       borderSide: BorderSide(
                                         color:
                                             state.isSharePostDescriptionEmpty ==
@@ -212,7 +213,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -222,7 +223,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -245,7 +246,7 @@ class ProfilePage extends StatelessWidget {
                         height: 40,
                         width: 100,
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                     ],
                   )
                 ],
@@ -278,6 +279,7 @@ class ProfilePage extends StatelessWidget {
           ],
           onChanged: (value) {
             print(value);
+             privacy = value ?? 'public';
           },
         ),
       ),
@@ -392,8 +394,8 @@ class ProfilePage extends StatelessWidget {
                         return vibeeIconButton(
                           content: "Accept Friend Request",
                           onPressed: () async {
-                            BlocProvider.of<ProfilePageBloc>(context)
-                                .add(ProfilePageEvent.acceptFriendRequest());
+                            BlocProvider.of<ProfilePageBloc>(context).add(
+                                const ProfilePageEvent.acceptFriendRequest());
                           },
                           ico: Icons.person,
                           height: 30,
@@ -402,8 +404,8 @@ class ProfilePage extends StatelessWidget {
                         return vibeeIconButton(
                           content: "Sent Friend Request",
                           onPressed: () async {
-                            BlocProvider.of<ProfilePageBloc>(context)
-                                .add(ProfilePageEvent.sentFriendRequest());
+                            BlocProvider.of<ProfilePageBloc>(context).add(
+                                const ProfilePageEvent.sentFriendRequest());
                           },
                           ico: Icons.person,
                           height: 30,
@@ -412,8 +414,8 @@ class ProfilePage extends StatelessWidget {
                         return vibeeIconButton(
                           content: "Cancel Friend Request",
                           onPressed: () async {
-                            BlocProvider.of<ProfilePageBloc>(context)
-                                .add(ProfilePageEvent.cancelFriendRequest());
+                            BlocProvider.of<ProfilePageBloc>(context).add(
+                                const ProfilePageEvent.cancelFriendRequest());
                           },
                           ico: Icons.person,
                           height: 30,
@@ -473,10 +475,10 @@ class ProfilePage extends StatelessWidget {
                             value: "Logout",
                             child: vibeeText("Logout"),
                           ),
-                          PopupMenuItem(
-                            value: "Change theme",
-                            child: vibeeText("Change theme"),
-                          ),
+                          // PopupMenuItem(
+                          //   value: "Change theme",
+                          //   child: vibeeText("Change theme"),
+                          // ),
                           PopupMenuItem(
                             value: "View Friends",
                             child: vibeeText("View Friends"),
@@ -535,7 +537,9 @@ class ProfilePage extends StatelessWidget {
                     BlocProvider.of<ProfilePageBloc>(context).add(
                         const ProfilePageEvent
                             .updateProfilePictureFromStorage());
-                    Navigator.pop(context);
+                    
+                    
+
 
                     // showVibeeModelBottomSheet(
                     //     context: context,

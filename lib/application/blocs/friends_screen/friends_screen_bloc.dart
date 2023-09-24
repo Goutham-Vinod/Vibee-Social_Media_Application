@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -13,7 +12,7 @@ part 'friends_screen_state.dart';
 part 'friends_screen_bloc.freezed.dart';
 
 class FriendsScreenBloc extends Bloc<FriendsScreenEvent, FriendsScreenState> {
-  FriendsScreenBloc() : super(_Initial()) {
+  FriendsScreenBloc() : super(const _Initial()) {
     on<_InitializePage>((event, emit) async {
       Either<ApiFailure, List<FriendsListResponseModel>> result =
           await APIServices.getFriendsList();

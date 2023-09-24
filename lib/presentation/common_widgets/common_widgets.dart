@@ -170,11 +170,11 @@ Widget vibeeOutlineButton({
         style: ButtonStyle(
             shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(borderRadius ?? 0))),
-            backgroundColor: MaterialStatePropertyAll(Colors.transparent),
-            side: MaterialStatePropertyAll(
+            backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
+            side: const MaterialStatePropertyAll(
               BorderSide(color: Colors.white),
             ),
-            iconColor: MaterialStatePropertyAll(Colors.white)),
+            iconColor: const MaterialStatePropertyAll(Colors.white)),
         child: vibeeText(message, color: Colors.white, size: textSize)),
   );
 }
@@ -196,6 +196,7 @@ Widget vibeeListTile({
   bool? isSelected,
   Function? onTap,
   Function? onLongPress,
+  double? borderRadius,
 }) {
   return InkWell(
     onTap: () {
@@ -211,9 +212,12 @@ Widget vibeeListTile({
     child: Stack(
       children: [
         Container(
-          color: backgroundClr ?? backgroundScreenColor2,
           height: height ?? 75,
           width: width ?? double.maxFinite,
+          decoration: BoxDecoration(
+              color: backgroundClr ?? backgroundScreenColor2,
+              borderRadius:
+                  BorderRadius.all(Radius.circular(borderRadius ?? 0))),
         ),
         Positioned(
           top: topMargin ?? (height == null ? 0 : height / 2),
@@ -366,7 +370,7 @@ showVibeeModelBottomSheet(
               vibeeText(
                 title ?? '',
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [...?buttons],

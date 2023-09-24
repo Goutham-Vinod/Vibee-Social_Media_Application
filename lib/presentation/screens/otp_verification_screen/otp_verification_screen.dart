@@ -5,7 +5,6 @@ import 'package:vibee/domain/models/otp_verification/otp_request_model.dart';
 import 'package:vibee/infrastructure/api_services.dart';
 import 'package:vibee/core/config.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
-import 'package:vibee/presentation/screens/home_screen/home_screen.dart';
 
 class OtpVerificationScreen extends StatelessWidget {
   OtpVerificationScreen({super.key});

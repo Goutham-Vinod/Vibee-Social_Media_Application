@@ -1,5 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:vibee/application/blocs/login_screen/login_screen_bloc.dart';
 import 'package:vibee/application/blocs/register_screen_1/register_screen_1_bloc.dart';
 
 class RegisterScreen_1_Services {

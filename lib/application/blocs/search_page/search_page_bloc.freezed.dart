@@ -250,11 +250,10 @@ abstract class Search implements SearchPageEvent {
 
 /// @nodoc
 mixin _$SearchPageState {
+  bool get isSearchLoading => throw _privateConstructorUsedError;
   SearchUserResponseModel? get searchResultResponse =>
       throw _privateConstructorUsedError;
-  bool get isSearchLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  bool? get isIncludeOnlyFriendsOfFreinds => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchPageStateCopyWith<SearchPageState> get copyWith =>
@@ -268,10 +267,9 @@ abstract class $SearchPageStateCopyWith<$Res> {
       _$SearchPageStateCopyWithImpl<$Res, SearchPageState>;
   @useResult
   $Res call(
-      {SearchUserResponseModel? searchResultResponse,
-      bool isSearchLoading,
-      String? errorMessage,
-      bool? isIncludeOnlyFriendsOfFreinds});
+      {bool isSearchLoading,
+      SearchUserResponseModel? searchResultResponse,
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -287,28 +285,23 @@ class _$SearchPageStateCopyWithImpl<$Res, $Val extends SearchPageState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchResultResponse = freezed,
     Object? isSearchLoading = null,
+    Object? searchResultResponse = freezed,
     Object? errorMessage = freezed,
-    Object? isIncludeOnlyFriendsOfFreinds = freezed,
   }) {
     return _then(_value.copyWith(
-      searchResultResponse: freezed == searchResultResponse
-          ? _value.searchResultResponse
-          : searchResultResponse // ignore: cast_nullable_to_non_nullable
-              as SearchUserResponseModel?,
       isSearchLoading: null == isSearchLoading
           ? _value.isSearchLoading
           : isSearchLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      searchResultResponse: freezed == searchResultResponse
+          ? _value.searchResultResponse
+          : searchResultResponse // ignore: cast_nullable_to_non_nullable
+              as SearchUserResponseModel?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      isIncludeOnlyFriendsOfFreinds: freezed == isIncludeOnlyFriendsOfFreinds
-          ? _value.isIncludeOnlyFriendsOfFreinds
-          : isIncludeOnlyFriendsOfFreinds // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ) as $Val);
   }
 }
@@ -322,10 +315,9 @@ abstract class _$$_InitialCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {SearchUserResponseModel? searchResultResponse,
-      bool isSearchLoading,
-      String? errorMessage,
-      bool? isIncludeOnlyFriendsOfFreinds});
+      {bool isSearchLoading,
+      SearchUserResponseModel? searchResultResponse,
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -338,28 +330,23 @@ class __$$_InitialCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchResultResponse = freezed,
     Object? isSearchLoading = null,
+    Object? searchResultResponse = freezed,
     Object? errorMessage = freezed,
-    Object? isIncludeOnlyFriendsOfFreinds = freezed,
   }) {
     return _then(_$_Initial(
-      searchResultResponse: freezed == searchResultResponse
-          ? _value.searchResultResponse
-          : searchResultResponse // ignore: cast_nullable_to_non_nullable
-              as SearchUserResponseModel?,
       isSearchLoading: null == isSearchLoading
           ? _value.isSearchLoading
           : isSearchLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      searchResultResponse: freezed == searchResultResponse
+          ? _value.searchResultResponse
+          : searchResultResponse // ignore: cast_nullable_to_non_nullable
+              as SearchUserResponseModel?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      isIncludeOnlyFriendsOfFreinds: freezed == isIncludeOnlyFriendsOfFreinds
-          ? _value.isIncludeOnlyFriendsOfFreinds
-          : isIncludeOnlyFriendsOfFreinds // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -368,23 +355,20 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {this.searchResultResponse,
-      required this.isSearchLoading,
-      this.errorMessage,
-      this.isIncludeOnlyFriendsOfFreinds});
+      {required this.isSearchLoading,
+      this.searchResultResponse,
+      this.errorMessage});
 
-  @override
-  final SearchUserResponseModel? searchResultResponse;
   @override
   final bool isSearchLoading;
   @override
-  final String? errorMessage;
+  final SearchUserResponseModel? searchResultResponse;
   @override
-  final bool? isIncludeOnlyFriendsOfFreinds;
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'SearchPageState._initial(searchResultResponse: $searchResultResponse, isSearchLoading: $isSearchLoading, errorMessage: $errorMessage, isIncludeOnlyFriendsOfFreinds: $isIncludeOnlyFriendsOfFreinds)';
+    return 'SearchPageState._initial(isSearchLoading: $isSearchLoading, searchResultResponse: $searchResultResponse, errorMessage: $errorMessage)';
   }
 
   @override
@@ -392,21 +376,17 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
-            (identical(other.searchResultResponse, searchResultResponse) ||
-                other.searchResultResponse == searchResultResponse) &&
             (identical(other.isSearchLoading, isSearchLoading) ||
                 other.isSearchLoading == isSearchLoading) &&
+            (identical(other.searchResultResponse, searchResultResponse) ||
+                other.searchResultResponse == searchResultResponse) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
-            (identical(other.isIncludeOnlyFriendsOfFreinds,
-                    isIncludeOnlyFriendsOfFreinds) ||
-                other.isIncludeOnlyFriendsOfFreinds ==
-                    isIncludeOnlyFriendsOfFreinds));
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, searchResultResponse,
-      isSearchLoading, errorMessage, isIncludeOnlyFriendsOfFreinds);
+  int get hashCode => Object.hash(
+      runtimeType, isSearchLoading, searchResultResponse, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -417,19 +397,16 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements SearchPageState {
   const factory _Initial(
-      {final SearchUserResponseModel? searchResultResponse,
-      required final bool isSearchLoading,
-      final String? errorMessage,
-      final bool? isIncludeOnlyFriendsOfFreinds}) = _$_Initial;
+      {required final bool isSearchLoading,
+      final SearchUserResponseModel? searchResultResponse,
+      final String? errorMessage}) = _$_Initial;
 
-  @override
-  SearchUserResponseModel? get searchResultResponse;
   @override
   bool get isSearchLoading;
   @override
-  String? get errorMessage;
+  SearchUserResponseModel? get searchResultResponse;
   @override
-  bool? get isIncludeOnlyFriendsOfFreinds;
+  String? get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

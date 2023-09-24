@@ -41,10 +41,10 @@ class MessagesPageBloc extends Bloc<MessagesPageEvent, MessagesPageState> {
         List<String> onlineFriends = [];
 
 // successResult[i].userId?.id == state.getMessageResponse?.users?[0].id
-        successResult.forEach((element) {
+        for (var element in successResult) {
           String friendId = element.userId?.id ?? '';
           onlineFriends.add(friendId);
-        });
+        }
 
         emit(state.copyWith(onlineFriendsIdList: onlineFriends));
       });

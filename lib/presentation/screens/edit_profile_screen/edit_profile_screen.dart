@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/application/blocs/edit_profile_screen/edit_profile_screen_bloc.dart';
-import 'package:vibee/core/routing/routing.dart';
-import 'package:vibee/domain/models/get_current_user_details_response_model/get_current_user_details_response_model.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 import 'package:vibee/presentation/screens/edit_profile_screen/date_picker.dart';
 
 class EditProfileScreen extends StatelessWidget {
-  EditProfileScreen({super.key});
-
-  late final GetCurrentUserDetailsResponseModel currentUserDetails;
-  // write function to get current user details when frame loaded
+  const EditProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

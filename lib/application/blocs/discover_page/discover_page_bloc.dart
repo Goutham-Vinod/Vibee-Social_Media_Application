@@ -77,7 +77,7 @@ class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
 
 // backend part below
       String postId = state.discoverResponse!.posts![event.postIndex].id!;
-      print('liked ${postId}');
+      print('liked $postId');
       Either<ApiFailure, LikeDislikeResponseModel> result =
           await APIServices.likeOrDislike(postId: postId);
 
@@ -89,22 +89,6 @@ class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
         if (success.notification != null) {
           SocketIoServices.likeDislike(success.notification!);
         }
-      });
-    });
-
-    on<_SharePostAsMessage>((event, emit) async {
-      Either<ApiFailure, SharePostAsMessageResponseModel> result =
-          await APIServices.sharePostAsMessage(
-              sharePostAsMessageRequest: SharePostAsMessageRequestModel(
-                  checked: [event.friendId!], postId: event.postId));
-
-      result.fold((failure) {
-        emit(state.copyWith(errorMessage: failure.errorMessage));
-        emit(state.copyWith(errorMessage: null));
-      }, (successResult) {
-        emit(state.copyWith(showMessage: 'Post Sent Successfully'));
-
-        emit(state.copyWith(showMessage: null));
       });
     });
 
@@ -130,6 +114,22 @@ class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
         emit(state.copyWith(isSharePostDescriptionEmpty: null));
         emit(state.copyWith(isSharePostDescriptionEmpty: true));
       }
+    });
+
+    on<_SharePostAsMessage>((event, emit) async {
+      Either<ApiFailure, SharePostAsMessageResponseModel> result =
+          await APIServices.sharePostAsMessage(
+              sharePostAsMessageRequest: SharePostAsMessageRequestModel(
+                  checked: [event.friendId!], postId: event.postId));
+
+      result.fold((failure) {
+        // emit(state.copyWith(errorMessage: failure.errorMessage));
+        // emit(state.copyWith(errorMessage: null));
+      }, (successResult) {
+        emit(state.copyWith(showMessage: 'Post Sent Successfully'));
+
+        emit(state.copyWith(showMessage: null));
+      });
     });
 
     on<_ResetIsEmptySharePostDescription>((event, emit) {

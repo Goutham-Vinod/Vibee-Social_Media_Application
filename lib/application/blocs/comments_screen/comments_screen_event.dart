@@ -11,4 +11,18 @@ class CommentsScreenEvent with _$CommentsScreenEvent {
   }) = _SentComment;
   const factory CommentsScreenEvent.likePost() = _LikePost;
   const factory CommentsScreenEvent.tstmsgEvent(data) = _TestMessageEvent;
+
+   const factory CommentsScreenEvent.sharePostAsMessage({
+    required String? friendId,
+    required String? postId,
+  }) = _SharePostAsMessage;
+
+  const factory CommentsScreenEvent.sharePost({
+    required String postId,
+    required String description,
+    required String privacy,
+  }) = _SharePost;
+
+  const factory CommentsScreenEvent.resetIsEmptySharePostDescription() =
+      _ResetIsEmptySharePostDescription;
 }

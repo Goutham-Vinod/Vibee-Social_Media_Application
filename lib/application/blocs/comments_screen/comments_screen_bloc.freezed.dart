@@ -23,6 +23,11 @@ mixin _$CommentsScreenEvent {
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
     required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +36,10 @@ mixin _$CommentsScreenEvent {
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
     TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +48,10 @@ mixin _$CommentsScreenEvent {
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
     TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +62,10 @@ mixin _$CommentsScreenEvent {
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
     required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +74,10 @@ mixin _$CommentsScreenEvent {
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
     TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +86,10 @@ mixin _$CommentsScreenEvent {
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
     TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,6 +193,11 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
     required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return initalizeCommentsScreen(postId, isLiked);
   }
@@ -179,6 +209,10 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
     TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return initalizeCommentsScreen?.call(postId, isLiked);
   }
@@ -190,6 +224,10 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
     TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (initalizeCommentsScreen != null) {
@@ -206,6 +244,10 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
     required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return initalizeCommentsScreen(this);
   }
@@ -217,6 +259,10 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
     TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return initalizeCommentsScreen?.call(this);
   }
@@ -228,6 +274,10 @@ class _$_InitializeCommentScreen implements _InitializeCommentScreen {
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
     TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (initalizeCommentsScreen != null) {
@@ -326,6 +376,11 @@ class _$_SentComment implements _SentComment {
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
     required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return sentComment(postId, comment);
   }
@@ -337,6 +392,10 @@ class _$_SentComment implements _SentComment {
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
     TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return sentComment?.call(postId, comment);
   }
@@ -348,6 +407,10 @@ class _$_SentComment implements _SentComment {
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
     TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (sentComment != null) {
@@ -364,6 +427,10 @@ class _$_SentComment implements _SentComment {
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
     required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return sentComment(this);
   }
@@ -375,6 +442,10 @@ class _$_SentComment implements _SentComment {
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
     TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return sentComment?.call(this);
   }
@@ -386,6 +457,10 @@ class _$_SentComment implements _SentComment {
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
     TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (sentComment != null) {
@@ -450,6 +525,11 @@ class _$_LikePost implements _LikePost {
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
     required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return likePost();
   }
@@ -461,6 +541,10 @@ class _$_LikePost implements _LikePost {
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
     TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return likePost?.call();
   }
@@ -472,6 +556,10 @@ class _$_LikePost implements _LikePost {
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
     TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (likePost != null) {
@@ -488,6 +576,10 @@ class _$_LikePost implements _LikePost {
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
     required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return likePost(this);
   }
@@ -499,6 +591,10 @@ class _$_LikePost implements _LikePost {
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
     TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return likePost?.call(this);
   }
@@ -510,6 +606,10 @@ class _$_LikePost implements _LikePost {
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
     TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (likePost != null) {
@@ -590,6 +690,11 @@ class _$_TestMessageEvent implements _TestMessageEvent {
     required TResult Function(String postId, String comment) sentComment,
     required TResult Function() likePost,
     required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
   }) {
     return tstmsgEvent(data);
   }
@@ -601,6 +706,10 @@ class _$_TestMessageEvent implements _TestMessageEvent {
     TResult? Function(String postId, String comment)? sentComment,
     TResult? Function()? likePost,
     TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
   }) {
     return tstmsgEvent?.call(data);
   }
@@ -612,6 +721,10 @@ class _$_TestMessageEvent implements _TestMessageEvent {
     TResult Function(String postId, String comment)? sentComment,
     TResult Function()? likePost,
     TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (tstmsgEvent != null) {
@@ -628,6 +741,10 @@ class _$_TestMessageEvent implements _TestMessageEvent {
     required TResult Function(_SentComment value) sentComment,
     required TResult Function(_LikePost value) likePost,
     required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
   }) {
     return tstmsgEvent(this);
   }
@@ -639,6 +756,10 @@ class _$_TestMessageEvent implements _TestMessageEvent {
     TResult? Function(_SentComment value)? sentComment,
     TResult? Function(_LikePost value)? likePost,
     TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
   }) {
     return tstmsgEvent?.call(this);
   }
@@ -650,6 +771,10 @@ class _$_TestMessageEvent implements _TestMessageEvent {
     TResult Function(_SentComment value)? sentComment,
     TResult Function(_LikePost value)? likePost,
     TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
     required TResult orElse(),
   }) {
     if (tstmsgEvent != null) {
@@ -669,7 +794,536 @@ abstract class _TestMessageEvent implements CommentsScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$_SharePostAsMessageCopyWith<$Res> {
+  factory _$$_SharePostAsMessageCopyWith(_$_SharePostAsMessage value,
+          $Res Function(_$_SharePostAsMessage) then) =
+      __$$_SharePostAsMessageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? friendId, String? postId});
+}
+
+/// @nodoc
+class __$$_SharePostAsMessageCopyWithImpl<$Res>
+    extends _$CommentsScreenEventCopyWithImpl<$Res, _$_SharePostAsMessage>
+    implements _$$_SharePostAsMessageCopyWith<$Res> {
+  __$$_SharePostAsMessageCopyWithImpl(
+      _$_SharePostAsMessage _value, $Res Function(_$_SharePostAsMessage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+    Object? postId = freezed,
+  }) {
+    return _then(_$_SharePostAsMessage(
+      friendId: freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postId: freezed == postId
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SharePostAsMessage implements _SharePostAsMessage {
+  const _$_SharePostAsMessage({required this.friendId, required this.postId});
+
+  @override
+  final String? friendId;
+  @override
+  final String? postId;
+
+  @override
+  String toString() {
+    return 'CommentsScreenEvent.sharePostAsMessage(friendId: $friendId, postId: $postId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SharePostAsMessage &&
+            (identical(other.friendId, friendId) ||
+                other.friendId == friendId) &&
+            (identical(other.postId, postId) || other.postId == postId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, friendId, postId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SharePostAsMessageCopyWith<_$_SharePostAsMessage> get copyWith =>
+      __$$_SharePostAsMessageCopyWithImpl<_$_SharePostAsMessage>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
+    required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage(friendId, postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage?.call(friendId, postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePostAsMessage != null) {
+      return sharePostAsMessage(friendId, postId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeCommentScreen value)
+        initalizeCommentsScreen,
+    required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePostAsMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePostAsMessage != null) {
+      return sharePostAsMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SharePostAsMessage implements CommentsScreenEvent {
+  const factory _SharePostAsMessage(
+      {required final String? friendId,
+      required final String? postId}) = _$_SharePostAsMessage;
+
+  String? get friendId;
+  String? get postId;
+  @JsonKey(ignore: true)
+  _$$_SharePostAsMessageCopyWith<_$_SharePostAsMessage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SharePostCopyWith<$Res> {
+  factory _$$_SharePostCopyWith(
+          _$_SharePost value, $Res Function(_$_SharePost) then) =
+      __$$_SharePostCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String postId, String description, String privacy});
+}
+
+/// @nodoc
+class __$$_SharePostCopyWithImpl<$Res>
+    extends _$CommentsScreenEventCopyWithImpl<$Res, _$_SharePost>
+    implements _$$_SharePostCopyWith<$Res> {
+  __$$_SharePostCopyWithImpl(
+      _$_SharePost _value, $Res Function(_$_SharePost) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? postId = null,
+    Object? description = null,
+    Object? privacy = null,
+  }) {
+    return _then(_$_SharePost(
+      postId: null == postId
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      privacy: null == privacy
+          ? _value.privacy
+          : privacy // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SharePost implements _SharePost {
+  const _$_SharePost(
+      {required this.postId, required this.description, required this.privacy});
+
+  @override
+  final String postId;
+  @override
+  final String description;
+  @override
+  final String privacy;
+
+  @override
+  String toString() {
+    return 'CommentsScreenEvent.sharePost(postId: $postId, description: $description, privacy: $privacy)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SharePost &&
+            (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.privacy, privacy) || other.privacy == privacy));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, postId, description, privacy);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SharePostCopyWith<_$_SharePost> get copyWith =>
+      __$$_SharePostCopyWithImpl<_$_SharePost>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
+    required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
+  }) {
+    return sharePost(postId, description, privacy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
+  }) {
+    return sharePost?.call(postId, description, privacy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePost != null) {
+      return sharePost(postId, description, privacy);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeCommentScreen value)
+        initalizeCommentsScreen,
+    required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePost(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+  }) {
+    return sharePost?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (sharePost != null) {
+      return sharePost(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SharePost implements CommentsScreenEvent {
+  const factory _SharePost(
+      {required final String postId,
+      required final String description,
+      required final String privacy}) = _$_SharePost;
+
+  String get postId;
+  String get description;
+  String get privacy;
+  @JsonKey(ignore: true)
+  _$$_SharePostCopyWith<_$_SharePost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ResetIsEmptySharePostDescriptionCopyWith<$Res> {
+  factory _$$_ResetIsEmptySharePostDescriptionCopyWith(
+          _$_ResetIsEmptySharePostDescription value,
+          $Res Function(_$_ResetIsEmptySharePostDescription) then) =
+      __$$_ResetIsEmptySharePostDescriptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetIsEmptySharePostDescriptionCopyWithImpl<$Res>
+    extends _$CommentsScreenEventCopyWithImpl<$Res,
+        _$_ResetIsEmptySharePostDescription>
+    implements _$$_ResetIsEmptySharePostDescriptionCopyWith<$Res> {
+  __$$_ResetIsEmptySharePostDescriptionCopyWithImpl(
+      _$_ResetIsEmptySharePostDescription _value,
+      $Res Function(_$_ResetIsEmptySharePostDescription) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResetIsEmptySharePostDescription
+    implements _ResetIsEmptySharePostDescription {
+  const _$_ResetIsEmptySharePostDescription();
+
+  @override
+  String toString() {
+    return 'CommentsScreenEvent.resetIsEmptySharePostDescription()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ResetIsEmptySharePostDescription);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String postId, bool isLiked)
+        initalizeCommentsScreen,
+    required TResult Function(String postId, String comment) sentComment,
+    required TResult Function() likePost,
+    required TResult Function(dynamic data) tstmsgEvent,
+    required TResult Function(String? friendId, String? postId)
+        sharePostAsMessage,
+    required TResult Function(String postId, String description, String privacy)
+        sharePost,
+    required TResult Function() resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult? Function(String postId, String comment)? sentComment,
+    TResult? Function()? likePost,
+    TResult? Function(dynamic data)? tstmsgEvent,
+    TResult? Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult? Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult? Function()? resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String postId, bool isLiked)? initalizeCommentsScreen,
+    TResult Function(String postId, String comment)? sentComment,
+    TResult Function()? likePost,
+    TResult Function(dynamic data)? tstmsgEvent,
+    TResult Function(String? friendId, String? postId)? sharePostAsMessage,
+    TResult Function(String postId, String description, String privacy)?
+        sharePost,
+    TResult Function()? resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (resetIsEmptySharePostDescription != null) {
+      return resetIsEmptySharePostDescription();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeCommentScreen value)
+        initalizeCommentsScreen,
+    required TResult Function(_SentComment value) sentComment,
+    required TResult Function(_LikePost value) likePost,
+    required TResult Function(_TestMessageEvent value) tstmsgEvent,
+    required TResult Function(_SharePostAsMessage value) sharePostAsMessage,
+    required TResult Function(_SharePost value) sharePost,
+    required TResult Function(_ResetIsEmptySharePostDescription value)
+        resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult? Function(_SentComment value)? sentComment,
+    TResult? Function(_LikePost value)? likePost,
+    TResult? Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult? Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult? Function(_SharePost value)? sharePost,
+    TResult? Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+  }) {
+    return resetIsEmptySharePostDescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeCommentScreen value)? initalizeCommentsScreen,
+    TResult Function(_SentComment value)? sentComment,
+    TResult Function(_LikePost value)? likePost,
+    TResult Function(_TestMessageEvent value)? tstmsgEvent,
+    TResult Function(_SharePostAsMessage value)? sharePostAsMessage,
+    TResult Function(_SharePost value)? sharePost,
+    TResult Function(_ResetIsEmptySharePostDescription value)?
+        resetIsEmptySharePostDescription,
+    required TResult orElse(),
+  }) {
+    if (resetIsEmptySharePostDescription != null) {
+      return resetIsEmptySharePostDescription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetIsEmptySharePostDescription
+    implements CommentsScreenEvent {
+  const factory _ResetIsEmptySharePostDescription() =
+      _$_ResetIsEmptySharePostDescription;
+}
+
+/// @nodoc
 mixin _$CommentsScreenState {
+  String? get showMessage => throw _privateConstructorUsedError;
   bool get isScreenLoading => throw _privateConstructorUsedError;
   bool get isFrontendValidationSuccess => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
@@ -678,11 +1332,15 @@ mixin _$CommentsScreenState {
   String? get postImageUrl => throw _privateConstructorUsedError;
   List<LoadCommentsResponseModel?>? get loadCommentsResponse =>
       throw _privateConstructorUsedError;
+  bool? get isSharePostDescriptionEmpty => throw _privateConstructorUsedError;
   String? get postId => throw _privateConstructorUsedError;
   bool? get isLiked => throw _privateConstructorUsedError;
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponseList =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            String? showMessage,
             bool isScreenLoading,
             bool isFrontendValidationSuccess,
             String? errorMessage,
@@ -690,14 +1348,18 @@ mixin _$CommentsScreenState {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
+            bool? isSharePostDescriptionEmpty,
             String? postId,
-            bool? isLiked)
+            bool? isLiked,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList)
         current,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            String? showMessage,
             bool isScreenLoading,
             bool isFrontendValidationSuccess,
             String? errorMessage,
@@ -705,14 +1367,18 @@ mixin _$CommentsScreenState {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
+            bool? isSharePostDescriptionEmpty,
             String? postId,
-            bool? isLiked)?
+            bool? isLiked,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList)?
         current,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            String? showMessage,
             bool isScreenLoading,
             bool isFrontendValidationSuccess,
             String? errorMessage,
@@ -720,8 +1386,11 @@ mixin _$CommentsScreenState {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
+            bool? isSharePostDescriptionEmpty,
             String? postId,
-            bool? isLiked)?
+            bool? isLiked,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList)?
         current,
     required TResult orElse(),
   }) =>
@@ -755,15 +1424,18 @@ abstract class $CommentsScreenStateCopyWith<$Res> {
       _$CommentsScreenStateCopyWithImpl<$Res, CommentsScreenState>;
   @useResult
   $Res call(
-      {bool isScreenLoading,
+      {String? showMessage,
+      bool isScreenLoading,
       bool isFrontendValidationSuccess,
       String? errorMessage,
       bool isUploadCommentSuccess,
       bool isImageLoading,
       String? postImageUrl,
       List<LoadCommentsResponseModel?>? loadCommentsResponse,
+      bool? isSharePostDescriptionEmpty,
       String? postId,
-      bool? isLiked});
+      bool? isLiked,
+      List<GetAllConversationsResponseModel>? getAllConversationsResponseList});
 }
 
 /// @nodoc
@@ -779,6 +1451,7 @@ class _$CommentsScreenStateCopyWithImpl<$Res, $Val extends CommentsScreenState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? showMessage = freezed,
     Object? isScreenLoading = null,
     Object? isFrontendValidationSuccess = null,
     Object? errorMessage = freezed,
@@ -786,10 +1459,16 @@ class _$CommentsScreenStateCopyWithImpl<$Res, $Val extends CommentsScreenState>
     Object? isImageLoading = null,
     Object? postImageUrl = freezed,
     Object? loadCommentsResponse = freezed,
+    Object? isSharePostDescriptionEmpty = freezed,
     Object? postId = freezed,
     Object? isLiked = freezed,
+    Object? getAllConversationsResponseList = freezed,
   }) {
     return _then(_value.copyWith(
+      showMessage: freezed == showMessage
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       isScreenLoading: null == isScreenLoading
           ? _value.isScreenLoading
           : isScreenLoading // ignore: cast_nullable_to_non_nullable
@@ -818,6 +1497,10 @@ class _$CommentsScreenStateCopyWithImpl<$Res, $Val extends CommentsScreenState>
           ? _value.loadCommentsResponse
           : loadCommentsResponse // ignore: cast_nullable_to_non_nullable
               as List<LoadCommentsResponseModel?>?,
+      isSharePostDescriptionEmpty: freezed == isSharePostDescriptionEmpty
+          ? _value.isSharePostDescriptionEmpty
+          : isSharePostDescriptionEmpty // ignore: cast_nullable_to_non_nullable
+              as bool?,
       postId: freezed == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
@@ -826,6 +1509,11 @@ class _$CommentsScreenStateCopyWithImpl<$Res, $Val extends CommentsScreenState>
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
               as bool?,
+      getAllConversationsResponseList: freezed ==
+              getAllConversationsResponseList
+          ? _value.getAllConversationsResponseList
+          : getAllConversationsResponseList // ignore: cast_nullable_to_non_nullable
+              as List<GetAllConversationsResponseModel>?,
     ) as $Val);
   }
 }
@@ -839,15 +1527,18 @@ abstract class _$$_CurrentCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isScreenLoading,
+      {String? showMessage,
+      bool isScreenLoading,
       bool isFrontendValidationSuccess,
       String? errorMessage,
       bool isUploadCommentSuccess,
       bool isImageLoading,
       String? postImageUrl,
       List<LoadCommentsResponseModel?>? loadCommentsResponse,
+      bool? isSharePostDescriptionEmpty,
       String? postId,
-      bool? isLiked});
+      bool? isLiked,
+      List<GetAllConversationsResponseModel>? getAllConversationsResponseList});
 }
 
 /// @nodoc
@@ -860,6 +1551,7 @@ class __$$_CurrentCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? showMessage = freezed,
     Object? isScreenLoading = null,
     Object? isFrontendValidationSuccess = null,
     Object? errorMessage = freezed,
@@ -867,10 +1559,16 @@ class __$$_CurrentCopyWithImpl<$Res>
     Object? isImageLoading = null,
     Object? postImageUrl = freezed,
     Object? loadCommentsResponse = freezed,
+    Object? isSharePostDescriptionEmpty = freezed,
     Object? postId = freezed,
     Object? isLiked = freezed,
+    Object? getAllConversationsResponseList = freezed,
   }) {
     return _then(_$_Current(
+      showMessage: freezed == showMessage
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       isScreenLoading: null == isScreenLoading
           ? _value.isScreenLoading
           : isScreenLoading // ignore: cast_nullable_to_non_nullable
@@ -899,6 +1597,10 @@ class __$$_CurrentCopyWithImpl<$Res>
           ? _value._loadCommentsResponse
           : loadCommentsResponse // ignore: cast_nullable_to_non_nullable
               as List<LoadCommentsResponseModel?>?,
+      isSharePostDescriptionEmpty: freezed == isSharePostDescriptionEmpty
+          ? _value.isSharePostDescriptionEmpty
+          : isSharePostDescriptionEmpty // ignore: cast_nullable_to_non_nullable
+              as bool?,
       postId: freezed == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
@@ -907,6 +1609,11 @@ class __$$_CurrentCopyWithImpl<$Res>
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
               as bool?,
+      getAllConversationsResponseList: freezed ==
+              getAllConversationsResponseList
+          ? _value._getAllConversationsResponseList
+          : getAllConversationsResponseList // ignore: cast_nullable_to_non_nullable
+              as List<GetAllConversationsResponseModel>?,
     ));
   }
 }
@@ -915,17 +1622,24 @@ class __$$_CurrentCopyWithImpl<$Res>
 
 class _$_Current implements _Current {
   const _$_Current(
-      {required this.isScreenLoading,
+      {this.showMessage,
+      required this.isScreenLoading,
       required this.isFrontendValidationSuccess,
       this.errorMessage,
       required this.isUploadCommentSuccess,
       required this.isImageLoading,
       this.postImageUrl,
       final List<LoadCommentsResponseModel?>? loadCommentsResponse,
+      this.isSharePostDescriptionEmpty,
       this.postId,
-      this.isLiked})
-      : _loadCommentsResponse = loadCommentsResponse;
+      this.isLiked,
+      final List<GetAllConversationsResponseModel>?
+          getAllConversationsResponseList})
+      : _loadCommentsResponse = loadCommentsResponse,
+        _getAllConversationsResponseList = getAllConversationsResponseList;
 
+  @override
+  final String? showMessage;
   @override
   final bool isScreenLoading;
   @override
@@ -950,13 +1664,26 @@ class _$_Current implements _Current {
   }
 
   @override
+  final bool? isSharePostDescriptionEmpty;
+  @override
   final String? postId;
   @override
   final bool? isLiked;
+  final List<GetAllConversationsResponseModel>?
+      _getAllConversationsResponseList;
+  @override
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponseList {
+    final value = _getAllConversationsResponseList;
+    if (value == null) return null;
+    if (_getAllConversationsResponseList is EqualUnmodifiableListView)
+      return _getAllConversationsResponseList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'CommentsScreenState.current(isScreenLoading: $isScreenLoading, isFrontendValidationSuccess: $isFrontendValidationSuccess, errorMessage: $errorMessage, isUploadCommentSuccess: $isUploadCommentSuccess, isImageLoading: $isImageLoading, postImageUrl: $postImageUrl, loadCommentsResponse: $loadCommentsResponse, postId: $postId, isLiked: $isLiked)';
+    return 'CommentsScreenState.current(showMessage: $showMessage, isScreenLoading: $isScreenLoading, isFrontendValidationSuccess: $isFrontendValidationSuccess, errorMessage: $errorMessage, isUploadCommentSuccess: $isUploadCommentSuccess, isImageLoading: $isImageLoading, postImageUrl: $postImageUrl, loadCommentsResponse: $loadCommentsResponse, isSharePostDescriptionEmpty: $isSharePostDescriptionEmpty, postId: $postId, isLiked: $isLiked, getAllConversationsResponseList: $getAllConversationsResponseList)';
   }
 
   @override
@@ -964,6 +1691,8 @@ class _$_Current implements _Current {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Current &&
+            (identical(other.showMessage, showMessage) ||
+                other.showMessage == showMessage) &&
             (identical(other.isScreenLoading, isScreenLoading) ||
                 other.isScreenLoading == isScreenLoading) &&
             (identical(other.isFrontendValidationSuccess,
@@ -980,13 +1709,21 @@ class _$_Current implements _Current {
                 other.postImageUrl == postImageUrl) &&
             const DeepCollectionEquality()
                 .equals(other._loadCommentsResponse, _loadCommentsResponse) &&
+            (identical(other.isSharePostDescriptionEmpty,
+                    isSharePostDescriptionEmpty) ||
+                other.isSharePostDescriptionEmpty ==
+                    isSharePostDescriptionEmpty) &&
             (identical(other.postId, postId) || other.postId == postId) &&
-            (identical(other.isLiked, isLiked) || other.isLiked == isLiked));
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
+            const DeepCollectionEquality().equals(
+                other._getAllConversationsResponseList,
+                _getAllConversationsResponseList));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      showMessage,
       isScreenLoading,
       isFrontendValidationSuccess,
       errorMessage,
@@ -994,8 +1731,10 @@ class _$_Current implements _Current {
       isImageLoading,
       postImageUrl,
       const DeepCollectionEquality().hash(_loadCommentsResponse),
+      isSharePostDescriptionEmpty,
       postId,
-      isLiked);
+      isLiked,
+      const DeepCollectionEquality().hash(_getAllConversationsResponseList));
 
   @JsonKey(ignore: true)
   @override
@@ -1007,6 +1746,7 @@ class _$_Current implements _Current {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            String? showMessage,
             bool isScreenLoading,
             bool isFrontendValidationSuccess,
             String? errorMessage,
@@ -1014,11 +1754,15 @@ class _$_Current implements _Current {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
+            bool? isSharePostDescriptionEmpty,
             String? postId,
-            bool? isLiked)
+            bool? isLiked,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList)
         current,
   }) {
     return current(
+        showMessage,
         isScreenLoading,
         isFrontendValidationSuccess,
         errorMessage,
@@ -1026,14 +1770,17 @@ class _$_Current implements _Current {
         isImageLoading,
         postImageUrl,
         loadCommentsResponse,
+        isSharePostDescriptionEmpty,
         postId,
-        isLiked);
+        isLiked,
+        getAllConversationsResponseList);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            String? showMessage,
             bool isScreenLoading,
             bool isFrontendValidationSuccess,
             String? errorMessage,
@@ -1041,11 +1788,15 @@ class _$_Current implements _Current {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
+            bool? isSharePostDescriptionEmpty,
             String? postId,
-            bool? isLiked)?
+            bool? isLiked,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList)?
         current,
   }) {
     return current?.call(
+        showMessage,
         isScreenLoading,
         isFrontendValidationSuccess,
         errorMessage,
@@ -1053,14 +1804,17 @@ class _$_Current implements _Current {
         isImageLoading,
         postImageUrl,
         loadCommentsResponse,
+        isSharePostDescriptionEmpty,
         postId,
-        isLiked);
+        isLiked,
+        getAllConversationsResponseList);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            String? showMessage,
             bool isScreenLoading,
             bool isFrontendValidationSuccess,
             String? errorMessage,
@@ -1068,13 +1822,17 @@ class _$_Current implements _Current {
             bool isImageLoading,
             String? postImageUrl,
             List<LoadCommentsResponseModel?>? loadCommentsResponse,
+            bool? isSharePostDescriptionEmpty,
             String? postId,
-            bool? isLiked)?
+            bool? isLiked,
+            List<GetAllConversationsResponseModel>?
+                getAllConversationsResponseList)?
         current,
     required TResult orElse(),
   }) {
     if (current != null) {
       return current(
+          showMessage,
           isScreenLoading,
           isFrontendValidationSuccess,
           errorMessage,
@@ -1082,8 +1840,10 @@ class _$_Current implements _Current {
           isImageLoading,
           postImageUrl,
           loadCommentsResponse,
+          isSharePostDescriptionEmpty,
           postId,
-          isLiked);
+          isLiked,
+          getAllConversationsResponseList);
     }
     return orElse();
   }
@@ -1119,16 +1879,22 @@ class _$_Current implements _Current {
 
 abstract class _Current implements CommentsScreenState {
   const factory _Current(
-      {required final bool isScreenLoading,
+      {final String? showMessage,
+      required final bool isScreenLoading,
       required final bool isFrontendValidationSuccess,
       final String? errorMessage,
       required final bool isUploadCommentSuccess,
       required final bool isImageLoading,
       final String? postImageUrl,
       final List<LoadCommentsResponseModel?>? loadCommentsResponse,
+      final bool? isSharePostDescriptionEmpty,
       final String? postId,
-      final bool? isLiked}) = _$_Current;
+      final bool? isLiked,
+      final List<GetAllConversationsResponseModel>?
+          getAllConversationsResponseList}) = _$_Current;
 
+  @override
+  String? get showMessage;
   @override
   bool get isScreenLoading;
   @override
@@ -1144,9 +1910,13 @@ abstract class _Current implements CommentsScreenState {
   @override
   List<LoadCommentsResponseModel?>? get loadCommentsResponse;
   @override
+  bool? get isSharePostDescriptionEmpty;
+  @override
   String? get postId;
   @override
   bool? get isLiked;
+  @override
+  List<GetAllConversationsResponseModel>? get getAllConversationsResponseList;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentCopyWith<_$_Current> get copyWith =>

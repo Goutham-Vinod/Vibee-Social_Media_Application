@@ -77,7 +77,7 @@ class RouteGenerator {
               arguments: args,
             ));
       case editProfileScreen:
-        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
 
       case profilePage:
         return MaterialPageRoute(
@@ -109,13 +109,13 @@ class RouteGenerator {
             ));
       case savedPostsScreen:
         return MaterialPageRoute(
-            builder: (_) => SavedPostsScreen(),
+            builder: (_) => const SavedPostsScreen(),
             settings: RouteSettings(
               arguments: args,
             ));
       case friendsScreen:
         return MaterialPageRoute(
-            builder: (_) => FriendsScreen(),
+            builder: (_) => const FriendsScreen(),
             settings: RouteSettings(
               arguments: args,
             ));

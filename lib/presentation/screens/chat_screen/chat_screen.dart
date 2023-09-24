@@ -15,9 +15,10 @@ class ChatScreen extends StatelessWidget {
 
   final TextEditingController msgController = TextEditingController();
   final ScrollController chatScrollController = ScrollController();
-  double messagesCount = 0;
+  
   @override
   Widget build(BuildContext context) {
+    double messagesCount = 0;
     String chatId = ModalRoute.of(context)?.settings.arguments
         as String; // routeArgs - chat id - String
 
@@ -25,7 +26,6 @@ class ChatScreen extends StatelessWidget {
         .add(ChatScreenEvent.initializeScreen(chatId: chatId));
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-  
       //  await Future.delayed(Duration(microseconds: 100));
       scrollDown(messagesCount);
     });
@@ -50,6 +50,8 @@ class ChatScreen extends StatelessWidget {
         if (state.getMessageResponse?.isGroupChat == true) {
           if (state.getMessageResponse?.groupChatImage != null) {
             dpWidget = vibeeDp(
+              height: 50,
+              width: 50,
               image: NetworkImage(Config.getPictureUrl(
                   picturePath: state.getMessageResponse!.groupChatImage!)),
             );
@@ -59,6 +61,8 @@ class ChatScreen extends StatelessWidget {
               CommonVariables.currentUserDetailsResponse?.id) {
             if (state.getMessageResponse?.users?[1].profilePicture != null) {
               dpWidget = vibeeDp(
+                  height: 50,
+                  width: 50,
                   image: NetworkImage(Config.getPictureUrl(
                       picturePath: state
                           .getMessageResponse!.users![1].profilePicture!)));
@@ -66,6 +70,8 @@ class ChatScreen extends StatelessWidget {
           } else if (state.getMessageResponse?.users?[0].profilePicture !=
               null) {
             dpWidget = vibeeDp(
+                height: 50,
+                width: 50,
                 image: NetworkImage(Config.getPictureUrl(
                     picturePath:
                         state.getMessageResponse!.users![0].profilePicture!)));
@@ -82,8 +88,8 @@ class ChatScreen extends StatelessWidget {
                   dpWidget ??
                       vibeeDp(
                         image: AssetImage(CommonVariables.defaultDp),
-                        height: 40,
-                        width: 40,
+                        height: 50,
+                        width: 50,
                       ),
                   const SizedBox(width: 10),
                   Column(
@@ -232,7 +238,7 @@ class ChatScreen extends StatelessWidget {
     for (var i = 0; i < count; i++) {
       double nextPos = chatScrollController.position.maxScrollExtent;
       chatScrollController.jumpTo(nextPos);
-      await Future.delayed(Duration(microseconds: 500));
+      await Future.delayed(const Duration(microseconds: 500));
     }
   }
 }

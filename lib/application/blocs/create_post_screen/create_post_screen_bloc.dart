@@ -1,9 +1,7 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/create_post_response_model/create_post_response_model.dart';
@@ -24,10 +22,12 @@ class CreatePostScreenBloc
           isUploadInProgress: false,
           isUploadPostSuccess: false,
           isImageLoading: false,
+          post: null,
         )) {
     on<CreatePost>((event, emit) async {
       emit(state.copyWith(isUploadInProgress: true));
       double fileSizeMB = 0;
+
       if (event.photoOrVideo != null) {
         int fileSizeBytes = event.photoOrVideo!.lengthSync();
         double fileSizeKB = fileSizeBytes / 1024;
@@ -80,7 +80,7 @@ class CreatePostScreenBloc
             isUploadPostSuccess: true,
             isUploadInProgress: false,
           ));
-          emit(state.copyWith(isUploadPostSuccess: false));
+          emit(state.copyWith(isUploadPostSuccess: false, post: null));
         });
       }
     });

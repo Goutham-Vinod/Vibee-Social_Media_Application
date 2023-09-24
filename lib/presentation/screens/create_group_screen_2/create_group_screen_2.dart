@@ -131,7 +131,7 @@ class CreateGroupScreen2 extends StatelessWidget {
   }
 
   ImageProvider profilePicture() {
-    dynamic state = null; // move this state to parameter of thsi function
+    dynamic state; // move this state to parameter of thsi function
     if (state != null && state.isCurrentUserProfile) {
       print('current user updated');
       if (CommonVariables.currentUserDetailsResponse != null &&

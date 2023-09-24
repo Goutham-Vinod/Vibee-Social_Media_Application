@@ -90,7 +90,7 @@ class PostWidget extends StatelessWidget {
                   ),
                 ),
                 disablePostWidgetHeader == true
-                    ? SizedBox()
+                    ? const SizedBox()
                     : Positioned(
                         // title row
                         top: 10,

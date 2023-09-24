@@ -93,7 +93,7 @@ class DiscoverPage extends StatelessWidget {
                                     DiscoverPageEvent.sharePostAsMessage(
                                         friendId: state
                                             .getAllConversationsResponseList?[
-                                                index]
+                                                friendIndex]
                                             .id,
                                         postId: state.discoverResponse
                                             ?.posts?[index].id));
@@ -156,11 +156,12 @@ class DiscoverPage extends StatelessWidget {
                                     const DiscoverPageEvent
                                         .resetIsEmptySharePostDescription());
                               },
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                   labelText: 'Description',
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  focusedBorder: OutlineInputBorder(
+                                  labelStyle:
+                                      const TextStyle(color: Colors.white),
+                                  focusedBorder: const OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide: BorderSide(
@@ -168,8 +169,8 @@ class DiscoverPage extends StatelessWidget {
                                         width: 1,
                                       )),
                                   enabledBorder: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(10)),
                                       borderSide: BorderSide(
                                         color:
                                             state.isSharePostDescriptionEmpty ==
@@ -184,7 +185,7 @@ class DiscoverPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -194,7 +195,7 @@ class DiscoverPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -217,7 +218,7 @@ class DiscoverPage extends StatelessWidget {
                         height: 40,
                         width: 100,
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                     ],
                   )
                 ],
@@ -250,6 +251,7 @@ class DiscoverPage extends StatelessWidget {
           ],
           onChanged: (value) {
             print(value);
+            privacy = value ?? 'public';
           },
         ),
       ),

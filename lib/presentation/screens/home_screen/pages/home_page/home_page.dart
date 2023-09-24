@@ -124,7 +124,7 @@ class HomePage extends StatelessWidget {
                                           .add(HomePageEvent.sharePostAsMessage(
                                               friendId: state
                                                   .getAllConversationsResponseList?[
-                                                      index]
+                                                      friendIndex]
                                                   .id,
                                               postId: state.getPostsResponse
                                                   ?.posts![index].id));
@@ -190,7 +190,7 @@ class HomePage extends StatelessWidget {
                                     const HomePageEvent
                                         .resetIsEmptySharePostDescription());
                               },
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                   labelText: 'Description',
                                   labelStyle:
@@ -219,7 +219,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -229,7 +229,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -252,7 +252,7 @@ class HomePage extends StatelessWidget {
                         height: 40,
                         width: 100,
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                     ],
                   )
                 ],
@@ -301,7 +301,7 @@ class HomePage extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(left: width * .01, top: 15.0),
-          child: Icon(
+          child: const Icon(
             Icons.account_circle_rounded,
             size: 50,
             color: Colors.white,

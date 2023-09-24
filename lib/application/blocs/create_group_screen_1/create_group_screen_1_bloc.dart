@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -47,9 +46,9 @@ class CreateGroupScreen_1Bloc
     on<_NavigateToNextScreen>((event, emit) {
       List<FriendsListResponseModel> selectedGroupMembers = [];
 
-      state.selectedGroupMembersIndex.forEach((element) {
+      for (var element in state.selectedGroupMembersIndex) {
         selectedGroupMembers.add(state.friendsListResponse![element]);
-      });
+      }
 
       if (selectedGroupMembers.isNotEmpty) {
         emit(state.copyWith(

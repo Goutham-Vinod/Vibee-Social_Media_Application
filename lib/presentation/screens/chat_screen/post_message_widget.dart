@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vibee/core/common_variables.dart';
-import 'package:vibee/core/config.dart';
 import 'package:vibee/core/routing/routing.dart';
 import 'package:vibee/core/routing/routing_arguments/comments__screen_arguments.dart';
 import 'package:vibee/domain/models/get_details_of_single_post_response_model/get_details_of_single_post_response_model.dart';
@@ -82,7 +81,7 @@ class PostMessageWidget extends StatelessWidget {
                               ),
                               (postDetails.description == null ||
                                       postDetails.description!.isEmpty)
-                                  ? SizedBox()
+                                  ? const SizedBox()
                                   : Padding(
                                       padding: const EdgeInsets.all(5.0),
                                       child: vibeeText(
@@ -101,7 +100,7 @@ class PostMessageWidget extends StatelessWidget {
                   const SizedBox(height: 3),
                   Row(
                     children: [
-                      SizedBox(width: 25),
+                      const SizedBox(width: 25),
                       vibeeText(time, color: Colors.white38),
                     ],
                   ),

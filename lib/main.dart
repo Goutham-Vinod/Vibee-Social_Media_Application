@@ -23,9 +23,11 @@ import 'package:vibee/core/routing/routing.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibee/infrastructure/notification_services.dart';
 import 'package:vibee/infrastructure/socket_io_services.dart';
+// import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await NotificationService.initializeNotification();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,

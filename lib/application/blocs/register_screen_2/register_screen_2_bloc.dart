@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vibee/application/blocs/login_screen/login_screen_bloc.dart';
-import 'package:vibee/application/blocs/register_screen_1/register_screen_1_bloc.dart';
 import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/models/register/register_request_model.dart';
 import 'package:vibee/domain/services/register_screen_2.dart/register_screen_2_validation.dart';

@@ -104,8 +104,8 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
                   checked: [event.friendId!], postId: event.postId));
 
       result.fold((failure) {
-        emit(state.copyWith(errorMessage: failure.errorMessage));
-        emit(state.copyWith(errorMessage: null));
+        // emit(state.copyWith(errorMessage: failure.errorMessage));
+        // emit(state.copyWith(errorMessage: null));
       }, (successResult) {
         emit(state.copyWith(showMessage: 'Post Sent Successfully'));
 
@@ -124,8 +124,8 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
                     sharedPostId: event.postId));
 
         result.fold((failure) {
-          emit(state.copyWith(errorMessage: failure.errorMessage));
-          emit(state.copyWith(errorMessage: null));
+          // emit(state.copyWith(errorMessage: failure.errorMessage));
+          // emit(state.copyWith(errorMessage: null));
         }, (success) {
           emit(state.copyWith(
               showMessage: 'Post Shared', isSharePostDescriptionEmpty: null));

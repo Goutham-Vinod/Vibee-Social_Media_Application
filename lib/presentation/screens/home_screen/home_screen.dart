@@ -19,10 +19,10 @@ class HomeScreen extends StatelessWidget {
     HomePage(),
     SearchPage(),
     DiscoverPage(),
-    MessagesPage(),
+    const MessagesPage(),
     ProfilePage(),
-    NotificationsPage(),
-    VibeeElitePage(),
+    const NotificationsPage(),
+    const VibeeElitePage(),
   ];
 
   @override

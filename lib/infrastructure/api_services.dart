@@ -71,6 +71,7 @@ class APIServices {
       print('Exception at GetCurrentUserDetailsResponse');
       print(e);
     }
+    return null;
   }
 
   static Future<Either<ApiFailure, bool>> userLogin({
@@ -94,7 +95,7 @@ class APIServices {
             LoginResponseModel.fromJson(jsonDecode(response.body));
         await SharedPrefServices.setTocken(loginResponse.token);
         await SharedPrefServices.setUserId(loginResponse.user.id);
-        await SharedPrefServices.setPhoneNumber(loginResponse.user.phone);
+   
         await GetCurrentUserDetailsResponse();
         SocketIoServices.setup(Config.bearerTocken);
 
@@ -149,7 +150,7 @@ class APIServices {
         RegisterResponseModel registerResponse =
             RegisterResponseModel.fromJson(jsonDecode(response.body));
         await SharedPrefServices.setUserId(registerResponse.user.id);
-        await SharedPrefServices.setPhoneNumber(registerResponse.user.phone);
+       
         return right(true);
         // validation completed
       } else if (response.statusCode == 409) {
@@ -246,7 +247,7 @@ class APIServices {
         if (otpResponse.success == true || otpResponse.verified == true) {
           await SharedPrefServices.setTocken(otpResponse.token!);
           await SharedPrefServices.setUserId(otpResponse.user!.id);
-          await SharedPrefServices.setPhoneNumber(otpResponse.user!.phone);
+        
           await GetCurrentUserDetailsResponse();
           SocketIoServices.setup(Config.bearerTocken);
           return true;
@@ -763,7 +764,7 @@ class APIServices {
         },
         body: jsonEncode(<String, List<String>>{
           "members": [friendId]
-        }),
+        }),   
       );
       print('got response');
       if (response.statusCode == 200 || response.statusCode == 201) {

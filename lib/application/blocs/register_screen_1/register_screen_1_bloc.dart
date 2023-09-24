@@ -1,9 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/domain/services/register_screen_1.dart/register_screen_1_validation.dart';
-import 'package:vibee/infrastructure/api_services.dart';
 
 part 'register_screen_1_event.dart';
 part 'register_screen_1_state.dart';

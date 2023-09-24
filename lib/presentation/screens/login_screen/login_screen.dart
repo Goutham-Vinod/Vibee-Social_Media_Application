@@ -7,7 +7,6 @@ import 'package:vibee/domain/failures/api_failures.dart';
 import 'package:vibee/presentation/common_widgets/common_widgets.dart';
 import 'package:vibee/presentation/screens/login_screen/dont_have_an_account_button.dart';
 import 'package:vibee/presentation/screens/login_screen/login_field_widget.dart';
-import 'package:vibee/presentation/screens/login_screen/signin_with_google_button.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -48,7 +47,7 @@ class LoginScreen extends StatelessWidget {
           // Gesture detector to hide keyboard when tapped outside field
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
-            resizeToAvoidBottomInset: false,
+            // resizeToAvoidBottomInset: false,
             backgroundColor: backgroundScreenColor,
             body: Body(
                 emailTextController: emailTextController,
